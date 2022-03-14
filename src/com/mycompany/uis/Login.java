@@ -16,10 +16,11 @@ import com.codename1.ui.layouts.FlowLayout;
 import com.codename1.ui.util.Resources;
 
 public class Login extends Form{
-	public Login() {
+	public Login(Resources res) {
 		setLayout(new FlowLayout(CENTER,CENTER));
 		setTitle("Login");
 		Container cnt = new Container(BoxLayout.y());
+                cnt.getStyle().setBgColor(0x000000);
 		 try {
 	            ImageViewer logo=new ImageViewer();
 	    		String img_name="/logo.png";
@@ -40,7 +41,7 @@ public class Login extends Form{
         		new ActionListener<ActionEvent>() {
                 	@Override
                 	public void actionPerformed(ActionEvent evt) {
-                		new TabAff().show();          		
+                		new TabAff(res).show();          		
                 	}
         		});
         addAll(cnt);
