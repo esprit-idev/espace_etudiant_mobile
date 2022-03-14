@@ -33,7 +33,7 @@ public class TabAff extends BaseForm{
 		//tableau d'affichage
 		tb.addMaterialCommandToSideMenu("Tableau d'affichage", FontImage.MATERIAL_DASHBOARD, new ActionListener<ActionEvent>() {
             public void actionPerformed(ActionEvent evt) {
-            	new TabAff().show();
+            	//new TabAff().show();
                 }
         });
         
