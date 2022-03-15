@@ -4,11 +4,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/EslemNabitt/Documents/NetBeansProjects/EdSpace/src/com/mycompany/uis/SplashScreen.java</file>
-            <file>file:/C:/Users/EslemNabitt/Documents/NetBeansProjects/EdSpace/src/com/mycompany/uis/OffresEmplois.java</file>
-            <file>file:/C:/Users/EslemNabitt/Documents/NetBeansProjects/EdSpace/src/com/mycompany/entities/PublicationNews.java</file>
-            <file>file:/C:/Users/EslemNabitt/Documents/NetBeansProjects/EdSpace/src/com/mycompany/uis/Login.java</file>
-            <file>file:/C:/Users/EslemNabitt/Documents/NetBeansProjects/EdSpace/src/com/mycompany/uis/TabAff.java</file>
+            <file>file:/C:/Users/MeriamBI/Desktop/pidev/CodenameOne/espace_etudiant_mobile/src/com/mycompany/uis/FilteredDocs.java</file>
+            <file>file:/C:/Users/MeriamBI/Desktop/pidev/CodenameOne/espace_etudiant_mobile/src/com/mycompany/uis/AddDoc.java</file>
+            <file>file:/C:/Users/MeriamBI/Desktop/pidev/CodenameOne/espace_etudiant_mobile/src/com/mycompany/entities/Document.java</file>
+            <file>file:/C:/Users/MeriamBI/Desktop/pidev/CodenameOne/espace_etudiant_mobile/src/com/mycompany/uis/CentrePartage.java</file>
         </group>
     </open-files>
 </project-private>

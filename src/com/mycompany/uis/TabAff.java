@@ -79,7 +79,7 @@ public class TabAff extends BaseForm{
             	new Login(res).show();
                 }
         });
-
+/*
         gui_Container_1.setName("Container_1");
         gui_Container_1.addComponent(com.codename1.ui.layouts.BorderLayout.EAST, gui_Container_2);
         gui_Container_1.addComponent(com.codename1.ui.layouts.BorderLayout.WEST, gui_Container_4);
@@ -105,7 +105,7 @@ public class TabAff extends BaseForm{
             addButton(pub.getTitle(),pub.getContent(), pub.getDate(), pub);
         
         }
-        
+        */
 	}
     
      private void addButton(String title,String content, String date, PublicationNews pub) {
