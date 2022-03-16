@@ -11,7 +11,6 @@ import com.codename1.io.NetworkEvent;
 import com.codename1.io.NetworkManager;
 import com.codename1.ui.events.ActionListener;
 import com.mycompany.entities.Club;
-import com.mycompany.uis.Statics;
 import com.mycompany.utils.Static;
 import java.io.IOException;
 import java.util.ArrayList;

@@ -85,8 +85,8 @@ public class TabAff extends BaseForm {
                 new Login(res).show();
             }
         });
-
-        /*  gui_Container_1.setName("Container_1");
+        /*
+        gui_Container_1.setName("Container_1");
         gui_Container_1.addComponent(com.codename1.ui.layouts.BorderLayout.EAST, gui_Container_2);
         gui_Container_1.addComponent(com.codename1.ui.layouts.BorderLayout.WEST, gui_Container_4);
         gui_Container_1.addComponent(com.codename1.ui.layouts.BorderLayout.CENTER, gui_Container_3);
@@ -110,23 +110,24 @@ public class TabAff extends BaseForm {
         for(PublicationNews pub : listPub){
             addButton(pub.getTitle(),pub.getContent(), pub.getDate(), pub);
         
-        }*/
+        }
+         */
     }
-    /*
-     private void addButton(String title,String content, String date, PublicationNews pub) {
-         Container cnt = BorderLayout.center(this);
-         Label titleTxt = new Label(title);
-         Label dateTxt = new Label(date);
-       // gui_Label_1.setText(date);   
+
+    private void addButton(String title, String content, String date, PublicationNews pub) {
+        Container cnt = BorderLayout.center(this);
+        Label titleTxt = new Label(title);
+        Label dateTxt = new Label(date);
+        // gui_Label_1.setText(date);   
         // gui_Label_3.setText(title);
-       // gui_Text_Area_1.setText(content);
-       cnt.add(BorderLayout.CENTER,BoxLayout.encloseY(BoxLayout.encloseX(titleTxt), BoxLayout.encloseX(dateTxt)));
-       add(cnt);
-       
+        // gui_Text_Area_1.setText(content);
+        cnt.add(BorderLayout.CENTER, BoxLayout.encloseY(BoxLayout.encloseX(titleTxt), BoxLayout.encloseX(dateTxt)));
+        add(cnt);
+
     }
-     */
+
     //-- DON'T EDIT BELOW THIS LINE!!!
-    /* private com.codename1.ui.Container gui_Container_1 = new com.codename1.ui.Container(new com.codename1.ui.layouts.BorderLayout());
+    private com.codename1.ui.Container gui_Container_1 = new com.codename1.ui.Container(new com.codename1.ui.layouts.BorderLayout());
     private com.codename1.ui.Container gui_Container_2 = new com.codename1.ui.Container(new com.codename1.ui.layouts.FlowLayout());
     private com.codename1.ui.Label gui_Label_1 = new com.codename1.ui.Label();
     private com.codename1.ui.Container gui_Container_4 = new com.codename1.ui.Container(new com.codename1.ui.layouts.FlowLayout());
@@ -134,6 +135,6 @@ public class TabAff extends BaseForm {
     private com.codename1.ui.Container gui_Container_3 = new com.codename1.ui.Container(new com.codename1.ui.layouts.BoxLayout(com.codename1.ui.layouts.BoxLayout.Y_AXIS));
     private com.codename1.ui.Label gui_Label_3 = new com.codename1.ui.Label();
     private com.codename1.ui.Label gui_Label_2 = new com.codename1.ui.Label();
-    private com.codename1.ui.TextArea gui_Text_Area_1 = new com.codename1.ui.TextArea();*/
+    private com.codename1.ui.TextArea gui_Text_Area_1 = new com.codename1.ui.TextArea();
 
 }
