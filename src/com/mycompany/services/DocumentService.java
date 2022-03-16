@@ -86,7 +86,7 @@ public class DocumentService {
 	public ArrayList<Document> getAllDocs() {
         String url = Statics.BASE_URL + "/allDocs";
         
-        req.setUrl(url);
+        req.setUrl("http://127.0.0.1:8000/allDocs");
         req.setPost(false);
         req.addResponseListener(new ActionListener<NetworkEvent>() {
             @Override

@@ -1,5 +1,6 @@
 package com.mycompany.uis;
 
+import com.codename1.components.ToastBar;
 import com.codename1.ui.FontImage;
 import com.codename1.ui.Toolbar;
 import com.codename1.ui.events.ActionEvent;
@@ -12,75 +13,80 @@ import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.layouts.BoxLayout;
 import com.mycompany.entities.PublicationNews;
 import com.mycompany.services.ServicePublicationNews;
+import java.io.IOException;
 import java.util.ArrayList;
 
-public class TabAff extends BaseForm{
-    
-    
+public class TabAff extends BaseForm {
+
     public TabAff() {
         this(com.codename1.ui.util.Resources.getGlobalResources());
     }
-    
-      @Override
+
+    @Override
     protected boolean isCurrentInbox() {
         return true;
     }
-    
+
     public TabAff(Resources res) {
-		setLayout(new FlowLayout(CENTER,CENTER));
-		setTitle("Tableau d'affichage");
-		Toolbar tb=getToolbar();
-		//tableau d'affichage
-		tb.addMaterialCommandToSideMenu("Tableau d'affichage", FontImage.MATERIAL_DASHBOARD, new ActionListener<ActionEvent>() {
+        setLayout(new FlowLayout(CENTER, CENTER));
+        setTitle("Tableau d'affichage");
+        Toolbar tb = getToolbar();
+        //tableau d'affichage
+        tb.addMaterialCommandToSideMenu("Tableau d'affichage", FontImage.MATERIAL_DASHBOARD, new ActionListener<ActionEvent>() {
             public void actionPerformed(ActionEvent evt) {
-            	//new TabAff().show();
-                }
-        });
-        
-      //forum
-		tb.addMaterialCommandToSideMenu("Forum", FontImage.MATERIAL_FORUM, new ActionListener<ActionEvent>() {
-            public void actionPerformed(ActionEvent evt) {
-            	new Forum().show();
-                }
-        });
-      //clubs
-		tb.addMaterialCommandToSideMenu("Clubs", FontImage.MATERIAL_PEOPLE, new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-            	new Club().show();
-                }
-        });
-        
-      //offres d'emploi
-		tb.addMaterialCommandToSideMenu("Offres d'emploi", FontImage.MATERIAL_WORK, new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-            	new OffresEmplois().show();
-                }
-        });
-        
-        //profile
-		tb.addMaterialCommandToSideMenu("Mon profile", FontImage.MATERIAL_SUPERVISOR_ACCOUNT, new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-            	new Profile().show();
-                }
-        });
-        
-        
-        //centre de partage
-		tb.addMaterialCommandToSideMenu("Centre de partage", FontImage.MATERIAL_ATTACH_FILE, new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-            	new CentrePartage().show();
-                }
-        });
-        
-        
-      //dcnx
-		tb.addMaterialCommandToSideMenu("Se deconnecter", FontImage.MATERIAL_EXIT_TO_APP, new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-            	new Login(res).show();
-                }
+                //new TabAff().show();
+            }
         });
 
-        gui_Container_1.setName("Container_1");
+        //forum
+        tb.addMaterialCommandToSideMenu("Forum", FontImage.MATERIAL_FORUM, new ActionListener<ActionEvent>() {
+            public void actionPerformed(ActionEvent evt) {
+                new Forum().show();
+            }
+        });
+        //clubs
+        tb.addMaterialCommandToSideMenu("Clubs", FontImage.MATERIAL_PEOPLE, new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                try {
+                    new ClubsList().show();
+                } catch (IOException ex) {
+                    ToastBar.Status status = ToastBar.getInstance().createStatus();
+                    status.setMessage(ex.toString());
+                    status.setExpires(3000);  // only show the status for 3 seconds, then have it automatically clear
+                    status.show();
+                }
+            }
+        });
+
+        //offres d'emploi
+        tb.addMaterialCommandToSideMenu("Offres d'emploi", FontImage.MATERIAL_WORK, new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                new OffresEmplois().show();
+            }
+        });
+
+        //profile
+        tb.addMaterialCommandToSideMenu("Mon profile", FontImage.MATERIAL_SUPERVISOR_ACCOUNT, new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                new Profile().show();
+            }
+        });
+
+        //centre de partage
+        tb.addMaterialCommandToSideMenu("Centre de partage", FontImage.MATERIAL_ATTACH_FILE, new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                new CentrePartage().show();
+            }
+        });
+
+        //dcnx
+        tb.addMaterialCommandToSideMenu("Se deconnecter", FontImage.MATERIAL_EXIT_TO_APP, new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                new Login(res).show();
+            }
+        });
+
+        /*  gui_Container_1.setName("Container_1");
         gui_Container_1.addComponent(com.codename1.ui.layouts.BorderLayout.EAST, gui_Container_2);
         gui_Container_1.addComponent(com.codename1.ui.layouts.BorderLayout.WEST, gui_Container_4);
         gui_Container_1.addComponent(com.codename1.ui.layouts.BorderLayout.CENTER, gui_Container_3);
@@ -104,10 +110,9 @@ public class TabAff extends BaseForm{
         for(PublicationNews pub : listPub){
             addButton(pub.getTitle(),pub.getContent(), pub.getDate(), pub);
         
-        }
-        
-	}
-    
+        }*/
+    }
+    /*
      private void addButton(String title,String content, String date, PublicationNews pub) {
          Container cnt = BorderLayout.center(this);
          Label titleTxt = new Label(title);
@@ -119,9 +124,9 @@ public class TabAff extends BaseForm{
        add(cnt);
        
     }
-        
-        //-- DON'T EDIT BELOW THIS LINE!!!
-    private com.codename1.ui.Container gui_Container_1 = new com.codename1.ui.Container(new com.codename1.ui.layouts.BorderLayout());
+     */
+    //-- DON'T EDIT BELOW THIS LINE!!!
+    /* private com.codename1.ui.Container gui_Container_1 = new com.codename1.ui.Container(new com.codename1.ui.layouts.BorderLayout());
     private com.codename1.ui.Container gui_Container_2 = new com.codename1.ui.Container(new com.codename1.ui.layouts.FlowLayout());
     private com.codename1.ui.Label gui_Label_1 = new com.codename1.ui.Label();
     private com.codename1.ui.Container gui_Container_4 = new com.codename1.ui.Container(new com.codename1.ui.layouts.FlowLayout());
@@ -129,6 +134,6 @@ public class TabAff extends BaseForm{
     private com.codename1.ui.Container gui_Container_3 = new com.codename1.ui.Container(new com.codename1.ui.layouts.BoxLayout(com.codename1.ui.layouts.BoxLayout.Y_AXIS));
     private com.codename1.ui.Label gui_Label_3 = new com.codename1.ui.Label();
     private com.codename1.ui.Label gui_Label_2 = new com.codename1.ui.Label();
-    private com.codename1.ui.TextArea gui_Text_Area_1 = new com.codename1.ui.TextArea();
+    private com.codename1.ui.TextArea gui_Text_Area_1 = new com.codename1.ui.TextArea();*/
 
 }
