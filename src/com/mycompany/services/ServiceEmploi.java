@@ -5,7 +5,19 @@
  */
 package com.mycompany.services;
 
+import com.codename1.io.CharArrayReader;
 import com.codename1.io.ConnectionRequest;
+import com.codename1.io.JSONParser;
+import com.codename1.io.NetworkEvent;
+import com.codename1.io.NetworkManager;
+import com.codename1.ui.events.ActionListener;
+import com.mycompany.entities.Emploi;
+import com.mycompany.entities.PublicationNews;
+import com.mycompany.utils.Static;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -25,5 +37,53 @@ public class ServiceEmploi {
     //constructor
     private ServiceEmploi(){
         request = new ConnectionRequest();
+    }
+    
+    //display publications 
+    
+    public ArrayList<Emploi> displayPubs(){
+        
+        ArrayList<Emploi> response = new ArrayList<>();
+        String url = Static.BASE_URL+"/allemploisJSON";
+        request.setUrl(url);
+        request.addResponseListener(new ActionListener<NetworkEvent>() {
+            @Override
+            public void actionPerformed(NetworkEvent event) {
+                JSONParser jsonParser = new JSONParser();
+                try{
+                    Map<String,Object> mapPubs = jsonParser.parseJSON(new CharArrayReader(new String(request.getResponseData()).toCharArray()));
+                    List<Map<String,Object>> ListOfMaps = (List<Map<String,Object>>) mapPubs.get("root");
+                    
+                    for(Map<String,Object> object : ListOfMaps){
+                        Emploi pub = new Emploi();
+                        //id
+                        float id = Float.parseFloat(object.get("id").toString());
+                        //title
+                        String title = object.get("title").toString();
+                        //content
+                        String content = object.get("content").toString();
+                        //category
+                        String categoryName = object.get("categoryName").toString();
+                        //image
+                        String image = object.get("image").toString();
+                        pub.setId((int) id);
+                        pub.setTitle(title);
+                        pub.setContent(content);
+                        pub.setCategoryName(categoryName);
+                        pub.setImage(image);
+                        //convert date into date format
+                        String DateConv = object.get("date").toString().substring(object.get("date").toString().indexOf("timestamp") + 1,object.get("date").toString().lastIndexOf("T"));
+                        pub.setDate(DateConv);
+                        response.add(pub);
+                    }
+                } catch (IOException ex) {
+                    System.out.print(ex);
+                }
+
+            }
+        });
+        
+        NetworkManager.getInstance().addToQueueAndWait(request);
+        return response;
     }
 }

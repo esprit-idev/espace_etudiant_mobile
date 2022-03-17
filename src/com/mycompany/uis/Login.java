@@ -16,7 +16,7 @@ import com.codename1.ui.layouts.FlowLayout;
 import com.codename1.ui.util.Resources;
 
 public class Login extends Form{
-	public Login(Resources res) {
+	public Login() {
 		setLayout(new FlowLayout(CENTER,CENTER));
 		setTitle("Login");
 		Container cnt = new Container(BoxLayout.y());
@@ -41,7 +41,7 @@ public class Login extends Form{
         		new ActionListener<ActionEvent>() {
                 	@Override
                 	public void actionPerformed(ActionEvent evt) {
-                		new TabAff(res).show();          		
+                		new TabAff().show();          		
                 	}
         		});
         addAll(cnt);

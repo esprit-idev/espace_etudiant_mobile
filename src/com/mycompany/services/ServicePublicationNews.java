@@ -10,14 +10,11 @@ import com.codename1.io.ConnectionRequest;
 import com.codename1.io.JSONParser;
 import com.codename1.io.NetworkEvent;
 import com.codename1.io.NetworkManager;
-import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
 import com.mycompany.entities.PublicationNews;
 import com.mycompany.utils.Static;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -85,19 +82,20 @@ public class ServicePublicationNews {
                         String owner = object.get("owner").toString();
                         //content
                         String content = object.get("content").toString();
-                        //date
-                        String date = object.get("date").toString();
-                        
+                        //category
+                        String categoryName = object.get("categoryName").toString();
+                        //image
+                        String image = object.get("image").toString();
                         pub.setId((int) id);
                         pub.setTitle(title);
                         pub.setContent(content);
                         pub.setOwner(owner);
+                        pub.setCategoryName(categoryName);
+                        pub.setImage(image);
+                        //date
                         //convert date into date format
-                        /*String DateConv = object.get("date").toString().substring(object.get("date").toString().indexOf("timestamp") + 10,object.get("date").toString().lastIndexOf(")"));
-                        Date currentTime = new Date(Double.valueOf(DateConv).longValue()* 1000);
-                        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-mm-dd");
-                        String dateString = formatter.format(currentTime); */
-                        pub.setDate(date);
+                        String DateConv = object.get("date").toString().substring(object.get("date").toString().indexOf("timestamp") + 1,object.get("date").toString().lastIndexOf("T"));
+                        pub.setDate(DateConv);
                         response.add(pub);
                     }
                 } catch (IOException ex) {
@@ -116,21 +114,20 @@ public class ServicePublicationNews {
     public PublicationNews onePublication(int id, PublicationNews pub){
         
         String url = Static.BASE_URL+"/onepubjson/"+id;
-        String res = new String(request.getResponseData());
+        //String res = new String(request.getResponseData());
         request.setUrl(url);
         
         request.addResponseListener((e) -> {
              JSONParser jsonParser = new JSONParser();
                 try{
-                    Map<String,Object> data = jsonParser.parseJSON(new CharArrayReader(new String(res).toCharArray()));
+                    Map<String,Object> data = jsonParser.parseJSON(new CharArrayReader(new String(request.getResponseData()).toCharArray()));
                     pub.setTitle(data.get("title").toString());
                     pub.setOwner(data.get("owner").toString());
                     pub.setContent(data.get("content").toString());
                 }catch (IOException ex) {
                 System.out.println(ex.getMessage());
             }
-                System.out.println(res);
-                        });
+        });
         
         NetworkManager.getInstance().addToQueueAndWait(request);
         

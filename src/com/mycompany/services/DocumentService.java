@@ -16,7 +16,7 @@ import com.codename1.io.NetworkManager;
 import com.codename1.ui.List;
 import com.codename1.ui.events.ActionListener;
 import com.mycompany.entities.Document;
-import com.mycompany.uis.Statics;
+import com.mycompany.utils.Static;
 
 /**
  *
@@ -41,7 +41,7 @@ public class DocumentService {
 	}
 	
 	public boolean addDoc(Document doc) {
-		String url=Statics.BASE_URL+"/addDoc/"+doc.getId();
+		String url=Static.BASE_URL+"/addDoc/"+doc.getId();
 		req.setUrl(url);
 		req.addResponseListener(new ActionListener<NetworkEvent>() {
 			
@@ -84,7 +84,7 @@ public class DocumentService {
 	}
 	
 	public ArrayList<Document> getAllDocs() {
-        String url = Statics.BASE_URL + "/allDocs";
+        String url = Static.BASE_URL + "/allDocs";
         
         req.setUrl(url);
         req.setPost(false);
