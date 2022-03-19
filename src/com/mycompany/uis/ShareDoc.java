@@ -9,8 +9,10 @@ import com.codename1.ui.Button;
 import static com.codename1.ui.Component.CENTER;
 import com.codename1.ui.Container;
 import com.codename1.ui.Display;
+import com.codename1.ui.Font;
 import com.codename1.ui.FontImage;
 import com.codename1.ui.Form;
+import com.codename1.ui.Label;
 import com.codename1.ui.TextArea;
 import com.codename1.ui.TextField;
 import com.codename1.ui.Toolbar;
@@ -18,6 +20,7 @@ import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.ui.layouts.FlowLayout;
+import com.codename1.ui.plaf.Style;
 import com.codename1.ui.validation.RegexConstraint;
 import com.codename1.ui.validation.Validator;
 import com.mycompany.entities.Document;
@@ -33,22 +36,53 @@ public class ShareDoc extends Form{
         Toolbar tb = getToolbar();
         setLayout(new FlowLayout(CENTER, CENTER));
         setTitle("Partager le document");
+        Font poppinsRegular55 = Font.createTrueTypeFont("regular","Poppins-Regular.ttf").
+                    derive(55, Font.STYLE_PLAIN);
+        Font poppinsRegular40 = Font.createTrueTypeFont("regular","Poppins-Regular.ttf").
+                    derive(40, Font.STYLE_PLAIN);
+        Font poppinsRegular35 = Font.createTrueTypeFont("regular","Poppins-Regular.ttf").
+                    derive(35, Font.STYLE_PLAIN);
+        
         Form previous = Display.getInstance().getCurrent();
         tb.setBackCommand("", e -> previous.showBack());
         Container cnt = new Container(BoxLayout.y());
         //BODY
-        TextField tfEmailDest = new TextField("", "Email de destination",10000, TextArea.EMAILADDR);
-        TextField tfObjet = new TextField("", "Objet");
-        TextField tfBody = new TextField("", "Contenu");
+        Label lEmailDest=new Label("Email de destination");
+        lEmailDest.setUIID("CustomLabel");
+        Style s_lEmailDest = lEmailDest.getUnselectedStyle();
+        s_lEmailDest.setFont(poppinsRegular40);
+        TextField tfEmailDest = new TextField("", "Veuillez saisir l'email de destination",10000, TextArea.EMAILADDR);
+        tfEmailDest.getHintLabel().setUIID("CustomHint");
+        Style s_tfEmailDestHint =tfEmailDest.getHintLabel().getUnselectedStyle();
+        s_tfEmailDestHint.setFont(poppinsRegular35);
+        Label lObjet=new Label("Objet de l'email");
+        lObjet.setUIID("CustomLabel");
+        Style s_lObjet = lObjet.getUnselectedStyle();
+        s_lObjet.setFont(poppinsRegular40);
+        TextField tfObjet = new TextField("", "Veuillez saisir l'objet");
+        tfObjet.getHintLabel().setUIID("CustomHint");
+        Style s_tfObjetHint =tfObjet.getHintLabel().getUnselectedStyle();
+        s_tfObjetHint.setFont(poppinsRegular35);
+        Label lBody=new Label("Contenu de l'email");
+        lBody.setUIID("CustomLabel");
+        Style s_lBody = lBody.getUnselectedStyle();
+        s_lBody.setFont(poppinsRegular40);
+        TextField tfBody = new TextField("", "Veuillez saisir le contenu");
+        tfBody.getHintLabel().setUIID("CustomHint");
+        Style s_tfBodyHint =tfBody.getHintLabel().getUnselectedStyle();
+        s_tfBodyHint.setFont(poppinsRegular35);
         //url validator
         Validator validatorEmail = new Validator();
         validatorEmail.addConstraint(tfEmailDest, RegexConstraint.validEmail());
         
         //send btn
-        Button redirect_btn = new Button("Envoyer");
-        cnt.addAll(tfEmailDest, tfObjet, tfBody,redirect_btn);
+        Button send_btn = new Button("Envoyer");
+        send_btn.setUIID("BlackRoundFilledBtn");
+        Style s_send_btn=send_btn.getUnselectedStyle();
+        s_send_btn.setFont(poppinsRegular55);
+        cnt.addAll(lEmailDest,tfEmailDest,lObjet,tfObjet,lBody,tfBody,send_btn);
         //action add btn
-        redirect_btn.addActionListener(new ActionListener() {
+        send_btn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
              
