@@ -4,25 +4,38 @@
  */
 package com.mycompany.entities;
 
-/**
- *
- * @author MeriamBI
- */
 public class Document {
-    private int id;
-    private String nom,date_insert,prop,matiere,niveau,url;
-
-    public Document(String nom, String date_insert, String prop, String matiere, String niveau,String url) {
+    private int id,signalements;
+    private String nom,date_insert,prop,matiere,niveau,url,base64;
+    
+    public Document(int id,String nom, String date_insert, String prop, String matiere, String niveau,String url,String base64,int signalements) {
+        this.id = id;
         this.nom = nom;
         this.date_insert = date_insert;
         this.prop = prop;
         this.matiere = matiere;
         this.niveau = niveau;
         this.url=url;
+        this.base64 = base64;
+        this.signalements = signalements;
+    }
+
+    public Document(String nom, String date_insert, String prop, String matiere, String niveau,String url,String base64) {
+        this.nom = nom;
+        this.date_insert = date_insert;
+        this.prop = prop;
+        this.matiere = matiere;
+        this.niveau = niveau;
+        this.url=url;
+        this.base64 = base64;
     }
 
     public int getId() {
         return id;
+    }
+    
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNom() {
@@ -73,6 +86,21 @@ public class Document {
         this.url = url;
     }
     
+    public String getBase64() {
+        return base64;
+    }
+
+    public void setBase64(String base64) {
+        this.base64 = base64;
+    }
+
+    public int getSignalements() {
+        return signalements;
+    }
+
+    public void setSignalements(int signalements) {
+        this.signalements = signalements;
+    }
     
     
 }

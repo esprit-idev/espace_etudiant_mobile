@@ -17,10 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-/**
- *
- * @author MeriamBI
- */
+
 public class ServiceMatiere {
     public ConnectionRequest req;
     private static ServiceMatiere instance;
@@ -58,13 +55,10 @@ public class ServiceMatiere {
             Map<String,Object>matiereListJson=jsonP.parseJSON(new CharArrayReader(jsonText.toCharArray()));
             List<Map<String,Object>> list=(List<Map<String,Object>>) matiereListJson.get("root");
             for(Map<String,Object> obj : list){
-                //if(obj.get("url")==null){
-                
                 String id=obj.get("id").toString();
                 String niveau=obj.get("niveau").toString();
                 Matiere m=new Matiere(id,niveau);
                 matieres.add(m);
-                //}
             }
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
