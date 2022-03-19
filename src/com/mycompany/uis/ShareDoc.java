@@ -45,16 +45,13 @@ public class ShareDoc extends Form{
         validatorEmail.addConstraint(tfEmailDest, RegexConstraint.validEmail());
         
         //send btn
-        Button redirect_btn = new Button("Redirection vers la messagerie");
+        Button redirect_btn = new Button("Envoyer");
         cnt.addAll(tfEmailDest, tfObjet, tfBody,redirect_btn);
         //action add btn
         redirect_btn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
-                //init vars
-                String nomDoc=doc.getNom();
-                String urlDoc=doc.getUrl();
-                String base64Doc=doc.getBase64();
+             
                 //ajout data
                 if (tfEmailDest.getText().isEmpty() || tfObjet.getText().isEmpty() || tfBody.getText().isEmpty()) {
                     //toast if empty
