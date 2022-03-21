@@ -60,7 +60,7 @@ public class TabAff extends BaseForm {
             //matières
         tb.addMaterialCommandToSideMenu("Matières", FontImage.MATERIAL_MENU_BOOK, new ActionListener<ActionEvent>() {
             public void actionPerformed(ActionEvent evt) {
-                new MatiereList().show();
+                //new MatiereList().show();
             }
         });
         }
