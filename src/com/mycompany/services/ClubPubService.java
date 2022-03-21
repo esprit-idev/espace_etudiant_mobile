@@ -21,7 +21,8 @@ import java.util.Map;
  * @author anash
  */
 public class ClubPubService {
-      public ArrayList<ClubPub> pubs = new ArrayList<>();
+
+    public ArrayList<ClubPub> pubs = new ArrayList<>();
     public static ClubPubService instance;
     public ConnectionRequest request;
 
@@ -45,13 +46,20 @@ public class ClubPubService {
             for (Map<String, Object> obj : list) {
                 ClubPub pub = new ClubPub();
 
-                
+                pub.setId(obj.get("id").toString());
                 pub.setClub(obj.get("club").toString());
                 pub.setPubDate(obj.get("pubDate").toString());
                 pub.setPubDesc(obj.get("pubDescription").toString());
-             //   pub.setPubFile(obj.get("clubResponsable").toString());
-                pub.setPubImage(obj.get("ClubImg").toString());
-                System.out.print(obj);
+                if (obj.get("pubFileName") == null) {
+                    pub.setPubFile("");
+                } else {
+                    pub.setPubFile(obj.get("pubFileName").toString());
+                }
+                if (obj.get("ClubImg") == null) {
+                    pub.setPubImage("");
+                } else {
+                    pub.setPubImage(obj.get("ClubImg").toString());
+                }
                 pubs.add(pub);
             }
         } catch (IOException e) {
@@ -60,7 +68,76 @@ public class ClubPubService {
     }
 
     public ArrayList<ClubPub> getAllPubs(String clubID) {
-        String url = Static.BASE_URL + "/allPubs/"+clubID;
+        String url = Static.BASE_URL + "/allClubPubs/" + clubID;
+        request.setUrl(url);
+        request.setPost(false);
+        request.addResponseListener(new ActionListener<NetworkEvent>() {
+            @Override
+            public void actionPerformed(NetworkEvent evt) {
+                pubs = parsePubs(new String(request.getResponseData()));
+                request.removeResponseListener(this);
+            }
+        });
+        NetworkManager.getInstance().addToQueueAndWait(request);
+        return pubs;
+    }
+
+    public void addPub(String clubID, String pubDesc, String pubImg) {
+
+        String url = Static.BASE_URL + "/addClubPubJson/" + clubID + "?pubDesc=" + pubDesc + "&pubImg=" + pubImg;
+
+        request.setUrl(url);
+        request.addResponseListener((e) -> {
+            String jsonResponse = new String(request.getResponseData());
+        });
+        NetworkManager.getInstance().addToQueueAndWait(request);
+
+    }
+
+    public void deletePub(String pubID) {
+
+        String url = Static.BASE_URL + "/deleteClubPubsJson/" + pubID;
+
+        request.setUrl(url);
+        request.addResponseListener((e) -> {
+            String jsonResponse = new String(request.getResponseData());
+            System.out.println(jsonResponse);
+        });
+        NetworkManager.getInstance().addToQueueAndWait(request);
+
+    }
+
+    public void editPubDesc(String pubID, String pubDesc) {
+
+        String url = Static.BASE_URL + "/editPubClubJson/" + pubID + "?pubDesc=" + pubDesc;
+
+        request.setUrl(url);
+        request.addResponseListener((e) -> {
+            String jsonResponse = new String(request.getResponseData());
+            System.out.println(jsonResponse);
+        });
+        NetworkManager.getInstance().addToQueueAndWait(request);
+
+    }
+    
+    
+      public ArrayList<ClubPub> getEnAttentePubs(String clubID) {
+        String url = Static.BASE_URL + "/EnAttenteClubPubs/" + clubID;
+        request.setUrl(url);
+        request.setPost(false);
+        request.addResponseListener(new ActionListener<NetworkEvent>() {
+            @Override
+            public void actionPerformed(NetworkEvent evt) {
+                pubs = parsePubs(new String(request.getResponseData()));
+                request.removeResponseListener(this);
+            }
+        });
+        NetworkManager.getInstance().addToQueueAndWait(request);
+        return pubs;
+    }
+      
+      public ArrayList<ClubPub> getRefusedPubs(String clubID) {
+        String url = Static.BASE_URL + "/RefusedClubPubs/" + clubID;
         request.setUrl(url);
         request.setPost(false);
         request.addResponseListener(new ActionListener<NetworkEvent>() {

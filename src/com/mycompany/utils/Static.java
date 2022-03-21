@@ -12,5 +12,7 @@ package com.mycompany.utils;
 public class Static {
 
     public static final String BASE_URL = "http://127.0.0.1:8000";
-    
+    public static final String ClubPic = "file:///E:/Webprojects/PIDEV/edspace_symfony/public/ClubPictures/";
+    public static final String ClubPubsPic = "file://E:/Webprojects/PIDEV/edspace_symfony/public/PubPictures/";
+    public static final String ClubPubsFile = "file://E:/Webprojects/PIDEV/edspace_symfony/public/PubFiles/";
 }

@@ -1,6 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<resource majorVersion="1" minorVersion="10" useXmlUI="false">
+<resource majorVersion="1" minorVersion="11" useXmlUI="false">
+    <image name="addImgBtn.borderBottom_1.png" type="multi"  />
+    <image name="addImgBtn.borderBottom_2.png" type="multi"  />
+    <image name="addImgBtn.borderBottom_3.png" type="multi"  />
+    <image name="addImgBtn.borderBottom_4.png" type="multi"  />
+    <image name="addImgBtn.borderBottomL_1.png" type="multi"  />
+    <image name="addImgBtn.borderBottomL_2.png" type="multi"  />
+    <image name="addImgBtn.borderBottomL_3.png" type="multi"  />
+    <image name="addImgBtn.borderBottomL_4.png" type="multi"  />
+    <image name="addImgBtn.borderBottomR_1.png" type="multi"  />
+    <image name="addImgBtn.borderBottomR_2.png" type="multi"  />
+    <image name="addImgBtn.borderBottomR_3.png" type="multi"  />
+    <image name="addImgBtn.borderBottomR_4.png" type="multi"  />
+    <image name="addImgBtn.borderCenter_1.png" type="multi"  />
+    <image name="addImgBtn.borderCenter_2.png" type="multi"  />
+    <image name="addImgBtn.borderCenter_3.png" type="multi"  />
+    <image name="addImgBtn.borderCenter_4.png" type="multi"  />
+    <image name="addImgBtn.borderLeft_1.png" type="multi"  />
+    <image name="addImgBtn.borderLeft_2.png" type="multi"  />
+    <image name="addImgBtn.borderLeft_3.png" type="multi"  />
+    <image name="addImgBtn.borderLeft_4.png" type="multi"  />
+    <image name="addImgBtn.borderRight_1.png" type="multi"  />
+    <image name="addImgBtn.borderRight_2.png" type="multi"  />
+    <image name="addImgBtn.borderRight_3.png" type="multi"  />
+    <image name="addImgBtn.borderRight_4.png" type="multi"  />
+    <image name="addImgBtn.borderTop_1.png" type="multi"  />
+    <image name="addImgBtn.borderTop_2.png" type="multi"  />
+    <image name="addImgBtn.borderTop_3.png" type="multi"  />
+    <image name="addImgBtn.borderTop_4.png" type="multi"  />
+    <image name="addImgBtn.borderTopL_1.png" type="multi"  />
+    <image name="addImgBtn.borderTopL_2.png" type="multi"  />
+    <image name="addImgBtn.borderTopL_3.png" type="multi"  />
+    <image name="addImgBtn.borderTopL_4.png" type="multi"  />
+    <image name="addImgBtn.borderTopR_1.png" type="multi"  />
+    <image name="addImgBtn.borderTopR_2.png" type="multi"  />
+    <image name="addImgBtn.borderTopR_3.png" type="multi"  />
+    <image name="addImgBtn.borderTopR_4.png" type="multi"  />
     <image name="background.jpg"  />
     <image name="backgroundGreen.jpg"  />
     <image name="bla.jpg"  />
@@ -466,8 +502,6 @@
         <val key="SideCommandSmall.padUnit" value="0,0,2,0" />
         <val key="SideCommandSmall.padding" value="0.0,4.0,0.0,0.0" />
         <val key="SideCommandSmall.textDecoration" value="0" />
-        <val key="SideNavigationPanel.bgImage" value="sidemenu-background.jpg" />
-        <val key="SideNavigationPanel.bgType" value="33" />
         <val key="SideNavigationPanel.padUnit" value="2,2,0,0" />
         <val key="SideNavigationPanel.padding" value="16.0,0.0,5.0,0.0" />
         <val key="SignInForm.bgColor" value="ffffff" />
@@ -619,6 +653,115 @@
         <val key="WelcomeTitle.padUnit" value="2,2,2,2" />
         <val key="WelcomeTitle.padding" value="1.0,1.0,1.0,1.0" />
         <val key="WelcomeTitle.transparency" value="0" />
+        <val key="accrHead.align" value="4" />
+        <val key="accrHead.bgColor" value="666666" />
+        <border key="accrHead.border" type="rounded" thickness="0.0" arcW="50" arcH="50" color="6710886" />
+        <val key="accrHead.fgColor" value="ffffff" />
+        <val key="accrHead.press#align" value="4" />
+        <val key="accrHead.press#bgColor" value="54b48c" />
+        <border key="accrHead.press#border" type="rounded" thickness="0.0" arcW="50" arcH="50" color="5551244" />
+        <val key="accrHead.press#fgColor" value="ffffff" />
+        <val key="accrHead.press#transparency" value="255" />
+        <val key="accrHead.sel#align" value="4" />
+        <val key="accrHead.sel#bgColor" value="666666" />
+        <val key="accrHead.sel#fgColor" value="ffffff" />
+        <val key="accrHead.sel#transparency" value="255" />
+        <val key="accrHead.transparency" value="255" />
+        <val key="addImgBtn.align" value="4" />
+        <val key="addImgBtn.bgColor" value="1c2424" />
+        <border key="addImgBtn.border" type="rounded" thickness="0.0" arcW="30" arcH="30" color="1844260" />
+        <val key="addImgBtn.fgColor" value="ffffff" />
+        <val key="addImgBtn.margin" value="0.0,0.0,50.0,50.0" />
+        <val key="addImgBtn.padding" value="5.0,5.0,25.0,25.0" />
+        <val key="addImgBtn.press#align" value="4" />
+        <val key="addImgBtn.press#bgColor" value="45b48c" />
+        <border key="addImgBtn.press#border" type="rounded" thickness="0.0" arcW="30" arcH="30" color="4568204" />
+        <val key="addImgBtn.press#fgColor" value="ffffff" />
+        <val key="addImgBtn.press#margin" value="0.0,0.0,0.0,50.0" />
+        <val key="addImgBtn.press#padding" value="5.0,5.0,25.0,25.0" />
+        <val key="addImgBtn.press#transparency" value="255" />
+        <val key="addImgBtn.sel#align" value="4" />
+        <val key="addImgBtn.sel#bgColor" value="999999" />
+        <border key="addImgBtn.sel#border" type="rounded" thickness="0.0" arcW="30" arcH="30" color="0" />
+        <val key="addImgBtn.sel#fgColor" value="0" />
+        <val key="addImgBtn.sel#margin" value="0.0,0.0,0.0,50.0" />
+        <val key="addImgBtn.sel#padding" value="5.0,5.0,25.0,25.0" />
+        <val key="addImgBtn.sel#transparency" value="255" />
+        <val key="addImgBtn.transparency" value="255" />
+        <val key="addPubBtn.align" value="4" />
+        <val key="addPubBtn.bgColor" value="1c2424" />
+        <gradient key="addPubBtn.bgGradient" color1="1844260" color2="1844260" posX="0.5" posY="0.5" radius="1.0" />
+        <val key="addPubBtn.bgType" value="7" />
+        <border key="addPubBtn.border" type="roundRect" strokeColor="0" strokeOpacity="255" strokeThickness="0.0" strokeMM="false" shadowSpread="10.0" shadowOpacity="0" shadowX="0.5" shadowY="0.5" shadowBlur="10.0" topOnlyMode="false" bottomOnlyMode="false" cornerRadius="2.0" bezierCorners="false" />
+        <val key="addPubBtn.fgColor" value="ffffff" />
+        <font key="addPubBtn.font" type="ttf" face="0" style="0" size="0" name="Poppins-Regular.ttf" family="Poppins-Regular" sizeSettings="3" actualSize="3.0" />
+        <val key="addPubBtn.marUnit" value="2,2,2,2" />
+        <val key="addPubBtn.margin" value="3.0,3.0,2.0,2.0" />
+        <val key="addPubBtn.padding" value="4.0,4.0,4.0,4.0" />
+        <val key="addPubBtn.press#align" value="4" />
+        <gradient key="addPubBtn.press#bgGradient" color1="5551244" color2="4568204" posX="0.5" posY="0.5" radius="1.0" />
+        <val key="addPubBtn.press#bgType" value="7" />
+        <border key="addPubBtn.press#border" type="roundRect" strokeColor="0" strokeOpacity="255" strokeThickness="0.0" strokeMM="false" shadowSpread="10.0" shadowOpacity="0" shadowX="0.5" shadowY="0.5" shadowBlur="10.0" topOnlyMode="false" bottomOnlyMode="false" cornerRadius="2.0" bezierCorners="false" />
+        <val key="addPubBtn.press#fgColor" value="ffffff" />
+        <font key="addPubBtn.press#font" type="ttf" face="0" style="0" size="0" name="Poppins-Regular.ttf" family="Poppins-Regular" sizeSettings="3" actualSize="3.0" />
+        <val key="addPubBtn.press#marUnit" value="2,2,2,2" />
+        <val key="addPubBtn.press#margin" value="1.0,1.0,1.0,1.0" />
+        <val key="addPubBtn.press#padUnit" value="2,2,2,2" />
+        <val key="addPubBtn.press#padding" value="4.0,4.0,4.0,4.0" />
+        <val key="addPubBtn.sel#align" value="4" />
+        <val key="addPubBtn.sel#bgColor" value="1c2424" />
+        <gradient key="addPubBtn.sel#bgGradient" color1="1844260" color2="1844260" posX="0.5" posY="0.5" radius="1.0" />
+        <val key="addPubBtn.sel#bgType" value="7" />
+        <border key="addPubBtn.sel#border" type="roundRect" strokeColor="0" strokeOpacity="255" strokeThickness="0.0" strokeMM="false" shadowSpread="10.0" shadowOpacity="0" shadowX="0.5" shadowY="0.5" shadowBlur="10.0" topOnlyMode="false" bottomOnlyMode="false" cornerRadius="2.0" bezierCorners="false" />
+        <val key="addPubBtn.sel#fgColor" value="ffffff" />
+        <font key="addPubBtn.sel#font" type="ttf" face="0" style="0" size="0" name="Poppins-Regular.ttf" family="Poppins-Regular" sizeSettings="3" actualSize="3.0" />
+        <val key="addPubBtn.sel#marUnit" value="2,2,2,2" />
+        <val key="addPubBtn.sel#margin" value="3.0,3.0,2.0,2.0" />
+        <val key="addPubBtn.sel#padUnit" value="2,2,2,2" />
+        <val key="addPubBtn.sel#padding" value="4.0,4.0,4.0,4.0" />
+        <val key="btnFilePub.align" value="3" />
+        <val key="btnFilePub.bgColor" value="0" />
+        <gradient key="btnFilePub.bgGradient" color1="0" color2="0" posX="0.5" posY="0.5" radius="1.0" />
+        <val key="btnFilePub.bgType" value="0" />
+        <val key="btnFilePub.fgColor" value="66cc" />
+        <font key="btnFilePub.font" type="ttf" face="0" style="0" size="8" name="Poppins-Regular.ttf" family="Poppins-Regular" sizeSettings="4" actualSize="35.0" />
+        <val key="btnFilePub.press#align" value="3" />
+        <val key="btnFilePub.press#bgColor" value="0" />
+        <gradient key="btnFilePub.press#bgGradient" color1="0" color2="0" posX="0.5" posY="0.5" radius="1.0" />
+        <val key="btnFilePub.press#bgType" value="0" />
+        <val key="btnFilePub.press#fgColor" value="0" />
+        <font key="btnFilePub.press#font" type="ttf" face="0" style="0" size="8" name="Poppins-Regular.ttf" family="Poppins-Regular" sizeSettings="4" actualSize="35.0" />
+        <val key="btnFilePub.press#textDecoration" value="1" />
+        <val key="btnFilePub.press#transparency" value="0" />
+        <val key="btnFilePub.sel#align" value="3" />
+        <val key="btnFilePub.sel#bgColor" value="0" />
+        <gradient key="btnFilePub.sel#bgGradient" color1="0" color2="0" posX="0.5" posY="0.5" radius="1.0" />
+        <val key="btnFilePub.sel#bgType" value="0" />
+        <val key="btnFilePub.sel#fgColor" value="66cc" />
+        <font key="btnFilePub.sel#font" type="ttf" face="0" style="0" size="8" name="Poppins-Regular.ttf" family="Poppins-Regular" sizeSettings="4" actualSize="35.0" />
+        <val key="btnFilePub.sel#textDecoration" value="1" />
+        <val key="btnFilePub.sel#transparency" value="0" />
+        <val key="btnFilePub.textDecoration" value="1" />
+        <val key="btnFilePub.transparency" value="0" />
+        <font key="font" type="ttf" face="0" style="0" size="0" name="Poppins-Regular.ttf" family="Poppins-Regular" sizeSettings="1" actualSize="12.0" />
+        <val key="pubsButtons.align" value="4" />
+        <border key="pubsButtons.border" type="round" roundBorderColor="1844260" opacity="255" strokeColor="0" strokeOpacity="255" strokeThickness="0.0" strokeMM="false" shadowSpread="10" shadowOpacity="0" shadowX="0.5" shadowY="0.5" shadowBlur="10.0" shadowMM="false" rectangle="false" />
+        <val key="pubsButtons.fgColor" value="ffffff" />
+        <font key="pubsButtons.font" type="ttf" face="0" style="0" size="0" name="Poppins-Thin.ttf" family="Poppins-Thin" sizeSettings="3" actualSize="3.0" />
+        <val key="pubsButtons.padUnit" value="2,2,2,2" />
+        <val key="pubsButtons.padding" value="1.0,1.0,1.0,1.0" />
+        <val key="pubsButtons.press#align" value="4" />
+        <border key="pubsButtons.press#border" type="round" roundBorderColor="5551244" opacity="255" strokeColor="0" strokeOpacity="255" strokeThickness="0.0" strokeMM="false" shadowSpread="10" shadowOpacity="0" shadowX="0.5" shadowY="0.5" shadowBlur="10.0" shadowMM="false" rectangle="false" />
+        <val key="pubsButtons.press#fgColor" value="ffffff" />
+        <font key="pubsButtons.press#font" type="ttf" face="0" style="0" size="0" name="Poppins-Thin.ttf" family="Poppins-Thin" sizeSettings="3" actualSize="3.0" />
+        <val key="pubsButtons.press#padUnit" value="2,2,2,2" />
+        <val key="pubsButtons.press#padding" value="1.0,1.0,1.0,1.0" />
+        <val key="pubsButtons.sel#align" value="4" />
+        <border key="pubsButtons.sel#border" type="round" roundBorderColor="1844260" opacity="255" strokeColor="0" strokeOpacity="255" strokeThickness="0.0" strokeMM="false" shadowSpread="10" shadowOpacity="0" shadowX="0.5" shadowY="0.5" shadowBlur="10.0" shadowMM="false" rectangle="false" />
+        <val key="pubsButtons.sel#fgColor" value="ffffff" />
+        <font key="pubsButtons.sel#font" type="ttf" face="0" style="0" size="0" name="Poppins-Thin.ttf" family="Poppins-Thin" sizeSettings="3" actualSize="3.0" />
+        <val key="pubsButtons.sel#padUnit" value="2,2,2,2" />
+        <val key="pubsButtons.sel#padding" value="1.0,1.0,1.0,1.0" />
         <val key="transparency" value="0" />
     </theme>
     <image name="toolbar-profile-pic.png" type="multi"  />

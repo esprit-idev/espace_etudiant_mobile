@@ -9,6 +9,7 @@ import com.codename1.io.ConnectionRequest;
 import com.codename1.io.JSONParser;
 import com.codename1.io.NetworkEvent;
 import com.codename1.io.NetworkManager;
+import com.codename1.io.Util;
 import com.codename1.ui.events.ActionListener;
 import com.mycompany.entities.Club;
 import com.mycompany.utils.Static;
@@ -46,13 +47,17 @@ public class ClubService {
             for (Map<String, Object> obj : list) {
                 Club club = new Club();
 
-                club.setClubId(obj.get("id").toString());
+                try {
+                    club.setClubId(Util.split(obj.get("id").toString(), ".")[0]);
+                } catch (Exception e) {
+                    club.setClubId(Util.split(obj.get("id").toString(), ".")[0]);
+
+                }
                 club.setClubName(obj.get("clubNom").toString());
                 club.setClubDesc(obj.get("clubDescription").toString());
                 club.setClubCategorie(obj.get("clubCategorie").toString());
                 club.setClubRespo(obj.get("clubResponsable").toString());
                 club.setClubPic(obj.get("ClubPic").toString());
-                System.out.print(obj);
                 clubs.add(club);
             }
         } catch (IOException e) {
@@ -74,4 +79,33 @@ public class ClubService {
         NetworkManager.getInstance().addToQueueAndWait(request);
         return clubs;
     }
+
+    public void editClubDesc(String clubID, String clubDesc) {
+
+        String url = Static.BASE_URL + "/editClubJson/" + clubID + "?clubDesc=" + clubDesc;
+
+        request.setUrl(url);
+        request.addResponseListener((e) -> {
+            String jsonResponse = new String(request.getResponseData());
+            System.out.println(jsonResponse);
+        });
+        NetworkManager.getInstance().addToQueueAndWait(request);
+
+    }
+
+    public ArrayList<Club> sds(String clubId) {
+        String url = Static.BASE_URL + "/oneClub/" + clubId;
+        request.setUrl(url);
+        request.setPost(false);
+        request.addResponseListener(new ActionListener<NetworkEvent>() {
+            @Override
+            public void actionPerformed(NetworkEvent evt) {
+                clubs = parseClubs(new String(request.getResponseData()));
+                request.removeResponseListener(this);
+            }
+        });
+        NetworkManager.getInstance().addToQueueAndWait(request);
+        return clubs;
+    }
+
 }

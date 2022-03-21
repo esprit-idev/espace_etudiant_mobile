@@ -47,14 +47,7 @@ public class TabAff extends BaseForm {
         //clubs
         tb.addMaterialCommandToSideMenu("Clubs", FontImage.MATERIAL_PEOPLE, new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                try {
                     new ClubsList().show();
-                } catch (IOException ex) {
-                    ToastBar.Status status = ToastBar.getInstance().createStatus();
-                    status.setMessage(ex.toString());
-                    status.setExpires(3000);  // only show the status for 3 seconds, then have it automatically clear
-                    status.show();
-                }
             }
         });
 
