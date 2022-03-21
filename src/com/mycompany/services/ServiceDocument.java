@@ -157,9 +157,23 @@ public class ServiceDocument {
         return resultOk;
     }
     
+    public boolean ignoreSignal(Document doc) {
+        String url = Static.BASE_URL+"/ignoreSignalDoc/"+doc.getId();
+        req.setUrl(url);
+        req.addResponseListener(new ActionListener<NetworkEvent>() {
+            @Override
+            public void actionPerformed(NetworkEvent evt) {
+                resultOk = req.getResponseCode() == 200;
+                req.removeResponseListener(this);
+            }
+        });
+        NetworkManager.getInstance().addToQueueAndWait(req);
+        return resultOk;
+    }
+    
     public boolean shareDoc(Document doc,String destEmail,String body,String subject) {
-        String username="Anas Houissa"; //to_chnage
-        String userEmail="meriamesprittest@gmail.com"; //to_chnage
+        String username="Anas Houissa"; //to_change
+        String userEmail="meriamesprittest@gmail.com"; //to_change
         String url = Static.BASE_URL+"/shareDoc/"+doc.getId()+"?userEmail=" + userEmail + "&destEmail=" + destEmail + "&body=" + body + "&subject=" + subject+ "&username=" + username;
         req.setUrl(url);
         req.addResponseListener(new ActionListener<NetworkEvent>() {

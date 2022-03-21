@@ -30,8 +30,8 @@ import com.mycompany.services.ServiceDocument;
  *
  * @author MeriamBI
  */
-public class ShareDoc extends Form{
-    public ShareDoc(Document doc) {
+public class DocShare extends Form{
+    public DocShare(Document doc) {
         //SKELETON
         Toolbar tb = getToolbar();
         setLayout(new FlowLayout(CENTER, CENTER));

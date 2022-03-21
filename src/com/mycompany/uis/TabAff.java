@@ -12,9 +12,7 @@ import com.codename1.ui.Label;
 import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.layouts.BoxLayout;
 import com.mycompany.entities.PublicationNews;
-import com.mycompany.services.ServicePublicationNews;
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class TabAff extends BaseForm {
 
@@ -28,6 +26,7 @@ public class TabAff extends BaseForm {
     }
 
     public TabAff(Resources res) {
+        int admin=1;
         setLayout(new FlowLayout(CENTER, CENTER));
         setTitle("Tableau d'affichage");
         Toolbar tb = getToolbar();
@@ -37,6 +36,34 @@ public class TabAff extends BaseForm {
                 //new TabAff().show();
             }
         });
+        if(admin==1){
+            //etudiants
+        tb.addMaterialCommandToSideMenu("Etudiants", FontImage.MATERIAL_PEOPLE, new ActionListener<ActionEvent>() {
+            public void actionPerformed(ActionEvent evt) {
+                //liste des etudaints pour backoffice
+            }
+        });
+            //administrateurs
+        tb.addMaterialCommandToSideMenu("Admins", FontImage.MATERIAL_PEOPLE, new ActionListener<ActionEvent>() {
+            public void actionPerformed(ActionEvent evt) {
+                //liste des administrateurs pour backoffice
+            }
+        });
+        
+            //niveaux d'études
+        tb.addMaterialCommandToSideMenu("Niveaux d'études", FontImage.MATERIAL_SCHOOL, new ActionListener<ActionEvent>() {
+            public void actionPerformed(ActionEvent evt) {
+                //liste des niveaux d'études pour backoffice
+            }
+        });
+        
+            //matières
+        tb.addMaterialCommandToSideMenu("Matières", FontImage.MATERIAL_MENU_BOOK, new ActionListener<ActionEvent>() {
+            public void actionPerformed(ActionEvent evt) {
+                new MatiereList().show();
+            }
+        });
+        }
 
         //forum
         tb.addMaterialCommandToSideMenu("Forum", FontImage.MATERIAL_FORUM, new ActionListener<ActionEvent>() {
@@ -45,7 +72,7 @@ public class TabAff extends BaseForm {
             }
         });
         //clubs
-        tb.addMaterialCommandToSideMenu("Clubs", FontImage.MATERIAL_PEOPLE, new ActionListener() {
+        tb.addMaterialCommandToSideMenu("Clubs", FontImage.MATERIAL_GROUPS, new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 try {
                     new ClubsList().show();
@@ -65,12 +92,14 @@ public class TabAff extends BaseForm {
             }
         });
 
-        //profile
+        if(admin!=1){
+            //profile
         tb.addMaterialCommandToSideMenu("Mon profile", FontImage.MATERIAL_SUPERVISOR_ACCOUNT, new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 new Profile().show();
             }
         });
+        }
 
         //centre de partage
         tb.addMaterialCommandToSideMenu("Centre de partage", FontImage.MATERIAL_ATTACH_FILE, new ActionListener() {

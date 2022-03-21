@@ -29,9 +29,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class AddDoc extends Form {
+public class DocAdd extends Form {
 
-    public AddDoc() {
+    public DocAdd() {
         //SKELETON
         Toolbar tb = getToolbar();
         setLayout(new FlowLayout(CENTER, CENTER));

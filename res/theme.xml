@@ -107,6 +107,66 @@
         <val key="BlackRoundFilledBtn.sel#padding" value="3.0,3.0,2.0,2.0" />
         <val key="BlackRoundFilledBtn.sel#transparency" value="0" />
         <val key="BlackRoundFilledBtn.transparency" value="0" />
+        <val key="BlueRoundBtn.align" value="4" />
+        <val key="BlueRoundBtn.bgColor" value="5bc0de" />
+        <border key="BlueRoundBtn.border" type="round" roundBorderColor="16777215" opacity="0" strokeColor="6013150" strokeOpacity="255" strokeThickness="1.5" strokeMM="false" shadowSpread="10" shadowOpacity="0" shadowX="0.5" shadowY="0.5" shadowBlur="10.0" shadowMM="false" rectangle="true" />
+        <val key="BlueRoundBtn.fgColor" value="5bc0de" />
+        <font key="BlueRoundBtn.font" type="ttf" face="0" style="1" size="16" name="native:MainLight" family="native:MainLight" sizeSettings="3" actualSize="3.0" />
+        <val key="BlueRoundBtn.marUnit" value="2,2,2,2" />
+        <val key="BlueRoundBtn.margin" value="1.0,1.0,2.0,2.0" />
+        <val key="BlueRoundBtn.padUnit" value="2,2,2,2" />
+        <val key="BlueRoundBtn.padding" value="2.0,2.0,2.0,2.0" />
+        <val key="BlueRoundBtn.press#align" value="4" />
+        <val key="BlueRoundBtn.press#bgColor" value="5bc0de" />
+        <border key="BlueRoundBtn.press#border" type="round" roundBorderColor="16777215" opacity="0" strokeColor="6013150" strokeOpacity="255" strokeThickness="1.5" strokeMM="false" shadowSpread="10" shadowOpacity="0" shadowX="0.5" shadowY="0.5" shadowBlur="10.0" shadowMM="false" rectangle="true" />
+        <val key="BlueRoundBtn.press#fgColor" value="5bc0de" />
+        <font key="BlueRoundBtn.press#font" type="ttf" face="0" style="1" size="16" name="native:MainLight" family="native:MainLight" sizeSettings="3" actualSize="2.5" />
+        <val key="BlueRoundBtn.press#marUnit" value="2,2,2,2" />
+        <val key="BlueRoundBtn.press#margin" value="1.0,1.0,2.0,2.0" />
+        <val key="BlueRoundBtn.press#padUnit" value="2,2,2,2" />
+        <val key="BlueRoundBtn.press#padding" value="2.0,2.0,2.0,2.0" />
+        <val key="BlueRoundBtn.press#transparency" value="0" />
+        <val key="BlueRoundBtn.sel#align" value="4" />
+        <val key="BlueRoundBtn.sel#bgColor" value="5bc0de" />
+        <border key="BlueRoundBtn.sel#border" type="round" roundBorderColor="16777215" opacity="0" strokeColor="6013150" strokeOpacity="255" strokeThickness="1.5" strokeMM="false" shadowSpread="10" shadowOpacity="0" shadowX="0.5" shadowY="0.5" shadowBlur="10.0" shadowMM="false" rectangle="true" />
+        <val key="BlueRoundBtn.sel#fgColor" value="5bc0de" />
+        <font key="BlueRoundBtn.sel#font" type="ttf" face="0" style="1" size="16" name="native:MainLight" family="native:MainLight" sizeSettings="3" actualSize="3.0" />
+        <val key="BlueRoundBtn.sel#marUnit" value="2,2,2,2" />
+        <val key="BlueRoundBtn.sel#margin" value="1.0,1.0,2.0,2.0" />
+        <val key="BlueRoundBtn.sel#padUnit" value="2,2,2,2" />
+        <val key="BlueRoundBtn.sel#padding" value="2.0,2.0,2.0,2.0" />
+        <val key="BlueRoundBtn.sel#transparency" value="0" />
+        <val key="BlueRoundBtn.transparency" value="0" />
+        <val key="BlueRoundFilledBtn.align" value="4" />
+        <val key="BlueRoundFilledBtn.bgColor" value="5bc0de" />
+        <border key="BlueRoundFilledBtn.border" type="round" roundBorderColor="6013150" opacity="255" strokeColor="6013150" strokeOpacity="255" strokeThickness="1.5" strokeMM="false" shadowSpread="10" shadowOpacity="0" shadowX="0.5" shadowY="0.5" shadowBlur="10.0" shadowMM="false" rectangle="true" />
+        <val key="BlueRoundFilledBtn.fgColor" value="ffffff" />
+        <font key="BlueRoundFilledBtn.font" type="ttf" face="0" style="1" size="16" name="native:MainLight" family="native:MainLight" sizeSettings="3" actualSize="3.0" />
+        <val key="BlueRoundFilledBtn.marUnit" value="2,2,2,2" />
+        <val key="BlueRoundFilledBtn.margin" value="1.0,1.0,2.0,2.0" />
+        <val key="BlueRoundFilledBtn.padUnit" value="2,2,2,2" />
+        <val key="BlueRoundFilledBtn.padding" value="2.0,2.0,2.0,2.0" />
+        <val key="BlueRoundFilledBtn.press#align" value="4" />
+        <val key="BlueRoundFilledBtn.press#bgColor" value="5bc0de" />
+        <border key="BlueRoundFilledBtn.press#border" type="round" roundBorderColor="6013150" opacity="255" strokeColor="6013150" strokeOpacity="255" strokeThickness="1.5" strokeMM="false" shadowSpread="10" shadowOpacity="0" shadowX="0.5" shadowY="0.5" shadowBlur="10.0" shadowMM="false" rectangle="true" />
+        <val key="BlueRoundFilledBtn.press#fgColor" value="ffffff" />
+        <font key="BlueRoundFilledBtn.press#font" type="ttf" face="0" style="1" size="16" name="native:MainLight" family="native:MainLight" sizeSettings="3" actualSize="2.5" />
+        <val key="BlueRoundFilledBtn.press#marUnit" value="2,2,2,2" />
+        <val key="BlueRoundFilledBtn.press#margin" value="1.0,1.0,2.0,2.0" />
+        <val key="BlueRoundFilledBtn.press#padUnit" value="2,2,2,2" />
+        <val key="BlueRoundFilledBtn.press#padding" value="2.0,2.0,2.0,2.0" />
+        <val key="BlueRoundFilledBtn.press#transparency" value="0" />
+        <val key="BlueRoundFilledBtn.sel#align" value="4" />
+        <val key="BlueRoundFilledBtn.sel#bgColor" value="5bc0de" />
+        <border key="BlueRoundFilledBtn.sel#border" type="round" roundBorderColor="6013150" opacity="255" strokeColor="6013150" strokeOpacity="255" strokeThickness="1.5" strokeMM="false" shadowSpread="10" shadowOpacity="0" shadowX="0.5" shadowY="0.5" shadowBlur="10.0" shadowMM="false" rectangle="true" />
+        <val key="BlueRoundFilledBtn.sel#fgColor" value="ffffff" />
+        <font key="BlueRoundFilledBtn.sel#font" type="ttf" face="0" style="1" size="16" name="native:MainLight" family="native:MainLight" sizeSettings="3" actualSize="3.0" />
+        <val key="BlueRoundFilledBtn.sel#marUnit" value="2,2,2,2" />
+        <val key="BlueRoundFilledBtn.sel#margin" value="1.0,1.0,2.0,2.0" />
+        <val key="BlueRoundFilledBtn.sel#padUnit" value="2,2,2,2" />
+        <val key="BlueRoundFilledBtn.sel#padding" value="2.0,2.0,2.0,2.0" />
+        <val key="BlueRoundFilledBtn.sel#transparency" value="0" />
+        <val key="BlueRoundFilledBtn.transparency" value="0" />
         <val key="Button.bgColor" value="1c2424" />
         <gradient key="Button.bgGradient" color1="1844260" color2="1844260" posX="0.5" posY="0.5" radius="1.0" />
         <val key="Button.bgType" value="7" />

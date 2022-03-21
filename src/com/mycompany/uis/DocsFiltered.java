@@ -28,35 +28,46 @@ import com.mycompany.services.ServiceDocument;
 import java.util.ArrayList;
 
 
-public class FilteredDocs extends Form{
-    public FilteredDocs(Resources resourceObjectInstance,String niveauSelect,String matiereSelect) {
+public class DocsFiltered extends Form{
+    public DocsFiltered(Resources resourceObjectInstance,String niveauSelect,String matiereSelect,int admin) {
         //SKELETON
         setLayout(BoxLayout.y());
 	setTitle(niveauSelect+" | "+matiereSelect);
         Toolbar tb=getToolbar();
         Form previous = Display.getInstance().getCurrent();
 	tb.setBackCommand("", e -> previous.showBack());
-        tb.addMaterialCommandToRightBar("",FontImage.MATERIAL_BOOKMARKS,new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-            	new FavoriteDocs(resourceObjectInstance).show();
-            }
-        });
-        //floating button add
-        FloatingActionButton fab  = FloatingActionButton.createFAB(FontImage.MATERIAL_ADD);
-        RoundBorder rb = (RoundBorder)fab.getUnselectedStyle().getBorder();
-        rb.uiid(true);
-        fab.bindFabToContainer(getContentPane());
-        fab.addActionListener(e -> {
-            new AddDoc().show();
-        });
+        if (admin != 1) {//to_change
+            tb.addMaterialCommandToRightBar("", FontImage.MATERIAL_BOOKMARKS, new ActionListener() {
+                public void actionPerformed(ActionEvent evt) {
+                    new DocsFavorite(resourceObjectInstance).show();
+                }
+            });
+        }else{
+            tb.addMaterialCommandToRightBar("", FontImage.MATERIAL_REPORT, new ActionListener() {
+                public void actionPerformed(ActionEvent evt) {
+                    new DocsReported(resourceObjectInstance).show();
+                }
+            });
+        }
+        if (admin != 1) { //to_change
+            //floating button add
+            FloatingActionButton fab = FloatingActionButton.createFAB(FontImage.MATERIAL_ADD);
+            RoundBorder rb = (RoundBorder) fab.getUnselectedStyle().getBorder();
+            rb.uiid(true);
+            fab.bindFabToContainer(getContentPane());
+            fab.addActionListener(e -> {
+                new DocAdd().show();
+            });
+        }
         //init arralyslit
         ArrayList<Document> docs;
         docs=ServiceDocument.getInstance().getAllDocs();
         //BODY
-        initGuiBuilderComponents(resourceObjectInstance,docs,niveauSelect,matiereSelect,previous);
+        initGuiBuilderComponents(resourceObjectInstance,docs,niveauSelect,matiereSelect,previous,admin);
     }
     
-     private void initGuiBuilderComponents(Resources resourceObjectInstance,ArrayList<Document> docs,String niveauSelect,String matiereSelect,Form previous) {
+     private void initGuiBuilderComponents(Resources resourceObjectInstance,ArrayList<Document> docs,String niveauSelect,String matiereSelect,Form previous,int admin) {
+        boolean empty=true;
         String currentUser="Anas Houissa"; //to_change
         setLayout(new BoxLayout(BoxLayout.Y_AXIS));
         Font poppinsRegular55 = Font.createTrueTypeFont("regular","Poppins-Regular.ttf").
@@ -75,6 +86,7 @@ public class FilteredDocs extends Form{
             String propDoc=d.getProp();
             //list of docs set
             if(niveauDoc.equals(niveauSelect) && matiereDoc.equals(matiereSelect)){
+                empty=false;
                 Container gui_Container_1 = new Container(new BorderLayout());
                 Container gui_Container_2 = new Container(new FlowLayout());
                 Label gui_Label_1 = new Label();
@@ -119,11 +131,20 @@ public class FilteredDocs extends Form{
                 //sheet
                 Button displaySheet_btn = new Button();
                     displaySheet_btn.addActionListener(e -> {
-                        DocSheet sheet = new DocSheet(null,d,previous);
+                        DocSheet sheet = new DocSheet(null,d,previous,admin,false);
                         sheet.show();
                     });
             gui_Container_1.setLeadComponent(displaySheet_btn);
-            }  
+            }
+        }
+        if(empty){
+            setLayout(new FlowLayout(CENTER,CENTER));
+            //if no document found
+            Label lempty=new Label("Aucun document n'a été trouvé");
+            lempty.setUIID("CenterLabel");
+            Style s_lempty = lempty.getUnselectedStyle();
+            s_lempty.setFont(poppinsRegular55);
+            add(lempty);
         }
     }
 }
