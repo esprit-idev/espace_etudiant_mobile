@@ -4,10 +4,6 @@
  */
 package com.mycompany.entities;
 
-/**
- *
- * @author MeriamBI
- */
 public class Niveau {
     private String id;
 

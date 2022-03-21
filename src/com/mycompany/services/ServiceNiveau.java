@@ -17,10 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-/**
- *
- * @author MeriamBI
- */
+
 public class ServiceNiveau {
     public ConnectionRequest req;
     private static ServiceNiveau instance;
@@ -58,12 +55,9 @@ public class ServiceNiveau {
             Map<String,Object>niveauListJson=jsonP.parseJSON(new CharArrayReader(jsonText.toCharArray()));
             List<Map<String,Object>> list=(List<Map<String,Object>>) niveauListJson.get("root");
             for(Map<String,Object> obj : list){
-                //if(obj.get("url")==null){
-                
                 String id=obj.get("id").toString();
                 Niveau n=new Niveau(id);
                 niveaux.add(n);
-                //}
             }
         } catch (IOException ex) {
             System.out.println(ex.getMessage());

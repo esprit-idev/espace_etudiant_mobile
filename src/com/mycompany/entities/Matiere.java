@@ -4,10 +4,6 @@
  */
 package com.mycompany.entities;
 
-/**
- *
- * @author MeriamBI
- */
 public class Matiere {
     private String id,niveau;
 
@@ -31,4 +27,11 @@ public class Matiere {
     public void setNiveau(String niveau) {
         this.niveau = niveau;
     }
+
+    @Override
+    public String toString() {
+        return "Matiere{" + "id=" + id + ", niveau=" + niveau + '}';
+    }
+    
+    
 }
