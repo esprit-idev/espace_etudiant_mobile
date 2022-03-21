@@ -26,7 +26,7 @@ public class TabAff extends BaseForm {
     }
 
     public TabAff(Resources res) {
-        int admin=1;
+        int admin=0;
         setLayout(new FlowLayout(CENTER, CENTER));
         setTitle("Tableau d'affichage");
         Toolbar tb = getToolbar();

@@ -145,7 +145,7 @@ public class ClubsListFiltred extends Form {
                 clubDesc.setEnabled(false);
                 clubDesc.getAllStyles().setFont(poppinsDesc);
                 Label clubRespo = new Label("Contact : "
-                        + StringUtil.replaceAll(Util.split(c.getClubRespo(), "=")[1], "}", ""));
+                        + c.getClubRespo());
                 clubRespo.setAlignment(CENTER);
                 clubRespo.getAllStyles().setFont(poppinsCat);
 

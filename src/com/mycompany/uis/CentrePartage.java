@@ -35,7 +35,7 @@ public class CentrePartage extends Form {
     }
 
     public CentrePartage(Resources resourceObjectInstance) {
-        int admin = 1;//to_change
+        int admin = 0;//to_change
         //SKELETON
         setLayout(BoxLayout.y());
         setTitle("Centre de partage");
