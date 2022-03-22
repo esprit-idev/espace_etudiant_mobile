@@ -657,7 +657,7 @@ public class ClubRubriqueEtudiant extends Form {
                                 dialog.dispose();
                                 try {
                                     setTransitionOutAnimator(CommonTransitions.createSlide(CommonTransitions.SLIDE_HORIZONTAL, true, Integer.parseInt("0")));
-                                    new ClubRubrique(clubName, clubImg, clubDesc, clubId).show();
+                                            new ClubRubriqueEtudiant(clubName, clubImg, clubDesc, clubId, clubCat, clubRespo).show();
                                 } catch (IOException ex) {
                                     System.out.println(ex.toString());
                                 }
