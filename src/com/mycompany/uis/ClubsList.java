@@ -1,6 +1,7 @@
 package com.mycompany.uis;
 
 import com.codename1.components.Accordion;
+import com.codename1.components.FloatingActionButton;
 import com.codename1.components.ImageViewer;
 
 import com.codename1.components.ToastBar;
@@ -25,6 +26,8 @@ import com.codename1.ui.FontImage;
 import com.codename1.ui.Graphics;
 import com.codename1.ui.TextArea;
 import com.codename1.ui.animations.CommonTransitions;
+import com.codename1.ui.plaf.RoundBorder;
+import com.codename1.ui.util.Resources;
 
 import com.codename1.util.StringUtil;
 import com.mycompany.entities.ClubCategory;
@@ -35,8 +38,12 @@ import org.jsoup.Jsoup;
 public class ClubsList extends Form {
 
     public ClubsList() {
+        this(Resources.getGlobalResources());
+    }
 
-        String CurrentUserClubID = "6";
+    public ClubsList(Resources resourceObjectInstance) {
+        int admin = 1; //change
+        String CurrentUserClubID = "6"; //change
 
         ArrayList<Club> clubs;
         ArrayList<ClubCategory> categories;
@@ -51,37 +58,53 @@ public class ClubsList extends Form {
                 new TabAff().show();
             }
         });
+        if (admin == 1) {//to_change
+            tb.addMaterialCommandToRightBar("", FontImage.MATERIAL_CATEGORY, new ActionListener() {
+                public void actionPerformed(ActionEvent evt) {
+                    new ClubCategoriesList(resourceObjectInstance).show();
+                }
+            });
+            //floating button add
+            FloatingActionButton fab = FloatingActionButton.createFAB(FontImage.MATERIAL_ADD);
+            RoundBorder rb = (RoundBorder) fab.getUnselectedStyle().getBorder();
+            rb.uiid(true);
+            fab.bindFabToContainer(getContentPane());
+            fab.addActionListener(e -> {
+                new ClubAdd().show();
+            });
+        }
 
         clubs = ClubService.getInstance().getAllClubs();
-        
+
         categories = ClubCategoryService.getInstance().getAllClubCategories();
-        
+
         ComboBox<String> filter = new ComboBox();
         filter.addItem("--Categories--");
         for (ClubCategory cat : categories) {
             filter.addItem(cat.getCategorie().toUpperCase());
         }
         add(filter);
-      //  Button test = new Button("test");
-      //  add(test);
+        //  Button test = new Button("test");
+        //  add(test);
         ArrayList<Club> waz = new ArrayList<>();
 
         filter.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent arg0) {
 
-               if(filter.getSelectedItem().equals("--Categories--")){}
-               else{
-                for (int i = 0; i < clubs.size(); i++) {
+                if (filter.getSelectedItem().equals("--Categories--")) {
+                } else {
+                    for (int i = 0; i < clubs.size(); i++) {
 
-                    if (clubs.get(i).getClubCategorie().toUpperCase().contains(filter.getSelectedItem())) {
-                        waz.add(clubs.get(i));
+                        if (clubs.get(i).getClubCategorie().toUpperCase().contains(filter.getSelectedItem())) {
+                            waz.add(clubs.get(i));
+                        }
+
                     }
+                    setTransitionOutAnimator(CommonTransitions.createSlide(CommonTransitions.SLIDE_VERTICAL, true, Integer.parseInt("0")));
 
+                    new ClubsListFiltred(waz, clubs, resourceObjectInstance).show();
                 }
-                setTransitionOutAnimator(CommonTransitions.createSlide(CommonTransitions.SLIDE_VERTICAL, true, Integer.parseInt("0")));
-
-                new ClubsListFiltred(waz, clubs).show();}
 
             }
         });
@@ -126,8 +149,7 @@ public class ClubsList extends Form {
                     );
                 }
                 //categorie
-                Label clubDescTitles = new Label("Categorie : " + StringUtil.replaceAll(Util.split(c.getClubCategorie(), "=")[1], "}", "")
-                );
+                Label clubDescTitles = new Label("Categorie : " + c.getClubCategorie());
                 Font poppinsCat = Font.createTrueTypeFont("dss", "Poppins-Regular.ttf").
                         derive(50, Font.STYLE_BOLD);
                 clubDescTitles.getAllStyles().setFont(poppinsCat);
@@ -154,11 +176,15 @@ public class ClubsList extends Form {
                     @Override
                     public void actionPerformed(ActionEvent arg0) {
                         try {
-                            if (CurrentUserClubID.equals(c.getClubId())) {
-                                new ClubRubrique(clubName.getText(), c.getClubPic(), clubDesc.getText(), clubID).show();
+                            if (admin == 1) {//change
+                                new ClubRubriqueEtudiant(clubName.getText(), c.getClubPic(), clubDesc.getText(), clubID, c.getClubCategorie(), c.getClubRespo()).show();
                             } else {
-                                new ClubRubriqueEtudiant(clubName.getText(), c.getClubPic(), clubDesc.getText(), clubID).show();
+                                if (CurrentUserClubID.equals(c.getClubId())) {
+                                    new ClubRubrique(clubName.getText(), c.getClubPic(), clubDesc.getText(), clubID).show();
+                                } else {
+                                    new ClubRubriqueEtudiant(clubName.getText(), c.getClubPic(), clubDesc.getText(), clubID, c.getClubCategorie(), c.getClubRespo()).show();
 
+                                }
                             }
                         } catch (IOException ex) {
                             ToastBar.Status status = ToastBar.getInstance().createStatus();

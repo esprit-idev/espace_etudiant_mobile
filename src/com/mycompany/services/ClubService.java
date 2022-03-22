@@ -12,6 +12,7 @@ import com.codename1.io.NetworkManager;
 import com.codename1.io.Util;
 import com.codename1.processing.Result;
 import com.codename1.ui.events.ActionListener;
+import com.codename1.util.StringUtil;
 import com.mycompany.entities.Club;
 import com.mycompany.utils.Static;
 import java.io.IOException;
@@ -27,6 +28,8 @@ public class ClubService {
     public ArrayList<Club> clubs = new ArrayList<>();
     public static ClubService instance;
     public ConnectionRequest request;
+    public boolean resultOk;
+    String clubimg;
 
     private ClubService() {
         request = new ConnectionRequest();
@@ -46,7 +49,7 @@ public class ClubService {
             Map<String, Object> clubsListJSON = j.parseJSON(new CharArrayReader(jsonText.toCharArray()));
             ArrayList<Map<String, Object>> list = (ArrayList<Map<String, Object>>) clubsListJSON.get("root");
             for (Map<String, Object> obj : list) {
-                Result result=Result.fromContent(obj);
+                Result result = Result.fromContent(obj);
                 Club club = new Club();
 
                 try {
@@ -57,7 +60,7 @@ public class ClubService {
                 }
                 club.setClubName(obj.get("clubNom").toString());
                 club.setClubDesc(obj.get("clubDescription").toString());
-                club.setClubCategorie(obj.get("clubCategorie").toString());
+                club.setClubCategorie(result.getAsString("clubCategorie/categorieNom"));
                 club.setClubRespo(result.getAsString("clubResponsable/email"));
                 club.setClubPic(obj.get("ClubPic").toString());
                 clubs.add(club);
@@ -108,6 +111,69 @@ public class ClubService {
         });
         NetworkManager.getInstance().addToQueueAndWait(request);
         return clubs;
+    }
+
+    public boolean addClub(Club club) {
+
+        String url = Static.BASE_URL + "/addClubJson/new?clubNom=" + club.getClubName() + "&clubPic=" + club.getClubPic() + "&clubDesc=" + club.getClubDesc() + "&clubResponsable=" + club.getClubRespo() + "&clubCategorie=" + club.getClubCategorie();
+        request.setUrl(url);
+        request.addResponseListener(new ActionListener<NetworkEvent>() {
+            @Override
+            public void actionPerformed(NetworkEvent evt) {
+                resultOk = request.getResponseCode() == 200;
+                request.removeResponseListener(this);
+            }
+        });
+        NetworkManager.getInstance().addToQueueAndWait(request);
+        return resultOk;
+    }
+
+    public boolean deleteClub(String idClub) {
+        String url = Static.BASE_URL + "/deleteClubJson/" + idClub;
+        request.setUrl(url);
+        request.addResponseListener(new ActionListener<NetworkEvent>() {
+            @Override
+            public void actionPerformed(NetworkEvent evt) {
+                resultOk = request.getResponseCode() == 200;
+
+                request.removeResponseListener(this);
+            }
+        });
+        NetworkManager.getInstance().addToQueueAndWait(request);
+        return resultOk;
+
+    }
+
+    public boolean updateClub(String clubID, String clubNom, String clubDesc, String clubRespo, String clubCatego) {
+        String url = Static.BASE_URL + "/updateClubJson/" + clubID + "?clubNom=" + clubNom + "&clubDesc=" + clubDesc + "&clubResponsable=" + clubRespo + "&clubCategorie=" + clubCatego;
+        request.setUrl(url);
+        request.addResponseListener(new ActionListener<NetworkEvent>() {
+            @Override
+            public void actionPerformed(NetworkEvent evt) {
+                resultOk = request.getResponseCode() == 200;
+
+                request.removeResponseListener(this);
+            }
+        });
+        NetworkManager.getInstance().addToQueueAndWait(request);
+
+        return resultOk;
+    }
+
+    public String getClubPic(String clubID) {
+        String url = Static.BASE_URL + "/getClubPic/" + clubID;
+        request.setUrl(url);
+        request.addResponseListener(new ActionListener<NetworkEvent>() {
+            @Override
+            public void actionPerformed(NetworkEvent evt) {
+                clubimg = StringUtil.replaceAll(new String(request.getResponseData()), "\"", "");
+
+                request.removeResponseListener(this);
+            }
+        });
+        NetworkManager.getInstance().addToQueueAndWait(request);
+
+        return clubimg;
     }
 
 }

@@ -4,19 +4,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/MeriamBI/Desktop/pidev/CodenameOne/espace_etudiant_mobile/src/com/mycompany/uis/DocsFavorite.java</file>
-            <file>file:/C:/Users/MeriamBI/Desktop/pidev/CodenameOne/espace_etudiant_mobile/src/com/mycompany/uis/DocShare.java</file>
-            <file>file:/C:/Users/MeriamBI/Desktop/pidev/CodenameOne/espace_etudiant_mobile/src/com/mycompany/uis/DocsReported.java</file>
-            <file>file:/C:/Users/MeriamBI/Desktop/pidev/CodenameOne/espace_etudiant_mobile/src/com/mycompany/uis/MatiereSheet.java</file>
-            <file>file:/C:/Users/MeriamBI/Desktop/pidev/CodenameOne/espace_etudiant_mobile/src/com/mycompany/uis/DocsFiltered.java</file>
-            <file>file:/C:/Users/MeriamBI/Desktop/pidev/CodenameOne/espace_etudiant_mobile/src/com/mycompany/services/ServiceMatiere.java</file>
-            <file>file:/C:/Users/MeriamBI/Desktop/pidev/CodenameOne/espace_etudiant_mobile/src/com/mycompany/uis/DocSheet.java</file>
-            <file>file:/C:/Users/MeriamBI/Desktop/pidev/CodenameOne/espace_etudiant_mobile/src/com/mycompany/uis/DocAdd.java</file>
-            <file>file:/C:/Users/MeriamBI/Desktop/pidev/CodenameOne/espace_etudiant_mobile/src/com/mycompany/uis/TabAff.java</file>
-            <file>file:/C:/Users/MeriamBI/Desktop/pidev/CodenameOne/espace_etudiant_mobile/src/com/mycompany/uis/MatiereAdd.java</file>
-            <file>file:/C:/Users/MeriamBI/Desktop/pidev/CodenameOne/espace_etudiant_mobile/src/com/mycompany/uis/MatieresFiltered.java</file>
-            <file>file:/C:/Users/MeriamBI/Desktop/pidev/CodenameOne/espace_etudiant_mobile/src/com/mycompany/uis/MatiereUpdate.java</file>
-            <file>file:/C:/Users/MeriamBI/Desktop/pidev/CodenameOne/espace_etudiant_mobile/src/com/mycompany/uis/MatiereList.java</file>
+            <file>file:/E:/Webprojects/PIDEV/espace_etudiant_mobile/src/com/mycompany/uis/ClubRubrique.java</file>
+            <file>file:/E:/Webprojects/PIDEV/espace_etudiant_mobile/src/com/mycompany/uis/Forum.java</file>
+            <file>file:/E:/Webprojects/PIDEV/espace_etudiant_mobile/src/com/mycompany/uis/ClubRubriqueEtudiant.java</file>
+            <file>file:/E:/Webprojects/PIDEV/espace_etudiant_mobile/src/com/mycompany/uis/ClubsList.java</file>
+            <file>file:/E:/Webprojects/PIDEV/espace_etudiant_mobile/src/com/mycompany/uis/ClubsListFiltred.java</file>
         </group>
     </open-files>
 </project-private>

@@ -9,13 +9,22 @@ package com.mycompany.entities;
  * @author anash
  */
 public class Club {
-    String clubId,clubName,clubPic,clubDesc,clubRespo,clubCategorie;
 
-    
+    String clubId, clubName, clubPic, clubDesc, clubRespo, clubCategorie;
+
     public Club() {
-	
-}
-    public Club(String clubId,String clubName, String clubPic, String clubDesc, String clubRespo, String clubCategorie) {
+
+    }
+
+    public Club( String clubName, String clubPic, String clubDesc, String clubRespo, String clubCategorie) {
+        this.clubName = clubName;
+        this.clubPic = clubPic;
+        this.clubDesc = clubDesc;
+        this.clubRespo = clubRespo;
+        this.clubCategorie = clubCategorie;
+    }
+
+    public Club(String clubId, String clubName, String clubPic, String clubDesc, String clubRespo, String clubCategorie) {
         this.clubId = clubId;
         this.clubName = clubName;
         this.clubPic = clubPic;
@@ -71,7 +80,5 @@ public class Club {
     public void setClubCategorie(String clubCategorie) {
         this.clubCategorie = clubCategorie;
     }
-    
-    
-    
+
 }

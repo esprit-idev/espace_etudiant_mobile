@@ -27,18 +27,20 @@ public class ClubCategoryService {
     public ArrayList<ClubCategory> categories = new ArrayList<>();
     public static ClubCategoryService instance;
     public ConnectionRequest request;
+    public boolean resultOk;
 
     private ClubCategoryService() {
         request = new ConnectionRequest();
     }
-    
+
     public static ClubCategoryService getInstance() {
         if (instance == null) {
             instance = new ClubCategoryService();
         }
         return instance;
     }
-        public ArrayList<ClubCategory> parseClubsCategories(String jsonText) {
+
+    public ArrayList<ClubCategory> parseClubsCategories(String jsonText) {
         try {
             categories = new ArrayList<>();
             JSONParser j = new JSONParser();
@@ -46,16 +48,17 @@ public class ClubCategoryService {
             ArrayList<Map<String, Object>> list = (ArrayList<Map<String, Object>>) categoriesListJSON.get("root");
             for (Map<String, Object> obj : list) {
                 ClubCategory category = new ClubCategory();
-
+                category.setId(obj.get("id").toString());
                 category.setCategorie(obj.get("categorieNom").toString());
                 categories.add(category);
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
+            System.out.println(e.toString()+ " ssss ");
         }
         return categories;
     }
-        
-            public ArrayList<ClubCategory> getAllClubCategories() {
+
+    public ArrayList<ClubCategory> getAllClubCategories() {
         String url = Static.BASE_URL + "/AllClubCategories";
         request.setUrl(url);
         request.setPost(false);
@@ -70,6 +73,52 @@ public class ClubCategoryService {
         return categories;
     }
 
+    public boolean addClubCategorie(String categorieNom) {
+        String url = Static.BASE_URL + "/addClubCategorie/new?categorieNom=" + categorieNom;
+        request.setUrl(url);
+        request.addResponseListener(new ActionListener<NetworkEvent>() {
+            @Override
+            public void actionPerformed(NetworkEvent evt) {
+                resultOk = request.getResponseCode() == 200;
 
+                request.removeResponseListener(this);
+            }
+        });
+        NetworkManager.getInstance().addToQueueAndWait(request);
+        return resultOk;
+
+    }
+
+    public boolean deleteClubCategorie(String categId) {
+        String url = Static.BASE_URL + "/deleteClubCategorie/" + categId;
+        request.setUrl(url);
+        request.addResponseListener(new ActionListener<NetworkEvent>() {
+            @Override
+            public void actionPerformed(NetworkEvent evt) {
+                resultOk = request.getResponseCode() == 200;
+
+                request.removeResponseListener(this);
+            }
+        });
+        NetworkManager.getInstance().addToQueueAndWait(request);
+        return resultOk;
+
+    }
+
+    public boolean updateClubCategorie(String categorieNom,String categId) {
+        String url = Static.BASE_URL + "/updateClubCategorie/" + categId + "?categorieNom=" + categorieNom;
+        request.setUrl(url);
+        request.addResponseListener(new ActionListener<NetworkEvent>() {
+            @Override
+            public void actionPerformed(NetworkEvent evt) {
+                resultOk = request.getResponseCode() == 200;
+
+                request.removeResponseListener(this);
+            }
+        });
+        NetworkManager.getInstance().addToQueueAndWait(request);
+
+        return resultOk;
+    }
 
 }

@@ -291,7 +291,7 @@ public class ClubRubrique extends Form {
                     /**
                      * delete & add icons
                      */
-                    /*   Font del = FontImage.getMaterialDesignFont();
+                    Font del = FontImage.getMaterialDesignFont();
                     del = del.derive(80, Font.STYLE_PLAIN);
                     Button btn_del = new Button();
                     btn_del.setUIID("RedLabelRight");
@@ -301,21 +301,21 @@ public class ClubRubrique extends Form {
                     btn_edit.setIcon(FontImage.create("\ue3c9", btn_edit.getUnselectedStyle(), del));
                     Container con = new Container();
                     con.setLayout(new BoxLayout(BoxLayout.X_AXIS));
-                    con.add(btn_edit).add(btn_del);*/
+                    con.add(btn_edit).add(btn_del);
                     cardTitle.add(BorderLayout.CENTER, l_name);
-                    //   cardTitle.add(BorderLayout.EAST, con);
+                    cardTitle.add(BorderLayout.EAST, con);
 
                     /**
                      * delete pub
                      */
-                    /*     btn_del.addActionListener(new ActionListener() {
+                    btn_del.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent arg0) {
                             /*  try {
                         Thread.sleep(2000l);
                     } catch (InterruptedException ex) {
                     }*/
- /*   Dialog dialog = new Dialog(BoxLayout.y());
+                            Dialog dialog = new Dialog(BoxLayout.y());
                             dialog.setUIID("Container"); // this line has no effect, the outside dialog component is still visible
                             Style style = dialog.getDialogStyle();
                             style.setMargin(5, 5, 5, 5); // adding some margin between contentpane and Dailog container, to be more obvious
@@ -325,20 +325,26 @@ public class ClubRubrique extends Form {
                             dialog.add(bodyLabel);
                             // confirm supp button
                             Button confirm_btn = new Button("Oui");
-                            //  confirm_btn.setUIID("IndianredRoundFilledBtn"); //change
+                            confirm_btn.setUIID("IndianredRoundFilledBtn"); //change
                             confirm_btn.addActionListener(e2 -> {
                                 //delete method
                                 ClubPubService.getInstance().deletePub(p.getId());
-                                card.setHidden(true);
+                               // card.setHidden(true);
                                 ToastBar.Status deltStat = ToastBar.getInstance().createStatus();
                                 deltStat.setMessage("Publication supprimée");
                                 deltStat.show();
                                 deltStat.setExpires(2000);
                                 dialog.dispose();
+                                try {
+                                    setTransitionOutAnimator(CommonTransitions.createSlide(CommonTransitions.SLIDE_HORIZONTAL, true, Integer.parseInt("0")));
+                                    new ClubRubrique(clubName, clubImg, clubDesc, clubId).show();
+                                } catch (IOException ex) {
+                                    System.out.println(ex.toString());
+                                }
                             });
                             // deny button
                             Button deny_btn = new Button("Non");
-                            //  deny_btn.setUIID("IndianredRoundBtn");
+                            deny_btn.setUIID("IndianredRoundBtn");
                             deny_btn.addActionListener(e3 -> {
                                 dialog.dispose();
                             });
@@ -351,7 +357,7 @@ public class ClubRubrique extends Form {
                     /**
                      * edit pub
                      */
- /*  btn_edit.addActionListener(new ActionListener() {
+                    btn_edit.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent arg0) {
                             if (btn_update_pub.isHidden()) {
@@ -405,18 +411,22 @@ public class ClubRubrique extends Form {
                                 status.setMessage("Publication modifiée, attendez l'approbation de l'administrateur");
                                 Font materialFont = FontImage.getMaterialDesignFont();
                                 materialFont = materialFont.derive(60, Font.STYLE_PLAIN);
-                                Image icOKay = FontImage.create("\ue876", pub_attente.getUnselectedStyle(), materialFont);
+                                Image icOKay = FontImage.create("\ue876", btn_update_pub.getUnselectedStyle(), materialFont);
                                 status.setIcon(icOKay);
                                 status.showDelayed(5000);
                                 status.setExpires(6000);
-                                card.setHidden(true);
-                                animateLayout(100);
-                                pub_attentebadge.setText(Integer.toString(ClubPubService.getInstance().getEnAttentePubs(clubId).size()));
+                                try {
+                                    setTransitionOutAnimator(CommonTransitions.createSlide(CommonTransitions.SLIDE_HORIZONTAL, true, Integer.parseInt("0")));
+
+                                    new ClubRubrique(clubName, clubImg, clubDesc, clubId).show();
+                                } catch (IOException ex) {
+                                    System.out.println(ex.toString());
+                                }
 
                             }
 
                         }
-                    });*/
+                    });
                     /**
                      * * card footer
                      */
@@ -610,7 +620,7 @@ public class ClubRubrique extends Form {
                     /**
                      * delete & add icons
                      */
-                    /*   Font del = FontImage.getMaterialDesignFont();
+                    Font del = FontImage.getMaterialDesignFont();
                     del = del.derive(80, Font.STYLE_PLAIN);
                     Button btn_del = new Button();
                     btn_del.setUIID("RedLabelRight");
@@ -620,21 +630,21 @@ public class ClubRubrique extends Form {
                     btn_edit.setIcon(FontImage.create("\ue3c9", btn_edit.getUnselectedStyle(), del));
                     Container con = new Container();
                     con.setLayout(new BoxLayout(BoxLayout.X_AXIS));
-                    con.add(btn_edit).add(btn_del);*/
+                    con.add(btn_edit).add(btn_del);
                     cardTitle.add(BorderLayout.CENTER, l_name);
-                    //   cardTitle.add(BorderLayout.EAST, con);
+                    cardTitle.add(BorderLayout.EAST, con);
 
                     /**
                      * delete pub
                      */
-                    /*     btn_del.addActionListener(new ActionListener() {
+                    btn_del.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent arg0) {
                             /*  try {
                         Thread.sleep(2000l);
                     } catch (InterruptedException ex) {
                     }*/
- /*   Dialog dialog = new Dialog(BoxLayout.y());
+                            Dialog dialog = new Dialog(BoxLayout.y());
                             dialog.setUIID("Container"); // this line has no effect, the outside dialog component is still visible
                             Style style = dialog.getDialogStyle();
                             style.setMargin(5, 5, 5, 5); // adding some margin between contentpane and Dailog container, to be more obvious
@@ -644,20 +654,26 @@ public class ClubRubrique extends Form {
                             dialog.add(bodyLabel);
                             // confirm supp button
                             Button confirm_btn = new Button("Oui");
-                            //  confirm_btn.setUIID("IndianredRoundFilledBtn"); //change
+                            confirm_btn.setUIID("IndianredRoundFilledBtn"); //change
                             confirm_btn.addActionListener(e2 -> {
                                 //delete method
                                 ClubPubService.getInstance().deletePub(p.getId());
-                                card.setHidden(true);
+                               // card.setHidden(true);
                                 ToastBar.Status deltStat = ToastBar.getInstance().createStatus();
                                 deltStat.setMessage("Publication supprimée");
                                 deltStat.show();
                                 deltStat.setExpires(2000);
                                 dialog.dispose();
+                                try {
+                                    setTransitionOutAnimator(CommonTransitions.createSlide(CommonTransitions.SLIDE_HORIZONTAL, true, Integer.parseInt("0")));
+                                    new ClubRubrique(clubName, clubImg, clubDesc, clubId).show();
+                                } catch (IOException ex) {
+                                    System.out.println(ex.toString());
+                                }
                             });
                             // deny button
                             Button deny_btn = new Button("Non");
-                            //  deny_btn.setUIID("IndianredRoundBtn");
+                            deny_btn.setUIID("IndianredRoundBtn");
                             deny_btn.addActionListener(e3 -> {
                                 dialog.dispose();
                             });
@@ -670,7 +686,7 @@ public class ClubRubrique extends Form {
                     /**
                      * edit pub
                      */
- /*  btn_edit.addActionListener(new ActionListener() {
+                    btn_edit.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent arg0) {
                             if (btn_update_pub.isHidden()) {
@@ -724,18 +740,21 @@ public class ClubRubrique extends Form {
                                 status.setMessage("Publication modifiée, attendez l'approbation de l'administrateur");
                                 Font materialFont = FontImage.getMaterialDesignFont();
                                 materialFont = materialFont.derive(60, Font.STYLE_PLAIN);
-                                Image icOKay = FontImage.create("\ue876", pub_attente.getUnselectedStyle(), materialFont);
+                                Image icOKay = FontImage.create("\ue876", btn_update_pub.getUnselectedStyle(), materialFont);
                                 status.setIcon(icOKay);
                                 status.showDelayed(5000);
                                 status.setExpires(6000);
-                                card.setHidden(true);
-                                animateLayout(100);
-                                pub_attentebadge.setText(Integer.toString(ClubPubService.getInstance().getEnAttentePubs(clubId).size()));
+                                try {
+                                    setTransitionOutAnimator(CommonTransitions.createSlide(CommonTransitions.SLIDE_HORIZONTAL, true, Integer.parseInt("0")));
+                                    new ClubRubrique(clubName, clubImg, clubDesc, clubId).show();
+                                } catch (IOException ex) {
+                                    System.out.println(ex.toString());
+                                }
 
                             }
 
                         }
-                    });*/
+                    });
                     /**
                      * * card footer
                      */
@@ -965,16 +984,16 @@ public class ClubRubrique extends Form {
         c.add(btn_attach);
         add(c);
         /**
-         * button post
+         * button add pub
          */
-        Button btn_post = new Button("Ajouter");
-        btn_post.setUIID("addPubBtn");
+        Button btn_addPub = new Button("Ajouter");
+        btn_addPub.setUIID("addPubBtn");
         /*btn_post.getStyle().setBorder(RoundRectBorder.create().
                 strokeColor(0).
                 strokeOpacity(120)
         );*/
-        add(btn_post);
-        btn_post.addActionListener(new ActionListener() {
+        add(btn_addPub);
+        btn_addPub.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent arg0) {
                 if (postText.getText().length() == 0) {
@@ -1030,24 +1049,27 @@ public class ClubRubrique extends Form {
 
                     }
                     ClubPubService.getInstance().addPub(clubId, postText.getText(), pubPicName);
-
                     ToastBar.Status status = ToastBar.getInstance().createStatus();
                     status.setMessage("Publication envoyée, attendez l'approbation de l'administrateur");
                     Font materialFont = FontImage.getMaterialDesignFont();
                     materialFont = materialFont.derive(60, Font.STYLE_PLAIN);
-                    Image icOKay = FontImage.create("\ue876", btn_post.getUnselectedStyle(), materialFont);
+                    Image icOKay = FontImage.create("\ue876", btn_addPub.getUnselectedStyle(), materialFont);
                     status.setIcon(icOKay);
                     status.showDelayed(5000);
                     status.setExpires(6000);
-                    postText.setText("");
-                    filename.setText("");
-                    animateLayout(100);
 
-                    pub_attentebadge.setText(Integer.toString(ClubPubService.getInstance().getEnAttentePubs(clubId).size()));
+                    try {
+                        setTransitionOutAnimator(CommonTransitions.createSlide(CommonTransitions.SLIDE_HORIZONTAL, true, Integer.parseInt("0")));
+
+                        new ClubRubrique(clubName, clubImg, clubDesc, clubId).show();
+                    } catch (IOException ex) {
+                        System.out.println(ex.toString());
+                    }
                 }
 
             }
         });
+        // add club picture
         FloatingActionButton addPicClub = FloatingActionButton.createFAB(FontImage.MATERIAL_CAMERA_ALT);
         addPicClub.setIconDefaultSize(3.0f);
         imgandPubs.add(BorderLayout.CENTER, addPicClub.bindFabToContainer(img, Component.CENTER, Component.TOP));
@@ -1083,8 +1105,8 @@ public class ClubRubrique extends Form {
                 Dialog dlg = prog.showInifiniteBlocking();
                 cr.setDisposeOnCompletion(dlg);
                 NetworkManager.getInstance().addToQueueAndWait(cr);
-              //  Dialog.show("Success", "Image uploaded", "OK", null);
-                try {
+                //  
+                /* try {
                     Image picClub = createImage(filePath).fill(300, 300);
                     Image roundMaskClub = Image.createImage(picClub.getWidth(), picClub.getHeight(), 0xff000000);
                     Graphics graphics = roundMaskClub.getGraphics();
@@ -1092,11 +1114,15 @@ public class ClubRubrique extends Form {
                     graphics.fillArc(0, 0, picClub.getWidth(), picClub.getWidth(), 0, 360);
                     Object maskClub = roundMaskClub.createMask();
                     picClub = picClub.applyMask(maskClub);
-                    img.setImage(picClub);
-                    setTransitionOutAnimator(CommonTransitions.createSlide(CommonTransitions.SLIDE_VERTICAL, true, Integer.parseInt("0")));
-
+                    img.setImage(picClub);*/
+                try {
+                    Dialog.show("Success", "Image uploaded", "OK", null);
+                    setTransitionOutAnimator(CommonTransitions.createSlide(CommonTransitions.SLIDE_HORIZONTAL, true, Integer.parseInt("0")));
+                    new ClubRubrique(clubName, ClubService.getInstance().getClubPic(clubId), clubDesc, clubId).show();
                 } catch (IOException ex) {
+                    System.out.println(ex.toString());
                 }
+                //} catch (IOException ex) {}
             }
         });
         // actual pubs
@@ -1273,20 +1299,26 @@ public class ClubRubrique extends Form {
                         dialog.add(bodyLabel);
                         // confirm supp button
                         Button confirm_btn = new Button("Oui");
-                        //  confirm_btn.setUIID("IndianredRoundFilledBtn"); //change
+                        confirm_btn.setUIID("IndianredRoundFilledBtn"); //change
                         confirm_btn.addActionListener(e2 -> {
                             //delete method
                             ClubPubService.getInstance().deletePub(p.getId());
-                            card.setHidden(true);
+                           // card.setHidden(true);
                             ToastBar.Status deltStat = ToastBar.getInstance().createStatus();
                             deltStat.setMessage("Publication supprimée");
                             deltStat.show();
                             deltStat.setExpires(2000);
                             dialog.dispose();
+                            try {
+                                setTransitionOutAnimator(CommonTransitions.createSlide(CommonTransitions.SLIDE_HORIZONTAL, true, Integer.parseInt("0")));
+                                new ClubRubrique(clubName, clubImg, clubDesc, clubId).show();
+                            } catch (IOException ex) {
+                                System.out.println(ex.toString());
+                            }
                         });
                         // deny button
                         Button deny_btn = new Button("Non");
-                        //  deny_btn.setUIID("IndianredRoundBtn");
+                        deny_btn.setUIID("IndianredRoundBtn");
                         deny_btn.addActionListener(e3 -> {
                             dialog.dispose();
                         });
@@ -1353,13 +1385,17 @@ public class ClubRubrique extends Form {
                             status.setMessage("Publication modifiée, attendez l'approbation de l'administrateur");
                             Font materialFont = FontImage.getMaterialDesignFont();
                             materialFont = materialFont.derive(60, Font.STYLE_PLAIN);
-                            Image icOKay = FontImage.create("\ue876", btn_post.getUnselectedStyle(), materialFont);
+                            Image icOKay = FontImage.create("\ue876", btn_addPub.getUnselectedStyle(), materialFont);
                             status.setIcon(icOKay);
                             status.showDelayed(5000);
                             status.setExpires(6000);
-                            card.setHidden(true);
-                            animateLayout(100);
-                            pub_attentebadge.setText(Integer.toString(ClubPubService.getInstance().getEnAttentePubs(clubId).size()));
+                            try {
+                                setTransitionOutAnimator(CommonTransitions.createSlide(CommonTransitions.SLIDE_HORIZONTAL, true, Integer.parseInt("0")));
+
+                                new ClubRubrique(clubName, clubImg, clubDesc, clubId).show();
+                            } catch (IOException ex) {
+                                System.out.println(ex.toString());
+                            }
 
                         }
 

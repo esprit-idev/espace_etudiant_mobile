@@ -5,6 +5,7 @@
 package com.mycompany.uis;
 
 import com.codename1.components.Accordion;
+import com.codename1.components.FloatingActionButton;
 import com.codename1.components.ImageViewer;
 import com.codename1.components.ToastBar;
 import com.codename1.io.Util;
@@ -24,6 +25,8 @@ import com.codename1.ui.animations.CommonTransitions;
 import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BoxLayout;
+import com.codename1.ui.plaf.RoundBorder;
+import com.codename1.ui.util.Resources;
 import com.codename1.util.StringUtil;
 import com.mycompany.entities.Club;
 import com.mycompany.entities.ClubCategory;
@@ -39,8 +42,10 @@ import org.jsoup.Jsoup;
  * @author anash
  */
 public class ClubsListFiltred extends Form {
+   
 
-    public ClubsListFiltred(ArrayList<Club> filtred, ArrayList<Club> real) {
+    public ClubsListFiltred(ArrayList<Club> filtred, ArrayList<Club> real,Resources resourceObjectInstance) {
+        int admin =1; //change
 
         String CurrentUserClubID = "6";
         ArrayList<ClubCategory> categories;
@@ -56,6 +61,21 @@ public class ClubsListFiltred extends Form {
                 new TabAff().show();
             }
         });
+        if (admin == 1) {//to_change
+            tb.addMaterialCommandToRightBar("", FontImage.MATERIAL_CATEGORY, new ActionListener() {
+                public void actionPerformed(ActionEvent evt) {
+                    new ClubCategoriesList(resourceObjectInstance).show();
+                }
+            });
+            //floating button add
+            FloatingActionButton fab = FloatingActionButton.createFAB(FontImage.MATERIAL_ADD);
+            RoundBorder rb = (RoundBorder) fab.getUnselectedStyle().getBorder();
+            rb.uiid(true);
+            fab.bindFabToContainer(getContentPane());
+            fab.addActionListener(e -> {
+                new ClubAdd().show();
+            });
+        }
 
         categories = ClubCategoryService.getInstance().getAllClubCategories();
 
@@ -82,7 +102,7 @@ public class ClubsListFiltred extends Form {
                 }
                 setTransitionOutAnimator(CommonTransitions.createSlide(CommonTransitions.SLIDE_VERTICAL, true, Integer.parseInt("0")));
 
-                new ClubsListFiltred(filtred, real).show();}
+                new ClubsListFiltred(filtred, real,resourceObjectInstance).show();}
 
             }
         });
@@ -128,7 +148,7 @@ public class ClubsListFiltred extends Form {
                     );
                 }
                 //categorie
-                Label clubDescTitles = new Label("Categorie : " + StringUtil.replaceAll(Util.split(c.getClubCategorie(), "=")[1], "}", "")
+                Label clubDescTitles = new Label("Categorie : " +c.getClubCategorie()
                 );
                 Font poppinsCat = Font.createTrueTypeFont("dss", "Poppins-Regular.ttf").
                         derive(50, Font.STYLE_BOLD);
@@ -156,11 +176,15 @@ public class ClubsListFiltred extends Form {
                     @Override
                     public void actionPerformed(ActionEvent arg0) {
                         try {
-                            if (CurrentUserClubID.equals(c.getClubId())) {
-                                new ClubRubrique(clubName.getText(), c.getClubPic(), clubDesc.getText(), clubID).show();
+                             if (admin == 1) {//change
+                                new ClubRubriqueEtudiant(clubName.getText(), c.getClubPic(), clubDesc.getText(), clubID, c.getClubCategorie(), c.getClubRespo()).show();
                             } else {
-                                new ClubRubriqueEtudiant(clubName.getText(), c.getClubPic(), clubDesc.getText(), clubID).show();
+                                if (CurrentUserClubID.equals(c.getClubId())) {
+                                    new ClubRubrique(clubName.getText(), c.getClubPic(), clubDesc.getText(), clubID).show();
+                                } else {
+                                    new ClubRubriqueEtudiant(clubName.getText(), c.getClubPic(), clubDesc.getText(), clubID, c.getClubCategorie(), c.getClubRespo()).show();
 
+                                }
                             }
                         } catch (IOException ex) {
                             ToastBar.Status status = ToastBar.getInstance().createStatus();

@@ -25,7 +25,9 @@ public class ClubPubService {
     public ArrayList<ClubPub> pubs = new ArrayList<>();
     public static ClubPubService instance;
     public ConnectionRequest request;
+    public boolean resultOk;
 
+    
     private ClubPubService() {
         request = new ConnectionRequest();
     }
@@ -149,5 +151,23 @@ public class ClubPubService {
         });
         NetworkManager.getInstance().addToQueueAndWait(request);
         return pubs;
+    }
+      
+              
+               public boolean acceptRefusePub(String clubID,String value) {
+        String url = Static.BASE_URL + "/acceptRefusePubJSON/" + clubID+"/"+value;
+        request.setUrl(url);
+        request.setPost(false);
+        request.addResponseListener(new ActionListener<NetworkEvent>() {
+            @Override
+            public void actionPerformed(NetworkEvent evt) {
+                //pubs = parsePubs(new String(request.getResponseData()));
+                                resultOk = request.getResponseCode() == 200;
+
+                request.removeResponseListener(this);
+            }
+        });
+        NetworkManager.getInstance().addToQueueAndWait(request);
+        return resultOk;
     }
 }
