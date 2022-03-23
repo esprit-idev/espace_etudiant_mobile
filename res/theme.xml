@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<resource majorVersion="1" minorVersion="11" useXmlUI="false">
+<resource majorVersion="1" minorVersion="10" useXmlUI="false">
     <image name="background.jpg"  />
+    <image name="backgroundGreen.jpg"  />
     <image name="bla.jpg"  />
     <image name="bridge.jpg"  />
     <image name="calendar-background.jpg"  />
@@ -57,8 +58,8 @@
             <entry key="Calendar.Thursday" value="Thu" />
             <entry key="ok" value="OK" />
             <entry key="Calendar.Saturday" value="Sat" />
-            <entry key="select" value="Select" />
             <entry key="Calendar.Friday" value="Fri" />
+            <entry key="select" value="Select" />
             <entry key="edit" value="Edit" />
             <entry key="Calendar.Monday" value="Mon" />
             <entry key="cancel" value="Cancel" />
@@ -104,6 +105,17 @@
         <val key="Button.sel#margin" value="1.0,1.0,1.0,1.0" />
         <val key="Button.sel#padUnit" value="2,2,2,2" />
         <val key="Button.sel#padding" value="4.0,4.0,4.0,4.0" />
+        <val key="Button2.align" value="4" />
+        <val key="Button2.bgColor" value="1c2424" />
+        <gradient key="Button2.bgGradient" color1="1844260" color2="1844260" posX="0.5" posY="0.5" radius="1.0" />
+        <val key="Button2.bgType" value="7" />
+        <border key="Button2.border" type="empty" />
+        <val key="Button2.fgColor" value="ffffff" />
+        <font key="Button2.font" type="ttf" face="0" style="0" size="0" name="native:MainRegular" family="native:MainRegular" sizeSettings="3" actualSize="3.0" />
+        <val key="Button2.marUnit" value="2,2,2,2" />
+        <val key="Button2.margin" value="3.0,3.0,2.0,2.0" />
+        <val key="Button2.padUnit" value="2,2,2,2" />
+        <val key="Button2.padding" value="2.0,2.0,2.0,2.0" />
         <val key="Calendar.bgImage" value="calendar-background.jpg" />
         <val key="Calendar.bgType" value="33" />
         <val key="Calendar.margin" value="0.0,0.0,0.0,0.0" />
@@ -258,6 +270,16 @@
         <font key="GetStartedRedArrow.sel#font" type="ttf" face="0" style="0" size="0" name="native:MainLight" family="native:MainLight" sizeSettings="3" actualSize="3.5" />
         <val key="GetStartedRedArrow.sel#transparency" value="0" />
         <val key="GetStartedRedArrow.transparency" value="0" />
+        <val key="GreenBackground.bgColor" value="ffffff" />
+        <val key="GreenBackground.bgImage" value="backgroundGreen.jpg" />
+        <val key="GreenBackground.bgType" value="1" />
+        <val key="GreenBackground.fgColor" value="ffffff" />
+        <val key="GreenLabel.fgColor" value="54b48c" />
+        <font key="GreenLabel.font" type="ttf" face="0" style="0" size="0" name="native:MainLight" family="native:MainLight" sizeSettings="3" actualSize="2.0" />
+        <val key="GreenLabel.margin" value="0.0,0.0,0.0,0.0" />
+        <val key="GreenLabel.padUnit" value="0,2,0,2" />
+        <val key="GreenLabel.padding" value="0.0,0.0,1.0,1.0" />
+        <val key="GreenLabel.transparency" value="0" />
         <border key="GroupElement.border" type="image" i1="GroupElement.borderTop_1.png" i2="GroupElement.borderBottom_1.png" i3="GroupElement.borderLeft_1.png" i4="GroupElement.borderRight_1.png" i5="GroupElement.borderTopL_1.png" i6="GroupElement.borderTopR_1.png" i7="GroupElement.borderBottomL_1.png" i8="GroupElement.borderBottomR_1.png" i9="GroupElement.borderCenter_1.png" />
         <val key="GroupElement.fgColor" value="4d606f" />
         <font key="GroupElement.font" type="ttf" face="0" style="0" size="0" name="native:MainLight" family="native:MainLight" sizeSettings="3" actualSize="3.0" />
@@ -328,7 +350,7 @@
         <font key="Label.sel#font" type="ttf" face="0" style="0" size="0" name="native:MainLight" family="native:MainLight" sizeSettings="3" actualSize="3.0" />
         <val key="Label.sel#margin" value="0.0,0.0,0.0,0.0" />
         <val key="Label.sel#padUnit" value="2,2,2,2" />
-        <val key="Label.sel#padding" value="1.0,1.0,1.0,1.0" />
+        <val key="Label.sel#padding" value="9.0,9.0,9.0,9.0" />
         <val key="Label.sel#transparency" value="0" />
         <val key="Label.transparency" value="0" />
         <val key="LargeWhileLabel.align" value="4" />
@@ -342,6 +364,11 @@
         <val key="List.sel#bgColor" value="323c46" />
         <val key="List.sel#transparency" value="255" />
         <val key="List.transparency" value="255" />
+        <val key="Margin2.align" value="4" />
+        <val key="Margin2.margin" value="20.0,20.0,20.0,20.0" />
+        <val key="Margin2.padUnit" value="2,2,2,2" />
+        <val key="Margin2.padding" value="1.0,1.0,1.0,1.0" />
+        <val key="Margin2.transparency" value="0" />
         <val key="MenuButton.fgColor" value="ffffff" />
         <font key="MenuButton.font" type="ttf" face="0" style="0" size="0" name="native:MainLight" family="native:MainLight" sizeSettings="3" actualSize="3.5" />
         <val key="OrangeLine.fgColor" value="eb8b7f" />

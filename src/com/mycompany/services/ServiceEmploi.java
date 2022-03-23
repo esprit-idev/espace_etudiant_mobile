@@ -10,6 +10,7 @@ import com.codename1.io.ConnectionRequest;
 import com.codename1.io.JSONParser;
 import com.codename1.io.NetworkEvent;
 import com.codename1.io.NetworkManager;
+import com.codename1.processing.Result;
 import com.codename1.ui.events.ActionListener;
 import com.mycompany.entities.Emploi;
 import com.mycompany.entities.PublicationNews;
@@ -56,21 +57,20 @@ public class ServiceEmploi {
                     
                     for(Map<String,Object> object : ListOfMaps){
                         Emploi pub = new Emploi();
+                        Result result = Result.fromContent(object);
                         //id
                         float id = Float.parseFloat(object.get("id").toString());
                         //title
                         String title = object.get("title").toString();
                         //content
                         String content = object.get("content").toString();
-                        //category
-                        String categoryName = object.get("categoryName").toString();
-                        //image
-                        String image = object.get("image").toString();
+                                               //category
+                        pub.setCategoryName(result.getAsString("categoryName/categoryName"));
+                        //image            
+                        pub.setImage(result.getAsString("image/name"));
                         pub.setId((int) id);
                         pub.setTitle(title);
                         pub.setContent(content);
-                        pub.setCategoryName(categoryName);
-                        pub.setImage(image);
                         //convert date into date format
                         String DateConv = object.get("date").toString().substring(object.get("date").toString().indexOf("timestamp") + 1,object.get("date").toString().lastIndexOf("T"));
                         pub.setDate(DateConv);

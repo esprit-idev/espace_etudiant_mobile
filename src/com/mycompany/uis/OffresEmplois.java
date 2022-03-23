@@ -6,12 +6,14 @@ import com.codename1.ui.Container;
 import com.codename1.ui.Display;
 import com.codename1.ui.Form;
 import com.codename1.ui.Image;
+import static com.codename1.ui.Image.createImage;
 import com.codename1.ui.Label;
 import com.codename1.ui.Toolbar;
 import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.ui.layouts.FlowLayout;
 import com.mycompany.entities.Emploi;
 import com.mycompany.services.ServiceEmploi;
+import com.mycompany.utils.Static;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -37,25 +39,24 @@ public class OffresEmplois extends BaseForm{
     private void addButton(String title, String content, String categoryName, String image, String date, Emploi pub) {
          Container cnt = new Container(BoxLayout.y());
          Label dateTxt = new Label(date);
-         Label catTxt = new Label(categoryName.substring(14, pub.getCategoryName().length()-1));
+         Label catTxt = new Label(categoryName);
          Label contentTxt = new Label(content.substring(0, 40).concat("..."));
          Label titleTxt = new Label(title);
          catTxt.setUIID("RedLabel");
          titleTxt.setUIID("Label_3");
-         System.out.println(image.substring(6, pub.getImage().length()-1));
-         //Image img = new Image
-         ImageViewer logo=new ImageViewer();
-	 String img_name="/"+image.substring(6, pub.getImage().length()-1);
-        try {
-            logo.setImage(Image.createImage(img_name));
-            cnt.add(logo);
-        } catch (IOException ex) {
-                       ex.printStackTrace();
-        }
+         Image news;
+            try {
+                news = createImage(Static.News_Emploi_Pic + image);
+                ImageViewer img = new ImageViewer(news);
+                img.getAllStyles().setAlignment(LEFT);
+                cnt.add(img);
+            } catch (IOException ex) {
+                System.out.print(ex);
+            }
       // cnt.add(BorderLayout.CENTER,BoxLayout.encloseY(BoxLayout.encloseX(titleTxt), BoxLayout.encloseX(dateTxt),BoxLayout.encloseX(contentTxt), BoxLayout.encloseX(catTxt)));
       Button myBtn = new Button();
         myBtn.addActionListener(e -> {
-            new Login().showBack(); 
+             new OffreDetail(pub.getTitle(),pub.getContent(),pub.getCategoryName(),pub.getImage()).show();; 
         });
 
       cnt.setLeadComponent(myBtn);

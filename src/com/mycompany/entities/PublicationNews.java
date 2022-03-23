@@ -13,7 +13,6 @@ package com.mycompany.entities;
 public class PublicationNews {
     private int id, views, likes;
     private String title, owner, content, comments, categoryName, date, image;
-
     public PublicationNews() {
     }
 

@@ -10,6 +10,7 @@ import com.codename1.io.ConnectionRequest;
 import com.codename1.io.JSONParser;
 import com.codename1.io.NetworkEvent;
 import com.codename1.io.NetworkManager;
+import com.codename1.processing.Result;
 import com.codename1.ui.events.ActionListener;
 import com.mycompany.entities.PublicationNews;
 import com.mycompany.utils.Static;
@@ -41,21 +42,6 @@ public class ServicePublicationNews {
         request = new ConnectionRequest();
     }
     
-    // add publication 
-    public void addPublication(PublicationNews pub){
-        
-        String url = Static.BASE_URL+"/addpubsJSON/new?title="+ pub.getTitle()+ "&owner=" + pub.getOwner() + "&content=" + pub.getContent();
-        
-        request.setUrl(url);
-        request.addResponseListener((e) -> {
-            String jsonResponse = new String(request.getResponseData());
-            System.out.println(jsonResponse);
-        });
-        //this is needed in order to execute the request, 
-        NetworkManager.getInstance().addToQueueAndWait(request);
-                
-    }
-    
     //display publications 
     
     public ArrayList<PublicationNews> displayPubs(){
@@ -73,7 +59,7 @@ public class ServicePublicationNews {
                     
                     for(Map<String,Object> object : ListOfMaps){
                         PublicationNews pub = new PublicationNews();
-                        
+                        Result result = Result.fromContent(object);
                         //id
                         float id = Float.parseFloat(object.get("id").toString());
                         //title
@@ -83,15 +69,20 @@ public class ServicePublicationNews {
                         //content
                         String content = object.get("content").toString();
                         //category
-                        String categoryName = object.get("categoryName").toString();
-                        //image
-                        String image = object.get("image").toString();
+                        pub.setCategoryName(result.getAsString("categoryName/categoryName"));
+                        //image            
+                        pub.setImage(result.getAsString("image/name"));
+                        //comments 
+                        String comments ="";
+                        if(object.get("comments")!=null)
+                            comments = object.get("comments").toString();
                         pub.setId((int) id);
                         pub.setTitle(title);
                         pub.setContent(content);
                         pub.setOwner(owner);
-                        pub.setCategoryName(categoryName);
-                        pub.setImage(image);
+                        
+                        
+                        pub.setComments(comments);
                         //date
                         //convert date into date format
                         String DateConv = object.get("date").toString().substring(object.get("date").toString().indexOf("timestamp") + 1,object.get("date").toString().lastIndexOf("T"));
@@ -114,7 +105,6 @@ public class ServicePublicationNews {
     public PublicationNews onePublication(int id, PublicationNews pub){
         
         String url = Static.BASE_URL+"/onepubjson/"+id;
-        //String res = new String(request.getResponseData());
         request.setUrl(url);
         
         request.addResponseListener((e) -> {
