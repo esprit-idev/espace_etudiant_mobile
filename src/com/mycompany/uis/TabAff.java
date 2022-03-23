@@ -32,6 +32,8 @@ public class TabAff extends Form {
     public TabAff(){
         setScrollableY(true);
         setLayout(new FlowLayout(LEFT,TOP));
+        int admin=0;
+        setLayout(new FlowLayout(CENTER, CENTER));
         setTitle("Tableau d'affichage");
         Toolbar tb = getToolbar();
         //tableau d'affichage
@@ -41,6 +43,34 @@ public class TabAff extends Form {
                     new TabAff().show();
             }
         });
+        if(admin==1){
+            //etudiants
+        tb.addMaterialCommandToSideMenu("Etudiants", FontImage.MATERIAL_PEOPLE, new ActionListener<ActionEvent>() {
+            public void actionPerformed(ActionEvent evt) {
+                //liste des etudaints pour backoffice
+            }
+        });
+            //administrateurs
+        tb.addMaterialCommandToSideMenu("Admins", FontImage.MATERIAL_PEOPLE, new ActionListener<ActionEvent>() {
+            public void actionPerformed(ActionEvent evt) {
+                //liste des administrateurs pour backoffice
+            }
+        });
+        
+            //niveaux d'études
+        tb.addMaterialCommandToSideMenu("Niveaux d'études", FontImage.MATERIAL_SCHOOL, new ActionListener<ActionEvent>() {
+            public void actionPerformed(ActionEvent evt) {
+                //liste des niveaux d'études pour backoffice
+            }
+        });
+        
+            //matières
+        tb.addMaterialCommandToSideMenu("Matières", FontImage.MATERIAL_MENU_BOOK, new ActionListener<ActionEvent>() {
+            public void actionPerformed(ActionEvent evt) {
+                //new MatiereList().show();
+            }
+        });
+        }
 
         //forum
         tb.addMaterialCommandToSideMenu("Forum", FontImage.MATERIAL_FORUM, new ActionListener<ActionEvent>() {
@@ -49,16 +79,9 @@ public class TabAff extends Form {
             }
         });
         //clubs
-        tb.addMaterialCommandToSideMenu("Clubs", FontImage.MATERIAL_PEOPLE, new ActionListener() {
+        tb.addMaterialCommandToSideMenu("Clubs", FontImage.MATERIAL_GROUPS, new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                try {
-                   new ClubsList().show();
-                } catch (IOException ex) {
-                    ToastBar.Status status = ToastBar.getInstance().createStatus();
-                    status.setMessage(ex.toString());
-                    status.setExpires(3000);  // only show the status for 3 seconds, then have it automatically clear
-                    status.show();
-                } 
+                new ClubsList().show(); // only show the status for 3 seconds, then have it automatically clear
             }
         });
 
@@ -69,12 +92,14 @@ public class TabAff extends Form {
             }
         });
 
-        //profile
+        if(admin!=1){
+            //profile
         tb.addMaterialCommandToSideMenu("Mon profile", FontImage.MATERIAL_SUPERVISOR_ACCOUNT, new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 new Profile().show();
             }
         });
+        }
 
         //centre de partage
         tb.addMaterialCommandToSideMenu("Centre de partage", FontImage.MATERIAL_ATTACH_FILE, new ActionListener() {
@@ -94,10 +119,8 @@ public class TabAff extends Form {
         ArrayList<PublicationNews> listPub = ServicePublicationNews.getInstance().displayPubs();
         
         //loop through the publications
-        for(PublicationNews pub : listPub){
-            
+        for(PublicationNews pub : listPub){            
             display(pub.getTitle(),pub.getContent(),pub.getCategoryName(),pub.getImage(), pub.getDate(),pub);
-        
         }    
 	}
     
