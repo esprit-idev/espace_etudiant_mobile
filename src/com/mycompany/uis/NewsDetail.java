@@ -7,6 +7,7 @@ package com.mycompany.uis;
 
 import com.codename1.components.ImageViewer;
 import com.codename1.components.SpanLabel;
+import com.codename1.components.ToastBar;
 import static com.codename1.ui.Component.CENTER;
 import static com.codename1.ui.Component.LEFT;
 import static com.codename1.ui.Component.RIGHT;
@@ -21,19 +22,25 @@ import com.codename1.ui.BrowserComponent;
 import com.codename1.ui.Button;
 import com.codename1.ui.Component;
 import static com.codename1.ui.Component.LEFT;
+import com.codename1.ui.Dialog;
 import com.codename1.ui.Font;
+import com.codename1.ui.FontImage;
 import com.codename1.ui.Image;
 import static com.codename1.ui.Image.createImage;
 import com.codename1.ui.Stroke;
 import com.codename1.ui.TextArea;
 import com.codename1.ui.TextComponent;
 import com.codename1.ui.TextField;
+import com.codename1.ui.animations.CommonTransitions;
 import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.GridLayout;
 import com.codename1.ui.layouts.LayeredLayout;
 import com.codename1.ui.plaf.RoundRectBorder;
 import com.codename1.ui.plaf.Style;
+import com.mycompany.entities.PublicationNews;
+import com.mycompany.services.ClubPubService;
+import com.mycompany.services.ServicePublicationNews;
 import com.mycompany.utils.Static;
 import java.io.IOException;
 
@@ -43,21 +50,28 @@ import java.io.IOException;
  */
 public class NewsDetail extends Form {
     
-    public NewsDetail(String Title,String Content, String Owner, String Category,String comments, String NewsImg){
-                Toolbar tb=getToolbar();
+    public NewsDetail(int Id,String Title,String Content, String Owner, String Category,String comments, String NewsImg,PublicationNews pub){
+        int admin = 1;        
+        Toolbar tb=getToolbar();
+        Form previous = Display.getInstance().getCurrent();
+        tb.setBackCommand("", e -> previous.showBack());
+            if (admin == 1) {
+                tb.addMaterialCommandToRightBar("", FontImage.MATERIAL_MORE_VERT, new ActionListener() {
+                    public void actionPerformed(ActionEvent evt) {
+                        new NewsSheet(null, Id, Title,Owner,Content,Category,previous).show();
+                    }
+                });
+            }
                 setScrollableY(true);
 		Container cnt = new Container();
-               cnt.setLayout(new BoxLayout(BoxLayout.Y_AXIS));
+                cnt.setLayout(new BoxLayout(BoxLayout.Y_AXIS));
 		setTitle(Title);
-		Form previous = Display.getInstance().getCurrent();
-                BrowserComponent browser = new BrowserComponent();
-		tb.setBackCommand("", e -> previous.showBack());
+		
                 Label titleTxt = new Label(Title);
                 Label catTxt = new Label(Category);
                 Label ownerTxt = new Label("Ecrit par : " +Owner);
                 Label commentsArea = new Label("Commentaires");
                 SpanLabel contentTxt = new SpanLabel(Content);
-               
                 Font clubDescrFont = Font.createTrueTypeFont("dss", "Poppins-Regular.ttf").
                     derive(40, Font.STYLE_BOLD);
                 titleTxt.setUIID("WelcomeTitle");
@@ -112,7 +126,8 @@ public class NewsDetail extends Form {
                 } catch (IOException ex) {
                     System.out.print(ex);
                 }
-                cnt.add(titleTxt);
+                
+               // cnt.add(titleTxt);
                 cnt.add(ownerTxt);
                 cnt.add(catTxt);
                 cnt.add(contentTxt);

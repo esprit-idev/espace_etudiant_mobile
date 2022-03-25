@@ -1,5 +1,6 @@
 package com.mycompany.uis;
 
+import com.codename1.components.FloatingActionButton;
 import com.codename1.components.ImageViewer;
 import com.codename1.ui.Button;
 import com.codename1.components.ToastBar;
@@ -17,6 +18,8 @@ import static com.codename1.ui.Image.createImage;
 import com.codename1.ui.Label;
 import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.layouts.BoxLayout;
+import com.codename1.ui.plaf.Border;
+import com.codename1.ui.plaf.RoundBorder;
 import com.codename1.ui.plaf.RoundRectBorder;
 import com.codename1.ui.plaf.Style;
 import com.mycompany.entities.PublicationNews;
@@ -32,7 +35,7 @@ public class TabAff extends Form {
     public TabAff(){
         setScrollableY(true);
         setLayout(new FlowLayout(LEFT,TOP));
-        int admin=0;
+        int admin=1;
         setLayout(new FlowLayout(CENTER, CENTER));
         setTitle("Tableau d'affichage");
         Toolbar tb = getToolbar();
@@ -70,6 +73,27 @@ public class TabAff extends Form {
                 //new MatiereList().show();
             }
         });
+        //categorie publication
+         tb.addMaterialCommandToSideMenu("Categorie News", FontImage.MATERIAL_MENU_BOOK, new ActionListener<ActionEvent>() {
+            public void actionPerformed(ActionEvent evt) {
+                new NewsCategory().show();
+            }
+        });
+         //categorie e;plois
+         tb.addMaterialCommandToSideMenu("Categorie Emplois", FontImage.MATERIAL_MENU_BOOK, new ActionListener<ActionEvent>() {
+            public void actionPerformed(ActionEvent evt) {
+                new OffreCategory().show();
+            }
+        });
+        //fab button to add news:
+         FloatingActionButton fab = FloatingActionButton.createFAB(FontImage.MATERIAL_ADD);
+            RoundBorder rb = (RoundBorder) fab.getUnselectedStyle().getBorder();
+            rb.uiid(true);
+            fab.bindFabToContainer(getContentPane());
+            fab.addActionListener(e -> {
+                new NewsAdd().show();
+            });
+
         }
 
         //forum
@@ -128,28 +152,42 @@ public class TabAff extends Form {
          Container cnt = new Container(new BoxLayout(BoxLayout.Y_AXIS));    
          Label dateTxt = new Label(date);
          Label catTxt = new Label(categoryName);
-         Label contentTxt = new Label(content.concat("..."));
+         Label contentTxt = new Label(content);
          Label titleTxt = new Label(title);
          catTxt.setUIID("RedLabel");
          titleTxt.setUIID("Label_3");
          dateTxt.setTextPosition(RIGHT);
-          Container cardTitle = new Container();
-          cardTitle.setLayout(new BoxLayout(BoxLayout.X_AXIS));
-          Container cardContent = new Container();
-          cardContent.setLayout(new BoxLayout(BoxLayout.X_AXIS));
-          Container card = new Container(new BoxLayout(BoxLayout.Y_AXIS));
-           Style cardFooterStyles = cardTitle.getUnselectedStyle();
-            cardFooterStyles.setBgColor(0xF3F3F3);
-            cardFooterStyles.setBgTransparency(255);
-            cardFooterStyles.setPadding(10, 10, 20, 20);
+         /*
+            Container header
+         */
+         Container cardTitle = new Container();
+         cardTitle.setLayout(new BoxLayout(BoxLayout.X_AXIS));
+          Style cardTitleStyles = cardTitle.getUnselectedStyle();
+            cardTitleStyles.setBgColor(0xF3F3F3);
+            cardTitleStyles.setBgTransparency(255);
+            cardTitleStyles.setPadding(10, 10, 20, 20);
+            cardTitleStyles.setBorder(RoundRectBorder.create().
+                            bottomOnlyMode(true).
+                            strokeColor( 0x858585).
+                            strokeOpacity(999999));
+         /*
+            Container content
+         */
+         Container cardContent = new Container();
+         cardContent.setLayout(new BoxLayout(BoxLayout.X_AXIS));
+         Container cardInfo = new Container(new BoxLayout(BoxLayout.Y_AXIS));
            Style cardContentStyles = cardContent.getUnselectedStyle();
             cardContentStyles.setBgColor(0xF3F3F3);
             cardContentStyles.setBgTransparency(255);
             cardContentStyles.setMarginBottom(30);
             cardContentStyles.setPadding(10, 10, 20, 20);
+
+         /*
+            Image
+         */
          Image news;
             try {
-                news = createImage(Static.News_Emploi_Pic + newsImg);
+                news = createImage(Static.News_Emploi_Pic + newsImg).fill(300, 300);
                 ImageViewer img = new ImageViewer(news);
                 img.getAllStyles().setAlignment(LEFT);
                 cardTitle.add(img);
@@ -158,15 +196,13 @@ public class TabAff extends Form {
             }
         Button myBtn = new Button();
         myBtn.addActionListener(e -> {
-           new NewsDetail(pub.getTitle(),pub.getContent(),pub.getOwner(),pub.getCategoryName(),pub.getComments(),pub.getImage()).show();
-     
-        
+           new NewsDetail(pub.getId(),pub.getTitle(),pub.getContent(),pub.getOwner(),pub.getCategoryName(),pub.getComments(),pub.getImage(),pub).show();
         });
-        cardTitle.add(title);
-        card.add(dateTxt);
-        card.add(catTxt);
-        card.add(contentTxt);
-        cardContent.add(card);
+        cardTitle.add(titleTxt);
+        cardInfo.add(dateTxt);
+        cardInfo.add(catTxt);
+        cardInfo.add(contentTxt);
+        cardContent.add(cardInfo);
         cnt.setLeadComponent(myBtn);
         cnt.add(cardTitle);
         cnt.add(cardContent);

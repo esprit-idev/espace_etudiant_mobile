@@ -40,6 +40,15 @@ public class PublicationNews {
         this.date = date;
     }
 
+    public PublicationNews(String title, String owner, String content, String categoryName, String date, String image) {
+        this.title = title;
+        this.owner = owner;
+        this.content = content;
+        this.categoryName = categoryName;
+        this.date = date;
+        this.image = image;
+    }
+
     public int getId() {
         return id;
     }

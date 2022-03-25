@@ -24,7 +24,8 @@ import java.util.Map;
  * @author Eslem Nabitt
  */
 public class ServicePublicationNews {
-    
+    //return result state
+    boolean resultOk;
     //we declare the singleton : to ensure that we have one instance of our object
     public static ServicePublicationNews instance = null;
     
@@ -65,13 +66,16 @@ public class ServicePublicationNews {
                         //title
                         String title = object.get("title").toString();
                         //owner
-                        String owner = object.get("owner").toString();
+                        String owner="";
+                        if(owner != null){
+                            owner = object.get("owner").toString();
+                        }
                         //content
                         String content = object.get("content").toString();
                         //category
                         pub.setCategoryName(result.getAsString("categoryName/categoryName"));
                         //image            
-                        pub.setImage(result.getAsString("image/name"));
+                        pub.setImage(result.getAsString("image"));
                         //comments 
                         String comments ="";
                         if(object.get("comments")!=null)
@@ -101,7 +105,7 @@ public class ServicePublicationNews {
     }
     
     //display onePublication
-    
+  
     public PublicationNews onePublication(int id, PublicationNews pub){
         
         String url = Static.BASE_URL+"/onepubjson/"+id;
@@ -125,5 +129,51 @@ public class ServicePublicationNews {
         
     }
     
+    // add publication 
+    public boolean addPublication(PublicationNews pub){ 
+        String url = Static.BASE_URL+"/addpubsJSON/new?title="+ pub.getTitle()+ "&owner=" + pub.getOwner() + "&content=" + pub.getContent().toString() + "&categoryName=" + pub.getCategoryName()+ "&image=" + pub.getImage();
+        request.setUrl(url);
+        request.addResponseListener(new ActionListener<NetworkEvent>() {
+            @Override
+            public void actionPerformed(NetworkEvent evt) {
+                resultOk = request.getResponseCode() == 200;
+                request.removeResponseListener(this);
+            }
+        });
+        NetworkManager.getInstance().addToQueueAndWait(request);
+        return resultOk;
+    }
+    
+    //update publication
+     public boolean updatePublicationNews(int id,String title, String owner, String content, String categoryName, String image) {
+            String url = Static.BASE_URL + "/updatepubsJSON/"+id + "?title=" + title + "&owner=" + owner + "&content=" + content +"&categoryName=" + categoryName + "&image=" + image;
+            request.setUrl(url);
+            request.addResponseListener(new ActionListener<NetworkEvent>() {
+            @Override
+            public void actionPerformed(NetworkEvent evt) {
+                resultOk = request.getResponseCode() == 200; 
+                request.removeResponseListener(this);
+            }
+        });
+        NetworkManager.getInstance().addToQueueAndWait(request);
+        return resultOk;
+    }
+    //delete publication 
+     
+    public boolean deletePublicationNews(int id) {
+        String url = Static.BASE_URL + "/deletepubsJSON/" + id;
+        request.setUrl(url);
+        request.addResponseListener(new ActionListener<NetworkEvent>() {
+            @Override
+            public void actionPerformed(NetworkEvent evt) {
+                 resultOk = request.getResponseCode() == 200;
+
+                request.removeResponseListener(this);
+            }
+        });
+        NetworkManager.getInstance().addToQueueAndWait(request);
+        return resultOk;
+
+    }
     
 }

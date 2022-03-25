@@ -26,11 +26,12 @@ public class Emploi {
         this.image = image;
     }
 
-    public Emploi(String title, String content, String categoryName, String date) {
+    public Emploi(String title, String content, String categoryName, String date, String image) {
         this.title = title;
         this.content = content;
         this.categoryName = categoryName;
         this.date = date;
+        this.image = image;
     }
 
     public int getId() {
