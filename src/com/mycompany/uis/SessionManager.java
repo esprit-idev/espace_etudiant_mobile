@@ -25,6 +25,7 @@ public class SessionManager {
     private static String image;
     private static String roles;
     private static Boolean isBanned;
+    private static String prenom;
 
 
     public static Preferences getPref() {
@@ -88,5 +89,11 @@ public class SessionManager {
     public static void setIsBanned(Boolean isBanned) {
          pref.set("isBanned",isBanned);}
     
-    
+    public static String getPrenom() {
+        return pref.get("prenom",prenom);
+    }
+
+    public static void setPrenom(String prenom) {
+         pref.set("prenom",prenom);
+    }
 }
