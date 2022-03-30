@@ -1,13 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.mycompany.entities;
+
 
 /**
  *
  * @author aa
  */
+
 public class User {
          private int id ;
     private String username,prenom,email,password , image , roles;
@@ -30,6 +29,15 @@ public class User {
         this.email=email;
         this.password=password;
     }
+
+     public User(String username ,String prenom , String email ){
+      ;
+        this.username=username ;
+        this.prenom=prenom ;
+        this.email=email;
+    
+    }
+
     
     
      public User(String username  ,String password ){

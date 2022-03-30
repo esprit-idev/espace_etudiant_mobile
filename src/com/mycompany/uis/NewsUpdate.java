@@ -32,6 +32,7 @@ import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.ui.layouts.FlowLayout;
 import com.codename1.ui.plaf.Style;
 import com.codename1.ui.util.ImageIO;
+import com.codename1.ui.util.Resources;
 import com.mycompany.entities.CategoryNews;
 import com.mycompany.entities.PublicationNews;
 import com.mycompany.services.ServiceCategoryNews;
@@ -48,7 +49,7 @@ import java.util.ArrayList;
  * @author eslem
  */
 public class NewsUpdate extends Form{
-    public NewsUpdate(int id,String title, String owner, String content,String categoryName){
+    public NewsUpdate(Resources res ,int id,String title, String owner, String content,String categoryName){
         Toolbar tb = getToolbar();
         setLayout(new FlowLayout(CENTER, CENTER));
         setTitle("Modifier " + title);
@@ -183,7 +184,7 @@ public class NewsUpdate extends Form{
                         ToastBar.showMessage("Publication Modifie", FontImage.MATERIAL_CHECK_CIRCLE);
                         setTransitionOutAnimator(CommonTransitions.createSlide(CommonTransitions.SLIDE_HORIZONTAL, true, Integer.parseInt("200")));
 
-                        new TabAff().show();
+                        new TabAff(res).show();
                     } else {
                         //error toast
                         ToastBar.showMessage("Une erreur est survenue lors de la modification", FontImage.MATERIAL_ERROR);
