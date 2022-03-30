@@ -106,8 +106,8 @@
             <entry key="Calendar.Thursday" value="Thu" />
             <entry key="ok" value="OK" />
             <entry key="Calendar.Saturday" value="Sat" />
-            <entry key="Calendar.Friday" value="Fri" />
             <entry key="select" value="Select" />
+            <entry key="Calendar.Friday" value="Fri" />
             <entry key="edit" value="Edit" />
             <entry key="Calendar.Monday" value="Mon" />
             <entry key="cancel" value="Cancel" />
@@ -122,8 +122,8 @@
             <entry key="Calendar.Thursday" value="Thu" />
             <entry key="ok" value="OK" />
             <entry key="Calendar.Saturday" value="Sat" />
-            <entry key="select" value="Select" />
             <entry key="Calendar.Friday" value="Fri" />
+            <entry key="select" value="Select" />
             <entry key="edit" value="Edit" />
             <entry key="Calendar.Monday" value="Mon" />
             <entry key="cancel" value="Cancel" />
@@ -471,7 +471,8 @@
         <val key="FloatingActionButton.bgColor" value="54b48c" />
         <gradient key="FloatingActionButton.bgGradient" color1="5551244" color2="5551244" posX="0.5" posY="0.5" radius="1.0" />
         <val key="FloatingActionButton.bgType" value="6" />
-        <border key="FloatingActionButton.border" type="round" roundBorderColor="5551244" opacity="255" strokeColor="0" strokeOpacity="255" strokeThickness="0.0" strokeMM="false" shadowSpread="10" shadowOpacity="0" shadowX="0.5" shadowY="0.5" shadowBlur="10.0" shadowMM="false" rectangle="false" />
+        <border key="FloatingActionButton.border" type="round" roundBorderColor="5551244" opacity="255" strokeColor="1" strokeOpacity="255" strokeThickness="0.0" strokeMM="false" shadowSpread="10" shadowOpacity="0" shadowX="0.5" shadowY="0.5" shadowBlur="10.0" shadowMM="false" rectangle="false" />
+        <font key="FloatingActionButton.font" type="system" face="0" style="0" size="0" />
         <val key="FloatingActionButton.press#align" value="4" />
         <val key="FloatingActionButton.press#bgColor" value="54b48c" />
         <gradient key="FloatingActionButton.press#bgGradient" color1="5551244" color2="5551244" posX="0.5" posY="0.5" radius="1.0" />
@@ -499,6 +500,12 @@
         <border key="FloatingActionButtonClose.sel#border" type="round" roundBorderColor="3688278" opacity="255" strokeColor="0" strokeOpacity="255" strokeThickness="0.0" strokeMM="false" shadowSpread="10" shadowOpacity="0" shadowX="0.5" shadowY="0.5" shadowBlur="10.0" shadowMM="false" rectangle="false" />
         <val key="FloatingActionButtonClose.sel#derive" value="FloatingActionButton" />
         <val key="FloatingActionButtonClose.sel#fgColor" value="ffffff" />
+        <val key="ForumLabel.fgColor" value="0" />
+        <font key="ForumLabel.font" type="ttf" face="0" style="1" size="0" name="native:MainLight" family="native:MainLight" sizeSettings="3" actualSize="6.0" />
+        <val key="ForumLabel.margin" value="3.0,0.0,8.0,8.0" />
+        <val key="ForumLabel.padUnit" value="0,2,0,2" />
+        <val key="ForumLabel.padding" value="3.0,1.0,3.0,3.0" />
+        <val key="ForumLabel.transparency" value="0" />
         <val key="GetStartedButton.fgColor" value="ffffff" />
         <font key="GetStartedButton.font" type="ttf" face="0" style="0" size="0" name="native:MainLight" family="native:MainLight" sizeSettings="3" actualSize="3.0" />
         <val key="GetStartedButton.press#fgColor" value="ffffff" />
@@ -996,14 +1003,22 @@
         <val key="StatsForm.margin" value="0.0,0.0,0.0,0.0" />
         <val key="StatsForm.padding" value="0.0,0.0,0.0,0.0" />
         <val key="StatsForm.transparency" value="255" />
-        <val key="StatsLabel.align" value="4" />
+        <val key="StatsLabel.align" value="1" />
         <val key="StatsLabel.fgColor" value="627485" />
-        <font key="StatsLabel.font" type="ttf" face="0" style="0" size="0" name="native:MainLight" family="native:MainLight" sizeSettings="3" actualSize="2.0" />
-        <val key="StatsLabel.margin" value="0.0,0.0,0.0,0.0" />
+        <font key="StatsLabel.font" type="ttf" face="0" style="0" size="0" name="native:MainLight" family="native:MainLight" sizeSettings="3" actualSize="4.0" />
+        <val key="StatsLabel.margin" value="0.0,0.0,5.0,0.0" />
         <val key="StatsLabel.padUnit" value="2,2,2,2" />
         <val key="StatsLabel.padding" value="1.0,1.0,1.0,1.0" />
         <val key="StatsLabel.transparency" value="0" />
         <val key="StausBar.transparency" value="0" />
+        <val key="ThreadLabel.align" value="4" />
+        <val key="ThreadLabel.fgColor" value="54b48c" />
+        <font key="ThreadLabel.font" type="ttf" face="0" style="1" size="0" name="Poppins-Regular.ttf" family="Poppins-Regular" sizeSettings="3" actualSize="8.0" />
+        <val key="ThreadLabel.margin" value="3.0,0.0,8.0,8.0" />
+        <val key="ThreadLabel.padUnit" value="0,2,0,2" />
+        <val key="ThreadLabel.padding" value="3.0,1.0,3.0,3.0" />
+        <val key="ThreadLabel.textDecoration" value="16" />
+        <val key="ThreadLabel.transparency" value="0" />
         <val key="TinyBoldLabel.fgColor" value="3c4f5e" />
         <font key="TinyBoldLabel.font" type="ttf" face="0" style="0" size="0" name="native:MainBold" family="native:MainBold" sizeSettings="3" actualSize="1.5" />
         <val key="TinyBoldLabel.margin" value="0.0,0.0,0.0,0.0" />
@@ -1133,6 +1148,13 @@
         <val key="accrHead.sel#fgColor" value="ffffff" />
         <val key="accrHead.sel#transparency" value="255" />
         <val key="accrHead.transparency" value="255" />
+        <val key="addBtn.align" value="4" />
+        <val key="addBtn.bgColor" value="54b48c" />
+        <gradient key="addBtn.bgGradient" color1="5551244" color2="5551244" posX="1.0" posY="1.0" radius="2.0" />
+        <val key="addBtn.bgType" value="6" />
+        <border key="addBtn.border" type="round" roundBorderColor="5551244" opacity="255" strokeColor="1" strokeOpacity="255" strokeThickness="0.0" strokeMM="false" shadowSpread="10" shadowOpacity="0" shadowX="0.5" shadowY="0.5" shadowBlur="10.0" shadowMM="false" rectangle="false" />
+        <font key="addBtn.font" type="ttf" face="0" style="1" size="16" name="Poppins-Regular.ttf" family="Poppins-Regular" sizeSettings="2" actualSize="12.0" />
+        <val key="addBtn.transparency" value="0" />
         <val key="addImgBtn.align" value="4" />
         <val key="addImgBtn.bgColor" value="1c2424" />
         <border key="addImgBtn.border" type="rounded" thickness="0.0" arcW="30" arcH="30" color="1844260" />
@@ -1209,6 +1231,13 @@
         <val key="btnFilePub.sel#transparency" value="0" />
         <val key="btnFilePub.textDecoration" value="1" />
         <val key="btnFilePub.transparency" value="0" />
+        <val key="dateLabel.fgColor" value="36b239" />
+        <font key="dateLabel.font" type="ttf" face="0" style="0" size="0" name="native:MainLight" family="native:MainLight" sizeSettings="3" actualSize="2.5" />
+        <val key="dateLabel.marUnit" value="0,2,0,2" />
+        <val key="dateLabel.margin" value="10.0,0.0,40.0,0.0" />
+        <val key="dateLabel.padUnit" value="2,2,2,2" />
+        <val key="dateLabel.padding" value="1.0,1.0,20.0,0.0" />
+        <val key="dateLabel.transparency" value="0" />
         <val key="pubsButtons.align" value="4" />
         <border key="pubsButtons.border" type="round" roundBorderColor="1844260" opacity="255" strokeColor="0" strokeOpacity="255" strokeThickness="0.0" strokeMM="false" shadowSpread="10" shadowOpacity="0" shadowX="0.5" shadowY="0.5" shadowBlur="10.0" shadowMM="false" rectangle="false" />
         <val key="pubsButtons.fgColor" value="ffffff" />
@@ -1227,6 +1256,14 @@
         <font key="pubsButtons.sel#font" type="system" face="0" style="0" size="0" />
         <val key="pubsButtons.sel#padUnit" value="2,2,2,2" />
         <val key="pubsButtons.sel#padding" value="1.0,1.0,1.0,1.0" />
+        <val key="reponseLabel.align" value="1" />
+        <val key="reponseLabel.fgColor" value="6c7b8a" />
+        <font key="reponseLabel.font" type="ttf" face="0" style="0" size="0" name="native:MainLight" family="native:MainLight" sizeSettings="3" actualSize="5.5" />
+        <val key="reponseLabel.marUnit" value="0,2,0,2" />
+        <val key="reponseLabel.margin" value="3.0,0.0,13.0,0.0" />
+        <val key="reponseLabel.padUnit" value="2,2,2,2" />
+        <val key="reponseLabel.padding" value="1.0,1.0,1.0,1.0" />
+        <val key="reponseLabel.transparency" value="0" />
     </theme>
     <image name="toolbar-profile-pic.png" type="multi"  />
     <image name="toolbar-profile-pic.png1" type="multi"  />

@@ -26,7 +26,7 @@ public class TabAff extends BaseForm {
     }
 
     public TabAff(Resources res) {
-        int admin=0;
+        int admin=1;
         setLayout(new FlowLayout(CENTER, CENTER));
         setTitle("Tableau d'affichage");
         Toolbar tb = getToolbar();
@@ -69,6 +69,12 @@ public class TabAff extends BaseForm {
         tb.addMaterialCommandToSideMenu("Forum", FontImage.MATERIAL_FORUM, new ActionListener<ActionEvent>() {
             public void actionPerformed(ActionEvent evt) {
                 new Forum().show();
+            }
+        });
+        
+        tb.addMaterialCommandToSideMenu("Topic", FontImage.MATERIAL_WORK, new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                new Topic().show();
             }
         });
         //clubs
