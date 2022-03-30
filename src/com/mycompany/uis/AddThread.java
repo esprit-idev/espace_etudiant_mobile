@@ -57,7 +57,7 @@ public class AddThread extends Form{
               t.setDisplay(false);
               
               t.setPostDate((new Date()).toString());
-              if (ThreadService.getInstance().addThread(t,p.getSelectedString())){
+              if (ThreadService.getInstance().addThread(t,p.getSelectedString(),SessionManager.getId())){
               Dialog.show("Success","Connection accepted", new Command("OK"));
               }
               else {

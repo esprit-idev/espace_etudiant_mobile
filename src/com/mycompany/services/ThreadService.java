@@ -45,8 +45,8 @@ public class ThreadService {
         return instance;
     }
     
-    public boolean addThread(Thread t,String type){
-        String url = Static.BASE_URL+"/thread/addThread/"+t.getQuestion()+"/"+"1"+"/"+type;
+    public boolean addThread(Thread t,String type,int id){
+        String url = Static.BASE_URL+"/thread/addThread/"+t.getQuestion()+"/"+id+"/"+type;
         ConnectionRequest req = new ConnectionRequest(url);
         req.addResponseListener(new ActionListener<NetworkEvent>(){
         @Override

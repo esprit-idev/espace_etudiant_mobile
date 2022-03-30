@@ -12,24 +12,26 @@ package com.mycompany.entities;
  */
 public class Emploi {
     private int id;
-    private String title,content,categoryName,date;
+    private String title,content,categoryName,date, image;
 
     public Emploi() {
     }
 
-    public Emploi(int id, String title, String content, String categoryName, String date) {
+    public Emploi(int id, String title, String content, String categoryName, String date, String image) {
         this.id = id;
         this.title = title;
         this.content = content;
         this.categoryName = categoryName;
         this.date = date;
+        this.image = image;
     }
 
-    public Emploi(String title, String content, String categoryName, String date) {
+    public Emploi(String title, String content, String categoryName, String date, String image) {
         this.title = title;
         this.content = content;
         this.categoryName = categoryName;
         this.date = date;
+        this.image = image;
     }
 
     public int getId() {
@@ -70,6 +72,14 @@ public class Emploi {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
     
 }

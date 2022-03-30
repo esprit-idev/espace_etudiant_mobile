@@ -34,7 +34,14 @@ import java.util.Date;
 public class ThreadShow extends Form {
     public ThreadShow(Form previous,Thread t){
         
-        int admin = 1;
+        int admin;
+        if(SessionManager.getRoles()=="ROLE_ADMIN")
+        {
+            admin = 1;
+        }
+        else{
+            admin =0;
+        }
         String[] id = Util.split(t.getId(),".");
         ArrayList<Reponse> Reponses = new ArrayList(ReponseService.getInstance().getAllReponses(Integer.parseInt(id[0])));
         

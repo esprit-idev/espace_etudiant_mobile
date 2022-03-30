@@ -1182,7 +1182,7 @@
         <val key="addPubBtn.bgType" value="7" />
         <border key="addPubBtn.border" type="roundRect" strokeColor="0" strokeOpacity="255" strokeThickness="0.0" strokeMM="false" shadowSpread="10.0" shadowOpacity="0" shadowX="0.5" shadowY="0.5" shadowBlur="10.0" topOnlyMode="false" bottomOnlyMode="false" cornerRadius="2.0" bezierCorners="false" />
         <val key="addPubBtn.fgColor" value="ffffff" />
-        <font key="addPubBtn.font" type="ttf" face="0" style="0" size="0" name="Poppins-Regular.ttf" family="Poppins-Regular" sizeSettings="1" actualSize="12.0" />
+        <font key="addPubBtn.font" type="system" face="0" style="0" size="0" />
         <val key="addPubBtn.marUnit" value="2,2,2,2" />
         <val key="addPubBtn.margin" value="3.0,3.0,2.0,2.0" />
         <val key="addPubBtn.padding" value="4.0,4.0,4.0,4.0" />
@@ -1191,7 +1191,7 @@
         <val key="addPubBtn.press#bgType" value="7" />
         <border key="addPubBtn.press#border" type="roundRect" strokeColor="0" strokeOpacity="255" strokeThickness="0.0" strokeMM="false" shadowSpread="10.0" shadowOpacity="0" shadowX="0.5" shadowY="0.5" shadowBlur="10.0" topOnlyMode="false" bottomOnlyMode="false" cornerRadius="2.0" bezierCorners="false" />
         <val key="addPubBtn.press#fgColor" value="ffffff" />
-        <font key="addPubBtn.press#font" type="ttf" face="0" style="0" size="0" name="Poppins-Regular.ttf" family="Poppins-Regular" sizeSettings="1" actualSize="12.0" />
+        <font key="addPubBtn.press#font" type="system" face="0" style="0" size="0" />
         <val key="addPubBtn.press#marUnit" value="2,2,2,2" />
         <val key="addPubBtn.press#margin" value="1.0,1.0,1.0,1.0" />
         <val key="addPubBtn.press#padUnit" value="2,2,2,2" />

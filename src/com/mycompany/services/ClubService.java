@@ -14,6 +14,7 @@ import com.codename1.processing.Result;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.util.StringUtil;
 import com.mycompany.entities.Club;
+import com.mycompany.entities.User;
 import com.mycompany.utils.Static;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -26,6 +27,8 @@ import java.util.Map;
 public class ClubService {
 
     public ArrayList<Club> clubs = new ArrayList<>();
+    public ArrayList<User> users = new ArrayList<>();
+
     public static ClubService instance;
     public ConnectionRequest request;
     public boolean resultOk;
@@ -52,12 +55,9 @@ public class ClubService {
                 Result result = Result.fromContent(obj);
                 Club club = new Club();
 
-                try {
+                
                     club.setClubId(Util.split(obj.get("id").toString(), ".")[0]);
-                } catch (Exception e) {
-                    club.setClubId(Util.split(obj.get("id").toString(), ".")[0]);
-
-                }
+                
                 club.setClubName(obj.get("clubNom").toString());
                 club.setClubDesc(obj.get("clubDescription").toString());
                 club.setClubCategorie(result.getAsString("clubCategorie/categorieNom"));
@@ -174,6 +174,52 @@ public class ClubService {
         NetworkManager.getInstance().addToQueueAndWait(request);
 
         return clubimg;
+    }
+
+    public ArrayList<User> parseUsers(String jsonText) {
+        try {
+            users = new ArrayList<>();
+            JSONParser j = new JSONParser();
+            Map<String, Object> usersListJSON = j.parseJSON(new CharArrayReader(jsonText.toCharArray()));
+            ArrayList<Map<String, Object>> list = (ArrayList<Map<String, Object>>) usersListJSON.get("root");
+            for (Map<String, Object> obj : list) {
+                User user = new User();
+                user.setId(Integer.parseInt(Util.split(obj.get("id").toString(), ".")[0]));
+                user.setEmail(obj.get("email").toString());
+                users.add(user);
+            }
+        } catch (IOException e) {
+        }
+        return users;
+    }
+    
+    public ArrayList<User> addClubUsers() {
+        String url = Static.BASE_URL + "/UsersAddClub";
+        request.setUrl(url);
+        request.setPost(false);
+        request.addResponseListener(new ActionListener<NetworkEvent>() {
+            @Override
+            public void actionPerformed(NetworkEvent evt) {
+                users = parseUsers(new String(request.getResponseData()));
+                request.removeResponseListener(this);
+            }
+        });
+        NetworkManager.getInstance().addToQueueAndWait(request);
+        return users;
+    }
+    public ArrayList<User> updateClubUsers(String idClub) {
+        String url = Static.BASE_URL + "/UsersUpdateClub/"+idClub;
+        request.setUrl(url);
+        request.setPost(false);
+        request.addResponseListener(new ActionListener<NetworkEvent>() {
+            @Override
+            public void actionPerformed(NetworkEvent evt) {
+                users = parseUsers(new String(request.getResponseData()));
+                request.removeResponseListener(this);
+            }
+        });
+        NetworkManager.getInstance().addToQueueAndWait(request);
+        return users;
     }
 
 }

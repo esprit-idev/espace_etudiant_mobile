@@ -34,7 +34,7 @@ public class ServiceNiveau {
     }
     
     public ArrayList<Niveau> getAllNiveaux(){
-        String url=Static.BASE_URL+"/allNiveaux";
+        String url=Static.BASE_URL+"/niveaujson";
         req.setUrl(url);
         req.setPost(false);
         req.addResponseListener(new ActionListener<NetworkEvent>() {
@@ -64,4 +64,37 @@ public class ServiceNiveau {
         }
         return niveaux;
     }
+    
+    
+    
+    public void DeleteNiveau(String id){
+        String url=Static.BASE_URL+"/suppn?id="+id;
+        req.setUrl(url);
+ req.addResponseListener((e)-> 
+        {
+           String str=new String(req.getResponseData());
+          System.out.println("data=="+str);
+
+
+        });
+                      
+        NetworkManager.getInstance().addToQueueAndWait(req);
+    }
+    
+    
+    
+       public void AddNiveau(String id){
+        String url=Static.BASE_URL+"/addniveau?id="+id;
+        req.setUrl(url);
+ req.addResponseListener((e)-> 
+        {
+           String str=new String(req.getResponseData());
+          System.out.println("data=="+str);
+
+
+        });
+                      
+        NetworkManager.getInstance().addToQueueAndWait(req);
+    }
+    
 }
