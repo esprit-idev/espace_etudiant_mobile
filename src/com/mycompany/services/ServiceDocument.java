@@ -16,6 +16,7 @@ import com.codename1.ui.Display;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.util.Base64;
 import com.mycompany.entities.Document;
+import com.mycompany.uis.SessionManager;
 import com.mycompany.utils.Static;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -172,8 +173,10 @@ public class ServiceDocument {
     }
     
     public boolean shareDoc(Document doc,String destEmail,String body,String subject) {
-        String username="Anas Houissa"; //to_change
-        String userEmail="meriamesprittest@gmail.com"; //to_change
+        String username=SessionManager.getUserName(); //to_check
+        //String username=SessionManager.getUserName()+" "+SessionManager.getPrenom();
+
+        String userEmail=SessionManager.getEmail();
         String url = Static.BASE_URL+"/shareDoc/"+doc.getId()+"?userEmail=" + userEmail + "&destEmail=" + destEmail + "&body=" + body + "&subject=" + subject+ "&username=" + username;
         req.setUrl(url);
         req.addResponseListener(new ActionListener<NetworkEvent>() {

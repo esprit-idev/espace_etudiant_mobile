@@ -93,13 +93,8 @@ String roles=result.getAsString("roles");
 
 //System.out.println(roles.getClass().getName());
                
-         if(SessionManager.getRoles().equals("ROLE_ADMIN")){
           new TabAff(res).show();
- }
-       //   new ListStudents(res).show();
-          else{
-        new AddStudent(res).show();
-   }
+
       
      //else{
       // new ActivateForm(res).show();  

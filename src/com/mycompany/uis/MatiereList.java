@@ -33,11 +33,12 @@ import java.util.ArrayList;
  *
  * @author MeriamBI
  */
-public class MatiereList extends Form{
-    public MatiereList(){
+public class MatiereList extends Form {
+
+    public MatiereList() {
         this(Resources.getGlobalResources());
     }
-    
+
     public MatiereList(Resources resourceObjectInstance) {
         //SKELETON
         setLayout(BoxLayout.y());
@@ -45,50 +46,30 @@ public class MatiereList extends Form{
         Form previous = Display.getInstance().getCurrent();
         Toolbar tb = getToolbar();
         tb.setBackCommand("", e -> previous.showBack());
-            //floating button add
-            FloatingActionButton fab = FloatingActionButton.createFAB(FontImage.MATERIAL_ADD);
-            RoundBorder rb = (RoundBorder) fab.getUnselectedStyle().getBorder();
-            rb.uiid(true);
-            fab.bindFabToContainer(getContentPane());
-            fab.addActionListener(e -> {
-                new MatiereAdd().show();
-            });
+        //floating button add
+        FloatingActionButton fab = FloatingActionButton.createFAB(FontImage.MATERIAL_ADD);
+        RoundBorder rb = (RoundBorder) fab.getUnselectedStyle().getBorder();
+        rb.uiid(true);
+        fab.bindFabToContainer(getContentPane());
+        fab.addActionListener(e -> {
+            new MatiereAdd().show();
+        });
         //init arralyslits
         ArrayList<Matiere> matieres;
         matieres = ServiceMatiere.getInstance().getAllMatieres();
         ArrayList<Niveau> niveaux;
         niveaux = ServiceNiveau.getInstance().getAllNiveaux();
         //BODY
-        initGuiBuilderComponents(resourceObjectInstance, matieres, niveaux,previous);
+        initGuiBuilderComponents(resourceObjectInstance, matieres, niveaux, previous);
     }
-    
+
     private void initGuiBuilderComponents(Resources resourceObjectInstance, ArrayList<Matiere> matieres, ArrayList<Niveau> niveaux, Form previous) {
         setLayout(new BoxLayout(BoxLayout.Y_AXIS));
         Font poppinsRegular55 = Font.createTrueTypeFont("regular", "Poppins-Regular.ttf").
                 derive(55, Font.STYLE_PLAIN);
         Font poppinsRegular40 = Font.createTrueTypeFont("regular", "Poppins-Regular.ttf").
                 derive(40, Font.STYLE_PLAIN);
-        Font poppinsRegular30 = Font.createTrueTypeFont("regular", "Poppins-Regular.ttf").
-                derive(30, Font.STYLE_PLAIN);
-
-        //filtre niveau
-        ComboBox cbNiveau = new ComboBox();
-        for (Niveau n : niveaux) {
-            cbNiveau.addItem(n.getId());
-        }
-        Button filter_btn = new Button("Filtrer");
-        filter_btn.setUIID("BlackRoundFilledBtn");
-        Style s_filter_btn = filter_btn.getUnselectedStyle();
-        s_filter_btn.setFont(poppinsRegular55);
-        addAll(cbNiveau, filter_btn);
-        //filter action
-        filter_btn.addActionListener(
-                new ActionListener<ActionEvent>() {
-            @Override
-            public void actionPerformed(ActionEvent evt) {
-                new MatieresFiltered(resourceObjectInstance, cbNiveau.getSelectedItem().toString()).show();
-            }
-        });
+        
         if (matieres.isEmpty()) {
             setLayout(new FlowLayout(CENTER, CENTER));
             //if no matiere found
@@ -98,6 +79,24 @@ public class MatiereList extends Form{
             s_lempty.setFont(poppinsRegular55);
             add(lempty);
         } else {
+            //filtre niveau
+            ComboBox cbNiveau = new ComboBox();
+            for (Niveau n : niveaux) {
+                cbNiveau.addItem(n.getId());
+            }
+            Button filter_btn = new Button("Filtrer");
+            filter_btn.setUIID("BlackRoundFilledBtn");
+            Style s_filter_btn = filter_btn.getUnselectedStyle();
+            s_filter_btn.setFont(poppinsRegular55);
+            addAll(cbNiveau, filter_btn);
+            //filter action
+            filter_btn.addActionListener(
+                    new ActionListener<ActionEvent>() {
+                @Override
+                public void actionPerformed(ActionEvent evt) {
+                    new MatieresFiltered(resourceObjectInstance, cbNiveau.getSelectedItem().toString()).show();
+                }
+            });
             for (Matiere m : matieres) {
                 //init vars
                 String nomMatiere = m.getId();
@@ -124,16 +123,22 @@ public class MatiereList extends Form{
                 gui_Label_3.setText(nomMatiere);
                 Style s_gui_Label_3 = gui_Label_3.getUnselectedStyle();
                 s_gui_Label_3.setFont(poppinsRegular55);
-                gui_Label_2.setText("Niveau concerné: "+niveauMatiere);
+                gui_Label_2.setText("Niveau concerné: " + niveauMatiere);
                 gui_Label_2.setUIID("GreenLabel");
                 Style s_gui_Label_2 = gui_Label_2.getUnselectedStyle();
                 s_gui_Label_2.setFont(poppinsRegular40);
-                
+
                 //sheet
                 Button displaySheet_btn = new Button();
                 displaySheet_btn.addActionListener(e -> {
                     MatiereSheet sheet = new MatiereSheet(null, m, previous);
                     sheet.show();
+                    sheet.addBackListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent evt) {
+                            
+                        }
+                    });
                 });
                 gui_Container_1.setLeadComponent(displaySheet_btn);
             }
