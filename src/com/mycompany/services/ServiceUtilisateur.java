@@ -82,7 +82,8 @@ String roles=result.getAsString("roles");
                 SessionManager.setPassowrd(user.get("password").toString());
                 SessionManager.setUserName(user.get("username").toString());
                 SessionManager.setEmail(user.get("email").toString());
-                                                       //float roles =Float.parseFloat(user.get("roles").toString());
+                SessionManager.setPrenom(user.get("prenom").toString());
+              //float roles =Float.parseFloat(user.get("roles").toString());
                 SessionManager.setRoles(roles);
                 
             //    System.out.println(roles);
