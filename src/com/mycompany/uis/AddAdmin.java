@@ -47,8 +47,7 @@ public class AddAdmin extends Form{
         //cbNiveau.addItem("4SIM");
        
         Button ajouter=new Button("Ajouter");
-        Button List=new Button("Liste des administrateurs");
-        cnt.addAll(username,prenom,email,password,ajouter,List);
+        cnt.addAll(username,prenom,email,password,ajouter);
         
         
         ajouter.addActionListener((ActionListener) (ActionEvent evt) -> {
@@ -56,7 +55,7 @@ public class AddAdmin extends Form{
             User a = new User(username.getText(),prenom.getText() ,email.getText(),password.getText() );
            // new  ServiceStudent.ajoutStudent(stu);
             new  ServiceAdmin().AddAdmin(a);
-         //   new AllStudents().show();
+             new ListAdmin(res).show();
             });
         
       //  List.addActionListener((ActionListener)(ActionEvent evt)-> {

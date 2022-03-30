@@ -86,11 +86,6 @@ public class TabAff extends Form {
                   new NiveauxList().show();
             }
         });
-        tb.addMaterialCommandToSideMenu("Classe Messagerie", FontImage.MATERIAL_FORUM, new ActionListener<ActionEvent>() {
-            public void actionPerformed(ActionEvent evt) {
-                new Conversation().show();
-            }
-        });
         
             //matières
         tb.addMaterialCommandToSideMenu("Matières", FontImage.MATERIAL_MENU_BOOK, new ActionListener<ActionEvent>() {
@@ -166,6 +161,12 @@ public class TabAff extends Form {
             public void actionPerformed(ActionEvent evt) {
                new Profile(res).show();
                 }
+        });
+        
+        tb.addMaterialCommandToSideMenu("Classe Messagerie", FontImage.MATERIAL_FORUM, new ActionListener<ActionEvent>() {
+            public void actionPerformed(ActionEvent evt) {
+                new Conversation().show();
+            }
         });
         }
 
