@@ -20,6 +20,7 @@ public class SessionManager {
     // hethom données ta3 user lyt7b tsajlhom fi session  ba3d login 
     private static int id ; 
     private static String userName ; 
+    private static String prenom ; 
     private static String email; 
     private static String passowrd ;
     private static String image;
@@ -49,6 +50,14 @@ public class SessionManager {
 
     public static void setUserName(String userName) {
          pref.set("username",userName);
+    }
+    
+     public static String getPrenom() {
+        return pref.get("prenom",prenom);
+    }
+
+    public static void setPrenom(String prenom) {
+         pref.set("prenom",prenom);
     }
 
     public static String getEmail() {
