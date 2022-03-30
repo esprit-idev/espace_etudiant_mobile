@@ -1,5 +1,6 @@
 package com.mycompany.uis;
 
+import com.codename1.io.Storage;
 import com.codename1.ui.FontImage;
 import com.codename1.ui.Toolbar;
 import com.codename1.ui.events.ActionEvent;
@@ -36,7 +37,7 @@ public class TabAff extends BaseForm{
             	//new TabAff().show();
                 }
         });
-        
+        System.out.println(SessionManager.getRoles());
       //forum
 		tb.addMaterialCommandToSideMenu("Forum", FontImage.MATERIAL_FORUM, new ActionListener<ActionEvent>() {
             public void actionPerformed(ActionEvent evt) {
@@ -60,7 +61,7 @@ public class TabAff extends BaseForm{
         //profile
 		tb.addMaterialCommandToSideMenu("Mon profile", FontImage.MATERIAL_SUPERVISOR_ACCOUNT, new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-            	new Profile().show();
+            	new Profile(res).show();
                 }
         });
         
@@ -68,7 +69,7 @@ public class TabAff extends BaseForm{
         //centre de partage
 		tb.addMaterialCommandToSideMenu("Centre de partage", FontImage.MATERIAL_ATTACH_FILE, new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-            	new CentrePartage().show();
+            //	new CentrePartage().show();
                 }
         });
         
@@ -77,8 +78,14 @@ public class TabAff extends BaseForm{
 		tb.addMaterialCommandToSideMenu("Se deconnecter", FontImage.MATERIAL_EXIT_TO_APP, new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
             	new Login(res).show();
+                SessionManager.pref.clearAll();
+                Storage.getInstance().clearStorage();
+                Storage.getInstance().clearCache();
+                System.out.println(SessionManager.getUserName());
+                
                 }
         });
+                refreshTheme();
 
         gui_Container_1.setName("Container_1");
         gui_Container_1.addComponent(com.codename1.ui.layouts.BorderLayout.EAST, gui_Container_2);

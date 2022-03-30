@@ -69,42 +69,42 @@ public class ServicePublicationNews {
         request.addResponseListener(new ActionListener<NetworkEvent>() {
             @Override
             public void actionPerformed(NetworkEvent event) {
-                JSONParser jsonParser = new JSONParser();
-                try{
-                    Map<String,Object> mapPubs = jsonParser.parseJSON(new CharArrayReader(new String(request.getResponseData()).toCharArray()));
-                    List<Map<String,Object>> ListOfMaps = (List<Map<String,Object>>) mapPubs.get("root");
+               // JSONParser jsonParser = new JSONParser();
+              //  try{
+                  //  Map<String,Object> mapPubs = jsonParser.parseJSON(new CharArrayReader(new String(request.getResponseData()).toCharArray()));
+                  //  List<Map<String,Object>> ListOfMaps = (List<Map<String,Object>>) mapPubs.get("root");
                     
-                    for(Map<String,Object> object : ListOfMaps){
+                   // for(Map<String,Object> object : ListOfMaps){
                         PublicationNews pub = new PublicationNews();
                         
                         //id
-                        float id = Float.parseFloat(object.get("id").toString());
+                      //  float id = Float.parseFloat(object.get("id").toString());
                         //title
-                        String title = object.get("title").toString();
+                      //  String title = object.get("title").toString();
                         //owner
-                        String owner = object.get("owner").toString();
+                      //  String owner = object.get("owner").toString();
                         //content
-                        String content = object.get("content").toString();
+                      //  String content = object.get("content").toString();
                         //date
-                        String date = object.get("date").toString();
+                      //  String date = object.get("date").toString();
                         
-                        pub.setId((int) id);
-                        pub.setTitle(title);
-                        pub.setContent(content);
-                        pub.setOwner(owner);
+                      //  pub.setId((int) id);
+                       // pub.setTitle(title);
+                      //  pub.setContent(content);
+                      //  pub.setOwner(owner);
                         //convert date into date format
                         /*String DateConv = object.get("date").toString().substring(object.get("date").toString().indexOf("timestamp") + 10,object.get("date").toString().lastIndexOf(")"));
                         Date currentTime = new Date(Double.valueOf(DateConv).longValue()* 1000);
                         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-mm-dd");
                         String dateString = formatter.format(currentTime); */
-                        pub.setDate(date);
+                       // pub.setDate(date);
                         response.add(pub);
                     }
-                } catch (IOException ex) {
-                    System.out.print(ex);
-                }
+              //  } catch (IOException ex) {
+               //     System.out.print(ex);
+              //  }
 
-            }
+          //  }
         });
         
         NetworkManager.getInstance().addToQueueAndWait(request);
@@ -120,15 +120,15 @@ public class ServicePublicationNews {
         request.setUrl(url);
         
         request.addResponseListener((e) -> {
-             JSONParser jsonParser = new JSONParser();
-                try{
-                    Map<String,Object> data = jsonParser.parseJSON(new CharArrayReader(new String(res).toCharArray()));
-                    pub.setTitle(data.get("title").toString());
-                    pub.setOwner(data.get("owner").toString());
-                    pub.setContent(data.get("content").toString());
-                }catch (IOException ex) {
-                System.out.println(ex.getMessage());
-            }
+            // JSONParser jsonParser = new JSONParser();
+               // try{
+                //    Map<String,Object> data = jsonParser.parseJSON(new CharArrayReader(new String(res).toCharArray()));
+                  //  pub.setTitle(data.get("title").toString());
+                  //  pub.setOwner(data.get("owner").toString());
+                  //  pub.setContent(data.get("content").toString());
+             //   }catch (IOException ex) {
+              //  System.out.println(ex.getMessage());
+          //  }
                 System.out.println(res);
                         });
         

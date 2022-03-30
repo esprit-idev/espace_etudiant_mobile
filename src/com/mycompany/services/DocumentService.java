@@ -16,7 +16,7 @@ import com.codename1.io.NetworkManager;
 import com.codename1.ui.List;
 import com.codename1.ui.events.ActionListener;
 import com.mycompany.entities.Document;
-import com.mycompany.uis.Statics;
+import com.mycompany.utils.Statics;
 
 /**
  *
