@@ -77,7 +77,7 @@ public class ThreadShow extends Form {
               r.setDisplay(false);
               
               t.setPostDate((new Date()).toString());
-              if (ReponseService.getInstance().addReponse(r, t.getId())){
+              if (ReponseService.getInstance().addReponse(r,SessionManager.getId())){
               Dialog.show("Success","Connection accepted", new Command("OK"));
               new Forum().show();
               }

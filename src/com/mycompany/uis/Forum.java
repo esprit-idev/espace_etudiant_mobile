@@ -35,7 +35,7 @@ public class Forum extends Form {
             MultiButton mb = new MultiButton(t.getQuestion());
             mb.setTextLine2("#"+t.getThreadType().substring(8,t.getThreadType().length()));
             Container c3 = new Container(new BoxLayout(BoxLayout.X_AXIS));
-            if(t.getUser()== user )
+            if(SessionManager.getId() == t.getUser())
             {
                 Button b = new Button("Delete");
                 Button update = new Button("Update");
@@ -54,6 +54,13 @@ public class Forum extends Form {
                         });
                 
                 mb.addActionListener(e-> new ThreadShow(current,t).show());
+            }
+            else if(SessionManager.getRoles().equals("ROLE_ADMIN") ){
+                Button b = new Button("Delete");
+                b.setUIID("IndianredRoundBtn");
+                mb.addActionListener(e-> new ThreadShow(current,t).show());
+                C2.add(mb);
+                C2.add(b);
             }
             else{
                 C2.add(mb);

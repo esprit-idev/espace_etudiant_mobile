@@ -77,9 +77,9 @@ public class ReponseService {
         NetworkManager.getInstance().addToQueueAndWait(req);
         return reps;
     }
-    public boolean addReponse(Reponse r,String id){
-        String[] ids= split(id,".");
-        String url = Static.BASE_URL+"/reponse/addReponse/"+r.getReply()+"/"+Integer.parseInt(ids[0]);
+    public boolean addReponse(Reponse r,int id){
+        
+        String url = Static.BASE_URL+"/reponse/addReponse/"+r.getReply()+"/"+id;
         ConnectionRequest req = new ConnectionRequest(url);
         req.addResponseListener(new ActionListener<NetworkEvent>(){
         @Override
