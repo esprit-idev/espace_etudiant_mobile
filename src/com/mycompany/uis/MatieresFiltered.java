@@ -53,14 +53,11 @@ public class MatieresFiltered extends Form{
     
      private void initGuiBuilderComponents(Resources resourceObjectInstance,ArrayList<Matiere> matieres,String niveauSelect,Form previous) {
         boolean empty=true;
-        String currentUser="Anas Houissa"; //to_change
         setLayout(new BoxLayout(BoxLayout.Y_AXIS));
         Font poppinsRegular55 = Font.createTrueTypeFont("regular","Poppins-Regular.ttf").
                     derive(55, Font.STYLE_PLAIN);
         Font poppinsRegular40 = Font.createTrueTypeFont("regular","Poppins-Regular.ttf").
                     derive(40, Font.STYLE_PLAIN);
-        Font poppinsRegular30 = Font.createTrueTypeFont("regular","Poppins-Regular.ttf").
-                    derive(30, Font.STYLE_PLAIN);
         
         for (Matiere m : matieres){
             //init vars

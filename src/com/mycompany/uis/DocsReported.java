@@ -56,6 +56,7 @@ public class DocsReported extends Form{
                 derive(40, Font.STYLE_PLAIN);
         Font poppinsRegular30 = Font.createTrueTypeFont("regular", "Poppins-Regular.ttf").
                 derive(30, Font.STYLE_PLAIN);
+        //String currentUser=SessionManager.getUsername()+" "+SessionManager.getPrenom();
         String currentUser = "Anas Houissa"; //to_change
         setLayout(new BoxLayout(BoxLayout.Y_AXIS));
         if (reporedDocs.isEmpty()) {

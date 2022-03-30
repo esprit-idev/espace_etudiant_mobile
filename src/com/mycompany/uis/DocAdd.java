@@ -12,6 +12,7 @@ import com.codename1.ui.Label;
 import com.codename1.ui.TextArea;
 import com.codename1.ui.TextField;
 import com.codename1.ui.Toolbar;
+import com.codename1.ui.animations.CommonTransitions;
 import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BoxLayout;
@@ -108,11 +109,14 @@ public class DocAdd extends Form {
                 } else {
                     //create new doc
                     String insert_date = new SimpleDateFormat("dd/MM/yy").format(new Date());
+                    //String prop=SessionManager.getUsername()+" "+SessionManager.getPrenom();
                     Document doc = new Document(tfNomDoc.getText(), insert_date, "Anas Houissa"/*to_change*/, cbMatiere.getSelectedItem().toString(), cbNiveau.getSelectedItem().toString(), tfUrl.getText(), null);
+                    //Document doc = new Document(tfNomDoc.getText(), insert_date, prop, cbMatiere.getSelectedItem().toString(), cbNiveau.getSelectedItem().toString(), tfUrl.getText(), null);
                     if (ServiceDocument.getInstance().addUrl(doc)) {
                         //success toast
                         ToastBar.showMessage("URL ajoutée", FontImage.MATERIAL_CHECK_CIRCLE);
-                        previous.showBack();
+                        setTransitionOutAnimator(CommonTransitions.createSlide(CommonTransitions.SLIDE_HORIZONTAL, true, Integer.parseInt("200")));
+                        new DocsList().show();
                     } else {
                         //error toast
                         ToastBar.showMessage("Une erreur est survenue lors de l'ajout de l'URL", FontImage.MATERIAL_ERROR);

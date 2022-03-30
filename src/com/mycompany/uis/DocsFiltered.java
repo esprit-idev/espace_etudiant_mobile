@@ -68,6 +68,7 @@ public class DocsFiltered extends Form{
     
      private void initGuiBuilderComponents(Resources resourceObjectInstance,ArrayList<Document> docs,String niveauSelect,String matiereSelect,Form previous,int admin) {
         boolean empty=true;
+        //String currentUser=SessionManager.getUsername()+" "+SessionManager.getPrenom();
         String currentUser="Anas Houissa"; //to_change
         setLayout(new BoxLayout(BoxLayout.Y_AXIS));
         Font poppinsRegular55 = Font.createTrueTypeFont("regular","Poppins-Regular.ttf").

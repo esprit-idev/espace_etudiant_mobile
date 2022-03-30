@@ -15,6 +15,7 @@ import com.codename1.ui.Form;
 import com.codename1.ui.Label;
 import com.codename1.ui.TextField;
 import com.codename1.ui.Toolbar;
+import com.codename1.ui.animations.CommonTransitions;
 import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BoxLayout;
@@ -36,7 +37,7 @@ public class MatiereAdd extends Form {
         //SKELETON
         Toolbar tb = getToolbar();
         setLayout(new FlowLayout(CENTER, CENTER));
-        setTitle("Ajouter une URL");
+        setTitle("Ajouter une matière");
         Font poppinsRegular55 = Font.createTrueTypeFont("regular", "Poppins-Regular.ttf").
                 derive(55, Font.STYLE_PLAIN);
         Font poppinsRegular40 = Font.createTrueTypeFont("regular", "Poppins-Regular.ttf").
@@ -99,7 +100,8 @@ public class MatiereAdd extends Form {
                     if (ServiceMatiere.getInstance().addMatiere(tfNomMatiere.getText(), cbNiveau.getSelectedItem().toString())) {
                         //success toast
                         ToastBar.showMessage("Matière ajoutée", FontImage.MATERIAL_CHECK_CIRCLE);
-                        previous.showBack();
+                        setTransitionOutAnimator(CommonTransitions.createSlide(CommonTransitions.SLIDE_HORIZONTAL, true, Integer.parseInt("200")));
+                        new MatiereList().show();
                     } else {
                         //error toast
                         ToastBar.showMessage("Une erreur est survenue lors de l'ajout de la matière", FontImage.MATERIAL_ERROR);

@@ -57,6 +57,7 @@ public class ServiceDocumentFavoris {
     
     private ArrayList<DocumentFavoris> parseFav(String jsonText){
         int currentUserID=5; //to_change
+        //int currentUserID=SessionManager.getId();
         try {
         favs=new ArrayList<>();
         JSONParser jsonP=new JSONParser();

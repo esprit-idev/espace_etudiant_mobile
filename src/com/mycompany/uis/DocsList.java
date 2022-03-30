@@ -1,6 +1,7 @@
 package com.mycompany.uis;
 
 import com.codename1.components.FloatingActionButton;
+import com.codename1.l10n.L10NManager;
 import com.codename1.ui.Button;
 import com.codename1.ui.ComboBox;
 import com.codename1.ui.Component;
@@ -27,15 +28,20 @@ import com.mycompany.services.ServiceDocument;
 import com.mycompany.services.ServiceMatiere;
 import com.mycompany.services.ServiceNiveau;
 import java.util.ArrayList;
+import java.util.Date;
 
-public class CentrePartage extends Form {
+public class DocsList extends Form {
 
-    public CentrePartage() {
+    public DocsList() {
         this(Resources.getGlobalResources());
     }
 
-    public CentrePartage(Resources resourceObjectInstance) {
+    public DocsList(Resources resourceObjectInstance) {
         int admin = 1;//to_change
+        /*if(SessionManager.getRoles.equals("ROLE_ADMIN")
+            admin = 1;
+        else
+            admin=0;*/
         //SKELETON
         setLayout(BoxLayout.y());
         setTitle("Centre de partage");
@@ -48,7 +54,7 @@ public class CentrePartage extends Form {
                     new DocsFavorite(resourceObjectInstance).show();
                 }
             });
-        }else{
+        } else {
             tb.addMaterialCommandToRightBar("", FontImage.MATERIAL_REPORT, new ActionListener() {
                 public void actionPerformed(ActionEvent evt) {
                     new DocsReported(resourceObjectInstance).show();
@@ -73,11 +79,13 @@ public class CentrePartage extends Form {
         ArrayList<Matiere> matieres;
         matieres = ServiceMatiere.getInstance().getAllMatieres();
         //BODY
-        initGuiBuilderComponents(resourceObjectInstance, docs, niveaux, matieres, previous,admin);
+
+        initGuiBuilderComponents(resourceObjectInstance, docs, niveaux, matieres, previous, admin);
     }
 
-    private void initGuiBuilderComponents(Resources resourceObjectInstance, ArrayList<Document> docs, ArrayList<Niveau> niveaux, ArrayList<Matiere> matieres, Form previous,int admin) {
+    private void initGuiBuilderComponents(Resources resourceObjectInstance, ArrayList<Document> docs, ArrayList<Niveau> niveaux, ArrayList<Matiere> matieres, Form previous, int admin) {
         String currentUser = "Anas Houissa"; //to_change
+        //String currentUser=SessionManager.getUsername()+" "+SessionManager.getPrenom();
         setLayout(new BoxLayout(BoxLayout.Y_AXIS));
         Font poppinsRegular55 = Font.createTrueTypeFont("regular", "Poppins-Regular.ttf").
                 derive(55, Font.STYLE_PLAIN);
@@ -86,30 +94,6 @@ public class CentrePartage extends Form {
         Font poppinsRegular30 = Font.createTrueTypeFont("regular", "Poppins-Regular.ttf").
                 derive(30, Font.STYLE_PLAIN);
 
-        //FILTRES
-        //filtre niveau
-        ComboBox cbNiveau = new ComboBox();
-        for (Niveau n : niveaux) {
-            cbNiveau.addItem(n.getId());
-        }
-        //filtre matiere
-        ComboBox cbMatiere = new ComboBox();
-        for (Matiere m : matieres) {
-            cbMatiere.addItem(m.getId());
-        }
-        Button filter_btn = new Button("Filtrer");
-        filter_btn.setUIID("BlackRoundFilledBtn");
-        Style s_filter_btn = filter_btn.getUnselectedStyle();
-        s_filter_btn.setFont(poppinsRegular55);
-        addAll(cbNiveau, cbMatiere, filter_btn);
-        //filter action
-        filter_btn.addActionListener(
-                new ActionListener<ActionEvent>() {
-            @Override
-            public void actionPerformed(ActionEvent evt) {
-                new DocsFiltered(resourceObjectInstance, cbNiveau.getSelectedItem().toString(), cbMatiere.getSelectedItem().toString(),admin).show();
-            }
-        });
         if (docs.isEmpty()) {
             setLayout(new FlowLayout(CENTER, CENTER));
             //if no document found
@@ -119,6 +103,30 @@ public class CentrePartage extends Form {
             s_lempty.setFont(poppinsRegular55);
             add(lempty);
         } else {
+            //FILTRES
+            //filtre niveau
+            ComboBox cbNiveau = new ComboBox();
+            for (Niveau n : niveaux) {
+                cbNiveau.addItem(n.getId());
+            }
+            //filtre matiere
+            ComboBox cbMatiere = new ComboBox();
+            for (Matiere m : matieres) {
+                cbMatiere.addItem(m.getId());
+            }
+            Button filter_btn = new Button("Filtrer");
+            filter_btn.setUIID("BlackRoundFilledBtn");
+            Style s_filter_btn = filter_btn.getUnselectedStyle();
+            s_filter_btn.setFont(poppinsRegular55);
+            addAll(cbNiveau, cbMatiere, filter_btn);
+            //filter action
+            filter_btn.addActionListener(
+                    new ActionListener<ActionEvent>() {
+                @Override
+                public void actionPerformed(ActionEvent evt) {
+                    new DocsFiltered(resourceObjectInstance, cbNiveau.getSelectedItem().toString(), cbMatiere.getSelectedItem().toString(), admin).show();
+                }
+            });
             for (Document d : docs) {
                 //init vars
                 String nomDoc = d.getNom();
@@ -171,7 +179,7 @@ public class CentrePartage extends Form {
                 //sheet
                 Button displaySheet_btn = new Button();
                 displaySheet_btn.addActionListener(e -> {
-                    DocSheet sheet = new DocSheet(null, d, previous,admin,false);
+                    DocSheet sheet = new DocSheet(null, d, previous, admin, false);
                     sheet.show();
                 });
                 gui_Container_1.setLeadComponent(displaySheet_btn);

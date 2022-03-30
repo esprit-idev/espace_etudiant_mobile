@@ -153,6 +153,7 @@ public class DocSheet extends Sheet {
         }
 
         //if owner or admin add a delete btn
+        //String currentUser=SessionManager.getUsername()+" "+SessionManager.getPrenom();
         String currentUser = "Anas Houissa"; //to_change
         Button supp_btn = new Button("Supprimer");
         supp_btn.setUIID("CustomItem");

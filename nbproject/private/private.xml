@@ -4,19 +4,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/MeriamBI/Desktop/pidev/CodenameOne/espace_etudiant_mobile/src/com/mycompany/uis/DocsFavorite.java</file>
-            <file>file:/C:/Users/MeriamBI/Desktop/pidev/CodenameOne/espace_etudiant_mobile/src/com/mycompany/uis/DocShare.java</file>
-            <file>file:/C:/Users/MeriamBI/Desktop/pidev/CodenameOne/espace_etudiant_mobile/src/com/mycompany/uis/DocsReported.java</file>
-            <file>file:/C:/Users/MeriamBI/Desktop/pidev/CodenameOne/espace_etudiant_mobile/src/com/mycompany/uis/MatiereSheet.java</file>
-            <file>file:/C:/Users/MeriamBI/Desktop/pidev/CodenameOne/espace_etudiant_mobile/src/com/mycompany/uis/DocsFiltered.java</file>
-            <file>file:/C:/Users/MeriamBI/Desktop/pidev/CodenameOne/espace_etudiant_mobile/src/com/mycompany/services/ServiceMatiere.java</file>
-            <file>file:/C:/Users/MeriamBI/Desktop/pidev/CodenameOne/espace_etudiant_mobile/src/com/mycompany/uis/DocSheet.java</file>
-            <file>file:/C:/Users/MeriamBI/Desktop/pidev/CodenameOne/espace_etudiant_mobile/src/com/mycompany/uis/DocAdd.java</file>
             <file>file:/C:/Users/MeriamBI/Desktop/pidev/CodenameOne/espace_etudiant_mobile/src/com/mycompany/uis/TabAff.java</file>
-            <file>file:/C:/Users/MeriamBI/Desktop/pidev/CodenameOne/espace_etudiant_mobile/src/com/mycompany/uis/MatiereAdd.java</file>
-            <file>file:/C:/Users/MeriamBI/Desktop/pidev/CodenameOne/espace_etudiant_mobile/src/com/mycompany/uis/MatieresFiltered.java</file>
-            <file>file:/C:/Users/MeriamBI/Desktop/pidev/CodenameOne/espace_etudiant_mobile/src/com/mycompany/uis/MatiereUpdate.java</file>
+            <file>file:/C:/Users/MeriamBI/Desktop/pidev/CodenameOne/espace_etudiant_mobile/src/com/mycompany/MyApplication.java</file>
+            <file>file:/C:/Users/MeriamBI/Desktop/pidev/CodenameOne/espace_etudiant_mobile/src/com/mycompany/uis/MatiereSheet.java</file>
+            <file>file:/C:/Users/MeriamBI/Desktop/pidev/CodenameOne/espace_etudiant_mobile/src/com/mycompany/services/ServiceDocument.java</file>
+            <file>file:/C:/Users/MeriamBI/Desktop/pidev/CodenameOne/espace_etudiant_mobile/src/com/mycompany/uis/Login.java</file>
+            <file>file:/C:/Users/MeriamBI/Desktop/pidev/CodenameOne/espace_etudiant_mobile/src/com/mycompany/uis/SplashScreen.java</file>
             <file>file:/C:/Users/MeriamBI/Desktop/pidev/CodenameOne/espace_etudiant_mobile/src/com/mycompany/uis/MatiereList.java</file>
+            <file>file:/C:/Users/MeriamBI/Desktop/pidev/CodenameOne/espace_etudiant_mobile/src/com/mycompany/uis/DocAdd.java</file>
         </group>
     </open-files>
 </project-private>
