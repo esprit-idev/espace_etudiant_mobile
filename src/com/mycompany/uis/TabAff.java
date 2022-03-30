@@ -40,7 +40,12 @@ public class TabAff extends Form {
         setScrollableY(true);
         setLayout(new FlowLayout(LEFT,TOP));
 
-        int admin=1;
+        int admin;
+        if (SessionManager.getRoles().equals("ROLE_ADMIN"))
+            admin = 1;
+        else
+            admin = 0;
+
         setLayout(new FlowLayout(CENTER, CENTER));
         setTitle("Tableau d'affichage");
         Toolbar tb = getToolbar();
@@ -90,7 +95,7 @@ public class TabAff extends Form {
             //matières
         tb.addMaterialCommandToSideMenu("Matières", FontImage.MATERIAL_MENU_BOOK, new ActionListener<ActionEvent>() {
             public void actionPerformed(ActionEvent evt) {
-                //new MatiereList().show();
+                new MatiereList().show();
             }
         });
         //categorie publication
@@ -167,7 +172,7 @@ public class TabAff extends Form {
         //centre de partage
         tb.addMaterialCommandToSideMenu("Centre de partage", FontImage.MATERIAL_ATTACH_FILE, new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                new CentrePartage().show();
+                new DocsList().show();
             }
         });
 

@@ -53,7 +53,7 @@ public class DocSheet extends Sheet {
         });
         cnt.add(open_btn);
 
-        if (admin != 1) {//to_change
+        if (admin != 1) {
             //share btn
             Button share_btn = new Button("Partager");
             share_btn.setUIID("CustomItem");
@@ -91,7 +91,7 @@ public class DocSheet extends Sheet {
                 cnt.add(pin_btn);
                 //pin btn
                 pin_btn.addActionListener(e -> {
-                    //ServiceDocumentFavoris.getInstance().PinDoc(doc, user); //get current user
+                    ServiceDocumentFavoris.getInstance().PinDoc(doc, SessionManager.getId());
                     back();
                 });
             }
@@ -153,7 +153,8 @@ public class DocSheet extends Sheet {
         }
 
         //if owner or admin add a delete btn
-        String currentUser = "Anas Houissa"; //to_change
+        //String currentUser=SessionManager.getUsername()+" "+SessionManager.getPrenom();
+        String currentUser=SessionManager.getUserName();//to_check
         Button supp_btn = new Button("Supprimer");
         supp_btn.setUIID("CustomItem");
         Style s_supp_btn = supp_btn.getUnselectedStyle();

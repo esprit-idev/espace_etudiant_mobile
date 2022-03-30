@@ -75,6 +75,7 @@ public class ThreadService {
                 //System.out.println(threadT);
                 t.setThreadType(threadT);
                 t.setReponses(ts);
+                t.setVerified(obj.get("Verified").toString());
                 System.out.print(ts);
                 threads.add(t);
         }
@@ -134,6 +135,20 @@ public class ThreadService {
     public boolean update(Thread t,String q){
         String[] ids= split(t.getId(),".");
         String url = "http://127.0.0.1:8000/thread/UpdateJSON/"+Integer.parseInt(ids[0])+"/"+q;
+        ConnectionRequest req = new ConnectionRequest(url);
+        req.addResponseListener(new ActionListener<NetworkEvent>(){
+        @Override
+        public void actionPerformed(NetworkEvent evt){
+            resultOK = req.getResponseCode()==200;
+            }
+        });
+        NetworkManager.getInstance().addToQueueAndWait(req);
+        return resultOK;
+    }
+
+    public boolean verify(Thread t) {
+        String[] ids= split(t.getId(),".");
+        String url = "http://127.0.0.1:8000/thread/verifyJSON/"+Integer.parseInt(ids[0]);
         ConnectionRequest req = new ConnectionRequest(url);
         req.addResponseListener(new ActionListener<NetworkEvent>(){
         @Override

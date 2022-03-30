@@ -6,18 +6,11 @@ import com.codename1.ui.Form;
 import com.codename1.ui.Dialog;
 import com.codename1.ui.plaf.UIManager;
 import com.codename1.ui.util.Resources;
-import com.mycompany.uis.Login;
 import com.codename1.io.Log;
 import com.codename1.ui.Toolbar;
+import com.mycompany.uis.Login;
 
 import com.mycompany.uis.SessionManager;
-import com.mycompany.uis.Classe2etudiant;
-import com.mycompany.uis.ClasseAdd;
-import com.mycompany.uis.ClasseEtudiant;
-import com.mycompany.uis.ClasseList;
-import com.mycompany.uis.ClasseUpdate;
-import com.mycompany.uis.Conversation;
-import com.mycompany.uis.NiveauxList;
 import com.mycompany.uis.SplashScreen;
 import com.mycompany.uis.TabAff;
 

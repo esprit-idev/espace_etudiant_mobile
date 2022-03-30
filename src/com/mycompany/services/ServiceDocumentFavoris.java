@@ -17,6 +17,7 @@ import com.codename1.ui.events.ActionListener;
 import com.codename1.util.Base64;
 import com.mycompany.entities.Document;
 import com.mycompany.entities.DocumentFavoris;
+import com.mycompany.uis.SessionManager;
 import com.mycompany.utils.Static;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -56,7 +57,7 @@ public class ServiceDocumentFavoris {
     }
     
     private ArrayList<DocumentFavoris> parseFav(String jsonText){
-        int currentUserID=5; //to_change
+        int currentUserID=SessionManager.getId();
         try {
         favs=new ArrayList<>();
         JSONParser jsonP=new JSONParser();
@@ -115,7 +116,7 @@ public class ServiceDocumentFavoris {
     
     public void PinDoc(Document doc,int userId){
         //get user with id or change user instead of int in args
-        String url = Static.BASE_URL+"/addPin/new?user="+/*add user*/"&document="+doc;
+        String url = Static.BASE_URL+"/addPin/new?userId="+userId+"&docId="+doc.getId();
         req.setUrl(url);
         req.addResponseListener(new ActionListener<NetworkEvent>() {
             @Override

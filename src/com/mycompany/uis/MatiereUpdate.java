@@ -16,6 +16,7 @@ import com.codename1.ui.Form;
 import com.codename1.ui.Label;
 import com.codename1.ui.TextField;
 import com.codename1.ui.Toolbar;
+import com.codename1.ui.animations.CommonTransitions;
 import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BoxLayout;
@@ -33,36 +34,36 @@ import java.util.ArrayList;
  */
 public class MatiereUpdate extends Form {
 
-    public MatiereUpdate(String matiereId,String niveauId) {
+    public MatiereUpdate(String matiereId, String niveauId) {
         //SKELETON
         Toolbar tb = getToolbar();
         setLayout(new FlowLayout(CENTER, CENTER));
-        setTitle("Ajouter une URL");
-        Font poppinsRegular55 = Font.createTrueTypeFont("regular","Poppins-Regular.ttf").
-                    derive(55, Font.STYLE_PLAIN);
-        Font poppinsRegular40 = Font.createTrueTypeFont("regular","Poppins-Regular.ttf").
-                    derive(40, Font.STYLE_PLAIN);
-        Font poppinsRegular35 = Font.createTrueTypeFont("regular","Poppins-Regular.ttf").
-                    derive(35, Font.STYLE_PLAIN);
-        
+        setTitle("Modifier une matière");
+        Font poppinsRegular55 = Font.createTrueTypeFont("regular", "Poppins-Regular.ttf").
+                derive(55, Font.STYLE_PLAIN);
+        Font poppinsRegular40 = Font.createTrueTypeFont("regular", "Poppins-Regular.ttf").
+                derive(40, Font.STYLE_PLAIN);
+        Font poppinsRegular35 = Font.createTrueTypeFont("regular", "Poppins-Regular.ttf").
+                derive(35, Font.STYLE_PLAIN);
+
         Form previous = Display.getInstance().getCurrent();
         tb.setBackCommand("", e -> previous.showBack());
         Container cnt = new Container(BoxLayout.y());
 
         //BODY
-        Label lNomMatiere=new Label("Nom de la matière");
+        Label lNomMatiere = new Label("Nom de la matière");
         lNomMatiere.setUIID("CustomLabel");
         Style s_lNomMatiere = lNomMatiere.getUnselectedStyle();
         s_lNomMatiere.setFont(poppinsRegular40);
         TextField tfNomMatiere = new TextField(matiereId, "Veuillez saisir le nom");
         tfNomMatiere.getHintLabel().setUIID("CustomHint");
-        Style s_tfNomMatiereHint =tfNomMatiere.getHintLabel().getUnselectedStyle();
+        Style s_tfNomMatiereHint = tfNomMatiere.getHintLabel().getUnselectedStyle();
         s_tfNomMatiereHint.setFont(poppinsRegular35);
-        
+
         //combobox setup
         ArrayList<Niveau> niveaux;
         niveaux = ServiceNiveau.getInstance().getAllNiveaux();
-        Label lNiveau=new Label("Niveau concerné");
+        Label lNiveau = new Label("Niveau concerné");
         lNiveau.setUIID("CustomLabel");
         Style s_lNiveau = lNiveau.getUnselectedStyle();
         s_lNiveau.setFont(poppinsRegular40);
@@ -74,9 +75,9 @@ public class MatiereUpdate extends Form {
         //add btn
         Button update_btn = new Button("Modifier");
         update_btn.setUIID("BlackRoundFilledBtn");
-        Style s_update_btn=update_btn.getUnselectedStyle();
+        Style s_update_btn = update_btn.getUnselectedStyle();
         s_update_btn.setFont(poppinsRegular55);
-        cnt.addAll(lNomMatiere,tfNomMatiere,lNiveau,cbNiveau,update_btn);
+        cnt.addAll(lNomMatiere, tfNomMatiere, lNiveau, cbNiveau, update_btn);
         //action add btn
         update_btn.addActionListener(new ActionListener() {
             @Override
@@ -93,15 +94,16 @@ public class MatiereUpdate extends Form {
                 if (tfNomMatiere.getText().isEmpty()) {
                     //toast if empty
                     ToastBar.showErrorMessage("Veuillez remplir tous les champs", FontImage.MATERIAL_ERROR);
-                }else if (exist) {
+                } else if (exist) {
                     //if matiere exists in db
                     ToastBar.showMessage("Cette matière existe déjà", FontImage.MATERIAL_WARNING);
                 } else {
                     //create new doc
-                    if (ServiceMatiere.getInstance().updateMatiere(tfNomMatiere.getText(),cbNiveau.getSelectedItem().toString())) {
+                    if (ServiceMatiere.getInstance().updateMatiere(tfNomMatiere.getText(), cbNiveau.getSelectedItem().toString())) {
                         //success toast
                         ToastBar.showMessage("Matière modifiée", FontImage.MATERIAL_CHECK_CIRCLE);
-                        previous.showBack();
+                        setTransitionOutAnimator(CommonTransitions.createSlide(CommonTransitions.SLIDE_HORIZONTAL, true, Integer.parseInt("200")));
+                        new MatiereList().show();
                     } else {
                         //error toast
                         ToastBar.showMessage("Une erreur est survenue lors de la modification de la matière", FontImage.MATERIAL_ERROR);

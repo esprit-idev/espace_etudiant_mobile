@@ -21,6 +21,15 @@ public class Thread {
     boolean display;
     String threadType;
     int user;
+    String verified;
+
+    public String getVerified() {
+        return verified;
+    }
+
+    public void setVerified(String verified) {
+        this.verified = verified;
+    }
 
     public int getUser() {
         return 1;
