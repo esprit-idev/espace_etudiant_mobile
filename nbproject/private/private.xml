@@ -13,15 +13,17 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/eslem/Desktop/EdSpace/src/com/mycompany/uis/NewsCategorySheet.java</file>
-            <file>file:/C:/Users/eslem/Desktop/EdSpace/src/com/mycompany/uis/NewsCategoryUpdate.java</file>
-            <file>file:/C:/Users/eslem/Desktop/EdSpace/src/com/mycompany/services/ServiceCategoryNews.java</file>
-            <file>file:/C:/Users/eslem/Desktop/EdSpace/src/com/mycompany/uis/NewsUpdate.java</file>
-            <file>file:/C:/Users/eslem/Desktop/EdSpace/src/com/mycompany/uis/NewsCategory.java</file>
-            <file>file:/C:/Users/eslem/Desktop/EdSpace/src/com/mycompany/uis/ClubCategoryUpdate.java</file>
-            <file>file:/C:/Users/eslem/Desktop/EdSpace/src/com/mycompany/services/ClubCategoryService.java</file>
-            <file>file:/C:/Users/eslem/Desktop/EdSpace/src/com/mycompany/services/ServicePublicationNews.java</file>
-            <file>file:/C:/Users/eslem/Desktop/EdSpace/src/com/mycompany/uis/ClubCategSheet.java</file>
+            <file>file:/C:/Users/aa/OneDrive/Documents/GitHub/espace_etudiant_mobile/src/com/mycompany/services/ServiceClasse.java</file>
+            <file>file:/C:/Users/aa/OneDrive/Documents/GitHub/espace_etudiant_mobile/src/com/mycompany/uis/ClasseEtudiant.java</file>
+            <file>file:/C:/Users/aa/OneDrive/Documents/GitHub/espace_etudiant_mobile/src/com/mycompany/MyApplication.java</file>
+            <file>file:/C:/Users/aa/OneDrive/Documents/GitHub/espace_etudiant_mobile/src/com/mycompany/uis/TabAff.java</file>
+            <file>file:/C:/Users/aa/OneDrive/Documents/GitHub/espace_etudiant_mobile/src/com/mycompany/uis/ClasseList.java</file>
+            <file>file:/C:/Users/aa/OneDrive/Documents/GitHub/espace_etudiant_mobile/src/com/mycompany/uis/NiveauxList.java</file>
+            <file>file:/C:/Users/aa/OneDrive/Documents/GitHub/espace_etudiant_mobile/src/com/mycompany/entities/Classe.java</file>
+            <file>file:/C:/Users/aa/OneDrive/Documents/GitHub/espace_etudiant_mobile/src/com/mycompany/uis/Conversation.java</file>
+            <file>file:/C:/Users/aa/OneDrive/Documents/GitHub/espace_etudiant_mobile/src/com/mycompany/services/ServiceMessage.java</file>
+            <file>file:/C:/Users/aa/OneDrive/Documents/GitHub/espace_etudiant_mobile/src/com/mycompany/uis/Classe2etudiant.java</file>
+            <file>file:/C:/Users/aa/OneDrive/Documents/GitHub/espace_etudiant_mobile/src/com/mycompany/uis/ClasseAdd.java</file>
         </group>
     </open-files>
 </project-private>

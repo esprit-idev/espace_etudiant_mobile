@@ -53,10 +53,16 @@ public class TabAff extends Form {
                 //liste des etudaints pour backoffice
             }
         });
+        
             //administrateurs
         tb.addMaterialCommandToSideMenu("Admins", FontImage.MATERIAL_PEOPLE, new ActionListener<ActionEvent>() {
             public void actionPerformed(ActionEvent evt) {
                 //liste des administrateurs pour backoffice
+            }
+        });
+        tb.addMaterialCommandToSideMenu("Classes", FontImage.MATERIAL_PEOPLE, new ActionListener<ActionEvent>() {
+            public void actionPerformed(ActionEvent evt) {
+                new ClasseList().show();
             }
         });
         
@@ -64,6 +70,12 @@ public class TabAff extends Form {
         tb.addMaterialCommandToSideMenu("Niveaux d'études", FontImage.MATERIAL_SCHOOL, new ActionListener<ActionEvent>() {
             public void actionPerformed(ActionEvent evt) {
                 //liste des niveaux d'études pour backoffice
+                  new NiveauxList().show();
+            }
+        });
+        tb.addMaterialCommandToSideMenu("Classe Messagerie", FontImage.MATERIAL_FORUM, new ActionListener<ActionEvent>() {
+            public void actionPerformed(ActionEvent evt) {
+                new Conversation().show();
             }
         });
         
