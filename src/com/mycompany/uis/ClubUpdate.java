@@ -24,6 +24,7 @@ import com.codename1.ui.layouts.FlowLayout;
 import com.codename1.ui.plaf.Style;
 import com.mycompany.entities.Club;
 import com.mycompany.entities.ClubCategory;
+import com.mycompany.entities.User;
 import com.mycompany.services.ClubCategoryService;
 import com.mycompany.services.ClubService;
 import java.util.ArrayList;
@@ -69,8 +70,8 @@ public class ClubUpdate extends Form {
         ArrayList<ClubCategory> categories;
         categories = ClubCategoryService.getInstance().getAllClubCategories();
 
-        //    ArrayList<User> users;
-        //    users = ServiceUser.getInstance().getAllUsers();//to change
+            ArrayList<User> users;
+            users = ClubService.getInstance().updateClubUsers(idClub);//to change
         Label lcat = new Label("Categorie");
         lcat.setUIID("CustomLabel");
         Style s_lCat = lcat.getUnselectedStyle();
@@ -86,18 +87,18 @@ public class ClubUpdate extends Form {
         lRespo.setUIID("CustomLabel");
         Style s_lRespo = lRespo.getUnselectedStyle();
         s_lRespo.setFont(poppinsRegular40);
-        /*
+        
         ComboBox cbRespo = new ComboBox();
         for (User m : users) {//tocchange
             cbRespo.addItem(m.getEmail());
-        }*/
+        }
 
-        ComboBox cbRespo = new ComboBox();
+      /*  ComboBox cbRespo = new ComboBox();
 
         cbRespo.addItem("hend@hend.com");
         cbRespo.addItem("imen@imen.test");
         cbRespo.addItem("Sana@rtar.com");
-        cbRespo.addItem("Bassem@adaz.com");
+        cbRespo.addItem("Bassem@adaz.com");*/
         cbCat.setSelectedItem(clubRespo);
 
         //update btn
