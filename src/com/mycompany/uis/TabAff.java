@@ -56,6 +56,7 @@ public class TabAff extends Form {
                 new ListStudents(res).show();
             }
         });
+        
             //administrateurs
         tb.addMaterialCommandToSideMenu("Admins", FontImage.MATERIAL_PEOPLE, new ActionListener<ActionEvent>() {
             public void actionPerformed(ActionEvent evt) {
@@ -63,9 +64,11 @@ public class TabAff extends Form {
             }
         });
 
-        System.out.println(SessionManager.getRoles());
-      //forum
-		//tb.addMaterialCommandToSideMenu("Forum", FontImage.MATERIAL_FORUM, new ActionListener<ActionEvent>() {
+             tb.addMaterialCommandToSideMenu("Classes", FontImage.MATERIAL_PEOPLE, new ActionListener<ActionEvent>() {
+            public void actionPerformed(ActionEvent evt) {
+                new ClasseList().show();
+            }
+        });
 
         
             //niveaux d'études
@@ -73,6 +76,12 @@ public class TabAff extends Form {
 
             public void actionPerformed(ActionEvent evt) {
                 //liste des niveaux d'études pour backoffice
+                  new NiveauxList().show();
+            }
+        });
+        tb.addMaterialCommandToSideMenu("Classe Messagerie", FontImage.MATERIAL_FORUM, new ActionListener<ActionEvent>() {
+            public void actionPerformed(ActionEvent evt) {
+                new Conversation().show();
             }
         });
         

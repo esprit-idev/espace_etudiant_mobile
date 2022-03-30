@@ -2,9 +2,13 @@
 package com.mycompany.entities;
 
 
- 
+/**
+ *
+ * @author aa
+ */
+
 public class User {
-     private int id ;
+         private int id ;
     private String username,prenom,email,password , image , roles;
     private boolean isBanned ;
     
