@@ -8,7 +8,7 @@ import com.codename1.io.ConnectionRequest ;
 import com.codename1.io.JSONParser;
 import com.codename1.ui.Dialog;
 import com.codename1.ui.TextField;
-import com.mycompany.utils.Statics;
+import com.mycompany.utils.Static;
 import com.mycompany.entities.User;
 import com.codename1.ui.util.Resources;
 import java.util.Map;
@@ -51,7 +51,7 @@ public class ServiceUtilisateur {
     public void signin (TextField email, TextField password , Resources res){
      // String r = '"'+"ROLE_ADMIN"+'"';  
        String r="ROLE_ADMIN";
-    String url = Statics.BASE_URL+"/loginJson?email="+email.getText().toString()+"&password="+password.getText().toString();
+    String url = Static.BASE_URL+"/loginJson?email="+email.getText().toString()+"&password="+password.getText().toString();
    req = new ConnectionRequest(url , false); // false yaani url mezelt matba3thitch lel server
     req.setUrl(url);
    req.addResponseListener((e)->{
@@ -92,13 +92,13 @@ String roles=result.getAsString("roles");
 
 //System.out.println(roles.getClass().getName());
                
-         // if(roles.equals("ROLE_ADMIN")){
-        //  new TabAff(res).show();
- //}
-          new ListStudents(res).show();
-        //  else{
-       // new AddStudent(res).show();
-   //}
+         if(SessionManager.getRoles().equals("ROLE_ADMIN")){
+          new TabAff(res).show();
+ }
+       //   new ListStudents(res).show();
+          else{
+        new AddStudent(res).show();
+   }
       
      //else{
       // new ActivateForm(res).show();  
@@ -114,7 +114,7 @@ String roles=result.getAsString("roles");
     
     
     public String getPasswordByEmail(String email, Resources rs ) { 
-       String url = Statics.BASE_URL+"/getPasswordByEmail?email="+email;
+       String url = Static.BASE_URL+"/getPasswordByEmail?email="+email;
         req = new ConnectionRequest(url, false); //false ya3ni url mazlt matba3thtich lel server
         req.setUrl(url);
         
@@ -154,7 +154,7 @@ String roles=result.getAsString("roles");
     // edit user profil
     public static void EditUser(int id ,String username , String password ){
     
-        String url =Statics.BASE_URL+"/editProfileJson?id="+id+"&username="+username+"&password="+password ;
+        String url =Static.BASE_URL+"/editProfileJson?id="+id+"&username="+username+"&password="+password ;
         MultipartRequest req = new MultipartRequest();
         
         req.setUrl(url);

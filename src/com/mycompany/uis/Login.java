@@ -34,7 +34,9 @@ public class Login extends Form{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+
          TextField email = new TextField("", "Email", 20, TextField.ANY);
+        email.setConstraint(TextField.EMAILADDR);
         TextField password = new TextField("", "Password", 20, TextField.PASSWORD);
         email.setSingleLineTextArea(false);
         password.setSingleLineTextArea(false);
@@ -89,6 +91,7 @@ public class Login extends Form{
             
             
         });
+
         addAll(cnt);
         
     }

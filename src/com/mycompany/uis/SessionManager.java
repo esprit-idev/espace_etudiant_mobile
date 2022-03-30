@@ -62,7 +62,7 @@ public class SessionManager {
         return pref.get("roles",roles);
     }
 
-    public static void setRoles(String role) {
+    public static void setRoles(String roles) {
          pref.set("roles",roles);
     }
 

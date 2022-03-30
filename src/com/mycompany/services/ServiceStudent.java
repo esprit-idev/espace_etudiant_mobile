@@ -8,7 +8,7 @@ import com.codename1.io.ConnectionRequest ;
 import com.codename1.ui.events.ActionListener;
 import java.util.ArrayList;
 import com.mycompany.entities.User;
-import com.mycompany.utils.Statics;
+import com.mycompany.utils.Static;
 import com.codename1.io.CharArrayReader;
 import com.codename1.io.JSONParser;
 import com.codename1.io.NetworkEvent;
@@ -37,7 +37,7 @@ public class ServiceStudent {
     //affichage
     public ArrayList<User>affichageStudent(){
     ArrayList<User> result = new ArrayList<>();
-    String url = Statics.BASE_URL+"/afficheStudent";
+    String url = Static.BASE_URL+"/afficheStudent";
     req.setUrl(url);
     req.addResponseListener(new ActionListener<NetworkEvent>(){
    
@@ -89,14 +89,14 @@ public class ServiceStudent {
             System.out.println("data == "+str);
         });
        
-         connectionRequest.setUrl(Statics.BASE_URL+"/addStudentJSON?&username=" + user.getUsername() +"&prenom=" + user.getPrenom()+"&email="+user.getEmail()+"&password="+user.getPassword());
+         connectionRequest.setUrl(Static.BASE_URL+"/addStudentJSON?&username=" + user.getUsername() +"&prenom=" + user.getPrenom()+"&email="+user.getEmail()+"&password="+user.getPassword());
         NetworkManager.getInstance().addToQueue(connectionRequest);
        // NetworkManager.getInstance().addToQueueAndWait(req);//execution ta3 request sinon yet3ada chy dima nal9awha
         
     }
     
       public void deleteStudent(int id ) {
-        String url = Statics.BASE_URL +"/deleteStudent/"+id;
+        String url = Static.BASE_URL +"/deleteStudent/"+id;
         
         req.setUrl(url);
         
@@ -124,7 +124,7 @@ public class ServiceStudent {
       
        //Update 
     public boolean modifierStudent(User user) {
-        String url = Statics.BASE_URL +"/updateStudentJSON/"+user.getId()+"?&username="+user.getUsername()+"&prenom="+user.getPrenom()+"&email="+user.getEmail()+"&password="+user.getPassword();
+        String url = Static.BASE_URL +"/updateStudentJSON/"+user.getId()+"?&username="+user.getUsername()+"&prenom="+user.getPrenom()+"&email="+user.getEmail()+"&password="+user.getPassword();
         req.setUrl(url);
         
         req.addResponseListener(new ActionListener<NetworkEvent>() {

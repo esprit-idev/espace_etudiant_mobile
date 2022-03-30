@@ -12,7 +12,7 @@ import com.codename1.io.NetworkEvent;
 import com.codename1.io.NetworkManager;
 import com.codename1.ui.events.ActionListener;
 import com.mycompany.entities.User;
-import com.mycompany.utils.Statics;
+import com.mycompany.utils.Static;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -40,7 +40,7 @@ public class ServiceAdmin {
     //affichage
     public ArrayList<User>affichageAdmin(){
     ArrayList<User> result = new ArrayList<>();
-    String url = Statics.BASE_URL+"/afficheAdmin";
+    String url = Static.BASE_URL+"/afficheAdmin";
     req.setUrl(url);
     req.addResponseListener(new ActionListener<NetworkEvent>(){
    
@@ -92,14 +92,14 @@ public class ServiceAdmin {
             System.out.println("data == "+str);
         });
        
-         connectionRequest.setUrl(Statics.BASE_URL+"/addAdminJSON?&username=" + user.getUsername() +"&prenom=" + user.getPrenom()+"&email="+user.getEmail()+"&password="+user.getPassword());
+         connectionRequest.setUrl(Static.BASE_URL+"/addAdminJSON?&username=" + user.getUsername() +"&prenom=" + user.getPrenom()+"&email="+user.getEmail()+"&password="+user.getPassword());
         NetworkManager.getInstance().addToQueue(connectionRequest);
        // NetworkManager.getInstance().addToQueueAndWait(req);//execution ta3 request sinon yet3ada chy dima nal9awha
         
     }
     
       public void deleteAdmin(int id ) {
-        String url = Statics.BASE_URL +"/deleteAdminJson?id="+id;
+        String url = Static.BASE_URL +"/deleteAdminJson?id="+id;
         
         req.setUrl(url);
         
@@ -117,7 +117,7 @@ public class ServiceAdmin {
       
        //Update 
     public boolean modifierAdmin(User user) {
-        String url = Statics.BASE_URL +"/updateAdminJSON?id="+user.getId()+"&username="+user.getUsername()+"&prenom="+user.getPrenom()+"&email="+user.getEmail()+"&password="+user.getPassword()+"&isbanned="+user.getIsBanned();
+        String url = Static.BASE_URL +"/updateAdminJSON?id="+user.getId()+"&username="+user.getUsername()+"&prenom="+user.getPrenom()+"&email="+user.getEmail()+"&password="+user.getPassword()+"&isbanned="+user.getIsBanned();
         req.setUrl(url);
         
         req.addResponseListener(new ActionListener<NetworkEvent>() {

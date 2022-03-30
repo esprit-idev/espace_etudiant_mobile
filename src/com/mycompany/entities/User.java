@@ -1,14 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.mycompany.entities;
 
-/**
- *
- * @author YOOSURF
- */
+
+ 
 public class User {
      private int id ;
     private String username,prenom,email,password , image , roles;
@@ -31,13 +25,15 @@ public class User {
         this.email=email;
         this.password=password;
     }
+
      public User(String username ,String prenom , String email ){
       ;
         this.username=username ;
         this.prenom=prenom ;
         this.email=email;
-        this.password=password;
+    
     }
+
     
     
      public User(String username  ,String password ){

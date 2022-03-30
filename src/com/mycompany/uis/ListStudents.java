@@ -20,7 +20,7 @@ import com.codename1.ui.layouts.GridLayout;
 import com.codename1.ui.util.Resources;
 import com.mycompany.entities.User;
 import com.mycompany.services.ServiceStudent;
-import com.mycompany.utils.Statics;
+import com.mycompany.utils.Static;
 import java.util.ArrayList;
 
 /**

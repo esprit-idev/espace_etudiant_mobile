@@ -12,12 +12,11 @@ package com.mycompany.entities;
  */
 public class PublicationNews {
     private int id, views, likes;
-    private String title, owner, content, comments, categoryName, date;
-
+    private String title, owner, content, comments, categoryName, date, image;
     public PublicationNews() {
     }
 
-    public PublicationNews(int id, int views, int likes, String title, String owner, String content, String comments, String categoryName, String date) {
+    public PublicationNews(int id, int views, int likes, String title, String owner, String content, String comments, String categoryName, String date,String image) {
         this.id = id;
         this.views = views;
         this.likes = likes;
@@ -27,6 +26,7 @@ public class PublicationNews {
         this.comments = comments;
         this.categoryName = categoryName;
         this.date = date;
+        this.image = image;
     }
 
     public PublicationNews(int views, int likes, String title, String owner, String content, String comments, String categoryName, String date) {
@@ -38,6 +38,15 @@ public class PublicationNews {
         this.comments = comments;
         this.categoryName = categoryName;
         this.date = date;
+    }
+
+    public PublicationNews(String title, String owner, String content, String categoryName, String date, String image) {
+        this.title = title;
+        this.owner = owner;
+        this.content = content;
+        this.categoryName = categoryName;
+        this.date = date;
+        this.image = image;
     }
 
     public int getId() {
@@ -110,6 +119,14 @@ public class PublicationNews {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
     
 }
