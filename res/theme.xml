@@ -1,54 +1,102 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<resource majorVersion="1" minorVersion="10" useXmlUI="false">
+<resource majorVersion="1" minorVersion="11" useXmlUI="false">
     <image name="background.jpg"  />
+    <image name="background.jpg1"  />
     <image name="backgroundGreen.jpg"  />
+    <image name="backgroundGreen.jpg1"  />
     <image name="bla.jpg"  />
+    <image name="bla.jpg1"  />
     <image name="bridge.jpg"  />
+    <image name="bridge.jpg1"  />
     <image name="calendar-background.jpg"  />
+    <image name="calendar-background.jpg1"  />
     <image name="calendar-separator.png" type="multi"  />
+    <image name="calendar-separator.png1" type="multi"  />
     <image name="card.png" type="multi"  />
+    <image name="card.png1" type="multi"  />
     <image name="contact-a.png" type="multi"  />
+    <image name="contact-a.png1" type="multi"  />
     <image name="contact-b.png" type="multi"  />
+    <image name="contact-b.png1" type="multi"  />
     <image name="contact-c.png" type="multi"  />
+    <image name="contact-c.png1" type="multi"  />
     <image name="dark-rect.png" type="multi"  />
+    <image name="dark-rect.png1" type="multi"  />
     <image name="griffith.jpg"  />
+    <image name="griffith.jpg1"  />
     <image name="GroupElement.borderBottom_1.png" type="multi"  />
+    <image name="GroupElement.borderBottom_1.png1" type="multi"  />
     <image name="GroupElement.borderBottomL_1.png" type="multi"  />
+    <image name="GroupElement.borderBottomL_1.png1" type="multi"  />
     <image name="GroupElement.borderBottomR_1.png" type="multi"  />
+    <image name="GroupElement.borderBottomR_1.png1" type="multi"  />
     <image name="GroupElement.borderCenter_1.png" type="multi"  />
+    <image name="GroupElement.borderCenter_1.png1" type="multi"  />
     <image name="GroupElement.borderLeft_1.png" type="multi"  />
+    <image name="GroupElement.borderLeft_1.png1" type="multi"  />
     <image name="GroupElement.borderRight_1.png" type="multi"  />
+    <image name="GroupElement.borderRight_1.png1" type="multi"  />
     <image name="GroupElement.borderTop_1.png" type="multi"  />
+    <image name="GroupElement.borderTop_1.png1" type="multi"  />
     <image name="GroupElement.borderTopL_1.png" type="multi"  />
+    <image name="GroupElement.borderTopL_1.png1" type="multi"  />
     <image name="GroupElement.borderTopR_1.png" type="multi"  />
+    <image name="GroupElement.borderTopR_1.png1" type="multi"  />
     <image name="GroupElementFirst.borderBottom_1.png" type="multi"  />
+    <image name="GroupElementFirst.borderBottom_1.png1" type="multi"  />
     <image name="GroupElementFirst.borderBottomL_1.png" type="multi"  />
+    <image name="GroupElementFirst.borderBottomL_1.png1" type="multi"  />
     <image name="GroupElementFirst.borderBottomR_1.png" type="multi"  />
+    <image name="GroupElementFirst.borderBottomR_1.png1" type="multi"  />
     <image name="GroupElementFirst.borderCenter_1.png" type="multi"  />
+    <image name="GroupElementFirst.borderCenter_1.png1" type="multi"  />
     <image name="GroupElementFirst.borderLeft_1.png" type="multi"  />
+    <image name="GroupElementFirst.borderLeft_1.png1" type="multi"  />
     <image name="GroupElementFirst.borderRight_1.png" type="multi"  />
+    <image name="GroupElementFirst.borderRight_1.png1" type="multi"  />
     <image name="GroupElementFirst.borderTop_1.png" type="multi"  />
+    <image name="GroupElementFirst.borderTop_1.png1" type="multi"  />
     <image name="GroupElementFirst.borderTopL_1.png" type="multi"  />
+    <image name="GroupElementFirst.borderTopL_1.png1" type="multi"  />
     <image name="GroupElementFirst.borderTopR_1.png" type="multi"  />
+    <image name="GroupElementFirst.borderTopR_1.png1" type="multi"  />
     <image name="GroupElementLast.borderBottom_1.png" type="multi"  />
+    <image name="GroupElementLast.borderBottom_1.png1" type="multi"  />
     <image name="GroupElementLast.borderBottomL_1.png" type="multi"  />
+    <image name="GroupElementLast.borderBottomL_1.png1" type="multi"  />
     <image name="GroupElementLast.borderBottomR_1.png" type="multi"  />
+    <image name="GroupElementLast.borderBottomR_1.png1" type="multi"  />
     <image name="GroupElementLast.borderCenter_1.png" type="multi"  />
+    <image name="GroupElementLast.borderCenter_1.png1" type="multi"  />
     <image name="GroupElementLast.borderLeft_1.png" type="multi"  />
+    <image name="GroupElementLast.borderLeft_1.png1" type="multi"  />
     <image name="GroupElementLast.borderRight_1.png" type="multi"  />
+    <image name="GroupElementLast.borderRight_1.png1" type="multi"  />
     <image name="GroupElementLast.borderTop_1.png" type="multi"  />
+    <image name="GroupElementLast.borderTop_1.png1" type="multi"  />
     <image name="GroupElementLast.borderTopL_1.png" type="multi"  />
+    <image name="GroupElementLast.borderTopL_1.png1" type="multi"  />
     <image name="GroupElementLast.borderTopR_1.png" type="multi"  />
+    <image name="GroupElementLast.borderTopR_1.png1" type="multi"  />
     <image name="GroupElementOnly.borderBottom_1.png" type="multi"  />
+    <image name="GroupElementOnly.borderBottom_1.png1" type="multi"  />
     <image name="GroupElementOnly.borderBottomL_1.png" type="multi"  />
+    <image name="GroupElementOnly.borderBottomL_1.png1" type="multi"  />
     <image name="GroupElementOnly.borderBottomR_1.png" type="multi"  />
+    <image name="GroupElementOnly.borderBottomR_1.png1" type="multi"  />
     <image name="GroupElementOnly.borderCenter_1.png" type="multi"  />
+    <image name="GroupElementOnly.borderCenter_1.png1" type="multi"  />
     <image name="GroupElementOnly.borderLeft_1.png" type="multi"  />
+    <image name="GroupElementOnly.borderLeft_1.png1" type="multi"  />
     <image name="GroupElementOnly.borderRight_1.png" type="multi"  />
+    <image name="GroupElementOnly.borderRight_1.png1" type="multi"  />
     <image name="GroupElementOnly.borderTop_1.png" type="multi"  />
+    <image name="GroupElementOnly.borderTop_1.png1" type="multi"  />
     <image name="GroupElementOnly.borderTopL_1.png" type="multi"  />
+    <image name="GroupElementOnly.borderTopL_1.png1" type="multi"  />
     <image name="GroupElementOnly.borderTopR_1.png" type="multi"  />
+    <image name="GroupElementOnly.borderTopR_1.png1" type="multi"  />
     <l10n name="l1">
         <lang name="en">
             <entry key="menu" value="Menu" />
@@ -65,15 +113,40 @@
             <entry key="cancel" value="Cancel" />
         </lang>
     </l10n>
+    <l10n name="l11">
+        <lang name="en">
+            <entry key="menu" value="Menu" />
+            <entry key="Calendar.Sunday" value="Sun" />
+            <entry key="Calendar.Tuesday" value="Tue" />
+            <entry key="Calendar.Wednesday" value="Wed" />
+            <entry key="Calendar.Thursday" value="Thu" />
+            <entry key="ok" value="OK" />
+            <entry key="Calendar.Saturday" value="Sat" />
+            <entry key="Calendar.Friday" value="Fri" />
+            <entry key="select" value="Select" />
+            <entry key="edit" value="Edit" />
+            <entry key="Calendar.Monday" value="Mon" />
+            <entry key="cancel" value="Cancel" />
+        </lang>
+    </l10n>
     <image name="label_round-selected.png" type="multi"  />
+    <image name="label_round-selected.png1" type="multi"  />
     <image name="label_round.png" type="multi"  />
+    <image name="label_round.png1" type="multi"  />
     <image name="learn-codename-one.jpg"  />
+    <image name="learn-codename-one.jpg1"  />
     <image name="logo.png"  />
+    <image name="logo.png1"  />
     <image name="profile_image.png" type="multi"  />
+    <image name="profile_image.png1" type="multi"  />
     <image name="progress.png" type="multi"  />
+    <image name="progress.png1" type="multi"  />
     <image name="selection-in-sidemenu.png" type="multi"  />
+    <image name="selection-in-sidemenu.png1" type="multi"  />
     <image name="sidemenu-background.jpg"  />
+    <image name="sidemenu-background.jpg1"  />
     <image name="skate-park.jpg"  />
+    <image name="skate-park.jpg1"  />
     <theme name="Theme">
         <val key="@ComponentGroupBool" value="true" />
         <val key="@includeNativeBool" value="true" />
@@ -150,7 +223,7 @@
         <val key="BlueRoundFilledBtn.press#bgColor" value="5bc0de" />
         <border key="BlueRoundFilledBtn.press#border" type="round" roundBorderColor="6013150" opacity="255" strokeColor="6013150" strokeOpacity="255" strokeThickness="1.5" strokeMM="false" shadowSpread="10" shadowOpacity="0" shadowX="0.5" shadowY="0.5" shadowBlur="10.0" shadowMM="false" rectangle="true" />
         <val key="BlueRoundFilledBtn.press#fgColor" value="ffffff" />
-        <font key="BlueRoundFilledBtn.press#font" type="ttf" face="0" style="1" size="16" name="native:MainLight" family="native:MainLight" sizeSettings="3" actualSize="2.5" />
+        <font key="BlueRoundFilledBtn.press#font" type="ttf" face="0" style="1" size="16" name="native:MainLight" family="native:MainLight" sizeSettings="3" actualSize="3.0" />
         <val key="BlueRoundFilledBtn.press#marUnit" value="2,2,2,2" />
         <val key="BlueRoundFilledBtn.press#margin" value="1.0,1.0,2.0,2.0" />
         <val key="BlueRoundFilledBtn.press#padUnit" value="2,2,2,2" />
@@ -174,9 +247,9 @@
         <val key="Button.fgColor" value="ffffff" />
         <font key="Button.font" type="ttf" face="0" style="0" size="0" name="native:MainRegular" family="native:MainRegular" sizeSettings="3" actualSize="3.0" />
         <val key="Button.marUnit" value="2,2,2,2" />
-        <val key="Button.margin" value="1.0,1.0,1.0,1.0" />
+        <val key="Button.margin" value="3.0,3.0,2.0,2.0" />
         <val key="Button.padUnit" value="2,2,2,2" />
-        <val key="Button.padding" value="3.0,3.0,3.0,3.0" />
+        <val key="Button.padding" value="4.0,4.0,4.0,4.0" />
         <gradient key="Button.press#bgGradient" color1="5551244" color2="4568204" posX="0.5" posY="0.5" radius="1.0" />
         <val key="Button.press#bgType" value="7" />
         <border key="Button.press#border" type="empty" />
@@ -207,17 +280,11 @@
         <val key="Button2.padUnit" value="2,2,2,2" />
         <val key="Button2.padding" value="2.0,2.0,2.0,2.0" />
         <val key="Button2.press#align" value="4" />
-        <val key="Button2.press#bgImage" value="backgroundGreen.jpg" />
+        <val key="Button2.press#bgImage" value="backgroundGreen.jpg1" />
         <val key="Button2.press#bgType" value="1" />
         <val key="Button2.press#fgColor" value="ffffff" />
         <val key="Button2.press#margin" value="3.0,3.0,2.0,2.0" />
         <val key="Button2.press#padding" value="2.0,2.0,2.0,2.0" />
-        <val key="Button2.sel#align" value="4" />
-        <val key="Button2.sel#bgImage" value="backgroundGreen.jpg" />
-        <val key="Button2.sel#bgType" value="1" />
-        <val key="Button2.sel#fgColor" value="ffffff" />
-        <val key="Button2.sel#margin" value="3.0,3.0,2.0,2.0" />
-        <val key="Button2.sel#padding" value="2.0,2.0,2.0,2.0" />
         <val key="Calendar.bgImage" value="calendar-background.jpg" />
         <val key="Calendar.bgType" value="33" />
         <val key="Calendar.margin" value="0.0,0.0,0.0,0.0" />
@@ -841,8 +908,6 @@
         <val key="SideCommandSmall.padUnit" value="0,0,2,0" />
         <val key="SideCommandSmall.padding" value="0.0,4.0,0.0,0.0" />
         <val key="SideCommandSmall.textDecoration" value="0" />
-        <val key="SideNavigationPanel.bgImage" value="sidemenu-background.jpg" />
-        <val key="SideNavigationPanel.bgType" value="33" />
         <val key="SideNavigationPanel.padUnit" value="2,2,0,0" />
         <val key="SideNavigationPanel.padding" value="16.0,0.0,5.0,0.0" />
         <val key="SignInForm.bgColor" value="ffffff" />
@@ -1037,7 +1102,7 @@
         <val key="YellowRoundFilledBtn.press#bgColor" value="ffcc00" />
         <border key="YellowRoundFilledBtn.press#border" type="round" roundBorderColor="16763904" opacity="255" strokeColor="16763904" strokeOpacity="255" strokeThickness="1.5" strokeMM="false" shadowSpread="10" shadowOpacity="0" shadowX="0.5" shadowY="0.5" shadowBlur="10.0" shadowMM="false" rectangle="true" />
         <val key="YellowRoundFilledBtn.press#fgColor" value="ffffff" />
-        <font key="YellowRoundFilledBtn.press#font" type="ttf" face="0" style="1" size="16" name="native:MainLight" family="native:MainLight" sizeSettings="3" actualSize="2.5" />
+        <font key="YellowRoundFilledBtn.press#font" type="ttf" face="0" style="1" size="16" name="native:MainLight" family="native:MainLight" sizeSettings="3" actualSize="3.0" />
         <val key="YellowRoundFilledBtn.press#marUnit" value="2,2,2,2" />
         <val key="YellowRoundFilledBtn.press#margin" value="1.0,1.0,2.0,2.0" />
         <val key="YellowRoundFilledBtn.press#padUnit" value="2,2,2,2" />
@@ -1054,12 +1119,125 @@
         <val key="YellowRoundFilledBtn.sel#padding" value="2.0,2.0,2.0,2.0" />
         <val key="YellowRoundFilledBtn.sel#transparency" value="0" />
         <val key="YellowRoundFilledBtn.transparency" value="0" />
-        <val key="transparency" value="0" />
+        <val key="accrHead.align" value="4" />
+        <val key="accrHead.bgColor" value="666666" />
+        <border key="accrHead.border" type="rounded" thickness="0.0" arcW="50" arcH="50" color="6710886" />
+        <val key="accrHead.fgColor" value="ffffff" />
+        <val key="accrHead.press#align" value="4" />
+        <val key="accrHead.press#bgColor" value="54b48c" />
+        <border key="accrHead.press#border" type="rounded" thickness="0.0" arcW="50" arcH="50" color="5551244" />
+        <val key="accrHead.press#fgColor" value="ffffff" />
+        <val key="accrHead.press#transparency" value="255" />
+        <val key="accrHead.sel#align" value="4" />
+        <val key="accrHead.sel#bgColor" value="666666" />
+        <val key="accrHead.sel#fgColor" value="ffffff" />
+        <val key="accrHead.sel#transparency" value="255" />
+        <val key="accrHead.transparency" value="255" />
+        <val key="addImgBtn.align" value="4" />
+        <val key="addImgBtn.bgColor" value="1c2424" />
+        <border key="addImgBtn.border" type="rounded" thickness="0.0" arcW="30" arcH="30" color="1844260" />
+        <val key="addImgBtn.fgColor" value="ffffff" />
+        <val key="addImgBtn.margin" value="0.0,0.0,50.0,50.0" />
+        <val key="addImgBtn.padding" value="5.0,5.0,25.0,25.0" />
+        <val key="addImgBtn.press#align" value="4" />
+        <val key="addImgBtn.press#bgColor" value="45b48c" />
+        <border key="addImgBtn.press#border" type="rounded" thickness="0.0" arcW="30" arcH="30" color="4568204" />
+        <val key="addImgBtn.press#fgColor" value="ffffff" />
+        <val key="addImgBtn.press#margin" value="0.0,0.0,0.0,50.0" />
+        <val key="addImgBtn.press#padding" value="5.0,5.0,25.0,25.0" />
+        <val key="addImgBtn.press#transparency" value="255" />
+        <val key="addImgBtn.sel#align" value="4" />
+        <val key="addImgBtn.sel#bgColor" value="999999" />
+        <border key="addImgBtn.sel#border" type="rounded" thickness="0.0" arcW="30" arcH="30" color="0" />
+        <val key="addImgBtn.sel#fgColor" value="0" />
+        <val key="addImgBtn.sel#margin" value="0.0,0.0,0.0,50.0" />
+        <val key="addImgBtn.sel#padding" value="5.0,5.0,25.0,25.0" />
+        <val key="addImgBtn.sel#transparency" value="255" />
+        <val key="addImgBtn.transparency" value="255" />
+        <val key="addPubBtn.align" value="4" />
+        <val key="addPubBtn.bgColor" value="1c2424" />
+        <gradient key="addPubBtn.bgGradient" color1="1844260" color2="1844260" posX="0.5" posY="0.5" radius="1.0" />
+        <val key="addPubBtn.bgType" value="7" />
+        <border key="addPubBtn.border" type="roundRect" strokeColor="0" strokeOpacity="255" strokeThickness="0.0" strokeMM="false" shadowSpread="10.0" shadowOpacity="0" shadowX="0.5" shadowY="0.5" shadowBlur="10.0" topOnlyMode="false" bottomOnlyMode="false" cornerRadius="2.0" bezierCorners="false" />
+        <val key="addPubBtn.fgColor" value="ffffff" />
+        <font key="addPubBtn.font" type="system" face="0" style="0" size="0" />
+        <val key="addPubBtn.marUnit" value="2,2,2,2" />
+        <val key="addPubBtn.margin" value="3.0,3.0,2.0,2.0" />
+        <val key="addPubBtn.padding" value="4.0,4.0,4.0,4.0" />
+        <val key="addPubBtn.press#align" value="4" />
+        <gradient key="addPubBtn.press#bgGradient" color1="5551244" color2="4568204" posX="0.5" posY="0.5" radius="1.0" />
+        <val key="addPubBtn.press#bgType" value="7" />
+        <border key="addPubBtn.press#border" type="roundRect" strokeColor="0" strokeOpacity="255" strokeThickness="0.0" strokeMM="false" shadowSpread="10.0" shadowOpacity="0" shadowX="0.5" shadowY="0.5" shadowBlur="10.0" topOnlyMode="false" bottomOnlyMode="false" cornerRadius="2.0" bezierCorners="false" />
+        <val key="addPubBtn.press#fgColor" value="ffffff" />
+        <font key="addPubBtn.press#font" type="system" face="0" style="0" size="0" />
+        <val key="addPubBtn.press#marUnit" value="2,2,2,2" />
+        <val key="addPubBtn.press#margin" value="1.0,1.0,1.0,1.0" />
+        <val key="addPubBtn.press#padUnit" value="2,2,2,2" />
+        <val key="addPubBtn.press#padding" value="4.0,4.0,4.0,4.0" />
+        <val key="addPubBtn.sel#align" value="4" />
+        <val key="addPubBtn.sel#bgColor" value="1c2424" />
+        <gradient key="addPubBtn.sel#bgGradient" color1="1844260" color2="1844260" posX="0.5" posY="0.5" radius="1.0" />
+        <val key="addPubBtn.sel#bgType" value="7" />
+        <border key="addPubBtn.sel#border" type="roundRect" strokeColor="0" strokeOpacity="255" strokeThickness="0.0" strokeMM="false" shadowSpread="10.0" shadowOpacity="0" shadowX="0.5" shadowY="0.5" shadowBlur="10.0" topOnlyMode="false" bottomOnlyMode="false" cornerRadius="2.0" bezierCorners="false" />
+        <val key="addPubBtn.sel#fgColor" value="ffffff" />
+        <font key="addPubBtn.sel#font" type="system" face="0" style="0" size="0" />
+        <val key="addPubBtn.sel#marUnit" value="2,2,2,2" />
+        <val key="addPubBtn.sel#margin" value="3.0,3.0,2.0,2.0" />
+        <val key="addPubBtn.sel#padUnit" value="2,2,2,2" />
+        <val key="addPubBtn.sel#padding" value="4.0,4.0,4.0,4.0" />
+        <val key="btnFilePub.align" value="3" />
+        <val key="btnFilePub.bgColor" value="0" />
+        <gradient key="btnFilePub.bgGradient" color1="0" color2="0" posX="0.5" posY="0.5" radius="1.0" />
+        <val key="btnFilePub.bgType" value="0" />
+        <val key="btnFilePub.fgColor" value="66cc" />
+        <font key="btnFilePub.font" type="system" face="0" style="0" size="8" />
+        <val key="btnFilePub.press#align" value="3" />
+        <val key="btnFilePub.press#bgColor" value="0" />
+        <gradient key="btnFilePub.press#bgGradient" color1="0" color2="0" posX="0.5" posY="0.5" radius="1.0" />
+        <val key="btnFilePub.press#bgType" value="0" />
+        <val key="btnFilePub.press#fgColor" value="0" />
+        <font key="btnFilePub.press#font" type="system" face="0" style="0" size="8" />
+        <val key="btnFilePub.press#textDecoration" value="1" />
+        <val key="btnFilePub.press#transparency" value="0" />
+        <val key="btnFilePub.sel#align" value="3" />
+        <val key="btnFilePub.sel#bgColor" value="0" />
+        <gradient key="btnFilePub.sel#bgGradient" color1="0" color2="0" posX="0.5" posY="0.5" radius="1.0" />
+        <val key="btnFilePub.sel#bgType" value="0" />
+        <val key="btnFilePub.sel#fgColor" value="66cc" />
+        <font key="btnFilePub.sel#font" type="system" face="0" style="0" size="8" />
+        <val key="btnFilePub.sel#textDecoration" value="1" />
+        <val key="btnFilePub.sel#transparency" value="0" />
+        <val key="btnFilePub.textDecoration" value="1" />
+        <val key="btnFilePub.transparency" value="0" />
+        <val key="pubsButtons.align" value="4" />
+        <border key="pubsButtons.border" type="round" roundBorderColor="1844260" opacity="255" strokeColor="0" strokeOpacity="255" strokeThickness="0.0" strokeMM="false" shadowSpread="10" shadowOpacity="0" shadowX="0.5" shadowY="0.5" shadowBlur="10.0" shadowMM="false" rectangle="false" />
+        <val key="pubsButtons.fgColor" value="ffffff" />
+        <font key="pubsButtons.font" type="system" face="0" style="0" size="0" />
+        <val key="pubsButtons.padUnit" value="2,2,2,2" />
+        <val key="pubsButtons.padding" value="1.0,1.0,1.0,1.0" />
+        <val key="pubsButtons.press#align" value="4" />
+        <border key="pubsButtons.press#border" type="round" roundBorderColor="5551244" opacity="255" strokeColor="0" strokeOpacity="255" strokeThickness="0.0" strokeMM="false" shadowSpread="10" shadowOpacity="0" shadowX="0.5" shadowY="0.5" shadowBlur="10.0" shadowMM="false" rectangle="false" />
+        <val key="pubsButtons.press#fgColor" value="ffffff" />
+        <font key="pubsButtons.press#font" type="system" face="0" style="0" size="0" />
+        <val key="pubsButtons.press#padUnit" value="2,2,2,2" />
+        <val key="pubsButtons.press#padding" value="1.0,1.0,1.0,1.0" />
+        <val key="pubsButtons.sel#align" value="4" />
+        <border key="pubsButtons.sel#border" type="round" roundBorderColor="1844260" opacity="255" strokeColor="0" strokeOpacity="255" strokeThickness="0.0" strokeMM="false" shadowSpread="10" shadowOpacity="0" shadowX="0.5" shadowY="0.5" shadowBlur="10.0" shadowMM="false" rectangle="false" />
+        <val key="pubsButtons.sel#fgColor" value="ffffff" />
+        <font key="pubsButtons.sel#font" type="system" face="0" style="0" size="0" />
+        <val key="pubsButtons.sel#padUnit" value="2,2,2,2" />
+        <val key="pubsButtons.sel#padding" value="1.0,1.0,1.0,1.0" />
     </theme>
     <image name="toolbar-profile-pic.png" type="multi"  />
+    <image name="toolbar-profile-pic.png1" type="multi"  />
     <image name="walthru-radio-selected.png" type="multi"  />
+    <image name="walthru-radio-selected.png1" type="multi"  />
     <image name="walthru-radio-unselected.png" type="multi"  />
+    <image name="walthru-radio-unselected.png1" type="multi"  />
     <image name="welcome-background.jpg"  />
+    <image name="welcome-background.jpg1"  />
     <image name="welcome-image-mask.png" type="multi"  />
+    <image name="welcome-image-mask.png1" type="multi"  />
     <image name="welcome-separator.png" type="multi"  />
+    <image name="welcome-separator.png1" type="multi"  />
 </resource>

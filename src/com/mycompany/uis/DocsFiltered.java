@@ -36,7 +36,7 @@ public class DocsFiltered extends Form{
         Toolbar tb=getToolbar();
         Form previous = Display.getInstance().getCurrent();
 	tb.setBackCommand("", e -> previous.showBack());
-        if (admin != 1) {//to_change
+        if (admin != 1) {
             tb.addMaterialCommandToRightBar("", FontImage.MATERIAL_BOOKMARKS, new ActionListener() {
                 public void actionPerformed(ActionEvent evt) {
                     new DocsFavorite(resourceObjectInstance).show();
@@ -49,7 +49,7 @@ public class DocsFiltered extends Form{
                 }
             });
         }
-        if (admin != 1) { //to_change
+        if (admin != 1) {
             //floating button add
             FloatingActionButton fab = FloatingActionButton.createFAB(FontImage.MATERIAL_ADD);
             RoundBorder rb = (RoundBorder) fab.getUnselectedStyle().getBorder();
@@ -69,7 +69,7 @@ public class DocsFiltered extends Form{
      private void initGuiBuilderComponents(Resources resourceObjectInstance,ArrayList<Document> docs,String niveauSelect,String matiereSelect,Form previous,int admin) {
         boolean empty=true;
         //String currentUser=SessionManager.getUsername()+" "+SessionManager.getPrenom();
-        String currentUser="Anas Houissa"; //to_change
+        String currentUser=SessionManager.getUserName();//to_check
         setLayout(new BoxLayout(BoxLayout.Y_AXIS));
         Font poppinsRegular55 = Font.createTrueTypeFont("regular","Poppins-Regular.ttf").
                     derive(55, Font.STYLE_PLAIN);

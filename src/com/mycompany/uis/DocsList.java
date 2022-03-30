@@ -1,7 +1,6 @@
 package com.mycompany.uis;
 
 import com.codename1.components.FloatingActionButton;
-import com.codename1.l10n.L10NManager;
 import com.codename1.ui.Button;
 import com.codename1.ui.ComboBox;
 import com.codename1.ui.Component;
@@ -28,7 +27,6 @@ import com.mycompany.services.ServiceDocument;
 import com.mycompany.services.ServiceMatiere;
 import com.mycompany.services.ServiceNiveau;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class DocsList extends Form {
 
@@ -37,18 +35,19 @@ public class DocsList extends Form {
     }
 
     public DocsList(Resources resourceObjectInstance) {
-        int admin = 1;//to_change
-        /*if(SessionManager.getRoles.equals("ROLE_ADMIN")
+        int admin;
+        if (SessionManager.getRoles().equals("ROLE_ADMIN"))
             admin = 1;
         else
-            admin=0;*/
+            admin = 0;
+
         //SKELETON
         setLayout(BoxLayout.y());
         setTitle("Centre de partage");
         Form previous = Display.getInstance().getCurrent();
         Toolbar tb = getToolbar();
         tb.setBackCommand("", e -> previous.showBack());
-        if (admin != 1) {//to_change
+        if (admin != 1) {
             tb.addMaterialCommandToRightBar("", FontImage.MATERIAL_BOOKMARKS, new ActionListener() {
                 public void actionPerformed(ActionEvent evt) {
                     new DocsFavorite(resourceObjectInstance).show();
@@ -61,7 +60,7 @@ public class DocsList extends Form {
                 }
             });
         }
-        if (admin != 1) {//to_change
+        if (admin != 1) {
             //floating button add
             FloatingActionButton fab = FloatingActionButton.createFAB(FontImage.MATERIAL_ADD);
             RoundBorder rb = (RoundBorder) fab.getUnselectedStyle().getBorder();
@@ -84,8 +83,8 @@ public class DocsList extends Form {
     }
 
     private void initGuiBuilderComponents(Resources resourceObjectInstance, ArrayList<Document> docs, ArrayList<Niveau> niveaux, ArrayList<Matiere> matieres, Form previous, int admin) {
-        String currentUser = "Anas Houissa"; //to_change
         //String currentUser=SessionManager.getUsername()+" "+SessionManager.getPrenom();
+        String currentUser=SessionManager.getUserName();//to_check
         setLayout(new BoxLayout(BoxLayout.Y_AXIS));
         Font poppinsRegular55 = Font.createTrueTypeFont("regular", "Poppins-Regular.ttf").
                 derive(55, Font.STYLE_PLAIN);
@@ -134,6 +133,7 @@ public class DocsList extends Form {
                 String matiereDoc = d.getMatiere();
                 String dateDoc = d.getDate_insert();
                 String propDoc = d.getProp();
+                System.out.println("HEYYYYY!!!!!!!!!"+d.getProp());
                 //list of docs set
                 Container gui_Container_1 = new Container(new BorderLayout());
                 Container gui_Container_2 = new Container(new FlowLayout());

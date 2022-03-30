@@ -110,7 +110,7 @@ public class DocAdd extends Form {
                     //create new doc
                     String insert_date = new SimpleDateFormat("dd/MM/yy").format(new Date());
                     //String prop=SessionManager.getUsername()+" "+SessionManager.getPrenom();
-                    Document doc = new Document(tfNomDoc.getText(), insert_date, "Anas Houissa"/*to_change*/, cbMatiere.getSelectedItem().toString(), cbNiveau.getSelectedItem().toString(), tfUrl.getText(), null);
+                    Document doc = new Document(tfNomDoc.getText(), insert_date, SessionManager.getUserName()/*to_check*/, cbMatiere.getSelectedItem().toString(), cbNiveau.getSelectedItem().toString(), tfUrl.getText(), null);
                     //Document doc = new Document(tfNomDoc.getText(), insert_date, prop, cbMatiere.getSelectedItem().toString(), cbNiveau.getSelectedItem().toString(), tfUrl.getText(), null);
                     if (ServiceDocument.getInstance().addUrl(doc)) {
                         //success toast
