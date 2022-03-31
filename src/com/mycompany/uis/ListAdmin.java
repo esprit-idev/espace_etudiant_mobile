@@ -41,6 +41,8 @@ public class ListAdmin extends Form{
                           Label niveau = new Label ("Nom et Prenom de l'admin : "+a.getPrenom()+a.getUsername());
                                   Button btnSend= new Button("Supprimer");
                                   Button update = new Button("Update");
+                                   update.setUIID("RoundBtn");
+                                  btnSend.setUIID("IndianredRoundBtn");
         
                             niveau.addPointerPressedListener((ActionListener)(ActionEvent evt)->{
                            Dialog.show("Admin", niveau.getText()+"\n Email :"+a.getEmail(),"OK", null);

@@ -99,7 +99,7 @@ public class ServiceAdmin {
     }
     
       public void deleteAdmin(int id ) {
-        String url = Static.BASE_URL +"/deleteAdminJson?id="+id;
+        String url = Static.BASE_URL +"/deleteAdminJson/"+id;
         
         req.setUrl(url);
         

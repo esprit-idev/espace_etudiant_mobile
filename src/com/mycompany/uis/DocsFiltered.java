@@ -15,6 +15,7 @@ import com.codename1.ui.Form;
 import com.codename1.ui.Label;
 import com.codename1.ui.TextArea;
 import com.codename1.ui.Toolbar;
+import com.codename1.ui.animations.CommonTransitions;
 import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BorderLayout;
@@ -35,7 +36,10 @@ public class DocsFiltered extends Form{
 	setTitle(niveauSelect+" | "+matiereSelect);
         Toolbar tb=getToolbar();
         Form previous = Display.getInstance().getCurrent();
-	tb.setBackCommand("", e -> previous.showBack());
+	tb.setBackCommand("", e -> {
+            setTransitionOutAnimator(CommonTransitions.createSlide(CommonTransitions.SLIDE_HORIZONTAL, true, Integer.parseInt("200")));
+            new DocsList().show();
+        });
         if (admin != 1) {
             tb.addMaterialCommandToRightBar("", FontImage.MATERIAL_BOOKMARKS, new ActionListener() {
                 public void actionPerformed(ActionEvent evt) {
@@ -68,8 +72,7 @@ public class DocsFiltered extends Form{
     
      private void initGuiBuilderComponents(Resources resourceObjectInstance,ArrayList<Document> docs,String niveauSelect,String matiereSelect,Form previous,int admin) {
         boolean empty=true;
-        //String currentUser=SessionManager.getUsername()+" "+SessionManager.getPrenom();
-        String currentUser=SessionManager.getUserName();//to_check
+        String currentUser=SessionManager.getUserName()+" "+SessionManager.getPrenom();//to_check
         setLayout(new BoxLayout(BoxLayout.Y_AXIS));
         Font poppinsRegular55 = Font.createTrueTypeFont("regular","Poppins-Regular.ttf").
                     derive(55, Font.STYLE_PLAIN);
@@ -132,7 +135,7 @@ public class DocsFiltered extends Form{
                 //sheet
                 Button displaySheet_btn = new Button();
                     displaySheet_btn.addActionListener(e -> {
-                        DocSheet sheet = new DocSheet(null,d,previous,admin,false);
+                        DocSheet sheet = new DocSheet(null,d,previous,admin,false,"doclist");
                         sheet.show();
                     });
             gui_Container_1.setLeadComponent(displaySheet_btn);

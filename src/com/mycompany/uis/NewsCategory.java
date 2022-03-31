@@ -50,7 +50,7 @@ public class NewsCategory extends Form {
             public void actionPerformed(ActionEvent e) {
                 setTransitionOutAnimator(CommonTransitions.createSlide(CommonTransitions.SLIDE_HORIZONTAL, true, Integer.parseInt("200")));
 
-                new NewsCategory().show();
+                new TabAff(Resources.getGlobalResources()).show();
             }
         });
           //fab button to add categories:

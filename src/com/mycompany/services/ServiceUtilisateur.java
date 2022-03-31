@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 package com.mycompany.services;
-import com.codename1.io.ConnectionRequest ;
+
+import com.codename1.io.ConnectionRequest;
 import com.codename1.io.JSONParser;
 import com.codename1.ui.Dialog;
 import com.codename1.ui.TextField;
@@ -29,25 +30,27 @@ import com.mycompany.uis.SessionManager;
  * @author YOOSURF
  */
 public class ServiceUtilisateur {
-    
-    public static ServiceUtilisateur instance = null ;
-    
-    public static boolean resultOK = true ;
-     String json;
-    
-    private ConnectionRequest req ;
-    
-    public static ServiceUtilisateur getInstance(){
-        if (instance == null)
+
+    public static ServiceUtilisateur instance = null;
+
+    public static boolean resultOK = true;
+    String json;
+
+    private ConnectionRequest req;
+
+    public static ServiceUtilisateur getInstance() {
+        if (instance == null) {
             instance = new ServiceUtilisateur();
-        return instance ;
+        }
+        return instance;
     }
-    
-    public ServiceUtilisateur(){
+
+    public ServiceUtilisateur() {
         req = new ConnectionRequest();
     }
-    
+
     //signin
+
     public void signin (TextField email, TextField password , Resources res){
      // String r = '"'+"ROLE_ADMIN"+'"';  
        String r="ROLE_ADMIN";
@@ -85,9 +88,10 @@ String roles=result.getAsString("roles");
                 SessionManager.setPrenom(user.get("prenom").toString());
               //float roles =Float.parseFloat(user.get("roles").toString());
                 SessionManager.setRoles(roles);
+           
                 
             //    System.out.println(roles);
-  // System.out.println(SessionManager.getRoles());
+  // System.out.println(SessionManager.getPrenom());
                 
                //System.out.println(user.get("roles"));
 
@@ -109,66 +113,61 @@ String roles=result.getAsString("roles");
     }
     
     
-    public String getPasswordByEmail(String email, Resources rs ) { 
-       String url = Static.BASE_URL+"/getPasswordByEmail?email="+email;
+   
+
+    public String getPasswordByEmail(String email, Resources rs) {
+        String url = Static.BASE_URL + "/getPasswordByEmail?email=" + email;
         req = new ConnectionRequest(url, false); //false ya3ni url mazlt matba3thtich lel server
         req.setUrl(url);
-        
-        req.addResponseListener((e) ->{
-            
+
+        req.addResponseListener((e) -> {
+
             JSONParser j = new JSONParser();
-            
-             json = new String(req.getResponseData()) + "";
-           //   if(json.equals("user not found")){
-    //   Dialog.show("Echec d'authentification","Username ou mot de passe éronné","OK", null);    
-   //}
+
+            json = new String(req.getResponseData()) + "";
+            //   if(json.equals("user not found")){
+            //   Dialog.show("Echec d'authentification","Username ou mot de passe éronné","OK", null);    
+            //}
             //else{     
-                    try {
-            
-   
-      
-                System.out.println("data =="+json);
-                
-                Map<String,Object> password = j.parseJSON(new CharArrayReader(json.toCharArray()));
-   
-   
-            
-            }catch(Exception ex) {
+            try {
+
+                System.out.println("data ==" + json);
+
+                Map<String, Object> password = j.parseJSON(new CharArrayReader(json.toCharArray()));
+
+            } catch (Exception ex) {
                 ex.printStackTrace();
             }
-              
-           // } 
-           
+
+            // } 
         });
-    
-         //ba3d execution ta3 requete ely heya url nestanaw response ta3 server.
-       NetworkManager.getInstance().addToQueueAndWait(req);
-    return json;
-    } 
-    
-    
+
+        //ba3d execution ta3 requete ely heya url nestanaw response ta3 server.
+        NetworkManager.getInstance().addToQueueAndWait(req);
+        return json;
+    }
+
     // edit user profil
-    public static void EditUser(int id ,String username , String password ){
-    
-        String url =Static.BASE_URL+"/editProfileJson?id="+id+"&username="+username+"&password="+password ;
+    public static void EditUser(int id, String username, String password) {
+
+        String url = Static.BASE_URL + "/editProfileJson?id=" + id + "&username=" + username + "&password=" + password;
         MultipartRequest req = new MultipartRequest();
-        
+
         req.setUrl(url);
         req.setPost(true);
-      //  req.addArgument("id",String.valueOf(SessionManager.getId()));
+        //  req.addArgument("id",String.valueOf(SessionManager.getId()));
         req.addArgument("username", username);
         req.addArgument("password", password);
         //req.addArgument("email", email);
         //System.out.println(email);
-        req.addResponseListener((response)->{
-        
-            byte[] data = (byte[]) response.getMetaData() ;
-            String s = new String(data) ;
+        req.addResponseListener((response) -> {
+
+            byte[] data = (byte[]) response.getMetaData();
+            String s = new String(data);
             System.out.println(s);
-            
-           
+
         });
 
-    NetworkManager.getInstance().addToQueueAndWait(req);
+        NetworkManager.getInstance().addToQueueAndWait(req);
     }
 }

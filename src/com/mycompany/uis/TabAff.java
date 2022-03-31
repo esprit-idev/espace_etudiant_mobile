@@ -53,7 +53,6 @@ public class TabAff extends Form {
         tb.addMaterialCommandToSideMenu("Tableau d'affichage", FontImage.MATERIAL_DASHBOARD, new ActionListener<ActionEvent>() {
 
             public void actionPerformed(ActionEvent evt) {
-                    new TabAff(res).show();
             }
         });
         if(admin==1){

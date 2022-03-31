@@ -80,7 +80,7 @@ public class OffreCategoryAdd extends Form{
                         ToastBar.showMessage("Categorie ajoutée", FontImage.MATERIAL_CHECK_CIRCLE);
                         setTransitionOutAnimator(CommonTransitions.createSlide(CommonTransitions.SLIDE_HORIZONTAL, true, Integer.parseInt("200")));
 
-                        new NewsCategory().show();
+                        new OffreCategory().show();
                     } else {
                         //error toast
                         ToastBar.showMessage("Une erreur est survenue lors de l'ajout", FontImage.MATERIAL_ERROR);
