@@ -46,7 +46,10 @@ public class MatiereAdd extends Form {
                 derive(35, Font.STYLE_PLAIN);
 
         Form previous = Display.getInstance().getCurrent();
-        tb.setBackCommand("", e -> previous.showBack());
+        tb.setBackCommand("", e -> {
+            setTransitionOutAnimator(CommonTransitions.createSlide(CommonTransitions.SLIDE_HORIZONTAL, true, Integer.parseInt("200")));
+            new MatiereList().show();
+        });
         Container cnt = new Container(BoxLayout.y());
 
         //BODY

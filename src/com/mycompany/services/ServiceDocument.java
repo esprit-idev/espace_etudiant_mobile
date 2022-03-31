@@ -173,9 +173,7 @@ public class ServiceDocument {
     }
     
     public boolean shareDoc(Document doc,String destEmail,String body,String subject) {
-        String username=SessionManager.getUserName(); //to_check
-        //String username=SessionManager.getUserName()+" "+SessionManager.getPrenom();
-
+        String username=SessionManager.getUserName()+" "+SessionManager.getPrenom(); //to_check
         String userEmail=SessionManager.getEmail();
         String url = Static.BASE_URL+"/shareDoc/"+doc.getId()+"?userEmail=" + userEmail + "&destEmail=" + destEmail + "&body=" + body + "&subject=" + subject+ "&username=" + username;
         req.setUrl(url);
