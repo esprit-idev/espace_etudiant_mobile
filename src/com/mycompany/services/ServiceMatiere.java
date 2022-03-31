@@ -97,8 +97,8 @@ public class ServiceMatiere {
         return resultOk;
     }
     
-    public boolean updateMatiere(String matiereId,String niveauId) {
-             String url = Static.BASE_URL + "/updateMatiere/"+matiereId+"?matiereId=" + matiereId + "&niveauId=" + niveauId;
+    public boolean updateMatiere(String oldMatiereId,String matiereId,String niveauId) {
+             String url = Static.BASE_URL + "/updateMatiere/"+oldMatiereId+"?matiereId=" + matiereId + "&niveauId=" + niveauId;
         req.setUrl(url);
         req.addResponseListener(new ActionListener<NetworkEvent>() {
             @Override

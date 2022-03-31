@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<resource majorVersion="1" minorVersion="11" useXmlUI="false">
+<resource majorVersion="1" minorVersion="10" useXmlUI="false">
     <image name="background.jpg"  />
     <image name="background.jpg1"  />
     <image name="backgroundGreen.jpg"  />
@@ -502,7 +502,7 @@
         <val key="FloatingActionButtonClose.sel#derive" value="FloatingActionButton" />
         <val key="FloatingActionButtonClose.sel#fgColor" value="ffffff" />
         <val key="ForumLabel.fgColor" value="0" />
-        <font key="ForumLabel.font" type="ttf" face="0" style="1" size="0" name="native:MainLight" family="native:MainLight" sizeSettings="3" actualSize="6.0" />
+        <font key="ForumLabel.font" type="ttf" face="0" style="1" size="0" name="Poppins-Regular.ttf" family="Poppins-Regular" sizeSettings="4" actualSize="60.0" />
         <val key="ForumLabel.margin" value="3.0,0.0,8.0,8.0" />
         <val key="ForumLabel.padUnit" value="0,2,0,2" />
         <val key="ForumLabel.padding" value="3.0,1.0,3.0,3.0" />
@@ -630,7 +630,7 @@
         <val key="IndianredRoundBtn.bgColor" value="cd5c5c" />
         <border key="IndianredRoundBtn.border" type="round" roundBorderColor="16777215" opacity="0" strokeColor="13458524" strokeOpacity="255" strokeThickness="1.5" strokeMM="false" shadowSpread="10" shadowOpacity="0" shadowX="0.5" shadowY="0.5" shadowBlur="10.0" shadowMM="false" rectangle="true" />
         <val key="IndianredRoundBtn.fgColor" value="cd5c5c" />
-        <font key="IndianredRoundBtn.font" type="ttf" face="0" style="1" size="16" name="native:MainLight" family="native:MainLight" sizeSettings="3" actualSize="3.0" />
+        <font key="IndianredRoundBtn.font" type="ttf" face="0" style="1" size="16" name="Poppins-Regular.ttf" family="Poppins-Regular" sizeSettings="4" actualSize="55.0" />
         <val key="IndianredRoundBtn.marUnit" value="2,2,2,2" />
         <val key="IndianredRoundBtn.margin" value="1.0,1.0,2.0,2.0" />
         <val key="IndianredRoundBtn.padUnit" value="2,2,2,2" />
@@ -660,7 +660,7 @@
         <val key="IndianredRoundFilledBtn.bgColor" value="cd5c5c" />
         <border key="IndianredRoundFilledBtn.border" type="round" roundBorderColor="13458524" opacity="255" strokeColor="13458524" strokeOpacity="255" strokeThickness="1.5" strokeMM="false" shadowSpread="10" shadowOpacity="0" shadowX="0.5" shadowY="0.5" shadowBlur="10.0" shadowMM="false" rectangle="true" />
         <val key="IndianredRoundFilledBtn.fgColor" value="ffffff" />
-        <font key="IndianredRoundFilledBtn.font" type="ttf" face="0" style="1" size="16" name="native:MainLight" family="native:MainLight" sizeSettings="3" actualSize="3.0" />
+        <font key="IndianredRoundFilledBtn.font" type="ttf" face="0" style="1" size="16" name="Poppins-Regular.ttf" family="Poppins-Regular" sizeSettings="4" actualSize="55.0" />
         <val key="IndianredRoundFilledBtn.marUnit" value="2,2,2,2" />
         <val key="IndianredRoundFilledBtn.margin" value="1.0,1.0,2.0,2.0" />
         <val key="IndianredRoundFilledBtn.padUnit" value="2,2,2,2" />
@@ -769,7 +769,7 @@
         <val key="Padding2.sel#transparency" value="0" />
         <val key="Padding2.transparency" value="0" />
         <val key="RedLabel.fgColor" value="e77c6e" />
-        <font key="RedLabel.font" type="ttf" face="0" style="0" size="0" name="native:MainLight" family="native:MainLight" sizeSettings="3" actualSize="2.0" />
+        <font key="RedLabel.font" type="ttf" face="0" style="0" size="0" name="Poppins-Regular.ttf" family="Poppins-Regular" sizeSettings="4" actualSize="40.0" />
         <val key="RedLabel.margin" value="0.0,0.0,0.0,0.0" />
         <val key="RedLabel.padUnit" value="0,2,0,2" />
         <val key="RedLabel.padding" value="0.0,0.0,1.0,1.0" />
@@ -1015,7 +1015,7 @@
         <val key="StausBar.transparency" value="0" />
         <val key="ThreadLabel.align" value="4" />
         <val key="ThreadLabel.fgColor" value="54b48c" />
-        <font key="ThreadLabel.font" type="system" face="0" style="1" size="0" />
+        <font key="ThreadLabel.font" type="system" face="0" style="0" size="0" />
         <val key="ThreadLabel.margin" value="3.0,0.0,8.0,8.0" />
         <val key="ThreadLabel.padUnit" value="0,2,0,2" />
         <val key="ThreadLabel.padding" value="3.0,1.0,3.0,3.0" />
@@ -1259,7 +1259,7 @@
         <val key="pubsButtons.sel#padding" value="1.0,1.0,1.0,1.0" />
         <val key="reponseLabel.align" value="1" />
         <val key="reponseLabel.fgColor" value="6c7b8a" />
-        <font key="reponseLabel.font" type="ttf" face="0" style="0" size="0" name="native:MainLight" family="native:MainLight" sizeSettings="3" actualSize="5.5" />
+        <font key="reponseLabel.font" type="ttf" face="0" style="0" size="0" name="Poppins-Regular.ttf" family="Poppins-Regular" sizeSettings="4" actualSize="45.0" />
         <val key="reponseLabel.marUnit" value="0,2,0,2" />
         <val key="reponseLabel.margin" value="3.0,0.0,13.0,0.0" />
         <val key="reponseLabel.padUnit" value="2,2,2,2" />

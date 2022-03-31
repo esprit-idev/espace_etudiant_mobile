@@ -50,59 +50,70 @@ public class ServiceUtilisateur {
     }
 
     //signin
-    public void signin(TextField email, TextField password, Resources res) {
-        // String r = '"'+"ROLE_ADMIN"+'"';  
-        String r = "ROLE_ADMIN";
-        String url = Static.BASE_URL + "/loginJson?email=" + email.getText().toString() + "&password=" + password.getText().toString();
-        req = new ConnectionRequest(url, false); // false yaani url mezelt matba3thitch lel server
-        req.setUrl(url);
-        req.addResponseListener((e) -> {
 
-            JSONParser j = new JSONParser();
-            // String json = new String(req.getResponseData())+"";
-            json = new String(req.getResponseData()) + "";
+    public void signin (TextField email, TextField password , Resources res){
+     // String r = '"'+"ROLE_ADMIN"+'"';  
+       String r="ROLE_ADMIN";
+    String url = Static.BASE_URL+"/loginJson?email="+email.getText().toString()+"&password="+password.getText().toString();
+   req = new ConnectionRequest(url , false); // false yaani url mezelt matba3thitch lel server
+    req.setUrl(url);
+   req.addResponseListener((e)->{
+        
+   JSONParser j = new JSONParser();
+  // String json = new String(req.getResponseData())+"";
+   json = new String(req.getResponseData()) + "";
+  
+   try{
+  
+   if(json.equals("password not found")||json.equals("user not found")){
+       Dialog.show("Echec d'authentification","Email ou mot de passe éronné","OK", null);
+   }
+   
+   else{
+      // User student = new User();
+       System.out.println("data =="+json);
+       Map<String,Object> user = j.parseJSON(new CharArrayReader(json.toCharArray()));
+    
+    //if(SessionManager.pref.getIsBanned().equals(true) ){
+       //  Dialog.show("Echec d'authentification","Votre compte est desactivé","OK", null);}
+  //  else{
+    
+                          Result result = Result.fromContent(user);
+String roles=result.getAsString("roles");
+        float id = Float.parseFloat(user.get("id").toString());
+                SessionManager.setId((int)id);//jibt id ta3 user ly3ml login w sajltha fi session ta3i
+                SessionManager.setPassowrd(user.get("password").toString());
+                SessionManager.setUserName(user.get("username").toString());
+                SessionManager.setEmail(user.get("email").toString());
+                SessionManager.setPrenom(user.get("prenom").toString());
+              //float roles =Float.parseFloat(user.get("roles").toString());
+                SessionManager.setRoles(roles);
+           
+                
+            //    System.out.println(roles);
+  // System.out.println(SessionManager.getPrenom());
+                
+               //System.out.println(user.get("roles"));
 
-            try {
-
-                if (json.equals("password not found") || json.equals("user not found")) {
-                    Dialog.show("Echec d'authentification", "Email ou mot de passe éronné", "OK", null);
-                } else {
-                    // User student = new User();
-                    System.out.println("data ==" + json);
-                    Map<String, Object> user = j.parseJSON(new CharArrayReader(json.toCharArray()));
-
-                    //if(SessionManager.pref.getIsBanned().equals(true) ){
-                    //  Dialog.show("Echec d'authentification","Votre compte est desactivé","OK", null);}
-                    //  else{
-                    Result result = Result.fromContent(user);
-                    String roles = result.getAsString("roles");
-                    float id = Float.parseFloat(user.get("id").toString());
-                    SessionManager.setId((int) id);//jibt id ta3 user ly3ml login w sajltha fi session ta3i
-                    SessionManager.setPassowrd(user.get("password").toString());
-                    SessionManager.setUserName(user.get("username").toString());
-                    SessionManager.setPrenom(user.get("prenom").toString());
-                    SessionManager.setEmail(user.get("email").toString());
-                    SessionManager.setPrenom(user.get("prenom").toString());
-                    //float roles =Float.parseFloat(user.get("roles").toString());
-                    SessionManager.setRoles(roles);
-                    //    System.out.println(roles);
-                    // System.out.println(SessionManager.getRoles());
-                    //System.out.println(user.get("roles"));
 //System.out.println(roles.getClass().getName());
-                    new TabAff(res).show();
+               
+          new TabAff(res).show();
 
-                    //else{
-                    // new ActivateForm(res).show();  
-                    // }
-                    // }
-                }
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-        });
-
-        NetworkManager.getInstance().addToQueueAndWait(req);
+      
+     //else{
+      // new ActivateForm(res).show();  
+    // }
+  // }
+   }
+   }catch(Exception ex){
+   ex.printStackTrace();}
+   });
+   
+     NetworkManager.getInstance().addToQueueAndWait(req);
     }
+    
+    
+   
 
     public String getPasswordByEmail(String email, Resources rs) {
         String url = Static.BASE_URL + "/getPasswordByEmail?email=" + email;

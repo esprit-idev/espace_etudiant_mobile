@@ -102,7 +102,7 @@ public class MatiereUpdate extends Form {
                     ToastBar.showMessage("Cette matière existe déjà", FontImage.MATERIAL_WARNING);
                 } else {
                     //create new doc
-                    if (ServiceMatiere.getInstance().updateMatiere(tfNomMatiere.getText(), cbNiveau.getSelectedItem().toString())) {
+                    if (ServiceMatiere.getInstance().updateMatiere(matiereId,tfNomMatiere.getText(), cbNiveau.getSelectedItem().toString())) {
                         //success toast
                         ToastBar.showMessage("Matière modifiée", FontImage.MATERIAL_CHECK_CIRCLE);
                         setTransitionOutAnimator(CommonTransitions.createSlide(CommonTransitions.SLIDE_HORIZONTAL, true, Integer.parseInt("200")));
