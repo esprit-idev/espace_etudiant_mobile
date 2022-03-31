@@ -1,7 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+<<<<<<< HEAD
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>src/com/mycompany/uis/Login.java</url>
+            <bookmark id="1">
+                <name/>
+                <line>0</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/eslem/Desktop/EdSpace/src/com/mycompany/uis/OffreCategory.java</file>
+            <file>file:/C:/Users/eslem/Desktop/EdSpace/src/com/mycompany/services/ServiceCategoryEmploi.java</file>
+            <file>file:/C:/Users/eslem/Desktop/EdSpace/src/com/mycompany/uis/NewsCategorySheet.java</file>
+            <file>file:/C:/Users/eslem/Desktop/EdSpace/src/com/mycompany/uis/NewsSheet.java</file>
+            <file>file:/C:/Users/eslem/Desktop/EdSpace/src/com/mycompany/uis/NewsCategoryUpdate.java</file>
+            <file>file:/C:/Users/eslem/Desktop/EdSpace/src/com/mycompany/uis/TabAff.java</file>
+            <file>file:/C:/Users/eslem/Desktop/EdSpace/src/com/mycompany/services/ServiceCategoryNews.java</file>
+            <file>file:/C:/Users/eslem/Desktop/EdSpace/src/com/mycompany/uis/OffreCategoryAdd.java</file>
+            <file>file:/C:/Users/eslem/Desktop/EdSpace/src/com/mycompany/uis/NewsCategory.java</file>
+            <file>file:/C:/Users/eslem/Desktop/EdSpace/src/com/mycompany/uis/NewsCategoryAdd.java</file>
+            <file>file:/C:/Users/eslem/Desktop/EdSpace/src/com/mycompany/uis/ActivateForm.java</file>
+            <file>file:/C:/Users/eslem/Desktop/EdSpace/src/com/mycompany/uis/ClubsListFiltred.java</file>
+=======
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group/>
+=======
+        <group>
+<<<<<<< HEAD
+            <file>file:/C:/Users/MeriamBI/Desktop/pidev/CodenameOne/espace_etudiant_mobile/src/com/mycompany/uis/TabAff.java</file>
+            <file>file:/C:/Users/MeriamBI/Desktop/pidev/CodenameOne/espace_etudiant_mobile/src/com/mycompany/MyApplication.java</file>
+            <file>file:/C:/Users/MeriamBI/Desktop/pidev/CodenameOne/espace_etudiant_mobile/src/com/mycompany/uis/MatiereSheet.java</file>
+            <file>file:/C:/Users/MeriamBI/Desktop/pidev/CodenameOne/espace_etudiant_mobile/src/com/mycompany/services/ServiceDocument.java</file>
+            <file>file:/C:/Users/MeriamBI/Desktop/pidev/CodenameOne/espace_etudiant_mobile/src/com/mycompany/uis/Login.java</file>
+            <file>file:/C:/Users/MeriamBI/Desktop/pidev/CodenameOne/espace_etudiant_mobile/src/com/mycompany/uis/SplashScreen.java</file>
+            <file>file:/C:/Users/MeriamBI/Desktop/pidev/CodenameOne/espace_etudiant_mobile/src/com/mycompany/uis/ActivateForm.java</file>
+            <file>file:/C:/Users/MeriamBI/Desktop/pidev/CodenameOne/espace_etudiant_mobile/src/com/mycompany/services/ServiceUtilisateur.java</file>
+            <file>file:/C:/Users/MeriamBI/Desktop/pidev/CodenameOne/espace_etudiant_mobile/src/com/mycompany/uis/DocSheet.java</file>
+            <file>file:/C:/Users/MeriamBI/Desktop/pidev/CodenameOne/espace_etudiant_mobile/src/com/mycompany/uis/MatiereList.java</file>
+            <file>file:/C:/Users/MeriamBI/Desktop/pidev/CodenameOne/espace_etudiant_mobile/src/com/mycompany/uis/DocAdd.java</file>
+=======
+            <file>file:/E:/Webprojects/PIDEV/finalmobil/espace_etudiant_mobile/src/com/mycompany/utils/Static.java</file>
+            <file>file:/E:/Webprojects/PIDEV/finalmobil/espace_etudiant_mobile/src/com/mycompany/uis/ClubsList.java</file>
+            <file>file:/E:/Webprojects/PIDEV/finalmobil/espace_etudiant_mobile/src/com/mycompany/uis/ClubRubrique.java</file>
+            <file>file:/E:/Webprojects/PIDEV/finalmobil/espace_etudiant_mobile/src/com/mycompany/uis/TabAff.java</file>
+            <file>file:/E:/Webprojects/PIDEV/finalmobil/espace_etudiant_mobile/src/com/mycompany/uis/ClubsListFiltred.java</file>
+>>>>>>> 2ced5b26297f5fef435991001b9169c1ba318524
+>>>>>>> 25c56d47615b1991753a5cbc9d5446b50725f42b
+        </group>
+>>>>>>> 1e4797e43e0e3de1d6148b1921adea8c322a2160
     </open-files>
 </project-private>

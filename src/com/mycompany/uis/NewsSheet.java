@@ -268,6 +268,7 @@ public class NewsSheet extends Sheet{
         super(parent, "");
         setUIID("CustomSheet");
         int id = cat.getId();
+        System.out.println(id);
         String nomCat = cat.getCatgeoryName();
         Container cnt = getContentPane();
         cnt.setLayout(BoxLayout.y());

@@ -23,6 +23,8 @@ import com.codename1.ui.Dialog;
 import com.codename1.ui.TextField;
 import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
+import com.codename1.ui.util.Resources;
+
 import com.mycompany.entities.Reponse;
 import com.mycompany.services.ReponseService;
 import java.util.Date;
@@ -32,7 +34,7 @@ import java.util.Date;
  * @author 21656
  */
 public class ThreadShow extends Form {
-    public ThreadShow(Form previous,Thread t){
+    public ThreadShow(Form previous,Thread t,Resources res){
         
         int admin;
         if(SessionManager.getRoles()=="ROLE_ADMIN")
@@ -75,11 +77,12 @@ public class ThreadShow extends Form {
                       Reponse r = new Reponse();
               r.setReply(tfName.getText());
               r.setDisplay(false);
+              r.setThread(t);
               
               t.setPostDate((new Date()).toString());
               if (ReponseService.getInstance().addReponse(r,SessionManager.getId(),t)){
               Dialog.show("Success","Connection accepted", new Command("OK"));
-              new Forum().show();
+              new Forum(res).show();
               }
               else {
                   Dialog.show("Error","Server error", new Command("OK"));
@@ -112,7 +115,7 @@ public class ThreadShow extends Form {
                 Button del = new Button("delete");
                 del.addActionListener(e-> {
                     ReponseService.getInstance().delete(r);
-                     new Forum().show();       });
+                     new Forum(res).show();       });
                 del.setUIID("IndianredRoundBtn");
                 C3.add(del);
             }
@@ -124,7 +127,7 @@ public class ThreadShow extends Form {
         add(btnValider);
         add(C3);
         
-        getToolbar().addMaterialCommandToLeftBar("", FontImage.MATERIAL_ARROW_BACK, e->previous.showBack());
+        getToolbar().addMaterialCommandToLeftBar("", FontImage.MATERIAL_ARROW_BACK, e->new Forum(res).show());
         
     }
     

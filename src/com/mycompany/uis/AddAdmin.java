@@ -11,6 +11,7 @@ import com.codename1.ui.Display;
 import com.codename1.ui.Form;
 import com.codename1.ui.TextField;
 import com.codename1.ui.Toolbar;
+import com.codename1.ui.animations.CommonTransitions;
 import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BoxLayout;
@@ -29,7 +30,10 @@ public class AddAdmin extends Form{
          Toolbar tb=getToolbar();
 		setTitle("Ajout des Administrateurs");
 		Form previous = Display.getInstance().getCurrent();
-		tb.setBackCommand("", e -> previous.showBack());
+		 tb.setBackCommand("", e -> {
+            setTransitionOutAnimator(CommonTransitions.createSlide(CommonTransitions.SLIDE_HORIZONTAL, true, Integer.parseInt("200")));
+            new ListAdmin(res).show();
+        });
 		Container cnt = new Container(BoxLayout.y());
                 
                 
@@ -52,7 +56,7 @@ public class AddAdmin extends Form{
         
         ajouter.addActionListener((ActionListener) (ActionEvent evt) -> {
             // add a book
-            User a = new User(username.getText(),prenom.getText() ,email.getText(),password.getText() );
+            User a = new User(prenom.getText() , username.getText(),email.getText(),password.getText() );
            // new  ServiceStudent.ajoutStudent(stu);
             new  ServiceAdmin().AddAdmin(a);
              new ListAdmin(res).show();

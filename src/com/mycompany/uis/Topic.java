@@ -13,6 +13,7 @@ import com.codename1.ui.Form;
 import com.codename1.ui.Label;
 import com.codename1.ui.Toolbar;
 import com.codename1.ui.layouts.BoxLayout;
+import com.codename1.ui.util.Resources;
 import com.mycompany.entities.ThreadType;
 import com.mycompany.services.ThreadService;
 import com.mycompany.services.ThreadTypeService;
@@ -25,7 +26,7 @@ import java.util.ArrayList;
 public class Topic extends Form{
     Form current;
     
-    public Topic() {
+    public Topic(Resources res) {
         current = this;
         Toolbar tb = getToolbar();
         setLayout(BoxLayout.y());
@@ -54,11 +55,11 @@ public class Topic extends Form{
                 C2.add(b);
                 
                 update.addActionListener(e->{
-                new TopicUpdate(t,current).show();
+                new TopicUpdate(t,current,res).show();
                 });
                 b.addActionListener(e-> {
                     ThreadTypeService.getInstance().delete(t);
-                    new Topic().show();
+                    new Topic(res).show();
                         });
             
             
@@ -70,9 +71,9 @@ public class Topic extends Form{
         
         }
         add(C2);
-        getToolbar().addMaterialCommandToLeftBar("", FontImage.MATERIAL_ARROW_BACK, e->previous.showBack());
+        getToolbar().addMaterialCommandToLeftBar("", FontImage.MATERIAL_ARROW_BACK, e->new TabAff(res).show());
         
-        btnAddThread.addActionListener(e-> new AddTopic(current).show());
+        btnAddThread.addActionListener(e-> new AddTopic(current,res).show());
         btnAddThread.setUIID("addBtn");
         addAll(btnAddThread);
         

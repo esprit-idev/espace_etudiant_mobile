@@ -36,7 +36,7 @@ public class Profile extends Form{
                  tb.addSearchCommand(e -> {});
         
         
-        Image img = res.getImage("");
+      /*  Image img = res.getImage("logo.PNG");
         if(img.getHeight() > Display.getInstance().getDisplayHeight() / 3) {
             img = img.scaledHeight(Display.getInstance().getDisplayHeight() / 3);
         }
@@ -62,7 +62,7 @@ public class Profile extends Form{
                           //  twitter
                     )
                 )
-        ));
+        ));*/
         Container cnt = new Container(BoxLayout.y());
         String us = SessionManager.getUserName();
         System.out.println(us);

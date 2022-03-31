@@ -50,7 +50,7 @@ public class OffreCategory extends Form{
             public void actionPerformed(ActionEvent e) {
                 setTransitionOutAnimator(CommonTransitions.createSlide(CommonTransitions.SLIDE_HORIZONTAL, true, Integer.parseInt("200")));
 
-                new OffreCategory().show();
+                new TabAff(Resources.getGlobalResources()).show();
             }
         });
         //floating button add
@@ -59,7 +59,7 @@ public class OffreCategory extends Form{
         rb.uiid(true);
         fab.bindFabToContainer(getContentPane());
         fab.addActionListener(e -> {
-             new ClubCategoryAdd().show();
+             new OffreCategoryAdd().show();
         });
         //init arralyslits
         ArrayList<CategoryEmploi> categories;
