@@ -58,6 +58,7 @@ public class MyApplication {
         }
         else{
         new TabAff(theme).show();
+       
         }
         
 

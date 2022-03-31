@@ -32,7 +32,7 @@ public class ClasseAdd extends Form{
          Toolbar tb=getToolbar();
 		setTitle("Ajouter une classe");
 		Form previous = Display.getInstance().getCurrent();
-		tb.setBackCommand("", e -> previous.showBack());
+		tb.setBackCommand("", e -> new ClasseList().show());
 		Container cnt = new Container(BoxLayout.y());
                 
                 Label c = new Label ("Classe:");
