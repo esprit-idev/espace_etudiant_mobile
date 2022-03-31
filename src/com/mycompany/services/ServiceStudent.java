@@ -13,6 +13,7 @@ import com.codename1.io.CharArrayReader;
 import com.codename1.io.JSONParser;
 import com.codename1.io.NetworkEvent;
 import com.codename1.io.NetworkManager;
+import com.mycompany.uis.SessionManager;
 import java.util.List;
 import java.util.Map;
 /**
@@ -67,6 +68,7 @@ public class ServiceStudent {
         }
     
     });
+    System.out.println(SessionManager.getPrenom());
        NetworkManager.getInstance().addToQueueAndWait(req);
        return result ;
     }
