@@ -12,6 +12,7 @@ import com.codename1.ui.Display;
 import com.codename1.ui.Form;
 import com.codename1.ui.Label;
 import com.codename1.ui.Toolbar;
+import com.codename1.ui.animations.CommonTransitions;
 import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BoxLayout;
@@ -29,7 +30,10 @@ public class ListAdmin extends Form{
          Toolbar tb=getToolbar();
 		setTitle("Liste des administrateurs");
 		Form previous = Display.getInstance().getCurrent();
-		tb.setBackCommand("", e -> previous.showBack());
+		 tb.setBackCommand("", e -> {
+            setTransitionOutAnimator(CommonTransitions.createSlide(CommonTransitions.SLIDE_HORIZONTAL, true, Integer.parseInt("200")));
+            new TabAff(res).show();
+        });
 		Container cntb = new Container(BoxLayout.x());
                 Container cnt = new Container(BoxLayout.y());
                 tb.addCommandToRightBar("Add", null, (ActionListener) (ActionEvent evt) ->{
