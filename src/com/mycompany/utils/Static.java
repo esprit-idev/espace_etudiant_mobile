@@ -16,7 +16,7 @@ public class Static {
        public static final String ClubPic = "file:///E:/Webprojects/PIDEV/edspace_symfony/public/ClubPictures/";
     public static final String ClubPubsPic = "file://E:/Webprojects/PIDEV/edspace_symfony/public/PubPictures/";
     public static final String ClubPubsFile = "file://E:/Webprojects/PIDEV/edspace_symfony/public/PubFiles/";*/
-    public static final String News_Emploi_Pic = "file:///C:/Users/MeriamBI/Desktop/pidev/EdSpace_Symfony/public/images/";
+    public static final String News_Emploi_Pic = "file:///C:/Users/eslem/Desktop/edspace_symfony/public/images/";
        public static final String ClubPic = "file:///C:/Users/MeriamBI/Desktop/pidev/EdSpace_Symfony/public/ClubPictures/";
     public static final String ClubPubsPic = "file://C:/Users/MeriamBI/Desktop/pidev/EdSpace_Symfony/public/PubPictures/";
     public static final String ClubPubsFile = "file://C:/Users/MeriamBI/Desktop/pidev/EdSpace_Symfony/public/PubFiles/";

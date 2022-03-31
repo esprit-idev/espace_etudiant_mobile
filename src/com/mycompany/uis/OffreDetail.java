@@ -31,6 +31,10 @@ public class OffreDetail extends Form {
     
       public OffreDetail(int Id,String Title,String Content,String Category,String img){     
                 int admin = 1;
+            if (SessionManager.getRoles().equals("ROLE_ADMIN"))
+                admin = 1;
+                    else
+                admin = 0;
                 Form previous = Display.getInstance().getCurrent();
                 Toolbar tb = getToolbar();
                 tb.setBackCommand("", e -> previous.showBack());

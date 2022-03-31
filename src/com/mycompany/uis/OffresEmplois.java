@@ -26,7 +26,12 @@ import java.util.ArrayList;
 
 public class OffresEmplois extends Form{
 	public OffresEmplois() {
-            int admin = 1;
+            int admin;
+            if (SessionManager.getRoles().equals("ROLE_ADMIN"))
+                admin = 1;
+                    else
+                admin = 0;
+            
 		Toolbar tb=getToolbar();
 		setLayout(new FlowLayout(LEFT,CENTER));
 		setTitle("Offres d'emploi");
