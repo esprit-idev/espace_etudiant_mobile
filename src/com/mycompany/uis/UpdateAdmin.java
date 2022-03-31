@@ -12,6 +12,7 @@ import com.codename1.ui.Form;
 import com.codename1.ui.Label;
 import com.codename1.ui.TextField;
 import com.codename1.ui.Toolbar;
+import com.codename1.ui.animations.CommonTransitions;
 import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.ui.util.Resources;
 import com.mycompany.entities.User;
@@ -33,6 +34,10 @@ public class UpdateAdmin extends Form{
         setToolbar(tb);
         getTitleArea().setUIID("Container");
         setTitle("Modifier un administrateur");
+        	 tb.setBackCommand("", e -> {
+            setTransitionOutAnimator(CommonTransitions.createSlide(CommonTransitions.SLIDE_HORIZONTAL, true, Integer.parseInt("200")));
+            new ListAdmin(res).show();
+        });
         getContentPane().setScrollVisible(false);
         
         
