@@ -35,7 +35,7 @@ public class Login extends Form{
 				e.printStackTrace();
 			}
 
-         TextField email = new TextField("", "Email", 20, TextField.ANY);
+        TextField email = new TextField("", "Email", 20, TextField.ANY);
         email.setConstraint(TextField.EMAILADDR);
         TextField password = new TextField("", "Password", 20, TextField.PASSWORD);
         email.setSingleLineTextArea(false);
