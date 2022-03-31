@@ -52,7 +52,11 @@ import org.jsoup.Jsoup;
 public class ClubRubriqueEtudiant extends Form {
 
     public ClubRubriqueEtudiant(String clubName, String clubImg, String clubDesc, String clubId, String clubCat, String clubRespo) throws IOException {
-        int admin = 1; //change
+        int admin;
+        if (SessionManager.getRoles().equals("ROLE_ADMIN"))
+            admin = 1;
+        else
+            admin = 0;
         ArrayList<ClubPub> pubs;
         ArrayList<ClubPub> hangingPubs;
 
