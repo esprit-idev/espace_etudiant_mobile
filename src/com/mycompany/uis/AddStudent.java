@@ -48,8 +48,8 @@ public class AddStudent extends Form{
         //cbNiveau.addItem("4SIM");
        
         Button ajouter=new Button("Ajouter");
-        Button List=new Button("Liste des etudiants");
-        cnt.addAll(username,prenom,email,password,ajouter,List);
+       // Button List=new Button("Liste des etudiants");
+        cnt.addAll(username,prenom,email,password,ajouter);
         
         
         ajouter.addActionListener((ActionListener) (ActionEvent evt) -> {
@@ -57,7 +57,7 @@ public class AddStudent extends Form{
             User stu = new User(username.getText(),prenom.getText() ,email.getText(),password.getText() );
            // new  ServiceStudent.ajoutStudent(stu);
             new  ServiceStudent().AddStudent(stu);
-         //   new AllStudents().show();
+            new ListStudents(res).show();
             });
         
       //  List.addActionListener((ActionListener)(ActionEvent evt)-> {

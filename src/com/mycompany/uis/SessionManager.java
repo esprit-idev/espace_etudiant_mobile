@@ -19,13 +19,14 @@ public class SessionManager {
     
     // hethom données ta3 user lyt7b tsajlhom fi session  ba3d login 
     private static int id ; 
-    private static String userName ; 
+    private static String userName ;  
     private static String email; 
     private static String passowrd ;
     private static String image;
     private static String roles;
     private static Boolean isBanned;
     private static String prenom;
+
 
 
     public static Preferences getPref() {
@@ -51,6 +52,7 @@ public class SessionManager {
     public static void setUserName(String userName) {
          pref.set("username",userName);
     }
+   
 
     public static String getEmail() {
         return pref.get("email",email);
