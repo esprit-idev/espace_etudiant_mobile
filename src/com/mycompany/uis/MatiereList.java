@@ -15,6 +15,7 @@ import com.codename1.ui.FontImage;
 import com.codename1.ui.Form;
 import com.codename1.ui.Label;
 import com.codename1.ui.Toolbar;
+import com.codename1.ui.animations.CommonTransitions;
 import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BorderLayout;
@@ -45,7 +46,10 @@ public class MatiereList extends Form {
         setTitle("Centre de partage");
         Form previous = Display.getInstance().getCurrent();
         Toolbar tb = getToolbar();
-        tb.setBackCommand("", e -> previous.showBack());
+        tb.setBackCommand("", e -> {
+            setTransitionOutAnimator(CommonTransitions.createSlide(CommonTransitions.SLIDE_HORIZONTAL, true, Integer.parseInt("200")));
+            new TabAff(resourceObjectInstance).show();
+        });
         //floating button add
         FloatingActionButton fab = FloatingActionButton.createFAB(FontImage.MATERIAL_ADD);
         RoundBorder rb = (RoundBorder) fab.getUnselectedStyle().getBorder();
@@ -133,12 +137,6 @@ public class MatiereList extends Form {
                 displaySheet_btn.addActionListener(e -> {
                     MatiereSheet sheet = new MatiereSheet(null, m, previous);
                     sheet.show();
-                    sheet.addBackListener(new ActionListener() {
-                        @Override
-                        public void actionPerformed(ActionEvent evt) {
-                            
-                        }
-                    });
                 });
                 gui_Container_1.setLeadComponent(displaySheet_btn);
             }

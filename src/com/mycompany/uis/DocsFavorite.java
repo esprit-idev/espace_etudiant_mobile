@@ -15,6 +15,7 @@ import com.codename1.ui.Form;
 import com.codename1.ui.Label;
 import com.codename1.ui.TextArea;
 import com.codename1.ui.Toolbar;
+import com.codename1.ui.animations.CommonTransitions;
 import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.ui.layouts.FlowLayout;
@@ -28,13 +29,20 @@ import java.util.ArrayList;
 
 public class DocsFavorite extends Form {
 
+    public DocsFavorite() {
+        this(Resources.getGlobalResources());
+    }
+    
     public DocsFavorite(Resources resourceObjectInstance) {
         //SKELETON
         setTitle("Mes favoris");
         setLayout(BoxLayout.y());
         Toolbar tb = getToolbar();
         Form previous = Display.getInstance().getCurrent();
-        tb.setBackCommand("", e -> previous.showBack());
+        tb.setBackCommand("", e -> {
+            setTransitionOutAnimator(CommonTransitions.createSlide(CommonTransitions.SLIDE_HORIZONTAL, true, Integer.parseInt("200")));
+            new DocsList().show();
+        });
         //floating button add
         FloatingActionButton fab = FloatingActionButton.createFAB(FontImage.MATERIAL_ADD);
         RoundBorder rb = (RoundBorder) fab.getUnselectedStyle().getBorder();
@@ -57,8 +65,7 @@ public class DocsFavorite extends Form {
                 derive(40, Font.STYLE_PLAIN);
         Font poppinsRegular30 = Font.createTrueTypeFont("regular", "Poppins-Regular.ttf").
                 derive(30, Font.STYLE_PLAIN);
-        //String currentUser=SessionManager.getUsername()+" "+SessionManager.getPrenom();
-        String currentUser=SessionManager.getUserName();//to_check
+        String currentUser=SessionManager.getUserName()+" "+SessionManager.getPrenom();//to_check
         setLayout(new BoxLayout(BoxLayout.Y_AXIS));
         if (favs.isEmpty()) {
             setLayout(new FlowLayout(CENTER, CENTER));
@@ -122,7 +129,7 @@ public class DocsFavorite extends Form {
                 //sheet
                 Button displaySheet_btn = new Button();
                 displaySheet_btn.addActionListener(e -> {
-                    DocSheet sheet = new DocSheet(null, doc, previous,0,false);
+                    DocSheet sheet = new DocSheet(null, doc, previous,0,false,"docfav");
                     sheet.show();
                 });
                 gui_Container_1.setLeadComponent(displaySheet_btn);

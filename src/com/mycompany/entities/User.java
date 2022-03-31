@@ -85,7 +85,7 @@ public class User {
         return roles ;
     }
     public void setRoles(String role){
-        this.roles=roles ;
+        this.roles=role ;
     }
      public boolean getIsBanned(){
         return isBanned ;

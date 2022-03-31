@@ -78,7 +78,8 @@ public class UpdateStudent extends Form {
 
         
         Button btnModifier = new Button("Modifier");
-       btnModifier.setUIID("Button");
+        btnModifier.setUIID("RoundBtn");
+      // btnModifier.setUIID("Button");
        
        //Event onclick btnModifer
        
@@ -105,6 +106,7 @@ public class UpdateStudent extends Form {
        }
         });
        Button btnAnnuler = new Button("Annuler");
+       btnAnnuler.setUIID("IndianredRoundBtn");
        btnAnnuler.addActionListener(e -> {
            new ListStudents(res).show();
        });

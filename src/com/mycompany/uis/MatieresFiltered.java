@@ -14,6 +14,7 @@ import com.codename1.ui.FontImage;
 import com.codename1.ui.Form;
 import com.codename1.ui.Label;
 import com.codename1.ui.Toolbar;
+import com.codename1.ui.animations.CommonTransitions;
 import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.ui.layouts.FlowLayout;
@@ -35,7 +36,10 @@ public class MatieresFiltered extends Form{
 	setTitle(niveauSelect);
         Toolbar tb=getToolbar();
         Form previous = Display.getInstance().getCurrent();
-	tb.setBackCommand("", e -> previous.showBack());
+	tb.setBackCommand("", e -> {
+            setTransitionOutAnimator(CommonTransitions.createSlide(CommonTransitions.SLIDE_HORIZONTAL, true, Integer.parseInt("200")));
+            new MatiereList().show();
+        });
         //floating button add
             FloatingActionButton fab = FloatingActionButton.createFAB(FontImage.MATERIAL_ADD);
             RoundBorder rb = (RoundBorder) fab.getUnselectedStyle().getBorder();

@@ -76,7 +76,7 @@ public class UpdateAdmin extends Form{
 
         
         Button btnModifier = new Button("Modifier");
-       btnModifier.setUIID("Button");
+       btnModifier.setUIID("RoundBtn");
        
        //Event onclick btnModifer
        
@@ -103,6 +103,7 @@ public class UpdateAdmin extends Form{
        }
         });
        Button btnAnnuler = new Button("Annuler");
+       btnAnnuler.setUIID("IndianredRoundBtn");
        btnAnnuler.addActionListener(e -> {
            new ListAdmin(res).show();
        });

@@ -33,24 +33,35 @@ public class ListStudents extends Form{
 		setTitle("Liste des etudiants");
 		Form previous = Display.getInstance().getCurrent();
 		tb.setBackCommand("", e -> previous.showBack());
-		Container cntb = new Container(BoxLayout.x());
-                Container cnt = new Container(BoxLayout.y());
+		//Container cntb = new Container(BoxLayout.x());
+                //Container cnt = new Container(BoxLayout.y());
                 tb.addCommandToRightBar("Add", null, (ActionListener) (ActionEvent evt) ->{
                  new AddStudent(res).show();
                 });
                 
                 ArrayList<User> list = ServiceStudent.getInstance().affichageStudent();
+                
+                
+                Container cntb = new Container(new BoxLayout(BoxLayout.X_AXIS));
+                Container cnt= new Container(new BoxLayout(BoxLayout.Y_AXIS));
+        
+        
                       for (User stu : list){
                           Label niveau = new Label ("Nom et Prenom de l'etudiant:"+stu.getPrenom()+stu.getUsername());
-                                  Button btnSend= new Button("Supprimer");
+                                  Button btndel= new Button("Supprimer");
                                   Button update = new Button("Update");
-        
+                                  update.setUIID("RoundBtn");
+                                  btndel.setUIID("IndianredRoundBtn");
+                                 // cntb.add(update);
+                                  //cntb.add(btndel);
+                                 // cntb.addAll(update , btndel);
+                                  
                             niveau.addPointerPressedListener((ActionListener)(ActionEvent evt)->{
                            Dialog.show("Etudiant","Prenom : " + niveau.getText()+"\n Email :"+stu.getEmail(),"OK", null);
                             }); 
                            
                                   
-         btnSend.addActionListener((e)-> {
+         btndel.addActionListener((e)-> {
                 ServiceStudent.getInstance().deleteStudent(stu.getId());
                 new ListStudents(res).show();
            
@@ -61,10 +72,14 @@ public class ListStudents extends Form{
                 new UpdateStudent(res,stu).show();
                 });
          
-         cnt.addAll(niveau,btnSend,update);
+       // cnt.add(niveau);
+       cnt.addAll(niveau, update , btndel);
+       
                           
                       }
-                       add(cnt);
+                        add(cnt);
+                      // addAll(cnt,cntb);
+                     
     
     
     }

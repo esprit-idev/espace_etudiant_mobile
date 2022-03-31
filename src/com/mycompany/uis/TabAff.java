@@ -35,14 +35,17 @@ import java.util.ArrayList;
 
 public class TabAff extends Form {
 
+
     public TabAff(Resources res){
         setScrollableY(true);
         setLayout(new FlowLayout(LEFT,TOP));
+
         int admin;
         if (SessionManager.getRoles().equals("ROLE_ADMIN"))
             admin = 1;
         else
             admin = 0;
+
         setLayout(new FlowLayout(CENTER, CENTER));
         setTitle("Tableau d'affichage");
         Toolbar tb = getToolbar();
@@ -50,7 +53,6 @@ public class TabAff extends Form {
         tb.addMaterialCommandToSideMenu("Tableau d'affichage", FontImage.MATERIAL_DASHBOARD, new ActionListener<ActionEvent>() {
 
             public void actionPerformed(ActionEvent evt) {
-                    new TabAff(res).show();
             }
         });
         if(admin==1){
@@ -128,6 +130,12 @@ public class TabAff extends Form {
 
             	
                 new Forum().show();
+            }
+        });
+        
+        tb.addMaterialCommandToSideMenu("Topic", FontImage.MATERIAL_WORK, new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                new Topic().show();
             }
         });
         //clubs
