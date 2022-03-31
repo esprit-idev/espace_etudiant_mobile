@@ -38,6 +38,7 @@ import com.codename1.ui.layouts.GridLayout;
 import com.codename1.ui.layouts.LayeredLayout;
 import com.codename1.ui.plaf.RoundRectBorder;
 import com.codename1.ui.plaf.Style;
+import com.codename1.ui.util.Resources;
 import com.mycompany.entities.PublicationNews;
 import com.mycompany.services.ClubPubService;
 import com.mycompany.services.ServicePublicationNews;
@@ -50,7 +51,7 @@ import java.io.IOException;
  */
 public class NewsDetail extends Form {
     
-    public NewsDetail(int Id,String Title,String Content, String Owner, String Category,String comments, String NewsImg,PublicationNews pub){
+    public NewsDetail(Resources res, int Id,String Title,String Content, String Owner, String Category,String comments, String NewsImg,PublicationNews pub){
         int admin = 1;        
         Toolbar tb=getToolbar();
         Form previous = Display.getInstance().getCurrent();
@@ -58,7 +59,7 @@ public class NewsDetail extends Form {
             if (admin == 1) {
                 tb.addMaterialCommandToRightBar("", FontImage.MATERIAL_MORE_VERT, new ActionListener() {
                     public void actionPerformed(ActionEvent evt) {
-                        new NewsSheet(null, Id, Title,Owner,Content,Category,previous).show();
+                        new NewsSheet(res ,null, Id, Title,Owner,Content,Category,previous).show();
                     }
                 });
             }

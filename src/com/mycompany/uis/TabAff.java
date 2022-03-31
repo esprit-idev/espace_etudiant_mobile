@@ -1,5 +1,7 @@
 package com.mycompany.uis;
 
+
+import com.codename1.io.Storage;
 import com.codename1.components.FloatingActionButton;
 import com.codename1.components.ImageViewer;
 import com.codename1.ui.Button;
@@ -22,6 +24,7 @@ import com.codename1.ui.plaf.Border;
 import com.codename1.ui.plaf.RoundBorder;
 import com.codename1.ui.plaf.RoundRectBorder;
 import com.codename1.ui.plaf.Style;
+import com.codename1.ui.util.Resources;
 import com.mycompany.entities.PublicationNews;
 import com.mycompany.services.ServicePublicationNews;
 import com.mycompany.utils.Static;
@@ -32,10 +35,14 @@ import java.util.ArrayList;
 
 public class TabAff extends Form {
 
-    public TabAff(){
+    public TabAff(Resources res){
         setScrollableY(true);
         setLayout(new FlowLayout(LEFT,TOP));
-        int admin=1;
+        int admin;
+        if (SessionManager.getRoles().equals("ROLE_ADMIN"))
+            admin = 1;
+        else
+            admin = 0;
         setLayout(new FlowLayout(CENTER, CENTER));
         setTitle("Tableau d'affichage");
         Toolbar tb = getToolbar();
@@ -43,47 +50,71 @@ public class TabAff extends Form {
         tb.addMaterialCommandToSideMenu("Tableau d'affichage", FontImage.MATERIAL_DASHBOARD, new ActionListener<ActionEvent>() {
 
             public void actionPerformed(ActionEvent evt) {
-                    new TabAff().show();
+                    new TabAff(res).show();
             }
         });
         if(admin==1){
             //etudiants
         tb.addMaterialCommandToSideMenu("Etudiants", FontImage.MATERIAL_PEOPLE, new ActionListener<ActionEvent>() {
             public void actionPerformed(ActionEvent evt) {
-                //liste des etudaints pour backoffice
-            }
-        });
-            //administrateurs
-        tb.addMaterialCommandToSideMenu("Admins", FontImage.MATERIAL_PEOPLE, new ActionListener<ActionEvent>() {
-            public void actionPerformed(ActionEvent evt) {
-                //liste des administrateurs pour backoffice
+                new ListStudents(res).show();
             }
         });
         
+            //administrateurs
+        tb.addMaterialCommandToSideMenu("Admins", FontImage.MATERIAL_PEOPLE, new ActionListener<ActionEvent>() {
+            public void actionPerformed(ActionEvent evt) {
+               new ListAdmin(res).show();
+            }
+        });
+
+             tb.addMaterialCommandToSideMenu("Classes", FontImage.MATERIAL_PEOPLE, new ActionListener<ActionEvent>() {
+            public void actionPerformed(ActionEvent evt) {
+                new ClasseList().show();
+            }
+        });
+
+        
             //niveaux d'études
         tb.addMaterialCommandToSideMenu("Niveaux d'études", FontImage.MATERIAL_SCHOOL, new ActionListener<ActionEvent>() {
+
             public void actionPerformed(ActionEvent evt) {
                 //liste des niveaux d'études pour backoffice
+                  new NiveauxList().show();
+            }
+        });
+        tb.addMaterialCommandToSideMenu("Classe Messagerie", FontImage.MATERIAL_FORUM, new ActionListener<ActionEvent>() {
+            public void actionPerformed(ActionEvent evt) {
+                new Conversation().show();
             }
         });
         
             //matières
         tb.addMaterialCommandToSideMenu("Matières", FontImage.MATERIAL_MENU_BOOK, new ActionListener<ActionEvent>() {
             public void actionPerformed(ActionEvent evt) {
-                //new MatiereList().show();
+                new MatiereList().show();
             }
         });
         //categorie publication
          tb.addMaterialCommandToSideMenu("Categorie News", FontImage.MATERIAL_MENU_BOOK, new ActionListener<ActionEvent>() {
             public void actionPerformed(ActionEvent evt) {
+
+            	
+
                 new NewsCategory().show();
             }
+
         });
          //categorie e;plois
          tb.addMaterialCommandToSideMenu("Categorie Emplois", FontImage.MATERIAL_MENU_BOOK, new ActionListener<ActionEvent>() {
             public void actionPerformed(ActionEvent evt) {
-                new OffreCategory().show();
-            }
+        new OffreCategory().show();
+            //	new CentrePartage().show();
+                }
+
+                
+            
+
         });
         //fab button to add news:
          FloatingActionButton fab = FloatingActionButton.createFAB(FontImage.MATERIAL_ADD);
@@ -91,7 +122,7 @@ public class TabAff extends Form {
             rb.uiid(true);
             fab.bindFabToContainer(getContentPane());
             fab.addActionListener(e -> {
-                new NewsAdd().show();
+                new NewsAdd(res).show();
             });
 
         }
@@ -99,6 +130,8 @@ public class TabAff extends Form {
         //forum
         tb.addMaterialCommandToSideMenu("Forum", FontImage.MATERIAL_FORUM, new ActionListener<ActionEvent>() {
             public void actionPerformed(ActionEvent evt) {
+
+            	
                 new Forum().show();
             }
         });
@@ -107,7 +140,9 @@ public class TabAff extends Form {
             public void actionPerformed(ActionEvent evt) {
                 new ClubsList().show(); // only show the status for 3 seconds, then have it automatically clear
             }
+
         });
+                refreshTheme();
 
         //offres d'emploi
         tb.addMaterialCommandToSideMenu("Offres d'emploi", FontImage.MATERIAL_WORK, new ActionListener() {
@@ -120,22 +155,28 @@ public class TabAff extends Form {
             //profile
         tb.addMaterialCommandToSideMenu("Mon profile", FontImage.MATERIAL_SUPERVISOR_ACCOUNT, new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                new Profile().show();
-            }
+               new Profile(res).show();
+                }
         });
         }
 
         //centre de partage
         tb.addMaterialCommandToSideMenu("Centre de partage", FontImage.MATERIAL_ATTACH_FILE, new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                new CentrePartage().show();
+                new DocsList().show();
             }
         });
 
         //dcnx
         tb.addMaterialCommandToSideMenu("Se deconnecter", FontImage.MATERIAL_EXIT_TO_APP, new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-            	new Login().show();
+            	new Login(res).show();
+                SessionManager.pref.clearAll();
+                Storage.getInstance().clearStorage();
+                Storage.getInstance().clearCache();
+                System.out.println(SessionManager.getUserName());
+                
+                
                 }
         });
         //publications list     
@@ -144,11 +185,11 @@ public class TabAff extends Form {
         
         //loop through the publications
         for(PublicationNews pub : listPub){            
-            display(pub.getTitle(),pub.getContent(),pub.getCategoryName(),pub.getImage(), pub.getDate(),pub);
+            display(res ,pub.getTitle(),pub.getContent(),pub.getCategoryName(),pub.getImage(), pub.getDate(),pub);
         }    
 	}
     
-     private void display(String title,String content,String categoryName,String newsImg, String date, PublicationNews pub){
+     private void display(Resources res ,String title,String content,String categoryName,String newsImg, String date, PublicationNews pub){
          Container cnt = new Container(new BoxLayout(BoxLayout.Y_AXIS));    
          Label dateTxt = new Label(date);
          Label catTxt = new Label(categoryName);
@@ -196,7 +237,7 @@ public class TabAff extends Form {
             }
         Button myBtn = new Button();
         myBtn.addActionListener(e -> {
-           new NewsDetail(pub.getId(),pub.getTitle(),pub.getContent(),pub.getOwner(),pub.getCategoryName(),pub.getComments(),pub.getImage(),pub).show();
+           new NewsDetail(res ,pub.getId(),pub.getTitle(),pub.getContent(),pub.getOwner(),pub.getCategoryName(),pub.getComments(),pub.getImage(),pub).show();
         });
         cardTitle.add(titleTxt);
         cardInfo.add(dateTxt);

@@ -33,7 +33,7 @@ import com.mycompany.services.ServicePublicationNews;
 public class NewsSheet extends Sheet{
             //sheet news
         
-        public NewsSheet(Sheet parent,int id, String title,String owner, String content,String categoryName,Form previous) {
+        public NewsSheet(Resources res , Sheet parent,int id, String title,String owner, String content,String categoryName,Form previous) {
         super(parent, "");
         setUIID("CustomSheet");
         Container cnt = getContentPane();
@@ -49,7 +49,7 @@ public class NewsSheet extends Sheet{
         Style s_update_btn = update_btn.getUnselectedStyle();
         s_update_btn.setFont(poppinsRegular);
         update_btn.addActionListener(e -> {
-            new NewsUpdate(id, title,owner, content, categoryName).show();
+            new NewsUpdate(res ,id, title,owner, content, categoryName).show();
             
         });
         cnt.add(update_btn);
@@ -85,7 +85,7 @@ public class NewsSheet extends Sheet{
                 if (ServicePublicationNews.getInstance().deletePublicationNews(id)) {
                     ToastBar.showMessage("Publication supprimée", FontImage.MATERIAL_CHECK_CIRCLE);
 
-                    new TabAff().show();
+                    new TabAff(res).show();
 
                 } else {
                     ToastBar.showMessage("Une erreur est survenue lors de la suppression", FontImage.MATERIAL_ERROR);

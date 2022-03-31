@@ -55,7 +55,7 @@ public class ClubsList extends Form {
             @Override
             public void actionPerformed(ActionEvent arg0) {
                 setTransitionOutAnimator(CommonTransitions.createSlide(CommonTransitions.SLIDE_HORIZONTAL, true, Integer.parseInt("200")));
-                new TabAff().show();
+                new TabAff(resourceObjectInstance).show();
             }
         });
         if (admin == 1) {//to_change

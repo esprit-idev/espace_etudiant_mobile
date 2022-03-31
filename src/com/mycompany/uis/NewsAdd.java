@@ -33,6 +33,7 @@ import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.ui.layouts.FlowLayout;
 import com.codename1.ui.plaf.Style;
 import com.codename1.ui.util.ImageIO;
+import com.codename1.ui.util.Resources;
 import com.mycompany.entities.CategoryNews;
 import com.mycompany.entities.PublicationNews;
 import com.mycompany.services.ClubService;
@@ -51,7 +52,7 @@ import java.util.ArrayList;
  * @author eslem
  */
 public class NewsAdd extends Form {
-    public NewsAdd(){
+    public NewsAdd(Resources res){
         Toolbar tb = getToolbar();
         setLayout(new FlowLayout(CENTER, CENTER));
         setTitle("Ajouter une Publication");
@@ -185,7 +186,7 @@ public class NewsAdd extends Form {
                         ToastBar.showMessage("Pub ajouté", FontImage.MATERIAL_CHECK_CIRCLE);
                         setTransitionOutAnimator(CommonTransitions.createSlide(CommonTransitions.SLIDE_HORIZONTAL, true, Integer.parseInt("200")));
 
-                        new TabAff().show();
+                        new TabAff(res).show();
                     } else {
                         //error toast
                         ToastBar.showMessage("Une erreur est survenue lors de l'ajout ", FontImage.MATERIAL_ERROR);
