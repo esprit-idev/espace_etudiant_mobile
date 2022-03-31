@@ -30,7 +30,7 @@ import java.util.List;
  */
 public class DocSheet extends Sheet {
 
-    DocSheet(Sheet parent, Document doc, Form previous, int admin, boolean ignore) {
+    DocSheet(Sheet parent, Document doc, Form previous, int admin, boolean ignore, String from) {
         super(parent, "");
         setUIID("CustomSheet");
         String propDoc = doc.getProp();
@@ -123,19 +123,21 @@ public class DocSheet extends Sheet {
                 Style s_bodyLabel = bodyLabel.getTextAllStyles();
                 s_bodyLabel.setFont(poppinsRegular40);
                 dialog.add(bodyLabel);
-                // confirm supp button
+                // confirm ignore report button
                 Button confirm_btn = new Button("Oui");
                 confirm_btn.setUIID("BlueRoundFilledBtn");
                 Style s_confirm_btn = confirm_btn.getUnselectedStyle();
                 s_confirm_btn.setFont(poppinsRegular);
                 confirm_btn.addActionListener(e2 -> {
                     if (ServiceDocument.getInstance().ignoreSignal(doc)) {
-                        ToastBar.showMessage("Signal ignoré", FontImage.MATERIAL_CHECK_CIRCLE);
+                        ToastBar.showMessage("Signal ignoré", FontImage.MATERIAL_CHECK_CIRCLE, 3000);
+                        new DocsReported().show();
                     } else {
-                        ToastBar.showMessage("Une erreur est survenue lors de la suppression du document", FontImage.MATERIAL_ERROR);
+                        ToastBar.showMessage("Une erreur est survenue lors de la suppression du document", FontImage.MATERIAL_ERROR, 3000);
+                        dialog.dispose();
+                        back();
                     }
-                    dialog.dispose();
-                    back();
+
                 });
                 // deny button
                 Button deny_btn = new Button("Non");
@@ -153,8 +155,7 @@ public class DocSheet extends Sheet {
         }
 
         //if owner or admin add a delete btn
-        //String currentUser=SessionManager.getUsername()+" "+SessionManager.getPrenom();
-        String currentUser=SessionManager.getUserName();//to_check
+        String currentUser = SessionManager.getUserName() + " " + SessionManager.getPrenom();//to_check
         Button supp_btn = new Button("Supprimer");
         supp_btn.setUIID("CustomItem");
         Style s_supp_btn = supp_btn.getUnselectedStyle();
@@ -190,12 +191,20 @@ public class DocSheet extends Sheet {
                 s_confirm_btn.setFont(poppinsRegular);
                 confirm_btn.addActionListener(e2 -> {
                     if (ServiceDocument.getInstance().deleteDoc(doc.getId())) {
-                        ToastBar.showMessage("Document supprimé", FontImage.MATERIAL_CHECK_CIRCLE);
+                        ToastBar.showMessage("Document supprimé", FontImage.MATERIAL_CHECK_CIRCLE, 3000);
+                        if (from.equals("docreported")) {
+                            new DocsReported().show();
+                        } else if (from.equals("docfav")) {
+                            new DocsFavorite().show();
+                        } else if (from.equals("doclist")) {
+                            new DocsList().show();
+                        }
                     } else {
-                        ToastBar.showMessage("Une erreur est survenue lors de la suppression du document", FontImage.MATERIAL_ERROR);
+                        ToastBar.showMessage("Une erreur est survenue lors de la suppression du document", FontImage.MATERIAL_ERROR, 3000);
+                        dialog.dispose();
+                        back();
                     }
-                    dialog.dispose();
-                    back();
+                    
                 });
                 // deny button
                 Button deny_btn = new Button("Non");
@@ -239,12 +248,13 @@ public class DocSheet extends Sheet {
                 s_confirm_btn.setFont(poppinsRegular);
                 confirm_btn.addActionListener(e2 -> {
                     if (ServiceDocument.getInstance().signalDoc(doc)) {
-                        ToastBar.showMessage("Le document a été signalé", FontImage.MATERIAL_CHECK_CIRCLE);
+                        ToastBar.showMessage("Le document a été signalé", FontImage.MATERIAL_CHECK_CIRCLE, 3000);
                     } else {
-                        ToastBar.showMessage("Une erreur est survenue lors du signal du document", FontImage.MATERIAL_ERROR);
+                        ToastBar.showMessage("Une erreur est survenue lors du signal du document", FontImage.MATERIAL_ERROR, 3000);
+                        dialog.dispose();
+                        back();
                     }
-                    dialog.dispose();
-                    back();
+                    
                 });
                 // deny button
                 Button deny_btn = new Button("Non");

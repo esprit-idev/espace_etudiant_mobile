@@ -42,12 +42,16 @@ import org.jsoup.Jsoup;
  * @author anash
  */
 public class ClubsListFiltred extends Form {
-   
 
-    public ClubsListFiltred(ArrayList<Club> filtred, ArrayList<Club> real,Resources resourceObjectInstance) {
-        int admin =1; //change
+    public ClubsListFiltred(ArrayList<Club> filtred, ArrayList<Club> real, Resources resourceObjectInstance) {
+        int admin;
+        if (SessionManager.getRoles().equals("ROLE_ADMIN")) {
+            admin = 1;
+        } else {
+            admin = 0;
+        }
 
-        String CurrentUserClubID = "6";
+        String CurrentUserEmail = SessionManager.getEmail();
         ArrayList<ClubCategory> categories;
         ArrayList<Club> clubs;
         setScrollableY(true);
@@ -91,18 +95,19 @@ public class ClubsListFiltred extends Form {
             public void actionPerformed(ActionEvent arg0) {
                 filtred.clear();
 
-               if(filter.getSelectedItem().equals("--Categories--")){}
-               else{
-                for (int i = 0; i < real.size(); i++) {
+                if (filter.getSelectedItem().equals("--Categories--")) {
+                } else {
+                    for (int i = 0; i < real.size(); i++) {
 
-                    if (real.get(i).getClubCategorie().toUpperCase().contains(filter.getSelectedItem())) {
-                        filtred.add(real.get(i));
+                        if (real.get(i).getClubCategorie().toUpperCase().contains(filter.getSelectedItem())) {
+                            filtred.add(real.get(i));
+                        }
+
                     }
+                    setTransitionOutAnimator(CommonTransitions.createSlide(CommonTransitions.SLIDE_VERTICAL, true, Integer.parseInt("0")));
 
+                    new ClubsListFiltred(filtred, real, resourceObjectInstance).show();
                 }
-                setTransitionOutAnimator(CommonTransitions.createSlide(CommonTransitions.SLIDE_VERTICAL, true, Integer.parseInt("0")));
-
-                new ClubsListFiltred(filtred, real,resourceObjectInstance).show();}
 
             }
         });
@@ -148,7 +153,7 @@ public class ClubsListFiltred extends Form {
                     );
                 }
                 //categorie
-                Label clubDescTitles = new Label("Categorie : " +c.getClubCategorie()
+                Label clubDescTitles = new Label("Categorie : " + c.getClubCategorie()
                 );
                 Font poppinsCat = Font.createTrueTypeFont("dss", "Poppins-Regular.ttf").
                         derive(50, Font.STYLE_BOLD);
@@ -176,12 +181,14 @@ public class ClubsListFiltred extends Form {
                     @Override
                     public void actionPerformed(ActionEvent arg0) {
                         try {
-                             if (admin == 1) {//change
+                            if (admin == 1) {//change
                                 new ClubRubriqueEtudiant(clubName.getText(), c.getClubPic(), clubDesc.getText(), clubID, c.getClubCategorie(), c.getClubRespo()).show();
                             } else {
-                                if (CurrentUserClubID.equals(c.getClubId())) {
+
+                                if (CurrentUserEmail.equals(c.getClubRespo())) {
                                     new ClubRubrique(clubName.getText(), c.getClubPic(), clubDesc.getText(), clubID).show();
                                 } else {
+                                    
                                     new ClubRubriqueEtudiant(clubName.getText(), c.getClubPic(), clubDesc.getText(), clubID, c.getClubCategorie(), c.getClubRespo()).show();
 
                                 }

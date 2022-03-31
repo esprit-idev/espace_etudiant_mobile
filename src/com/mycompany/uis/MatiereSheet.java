@@ -88,16 +88,20 @@ public class MatiereSheet extends Sheet {
                         exist = true;
                     }
                 }
+                System.out.println(exist);
                 if(exist){
                     //if document any related=>can't delete
-                    ToastBar.showMessage("Veuillez suuprimer les documents concernées par cette matière", FontImage.MATERIAL_WARNING);
+                    ToastBar.showMessage("Veuillez suuprimer les documents concernées par cette matière", FontImage.MATERIAL_WARNING,3000);
+                    dialog.dispose();
+                    back();
                 }else if (ServiceMatiere.getInstance().deleteMatiere(nomMatiere)) {
-                    ToastBar.showMessage("Matière supprimée", FontImage.MATERIAL_CHECK_CIRCLE);
+                    ToastBar.showMessage("Matière supprimée", FontImage.MATERIAL_CHECK_CIRCLE,3000);
+                    new MatiereList().show();
                 } else {
-                    ToastBar.showMessage("Une erreur est survenue lors de la suppression de la matière", FontImage.MATERIAL_ERROR);
+                    ToastBar.showMessage("Une erreur est survenue lors de la suppression de la matière", FontImage.MATERIAL_ERROR,3000);
+                    dialog.dispose();
+                    back();
                 }
-                dialog.dispose();
-                back();
             });
             // deny button
             Button deny_btn = new Button("Non");

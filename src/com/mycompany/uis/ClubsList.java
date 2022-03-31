@@ -42,8 +42,12 @@ public class ClubsList extends Form {
     }
 
     public ClubsList(Resources resourceObjectInstance) {
-        int admin = 1; //change
-        String CurrentUserClubID = "6"; //change
+        int admin;
+        if (SessionManager.getRoles().equals("ROLE_ADMIN"))
+            admin = 1;
+        else
+            admin = 0;
+        String CurrentUserEmail = SessionManager.getEmail();
 
         ArrayList<Club> clubs;
         ArrayList<ClubCategory> categories;
@@ -112,17 +116,6 @@ public class ClubsList extends Form {
         if (!clubs.isEmpty()) {
             for (Club c : clubs) {
 
-                /*SpanLabel s = new SpanLabel();
-            s.setText(c.getClubName()
-                    + " "
-                    + c.getClubCategorie().split("=")[1].replaceAll("}", "")
-                    + " "
-                    + c.getClubDesc()
-                    + " "
-                    + c.getClubPic()
-                    + " "
-                    + c.getClubRespo().split("=")[1].replaceAll("}", "")
-            );*/
                 String clubID = c.getClubId();
                 Label clubName = new Label(c.getClubName().toUpperCase());
                 Font poppinsAlert = Font.createTrueTypeFont("dss", "Poppins-Regular.ttf").
@@ -179,7 +172,8 @@ public class ClubsList extends Form {
                             if (admin == 1) {//change
                                 new ClubRubriqueEtudiant(clubName.getText(), c.getClubPic(), clubDesc.getText(), clubID, c.getClubCategorie(), c.getClubRespo()).show();
                             } else {
-                                if (CurrentUserClubID.equals(c.getClubId())) {
+                               
+                                if (CurrentUserEmail.equals(c.getClubRespo())) {
                                     new ClubRubrique(clubName.getText(), c.getClubPic(), clubDesc.getText(), clubID).show();
                                 } else {
                                     new ClubRubriqueEtudiant(clubName.getText(), c.getClubPic(), clubDesc.getText(), clubID, c.getClubCategorie(), c.getClubRespo()).show();

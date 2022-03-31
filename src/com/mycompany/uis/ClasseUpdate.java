@@ -66,11 +66,34 @@ public class ClasseUpdate extends Form{
                           
                       }
                        if(i==1){
-                     
+                     if(!c.getText().equals("")){
                       ServiceClasse.getInstance().UpdateClasse(id,c.getText(),n.getText());
                 new ClasseList().show();
+                     }else{
+                        
+                          Dialog dialog = new Dialog(BoxLayout.y());
+            dialog.setUIID("Container"); // this line has no effect, the outside dialog component is still visible
+            Style style = dialog.getDialogStyle();
+            style.setMargin(5, 5, 5, 5); // adding some margin between contentpane and Dailog container, to be more obvious
+            dialog.setDisposeWhenPointerOutOfBounds(true);
+            dialog.add("Error");
+            dialog.add("Classe ne peut pas être vide. ");
+            Button ok= new Button("OK");
+            
+                           
+             
+             ok.addActionListener((e1)->{
+                 dialog.dispose();
+              
+             });
+             
+             
+             dialog.add(ok);
+             dialog.show();
+                    }
                               
-                       }else{
+                       }
+                       else{
                                   
                            Dialog dialog = new Dialog(BoxLayout.y());
             dialog.setUIID("Container"); // this line has no effect, the outside dialog component is still visible

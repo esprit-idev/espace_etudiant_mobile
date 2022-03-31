@@ -175,6 +175,7 @@ public class OffreUpdate extends Form{
                     ToastBar.showErrorMessage("Veuillez remplir tous les champs", FontImage.MATERIAL_ERROR);
                 } else {
                     //create new publication
+                    
                     Emploi pub = new Emploi(tftitle.getText(),tfDesc.getText(),cbCat.getSelectedItem().toString(),today,namePic);
                     if (ServiceEmploi.getInstance().updateOffre(id, tftitle.getText(),tfDesc.getText(),cbCat.getSelectedItem().toString(),namePic)) {
                         //success toast

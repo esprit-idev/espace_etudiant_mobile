@@ -36,7 +36,7 @@ public class Profile extends Form{
                  tb.addSearchCommand(e -> {});
         
         
-        Image img = res.getImage("logo.png");
+        Image img = res.getImage("");
         if(img.getHeight() > Display.getInstance().getDisplayHeight() / 3) {
             img = img.scaledHeight(Display.getInstance().getDisplayHeight() / 3);
         }

@@ -10,43 +10,18 @@
             <file>file:/C:/Users/MeriamBI/Desktop/pidev/CodenameOne/espace_etudiant_mobile/src/com/mycompany/services/ServiceDocument.java</file>
             <file>file:/C:/Users/MeriamBI/Desktop/pidev/CodenameOne/espace_etudiant_mobile/src/com/mycompany/uis/Login.java</file>
             <file>file:/C:/Users/MeriamBI/Desktop/pidev/CodenameOne/espace_etudiant_mobile/src/com/mycompany/uis/SplashScreen.java</file>
+            <file>file:/C:/Users/MeriamBI/Desktop/pidev/CodenameOne/espace_etudiant_mobile/src/com/mycompany/uis/ActivateForm.java</file>
+            <file>file:/C:/Users/MeriamBI/Desktop/pidev/CodenameOne/espace_etudiant_mobile/src/com/mycompany/services/ServiceUtilisateur.java</file>
+            <file>file:/C:/Users/MeriamBI/Desktop/pidev/CodenameOne/espace_etudiant_mobile/src/com/mycompany/uis/DocSheet.java</file>
             <file>file:/C:/Users/MeriamBI/Desktop/pidev/CodenameOne/espace_etudiant_mobile/src/com/mycompany/uis/MatiereList.java</file>
             <file>file:/C:/Users/MeriamBI/Desktop/pidev/CodenameOne/espace_etudiant_mobile/src/com/mycompany/uis/DocAdd.java</file>
 =======
-<<<<<<< HEAD
-
-            <file>file:/C:/Users/YOOSURF/Desktop/espace_etudiant_mobile/src/com/mycompany/uis/Login.java</file>
-            <file>file:/C:/Users/YOOSURF/Desktop/espace_etudiant_mobile/src/com/mycompany/entities/User.java</file>
-            <file>file:/C:/Users/YOOSURF/Desktop/espace_etudiant_mobile/src/com/mycompany/uis/UpdateStudent.java</file>
-            <file>file:/C:/Users/YOOSURF/Desktop/espace_etudiant_mobile/src/com/mycompany/uis/TabAff.java</file>
-            <file>file:/C:/Users/YOOSURF/Desktop/espace_etudiant_mobile/src/com/mycompany/uis/ActivateForm.java</file>
-            <file>file:/C:/Users/YOOSURF/Desktop/espace_etudiant_mobile/src/com/mycompany/uis/AddAdmin.java</file>
-            <file>file:/C:/Users/YOOSURF/Desktop/espace_etudiant_mobile/src/com/mycompany/uis/AddStudent.java</file>
-            <file>file:/C:/Users/YOOSURF/Desktop/espace_etudiant_mobile/src/com/mycompany/services/ServiceUtilisateur.java</file>
-            <file>file:/C:/Users/YOOSURF/Desktop/espace_etudiant_mobile/src/com/mycompany/uis/AllStudents.java</file>
-            <file>file:/C:/Users/YOOSURF/Desktop/espace_etudiant_mobile/src/com/mycompany/services/ServiceStudent.java</file>
-            <file>file:/C:/Users/YOOSURF/Desktop/espace_etudiant_mobile/src/com/mycompany/uis/ListStudents.java</file>
-
-=======
-            <file>file:/C:/Users/aa/OneDrive/Documents/GitHub/espace_etudiant_mobile/src/com/mycompany/services/ServiceClasse.java</file>
-            <file>file:/C:/Users/aa/OneDrive/Documents/GitHub/espace_etudiant_mobile/src/com/mycompany/uis/ClasseEtudiant.java</file>
-            <file>file:/C:/Users/aa/OneDrive/Documents/GitHub/espace_etudiant_mobile/src/com/mycompany/MyApplication.java</file>
-            <file>file:/C:/Users/aa/OneDrive/Documents/GitHub/espace_etudiant_mobile/src/com/mycompany/uis/TabAff.java</file>
-            <file>file:/C:/Users/aa/OneDrive/Documents/GitHub/espace_etudiant_mobile/src/com/mycompany/uis/ClasseList.java</file>
-            <file>file:/C:/Users/aa/OneDrive/Documents/GitHub/espace_etudiant_mobile/src/com/mycompany/uis/NiveauxList.java</file>
-            <file>file:/C:/Users/aa/OneDrive/Documents/GitHub/espace_etudiant_mobile/src/com/mycompany/entities/Classe.java</file>
-            <file>file:/C:/Users/aa/OneDrive/Documents/GitHub/espace_etudiant_mobile/src/com/mycompany/uis/Conversation.java</file>
-            <file>file:/C:/Users/aa/OneDrive/Documents/GitHub/espace_etudiant_mobile/src/com/mycompany/services/ServiceMessage.java</file>
-            <file>file:/C:/Users/aa/OneDrive/Documents/GitHub/espace_etudiant_mobile/src/com/mycompany/uis/Classe2etudiant.java</file>
-            <file>file:/C:/Users/aa/OneDrive/Documents/GitHub/espace_etudiant_mobile/src/com/mycompany/uis/ClasseAdd.java</file>
-            <file>file:/E:/Webprojects/PIDEV/espace_etudiant_mobile/src/com/mycompany/entities/User.java</file>
-            <file>file:/E:/Webprojects/PIDEV/espace_etudiant_mobile/src/com/mycompany/uis/Forum.java</file>
-            <file>file:/E:/Webprojects/PIDEV/espace_etudiant_mobile/src/com/mycompany/services/ClubService.java</file>
-            <file>file:/E:/Webprojects/PIDEV/espace_etudiant_mobile/src/com/mycompany/uis/ClubAdd.java</file>
-            <file>file:/E:/Webprojects/PIDEV/espace_etudiant_mobile/src/com/mycompany/uis/ClubUpdate.java</file>
-            <file>file:/E:/Webprojects/PIDEV/espace_etudiant_mobile/src/com/mycompany/utils/Static.java</file>
->>>>>>> 45093a80cca579447ed7b417927f35e89538744a
->>>>>>> d4e96e8a600b9b7c64b5d37cf1de2a7008fa681e
+            <file>file:/E:/Webprojects/PIDEV/finalmobil/espace_etudiant_mobile/src/com/mycompany/utils/Static.java</file>
+            <file>file:/E:/Webprojects/PIDEV/finalmobil/espace_etudiant_mobile/src/com/mycompany/uis/ClubsList.java</file>
+            <file>file:/E:/Webprojects/PIDEV/finalmobil/espace_etudiant_mobile/src/com/mycompany/uis/ClubRubrique.java</file>
+            <file>file:/E:/Webprojects/PIDEV/finalmobil/espace_etudiant_mobile/src/com/mycompany/uis/TabAff.java</file>
+            <file>file:/E:/Webprojects/PIDEV/finalmobil/espace_etudiant_mobile/src/com/mycompany/uis/ClubsListFiltred.java</file>
+>>>>>>> 2ced5b26297f5fef435991001b9169c1ba318524
         </group>
     </open-files>
 </project-private>

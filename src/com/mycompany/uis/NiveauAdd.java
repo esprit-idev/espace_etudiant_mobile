@@ -7,12 +7,14 @@ package com.mycompany.uis;
 
 import com.codename1.ui.Button;
 import com.codename1.ui.Container;
+import com.codename1.ui.Dialog;
 import com.codename1.ui.Display;
 import com.codename1.ui.Form;
 import com.codename1.ui.Label;
 import com.codename1.ui.TextField;
 import com.codename1.ui.Toolbar;
 import com.codename1.ui.layouts.BoxLayout;
+import com.codename1.ui.plaf.Style;
 import com.mycompany.services.ServiceNiveau;
 
 /**
@@ -35,8 +37,32 @@ public class NiveauAdd extends Form{
                  
                  
                 btnAdd.addActionListener((e)-> {
+                    
+                    if(!text.getText().equals("")){
                     ServiceNiveau.getInstance().AddNiveau(text.getText());
                 new NiveauxList().show();
+                    }else{
+                        
+                          Dialog dialog = new Dialog(BoxLayout.y());
+            dialog.setUIID("Container"); // this line has no effect, the outside dialog component is still visible
+            Style style = dialog.getDialogStyle();
+            style.setMargin(5, 5, 5, 5); // adding some margin between contentpane and Dailog container, to be more obvious
+            dialog.setDisposeWhenPointerOutOfBounds(true);
+            dialog.add("Error");
+            dialog.add("Niveau ne peut pas être vide. ");
+            Button ok= new Button("OK");
+            
+                           
+             
+             ok.addActionListener((e1)->{
+                 dialog.dispose();
+              
+             });
+             
+             
+             dialog.add(ok);
+             dialog.show();
+                    }
 
         });
                 
@@ -46,7 +72,7 @@ public class NiveauAdd extends Form{
         });
                 
                 
-        cnt.addAll(niveau,text,annuler,btnAdd);
+        cnt.addAll(niveau,text,btnAdd,annuler);
         add(cnt);
         
     }
