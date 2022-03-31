@@ -28,6 +28,7 @@ public class SessionManager {
     private static String prenom;
 
 
+
     public static Preferences getPref() {
         return pref;
     }

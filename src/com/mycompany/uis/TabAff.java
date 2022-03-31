@@ -35,14 +35,17 @@ import java.util.ArrayList;
 
 public class TabAff extends Form {
 
+
     public TabAff(Resources res){
         setScrollableY(true);
         setLayout(new FlowLayout(LEFT,TOP));
+
         int admin;
         if (SessionManager.getRoles().equals("ROLE_ADMIN"))
             admin = 1;
         else
             admin = 0;
+
         setLayout(new FlowLayout(CENTER, CENTER));
         setTitle("Tableau d'affichage");
         Toolbar tb = getToolbar();
@@ -81,11 +84,6 @@ public class TabAff extends Form {
             public void actionPerformed(ActionEvent evt) {
                 //liste des niveaux d'études pour backoffice
                   new NiveauxList().show();
-            }
-        });
-        tb.addMaterialCommandToSideMenu("Classe Messagerie", FontImage.MATERIAL_FORUM, new ActionListener<ActionEvent>() {
-            public void actionPerformed(ActionEvent evt) {
-                new Conversation().show();
             }
         });
         
@@ -135,6 +133,12 @@ public class TabAff extends Form {
                 new Forum().show();
             }
         });
+        
+        tb.addMaterialCommandToSideMenu("Topic", FontImage.MATERIAL_WORK, new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                new Topic().show();
+            }
+        });
         //clubs
         tb.addMaterialCommandToSideMenu("Clubs", FontImage.MATERIAL_GROUPS, new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
@@ -157,6 +161,12 @@ public class TabAff extends Form {
             public void actionPerformed(ActionEvent evt) {
                new Profile(res).show();
                 }
+        });
+        
+        tb.addMaterialCommandToSideMenu("Classe Messagerie", FontImage.MATERIAL_FORUM, new ActionListener<ActionEvent>() {
+            public void actionPerformed(ActionEvent evt) {
+                new Conversation().show();
+            }
         });
         }
 
