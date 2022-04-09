@@ -133,7 +133,6 @@ String roles=result.getAsString("roles");
 
                 System.out.println("data ==" + json);
 
-                Map<String, Object> password = j.parseJSON(new CharArrayReader(json.toCharArray()));
 
             } catch (Exception ex) {
                 ex.printStackTrace();

@@ -65,8 +65,8 @@ public class ClasseList extends Form{
         });
 
          
-         cntb.addAll(btnSend,btnView,btnUpdate);
-         cnt.addAll(classe,cntb);
+         cntb.addAll(btnSend,btnUpdate);
+         cnt.addAll(classe,cntb,btnView);
                           
                           
                           System.out.println(n.getClasse());

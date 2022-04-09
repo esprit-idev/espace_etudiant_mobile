@@ -283,7 +283,7 @@ public class NewsSheet extends Sheet{
         Style s_update_btn = update_btn.getUnselectedStyle();
         s_update_btn.setFont(poppinsRegular);
         update_btn.addActionListener(e -> {
-                new NewsCategoryUpdate(id, nomCat).show();
+                new OffreCategoryUpdate(id, nomCat).show();
         });
         cnt.add(update_btn);
 

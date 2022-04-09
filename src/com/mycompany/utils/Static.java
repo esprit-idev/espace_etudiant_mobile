@@ -16,6 +16,7 @@ public class Static {
     public static final String ClubPic = "file:///C:/Users/MeriamBI/Desktop/pidev/EdSpace_Symfony/public/ClubPictures/";
     public static final String ClubPubsPic = "file://C:/Users/MeriamBI/Desktop/pidev/EdSpace_Symfony/public/PubPictures/";
     public static final String ClubPubsFile = "file://C:/Users/MeriamBI/Desktop/pidev/EdSpace_Symfony/public/PubFiles/";
+    public static final String myDocs="C:/Users/MeriamBI/Desktop/pidev/EdSpace_Symfony/public/documents/";
     
     
     

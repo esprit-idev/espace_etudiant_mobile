@@ -84,7 +84,7 @@ public class ServiceDocument {
                     base64 = obj.get("base64").toString();
                 }
                 float signalements = Float.parseFloat(obj.get("signalements").toString());
-                Document d = new Document((int) id, nom, date_insert, prop, matiere, niveau, url, base64, (int) signalements);
+                Document d = new Document((int) id, nom, date_insert, prop, matiere, niveau, url, (int) signalements);
                 docs.add(d);
                 //}
             }
@@ -96,28 +96,14 @@ public class ServiceDocument {
 
     public void DisplayDoc(Document doc) {
         if (doc.getUrl().equals("")) {
-            byte[] byteArrray = doc.getBase64().getBytes();
-            byte[] decoded = Base64.decode(byteArrray);
-            FileSystemStorage fs = FileSystemStorage.getInstance();
-            try {
-                if (!fs.exists(fs.getAppHomePath())) {
-                    fs.mkdir(fs.getAppHomePath());
-                }
-                OutputStream os = fs.openOutputStream(fs.getAppHomePath() + doc.getNom());
-                os.write(decoded);
-                Util.cleanup(os);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            System.out.println(fs.getAppHomePath() + doc.getNom());
-            Display.getInstance().execute(fs.getAppHomePath() + doc.getNom());
+            Display.getInstance().execute(Static.myDocs + doc.getNom());
         } else {
             Display.getInstance().execute(doc.getUrl());
         }
     }
 
     public boolean addUrl(Document doc) {
-        String url = Static.BASE_URL + "/addUrl/new?nom=" + doc.getNom() + "&date_insert=" + doc.getDate_insert() + "&proprietaire=" + doc.getProp() + "&matiere=" + doc.getMatiere() + "&niveau=" + doc.getNiveau() + "&url=" + doc.getUrl() + "&base64=" + doc.getBase64();
+        String url = Static.BASE_URL + "/addUrl/new?nom=" + doc.getNom() + "&date_insert=" + doc.getDate_insert() + "&proprietaire=" + doc.getProp() + "&matiere=" + doc.getMatiere() + "&niveau=" + doc.getNiveau() + "&url=" + doc.getUrl();
         req.setUrl(url);
         req.addResponseListener(new ActionListener<NetworkEvent>() {
             @Override

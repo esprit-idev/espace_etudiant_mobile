@@ -6,9 +6,9 @@ package com.mycompany.entities;
 
 public class Document {
     private int id,signalements;
-    private String nom,date_insert,prop,matiere,niveau,url,base64;
+    private String nom,date_insert,prop,matiere,niveau,url;
     
-    public Document(int id,String nom, String date_insert, String prop, String matiere, String niveau,String url,String base64,int signalements) {
+    public Document(int id,String nom, String date_insert, String prop, String matiere, String niveau,String url,int signalements) {
         this.id = id;
         this.nom = nom;
         this.date_insert = date_insert;
@@ -16,18 +16,16 @@ public class Document {
         this.matiere = matiere;
         this.niveau = niveau;
         this.url=url;
-        this.base64 = base64;
         this.signalements = signalements;
     }
 
-    public Document(String nom, String date_insert, String prop, String matiere, String niveau,String url,String base64) {
+    public Document(String nom, String date_insert, String prop, String matiere, String niveau,String url) {
         this.nom = nom;
         this.date_insert = date_insert;
         this.prop = prop;
         this.matiere = matiere;
         this.niveau = niveau;
         this.url=url;
-        this.base64 = base64;
     }
 
     public int getId() {
@@ -84,14 +82,6 @@ public class Document {
 
     public void setUrl(String url) {
         this.url = url;
-    }
-    
-    public String getBase64() {
-        return base64;
-    }
-
-    public void setBase64(String base64) {
-        this.base64 = base64;
     }
 
     public int getSignalements() {
