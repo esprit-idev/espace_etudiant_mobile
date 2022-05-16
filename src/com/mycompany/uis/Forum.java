@@ -12,6 +12,7 @@ import com.codename1.ui.Label;
 import com.codename1.ui.Toolbar;
 import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.ui.layouts.FlowLayout;
+import com.codename1.ui.util.Resources;
 import com.mycompany.services.ThreadService;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -19,7 +20,8 @@ import java.util.ArrayList;
 public class Forum extends Form {
     Form current;
     int user = 1;
-    public Forum() {
+    public Forum( Resources res
+) {
         current = this;
         Toolbar tb = getToolbar();
         setLayout(BoxLayout.y());
@@ -57,25 +59,25 @@ public class Forum extends Form {
                 });
                 b.addActionListener(e-> {
                     ThreadService.getInstance().delete(t);
-                    new Forum().show();
+                    new Forum(res).show();
                         });
                 
-                mb.addActionListener(e-> new ThreadShow(current,t).show());
+                mb.addActionListener(e-> new ThreadShow(current,t,res).show());
             }
             else if(SessionManager.getRoles().equals("ROLE_ADMIN") ){
                 Button b = new Button("Delete");
                 b.setUIID("IndianredRoundBtn");
                 
-                mb.addActionListener(e-> new ThreadShow(current,t).show());
+                mb.addActionListener(e-> new ThreadShow(current,t,res).show());
                 b.addActionListener(e-> {
                     ThreadService.getInstance().delete(t);
-                    new Forum().show();
+                    new Forum(res).show();
                         });
                 C2.add(b);
             }
             else{
                 
-                mb.addActionListener(e-> new ThreadShow(current,t).show());
+                mb.addActionListener(e-> new ThreadShow(current,t,res).show());
             }
 	            
             }
@@ -100,31 +102,31 @@ public class Forum extends Form {
                 });
                 b.addActionListener(e-> {
                     ThreadService.getInstance().delete(t);
-                    new Forum().show();
+                    new Forum(res).show();
                         });
                 
-                mb.addActionListener(e-> new ThreadShow(current,t).show());
+                mb.addActionListener(e-> new ThreadShow(current,t,res).show());
             }
             else if(SessionManager.getRoles().equals("ROLE_ADMIN") ){
                 Button b = new Button("Delete");
                 Button verify = new Button("Verify");
                 verify.setUIID("BlueRoundFilledBtn");
                 verify.addActionListener(e->{ThreadService.getInstance().verify(t);
-                new Forum().show();
+                new Forum(res).show();
                 }
                 );
                 b.setUIID("IndianredRoundBtn");
-                mb.addActionListener(e-> new ThreadShow(current,t).show());
+                mb.addActionListener(e-> new ThreadShow(current,t,res).show());
                 b.addActionListener(e-> {
                     ThreadService.getInstance().delete(t);
-                    new Forum().show();
+                    new Forum(res).show();
                         });
                 C2.add(verify);
                 C2.add(b);
             }
             else{
                 
-                mb.addActionListener(e-> new ThreadShow(current,t).show());
+                mb.addActionListener(e-> new ThreadShow(current,t,res).show());
             }
             }
             
@@ -137,9 +139,9 @@ public class Forum extends Form {
         
         }
         add(C2);
-        getToolbar().addMaterialCommandToLeftBar("", FontImage.MATERIAL_ARROW_BACK, e->previous.showBack());
+        getToolbar().addMaterialCommandToLeftBar("", FontImage.MATERIAL_ARROW_BACK, e-> new TabAff(res).show());
         
-        btnAddThread.addActionListener(e-> new AddThread(current).show());
+        btnAddThread.addActionListener(e-> new AddThread(current,res).show());
         btnAddThread.setUIID("addBtn");
         addAll(btnAddThread);
     }

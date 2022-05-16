@@ -136,10 +136,8 @@ public class NewsDetail extends Form {
                 cnt.add(ownerTxt);
                 cnt.add(catTxt);
                 cnt.add(contentTxt);
-                if (admin == 0) {
                 cnt.add(commentsArea);
                 cnt.add(commentCnt);
-                }
                 add(cnt);
     }
 }

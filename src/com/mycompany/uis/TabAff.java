@@ -129,13 +129,13 @@ public class TabAff extends Form {
             public void actionPerformed(ActionEvent evt) {
 
             	
-                new Forum().show();
+                new Forum(res).show();
             }
         });
         
         tb.addMaterialCommandToSideMenu("Topic", FontImage.MATERIAL_WORK, new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                new Topic().show();
+                new Topic(res).show();
             }
         });
         //clubs

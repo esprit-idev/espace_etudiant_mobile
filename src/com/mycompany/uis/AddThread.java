@@ -16,6 +16,7 @@ import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.ui.spinner.Picker;
+import com.codename1.ui.util.Resources;
 import com.mycompany.entities.ThreadType;
 import com.mycompany.services.ThreadService;
 import com.mycompany.services.ThreadTypeService;
@@ -28,7 +29,7 @@ import java.util.Date;
  */
 public class AddThread extends Form{
     
-    public AddThread(Form previous){
+    public AddThread(Form previous, Resources res){
         ArrayList<ThreadType> tt = new ArrayList(ThreadTypeService.getInstance().getAllThreadType());
       setTitle("Add a new Thread");
       setLayout(BoxLayout.y());
@@ -73,7 +74,7 @@ public class AddThread extends Form{
       });
       
       addAll(tfName,p,btnValider);
-      getToolbar().addMaterialCommandToLeftBar("",FontImage.MATERIAL_ARROW_BACK, e->previous.showBack());
+      getToolbar().addMaterialCommandToLeftBar("",FontImage.MATERIAL_ARROW_BACK, e->new Forum(res).show());
     }
   
 }

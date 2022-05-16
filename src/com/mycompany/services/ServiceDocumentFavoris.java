@@ -83,7 +83,7 @@ public class ServiceDocumentFavoris {
                     if(result.getAsString("document/base64")!=null)
                         base64=result.getAsString("document/base64");
                     float signalements=Float.parseFloat(result.getAsString("document/signalements"));
-                    Document doc=new Document((int) docId,nom,date_insert,prop,matiere,niveau,url,base64, (int) signalements);
+                    Document doc=new Document((int) docId,nom,date_insert,prop,matiere,niveau,url, (int) signalements);
                     DocumentFavoris f=new DocumentFavoris(id,userId,doc);
                     favs.add(f);
                 }
@@ -96,19 +96,7 @@ public class ServiceDocumentFavoris {
     
     public void DisplayDoc(Document doc){
         if(doc.getUrl().equals("")){
-            byte[] byteArrray = doc.getBase64().getBytes();
-            byte[] decoded = Base64.decode(byteArrray);
-            FileSystemStorage fs = FileSystemStorage.getInstance();
-            try {
-                if(!fs.exists(fs.getAppHomePath()))
-                    fs.mkdir(fs.getAppHomePath());
-                OutputStream os = fs.openOutputStream(fs.getAppHomePath() + doc.getNom());
-                os.write(decoded);
-                Util.cleanup(os);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            Display.getInstance().execute(fs.getAppHomePath() + doc.getNom());
+            Display.getInstance().execute(Static.myDocs + doc.getNom());
         }
         else
             Display.getInstance().execute(doc.getUrl());

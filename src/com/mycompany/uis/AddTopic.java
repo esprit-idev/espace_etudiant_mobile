@@ -13,6 +13,7 @@ import com.codename1.ui.TextField;
 import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BoxLayout;
+import com.codename1.ui.util.Resources;
 
 import com.mycompany.entities.ThreadType;
 
@@ -26,7 +27,7 @@ import java.util.ArrayList;
  */
 public class AddTopic extends Form{
     Form current;
-    AddTopic(Form previous) {
+    AddTopic(Form previous,Resources res) {
            
       setTitle("Add a new Topic");
       setLayout(BoxLayout.y());
@@ -50,7 +51,7 @@ public class AddTopic extends Form{
               t.setContent(tfName.getText());
               if (ThreadTypeService.getInstance().addTopic(t)){
               Dialog.show("Success","Connection accepted", new Command("OK"));
-              new Topic().show();
+              new Topic(res).show();
               }
               else {
                   Dialog.show("Error","Server error", new Command("OK"));
@@ -65,7 +66,7 @@ public class AddTopic extends Form{
       });
       
       addAll(tfName,btnValider);
-      getToolbar().addMaterialCommandToLeftBar("",FontImage.MATERIAL_ARROW_BACK, e-> new Topic().show());
+      getToolbar().addMaterialCommandToLeftBar("",FontImage.MATERIAL_ARROW_BACK, e-> new Topic(res).show());
     }
     }
     

@@ -13,6 +13,7 @@ import static com.codename1.io.Util.split;
 import com.codename1.processing.Result;
 import com.codename1.ui.events.ActionListener;
 import com.mycompany.entities.Reponse;
+import com.mycompany.entities.Thread;
 import static com.mycompany.services.ThreadService.instance;
 import com.mycompany.utils.Static;
 import java.io.IOException;
@@ -77,9 +78,10 @@ public class ReponseService {
         NetworkManager.getInstance().addToQueueAndWait(req);
         return reps;
     }
-    public boolean addReponse(Reponse r,int id){
+   public boolean addReponse(Reponse r,int id,Thread t){
         
-        String url = Static.BASE_URL+"/reponse/addReponse/"+r.getReply()+"/"+id;
+        String[] ids= split(t.getId(),".");
+        String url = Static.BASE_URL+"/reponse/addReponse/"+r.getReply()+"/"+id+"/"+Integer.parseInt(ids[0]);
         ConnectionRequest req = new ConnectionRequest(url);
         req.addResponseListener(new ActionListener<NetworkEvent>(){
         @Override
@@ -87,7 +89,7 @@ public class ReponseService {
             resultOK = req.getResponseCode()==200;
         }
     });
-        NetworkManager.getInstance().addToQueueAndWait(req);
+NetworkManager.getInstance().addToQueueAndWait(req);
         return resultOK;
     }
 

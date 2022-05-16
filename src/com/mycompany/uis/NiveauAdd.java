@@ -27,7 +27,7 @@ public class NiveauAdd extends Form{
         Toolbar tb=getToolbar();
 		setTitle("Ajouter un niveau");
 		Form previous = Display.getInstance().getCurrent();
-		tb.setBackCommand("", e -> previous.showBack());
+		tb.setBackCommand("", e -> new NiveauxList().show());
 		Container cnt= new Container(BoxLayout.y());
                  Label niveau = new Label ("Niveau:");
                  TextField text =new TextField("","Niveau");   

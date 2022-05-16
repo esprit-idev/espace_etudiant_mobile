@@ -31,7 +31,7 @@ public class Classe2etudiant extends Form{
         Toolbar tb=getToolbar();
 		setTitle("Liste d'etudiants");
 		Form previous = Display.getInstance().getCurrent();
-		tb.setBackCommand("", e -> previous.showBack());
+		tb.setBackCommand("", e -> new ClasseEtudiant(id).show());
 		Container cnt = new Container(BoxLayout.y());
                 Label d = new Label ("Email:");
                  TextField etudiant =new TextField("","Email"); 

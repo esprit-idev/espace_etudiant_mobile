@@ -50,7 +50,7 @@ public class ServiceNiveau {
     
     private ArrayList<Niveau> parseNiveau(String jsonText){
         try {
-        niveaux=new ArrayList<>();
+        niveaux=new ArrayList<Niveau>();
         JSONParser jsonP=new JSONParser();
             Map<String,Object>niveauListJson=jsonP.parseJSON(new CharArrayReader(jsonText.toCharArray()));
             List<Map<String,Object>> list=(List<Map<String,Object>>) niveauListJson.get("root");
