@@ -6,8 +6,11 @@
 package com.mycompany.uis;
 
 import com.codename1.components.FloatingHint;
+import com.codename1.components.ToastBar;
 import com.codename1.ui.Button;
 import com.codename1.ui.Container;
+import com.codename1.ui.Display;
+import com.codename1.ui.FontImage;
 import com.codename1.ui.Form;
 import com.codename1.ui.Label;
 import com.codename1.ui.TextField;
@@ -27,9 +30,16 @@ public class UpdateAdmin extends Form{
     
      Form current;
     public UpdateAdmin(Resources res , User a) {
-         super("Newsfeed",BoxLayout.y()); //herigate men Newsfeed w l formulaire vertical
+         Toolbar tb=getToolbar();
+		setTitle("Mise a jour des administrateurs");
+		Form previous = Display.getInstance().getCurrent();
+		 tb.setBackCommand("", e -> {
+            setTransitionOutAnimator(CommonTransitions.createSlide(CommonTransitions.SLIDE_HORIZONTAL, true, Integer.parseInt("200")));
+            new ListAdmin(res).show();
+        });
+       //  super("Newsfeed",BoxLayout.y()); //herigate men Newsfeed w l formulaire vertical
     
-        Toolbar tb = new Toolbar(true);
+       /* Toolbar tb = new Toolbar(true);
         current = this ;
         setToolbar(tb);
         getTitleArea().setUIID("Container");
@@ -37,7 +47,7 @@ public class UpdateAdmin extends Form{
         	 tb.setBackCommand("", e -> {
             setTransitionOutAnimator(CommonTransitions.createSlide(CommonTransitions.SLIDE_HORIZONTAL, true, Integer.parseInt("200")));
             new ListAdmin(res).show();
-        });
+        });*/
         getContentPane().setScrollVisible(false);
         
         
@@ -102,10 +112,14 @@ public class UpdateAdmin extends Form{
       
        
        //appel fonction modfier reclamation men service
-       
+       if (username.getText().isEmpty() || nom.getText().isEmpty() || email.getText().isEmpty() || password.getText().isEmpty()) {
+                //toast if empty
+                ToastBar.showErrorMessage("Veuillez remplir tous les champs", FontImage.MATERIAL_ERROR);}
+           
+            else{
        if(ServiceAdmin.getInstance().modifierAdmin(a)) { // if true
            new ListAdmin(res).show();
-       }
+       }}
         });
        Button btnAnnuler = new Button("Annuler");
        btnAnnuler.setUIID("IndianredRoundBtn");
