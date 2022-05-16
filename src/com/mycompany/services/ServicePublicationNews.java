@@ -15,9 +15,12 @@ import com.codename1.ui.events.ActionListener;
 import com.mycompany.entities.PublicationNews;
 import com.mycompany.utils.Static;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
 
 /**
  *
@@ -130,9 +133,11 @@ public class ServicePublicationNews {
     }
     
     // add publication 
-    public boolean addPublication(PublicationNews pub){ 
-        String url = Static.BASE_URL+"/addpubsJSON/new?title="+ pub.getTitle()+ "&owner=" + pub.getOwner() + "&content=" + pub.getContent().toString() + "&categoryName=" + pub.getCategoryName()+ "&image=" + pub.getImage();
+    public boolean addPublication(PublicationNews pub){
+        String contentURL = URLEncoder.encode(pub.getContent().toString());
+        String url = Static.BASE_URL+"/addpubsJSON/new?title="+ pub.getTitle()+ "&owner=" + pub.getOwner() + "&content=" + contentURL + "&categoryName=" + pub.getCategoryName()+ "&image=" + pub.getImage();
         request.setUrl(url);
+
         request.addResponseListener(new ActionListener<NetworkEvent>() {
             @Override
             public void actionPerformed(NetworkEvent evt) {
@@ -146,7 +151,8 @@ public class ServicePublicationNews {
     
     //update publication
      public boolean updatePublicationNews(int id,String title, String owner, String content, String categoryName, String image) {
-            String url = Static.BASE_URL + "/updatepubsJSON/"+id + "?title=" + title + "&owner=" + owner + "&content=" + content +"&categoryName=" + categoryName + "&image=" + image;
+            String contentURL = URLEncoder.encode(content);
+            String url = Static.BASE_URL + "/updatepubsJSON/"+id + "?title=" + title + "&owner=" + owner + "&content=" + contentURL +"&categoryName=" + categoryName + "&image=" + image;
             request.setUrl(url);
             request.addResponseListener(new ActionListener<NetworkEvent>() {
             @Override

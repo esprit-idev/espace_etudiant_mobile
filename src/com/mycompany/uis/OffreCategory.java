@@ -40,7 +40,6 @@ public class OffreCategory extends Form{
     }
 
     public OffreCategory(Resources resourceObjectInstance) {
-        //SKELETON
         setLayout(BoxLayout.y());
         setTitle("Catégories Emploi");
         Form previous = Display.getInstance().getCurrent();
@@ -50,7 +49,7 @@ public class OffreCategory extends Form{
             public void actionPerformed(ActionEvent e) {
                 setTransitionOutAnimator(CommonTransitions.createSlide(CommonTransitions.SLIDE_HORIZONTAL, true, Integer.parseInt("200")));
 
-                new OffreCategory().show();
+                new TabAff(Resources.getGlobalResources()).show();
             }
         });
         //floating button add
@@ -59,7 +58,7 @@ public class OffreCategory extends Form{
         rb.uiid(true);
         fab.bindFabToContainer(getContentPane());
         fab.addActionListener(e -> {
-             new ClubCategoryAdd().show();
+             new OffreCategoryAdd().show();
         });
         //init arralyslits
         ArrayList<CategoryEmploi> categories;
@@ -89,7 +88,7 @@ public class OffreCategory extends Form{
         } else {
             for (CategoryEmploi cat : categories) {
                 //init vars
-                String nomCateg = cat.getCatgeoryName();
+                String nomCateg = cat.getCategoryName();
                 //list of matieres set
                 Container gui_Container_1 = new Container(new BorderLayout());
                 Container gui_Container_2 = new Container(new FlowLayout());
@@ -114,7 +113,7 @@ public class OffreCategory extends Form{
                 //sheet
                 Button displaySheet_btn = new Button();
                 displaySheet_btn.addActionListener(e -> {
-                    NewsSheet sheet = new NewsSheet(null,cat,previous);
+                    OffreSheet sheet = new OffreSheet(null,cat,previous);
                     sheet.show();
                 });
                 gui_Container_1.setLeadComponent(displaySheet_btn);

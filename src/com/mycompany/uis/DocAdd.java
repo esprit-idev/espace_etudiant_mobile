@@ -114,7 +114,7 @@ public class DocAdd extends Form {
                     String insert_date = new SimpleDateFormat("dd/MM/yy").format(new Date());
                     String prop = SessionManager.getUserName() + " " + SessionManager.getPrenom();//to_check
                     System.out.println(prop);
-                    Document doc = new Document(tfNomDoc.getText(), insert_date, prop, cbMatiere.getSelectedItem().toString(), cbNiveau.getSelectedItem().toString(), tfUrl.getText(), null);
+                    Document doc = new Document(tfNomDoc.getText(), insert_date, prop, cbMatiere.getSelectedItem().toString(), cbNiveau.getSelectedItem().toString(), tfUrl.getText());
                     if (ServiceDocument.getInstance().addUrl(doc)) {
                         //success toast
                         ToastBar.showMessage("URL ajoutée", FontImage.MATERIAL_CHECK_CIRCLE);

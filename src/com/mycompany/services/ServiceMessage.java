@@ -40,36 +40,20 @@ public class ServiceMessage {
         req = new ConnectionRequest();
     }
     
-    
-    
-        public void addMessage(Message mes){
-        
-        String url = Static.BASE_URL+"/addpubsJSON/new?content="+ mes.getContent()+ "&uid=" + mes.getUser() ;
-        
-        req.setUrl(url);
-        req.addResponseListener((e) -> {
-            String jsonResponse = new String(req.getResponseData());
-            System.out.println(jsonResponse);
-        });
-        //this is needed in order to execute the request, 
-        NetworkManager.getInstance().addToQueueAndWait(req);
-                
-    }
-    
 
         
         
       
          
          
+        
          
          
-         
-         public ArrayList<Message>afficheMessage(int classe){
+         public ArrayList<Message>afficheMessage(int ui){
             
     
         ArrayList<Message>result = new ArrayList<>();
-        String url = Static.BASE_URL+"/m?cid="+classe;
+        String url = Static.BASE_URL+"/m?cid="+ui;
         req.setUrl(url);
         
         req.addResponseListener(new ActionListener<NetworkEvent>() 
@@ -129,7 +113,7 @@ public class ServiceMessage {
     }
          
          
-                  public void sendMessage(int uid,String content){
+  public void sendMessage(int uid,String content){
     
         ArrayList<Message>result = new ArrayList<>();
         String url = Static.BASE_URL+"/addconversation?content="+content+"&uid="+uid;

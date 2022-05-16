@@ -128,6 +128,7 @@ public class ClubsList extends Form {
                 ImageViewer clubImg = new ImageViewer();
 
                 try {
+                    System.out.println(Static.ClubPic);
                     Image picClub = Image.createImage(Static.ClubPic + c.getClubPic()).fill(500, 500);
                     Image roundMaskClub = Image.createImage(picClub.getWidth(), picClub.getHeight(), 0xff000000);
                     Graphics graphics = roundMaskClub.getGraphics();

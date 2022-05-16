@@ -1,6 +1,5 @@
 package com.mycompany;
 
-
 import static com.codename1.ui.CN.*;
 import com.codename1.ui.Form;
 import com.codename1.ui.Dialog;
@@ -8,8 +7,13 @@ import com.codename1.ui.plaf.UIManager;
 import com.codename1.ui.util.Resources;
 import com.codename1.io.Log;
 import com.codename1.ui.Toolbar;
+import com.mycompany.uis.ClasseList;
+import com.mycompany.uis.Conversation;
 import com.mycompany.uis.Login;
+
 import com.mycompany.uis.AddAdmin;
+
+import com.mycompany.uis.NiveauxList;
 
 
 import com.mycompany.uis.SessionManager;
@@ -56,11 +60,16 @@ public class MyApplication {
         }
 
         if(SessionManager.getUserName()==null){
+
            new Login(theme).show();
            // new AddAdmin(theme).show();
+
+          //  new NiveauxList(theme).show();
+
         }
         else{
         new TabAff(theme).show();
+       
         }
         
 

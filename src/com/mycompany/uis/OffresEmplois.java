@@ -23,15 +23,24 @@ import com.mycompany.services.ServiceEmploi;
 import com.mycompany.utils.Static;
 import java.io.IOException;
 import java.util.ArrayList;
+import com.codename1.ui.util.Resources;
 
 public class OffresEmplois extends Form{
 	public OffresEmplois() {
-            int admin = 1;
+            Resources res = null;
+            int admin;
+            if (SessionManager.getRoles().equals("ROLE_ADMIN"))
+                admin = 1;
+                    else
+                admin = 0;
+            
 		Toolbar tb=getToolbar();
 		setLayout(new FlowLayout(LEFT,CENTER));
 		setTitle("Offres d'emploi");
 		Form previous = Display.getInstance().getCurrent();
-		tb.setBackCommand("", e -> previous.showBack());
+		tb.setBackCommand("", e ->{
+                    new TabAff(res).show();
+                });
             if(admin == 1){
              //add btn
                 FloatingActionButton fab = FloatingActionButton.createFAB(FontImage.MATERIAL_ADD);
@@ -47,9 +56,7 @@ public class OffresEmplois extends Form{
         
                 //loop through the publications
                 for(Emploi pub : listPub){
-
                     addButton(pub.getTitle(),pub.getContent(),pub.getCategoryName(),pub.getImage(), pub.getDate(), pub);
-
                 }
 	}
 

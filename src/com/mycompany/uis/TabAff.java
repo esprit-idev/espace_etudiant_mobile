@@ -72,7 +72,7 @@ public class TabAff extends Form {
 
              tb.addMaterialCommandToSideMenu("Classes", FontImage.MATERIAL_PEOPLE, new ActionListener<ActionEvent>() {
             public void actionPerformed(ActionEvent evt) {
-                new ClasseList().show();
+                new ClasseList(res).show();
             }
         });
 
@@ -82,7 +82,7 @@ public class TabAff extends Form {
 
             public void actionPerformed(ActionEvent evt) {
                 //liste des niveaux d'études pour backoffice
-                  new NiveauxList().show();
+                  new NiveauxList(res).show();
             }
         });
         
@@ -95,9 +95,6 @@ public class TabAff extends Form {
         //categorie publication
          tb.addMaterialCommandToSideMenu("Categorie News", FontImage.MATERIAL_MENU_BOOK, new ActionListener<ActionEvent>() {
             public void actionPerformed(ActionEvent evt) {
-
-            	
-
                 new NewsCategory().show();
             }
 
@@ -105,13 +102,9 @@ public class TabAff extends Form {
          //categorie e;plois
          tb.addMaterialCommandToSideMenu("Categorie Emplois", FontImage.MATERIAL_MENU_BOOK, new ActionListener<ActionEvent>() {
             public void actionPerformed(ActionEvent evt) {
-        new OffreCategory().show();
+                new OffreCategory().show();
             //	new CentrePartage().show();
                 }
-
-                
-            
-
         });
         //fab button to add news:
          FloatingActionButton fab = FloatingActionButton.createFAB(FontImage.MATERIAL_ADD);
@@ -129,13 +122,13 @@ public class TabAff extends Form {
             public void actionPerformed(ActionEvent evt) {
 
             	
-                new Forum().show();
+                new Forum(res).show();
             }
         });
         
         tb.addMaterialCommandToSideMenu("Topic", FontImage.MATERIAL_WORK, new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                new Topic().show();
+                new Topic(res).show();
             }
         });
         //clubs

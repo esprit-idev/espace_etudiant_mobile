@@ -1,8 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+<<<<<<< HEAD
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>src/com/mycompany/uis/Login.java</url>
+            <bookmark id="1">
+                <name/>
+                <line>0</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/eslem/Desktop/EdSpace/src/com/mycompany/uis/MatiereUpdate.java</file>
+            <file>file:/C:/Users/eslem/Desktop/EdSpace/src/com/mycompany/uis/OffreCategory.java</file>
+            <file>file:/C:/Users/eslem/Desktop/EdSpace/src/com/mycompany/uis/NewsCategorySheet.java</file>
+            <file>file:/C:/Users/eslem/Desktop/EdSpace/src/com/mycompany/uis/NewsSheet.java</file>
+            <file>file:/C:/Users/eslem/Desktop/EdSpace/src/com/mycompany/uis/NewsCategoryUpdate.java</file>
+            <file>file:/C:/Users/eslem/Desktop/EdSpace/src/com/mycompany/services/ServiceCategoryNews.java</file>
+            <file>file:/C:/Users/eslem/Desktop/EdSpace/src/com/mycompany/uis/OffreCategoryAdd.java</file>
+            <file>file:/C:/Users/eslem/Desktop/EdSpace/src/com/mycompany/uis/OffreCategoryUpdate.java</file>
+            <file>file:/C:/Users/eslem/Desktop/EdSpace/src/com/mycompany/uis/OffreSheet.java</file>
+            <file>file:/C:/Users/eslem/Desktop/EdSpace/src/com/mycompany/uis/TabAff.java</file>
+            <file>file:/C:/Users/eslem/Desktop/EdSpace/src/com/mycompany/uis/NewsAdd.java</file>
+            <file>file:/C:/Users/eslem/Desktop/EdSpace/src/com/mycompany/uis/NewsDetail.java</file>
+            <file>file:/C:/Users/eslem/Desktop/EdSpace/src/com/mycompany/uis/OffreDetail.java</file>
+=======
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/YOOSURF/Desktop/espace_etudiant_mobile/src/com/mycompany/entities/User.java</file>
             <file>file:/C:/Users/YOOSURF/Desktop/espace_etudiant_mobile/src/com/mycompany/uis/UpdateStudent.java</file>
             <file>file:/C:/Users/YOOSURF/Desktop/espace_etudiant_mobile/src/com/mycompany/uis/ActivateForm.java</file>
@@ -19,6 +48,21 @@
             <file>file:/C:/Users/YOOSURF/Desktop/espace_etudiant_mobile/src/com/mycompany/uis/AddTopic.java</file>
             <file>file:/C:/Users/YOOSURF/Desktop/espace_etudiant_mobile/src/com/mycompany/services/ServiceAdmin.java</file>
             <file>file:/C:/Users/YOOSURF/Desktop/espace_etudiant_mobile/src/com/mycompany/uis/UpdateAdmin.java</file>
+=======
+<<<<<<< HEAD
+            <file>file:/C:/Users/aa/OneDrive/Documents/GitHub/espace_etudiant_mobile/src/com/mycompany/MyApplication.java</file>
+            <file>file:/C:/Users/aa/OneDrive/Documents/GitHub/espace_etudiant_mobile/src/com/mycompany/uis/ClasseList.java</file>
+            <file>file:/C:/Users/aa/OneDrive/Documents/GitHub/espace_etudiant_mobile/src/com/mycompany/uis/Conversation.java</file>
+=======
+            <file>file:/C:/Users/MeriamBI/Desktop/pidev/CodenameOne/espace_etudiant_mobile/src/com/mycompany/entities/Document.java</file>
+            <file>file:/C:/Users/MeriamBI/Desktop/pidev/CodenameOne/espace_etudiant_mobile/src/com/mycompany/services/ServiceNiveau.java</file>
+            <file>file:/C:/Users/MeriamBI/Desktop/pidev/CodenameOne/espace_etudiant_mobile/src/com/mycompany/uis/ActivateForm.java</file>
+>>>>>>> 8b8d1e84692417fc810b7aa1970b5afbb49842b3
+<<<<<<< HEAD
+>>>>>>> 27a155a94784d66519428da981d7b6dd3d02e041
+=======
+>>>>>>> 27a155a94784d66519428da981d7b6dd3d02e041
+>>>>>>> 4ace112c803d2cc0cf60b907e1b26c6ffafe23f4
         </group>
     </open-files>
 </project-private>

@@ -14,6 +14,7 @@ import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.ui.spinner.Picker;
+import com.codename1.ui.util.Resources;
 import com.mycompany.entities.ThreadType;
 import com.mycompany.entities.Thread;
 import com.mycompany.services.ThreadService;
@@ -51,7 +52,7 @@ public class ForumUpdate extends Form {
               
               if (ThreadService.getInstance().update(t, tfName.getText())){
               Dialog.show("Success","Connection accepted", new Command("OK"));
-              new Forum().show();
+              new Forum(Resources.getGlobalResources()).show();
               }
               else {
                   Dialog.show("Error","Server error", new Command("OK"));

@@ -15,6 +15,7 @@ import com.codename1.ui.events.ActionListener;
 import com.mycompany.entities.Emploi;
 import com.mycompany.utils.Static;
 import java.io.IOException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -87,7 +88,8 @@ public class ServiceEmploi {
     }
      // add publication 
     public boolean addPublication(Emploi pub){ 
-        String url = Static.BASE_URL+"/addemploiJSON/new?title="+ pub.getTitle()+ "&content=" + pub.getContent() + "&categoryName=" + pub.getCategoryName()+ "&image=" + pub.getImage();
+        String contentURL = URLEncoder.encode(pub.getContent().toString());
+        String url = Static.BASE_URL+"/addemploiJSON/new?title="+ pub.getTitle()+ "&content=" + contentURL + "&categoryName=" + pub.getCategoryName()+ "&image=" + pub.getImage();
         request.setUrl(url);
         request.addResponseListener(new ActionListener<NetworkEvent>() {
             @Override
@@ -102,7 +104,8 @@ public class ServiceEmploi {
     
     //update publication
      public boolean updateOffre(int id,String title, String content, String categoryName, String image) {
-            String url = Static.BASE_URL + "/updateemploiJSON/"+id + "?title=" + title + "&content=" + content + "&categoryName=" + categoryName + "&image=" + image;
+            String contentURL = URLEncoder.encode(content);
+            String url = Static.BASE_URL + "/updateemploiJSON/"+id + "?title=" + title + "&content=" + contentURL + "&categoryName=" + categoryName + "&image=" + image;
             request.setUrl(url);
             request.addResponseListener(new ActionListener<NetworkEvent>() {
             @Override

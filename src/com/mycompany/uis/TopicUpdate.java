@@ -13,6 +13,7 @@ import com.codename1.ui.TextField;
 import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BoxLayout;
+import com.codename1.ui.util.Resources;
 import com.mycompany.entities.ThreadType;
 
 import com.mycompany.services.ThreadTypeService;
@@ -23,7 +24,7 @@ import com.mycompany.services.ThreadTypeService;
  */
 public class TopicUpdate extends Form {
 
-    public TopicUpdate(ThreadType t, Form current) {
+    public TopicUpdate(ThreadType t, Form current,Resources res) {
         setTitle("Update Thread");
       setLayout(BoxLayout.y());
       TextField tfName= new TextField(t.getContent(),"Question");
@@ -44,7 +45,7 @@ public class TopicUpdate extends Form {
               
               if (ThreadTypeService.getInstance().update(t, tfName.getText())){
               Dialog.show("Success","Connection accepted", new Command("OK"));
-              new Topic().show();
+              new Topic(res).show();
               }
               else {
                   Dialog.show("Error","Server error", new Command("OK"));
@@ -59,7 +60,7 @@ public class TopicUpdate extends Form {
       });
       
       addAll(tfName,btnValider);
-      getToolbar().addMaterialCommandToLeftBar("",FontImage.MATERIAL_ARROW_BACK, e->new Topic().show());
+      getToolbar().addMaterialCommandToLeftBar("",FontImage.MATERIAL_ARROW_BACK, e->new Topic(res).show());
     
     }
     

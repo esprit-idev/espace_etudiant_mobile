@@ -52,7 +52,11 @@ import java.io.IOException;
 public class NewsDetail extends Form {
     
     public NewsDetail(Resources res, int Id,String Title,String Content, String Owner, String Category,String comments, String NewsImg,PublicationNews pub){
-        int admin = 1;        
+        int admin;
+            if (SessionManager.getRoles().equals("ROLE_ADMIN"))
+                admin = 1;
+                    else
+                admin = 0;       
         Toolbar tb=getToolbar();
         Form previous = Display.getInstance().getCurrent();
         tb.setBackCommand("", e -> previous.showBack());

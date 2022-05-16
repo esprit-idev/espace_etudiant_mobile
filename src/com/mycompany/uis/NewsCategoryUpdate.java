@@ -33,7 +33,7 @@ public class NewsCategoryUpdate extends Form {
      public NewsCategoryUpdate(int id, String catName) {
           Toolbar tb = getToolbar();
         setLayout(new FlowLayout(CENTER, CENTER));
-        setTitle("Modifier categorie");
+        setTitle("Modifier categorie News");
         Font poppinsRegular55 = Font.createTrueTypeFont("regular", "Poppins-Regular.ttf").
                 derive(55, Font.STYLE_PLAIN);
         Font poppinsRegular40 = Font.createTrueTypeFont("regular", "Poppins-Regular.ttf").

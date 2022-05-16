@@ -43,7 +43,7 @@ public class MatiereList extends Form {
     public MatiereList(Resources resourceObjectInstance) {
         //SKELETON
         setLayout(BoxLayout.y());
-        setTitle("Centre de partage");
+        setTitle("Matière");
         Form previous = Display.getInstance().getCurrent();
         Toolbar tb = getToolbar();
         tb.setBackCommand("", e -> {

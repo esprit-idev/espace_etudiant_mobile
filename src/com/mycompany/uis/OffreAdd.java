@@ -76,7 +76,7 @@ public class OffreAdd extends Form{
         lDesc.setUIID("CustomLabel");
         Style s_lDesc = lDesc.getUnselectedStyle();
         s_lDesc.setFont(poppinsRegular40);
-        TextArea tfDesc = new TextArea("Ajoter une description",20,20, TextArea.ANY);
+        TextArea tfDesc = new TextArea();
         //categories : comboBox 
         ArrayList<CategoryEmploi> categories;
         categories = ServiceCategoryEmploi.getInstance().displayCats();
@@ -87,7 +87,7 @@ public class OffreAdd extends Form{
         
         ComboBox cbCat = new ComboBox();
         for (CategoryEmploi cat : categories) {
-            cbCat.addItem(cat.getCatgeoryName());
+            cbCat.addItem(cat.getCategoryName());
         }
         // add image 
         Button add_image = new Button("Image");
@@ -167,7 +167,7 @@ public class OffreAdd extends Form{
                     ToastBar.showErrorMessage("Veuillez remplir tous les champs", FontImage.MATERIAL_ERROR);
                 } else {
                     //create new publication
-                    Emploi pub = new Emploi(tftitle.getText(),tfDesc.getText().toString(),cbCat.getSelectedItem().toString(),today,namePic);
+                    Emploi pub = new Emploi(tftitle.getText(),tfDesc.getText(),cbCat.getSelectedItem().toString(),today,namePic);
                     if (ServiceEmploi.getInstance().addPublication(pub)) {
                         //success toast
                         ToastBar.showMessage("Pub ajouté", FontImage.MATERIAL_CHECK_CIRCLE);
