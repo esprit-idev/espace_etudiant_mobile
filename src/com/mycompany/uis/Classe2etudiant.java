@@ -35,10 +35,11 @@ public class Classe2etudiant extends Form{
 		tb.setBackCommand("", e -> new ClasseEtudiant(id,res).show());
 		Container cnt = new Container(BoxLayout.y());
                 Label d = new Label ("Email:");
+                d.setUIID("CustomLabel");
                  TextField etudiant =new TextField("","Email"); 
                  
                  Button btn= new Button("Valider");
-                
+                btn.setUIID("BlueRoundFilledBtn");
         btn.addActionListener((e)-> {
                 String r = "false";
                 ArrayList<String> list = ServiceClasse.getInstance().add2classe(id,etudiant.getText());

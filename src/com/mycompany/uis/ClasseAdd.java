@@ -50,13 +50,15 @@ public class ClasseAdd extends Form{
                 Label n = new Label ("Niveau:");
                 TextField niveau =new TextField("","niveau"); 
                 Button btn= new Button("Valider");
+                btn.setUIID("BlackRoundFilledBtn");
+                c.setUIID("CustomLabel");
+                n.setUIID("CustomLabel");
                 
         btn.addActionListener((e)-> {
        
            
             
-            if( isNumericArray(classe.getText())){
-            
+            if(!classe.getText().equals("")){
             int i=0;
             
             ArrayList<Niveau> list = ServiceNiveau.getInstance().getAllNiveaux();
@@ -85,8 +87,8 @@ public class ClasseAdd extends Form{
             Style style = dialog.getDialogStyle();
             style.setMargin(5, 5, 5, 5); // adding some margin between contentpane and Dailog container, to be more obvious
             dialog.setDisposeWhenPointerOutOfBounds(true);
-            dialog.add("Error");
-            dialog.add("Niveau does not exit");
+            dialog.add("Erreur");
+            dialog.add("Niveau invalid");
             Button ok= new Button("OK");
             
                            
@@ -113,7 +115,7 @@ public class ClasseAdd extends Form{
             style.setMargin(5, 5, 5, 5); // adding some margin between contentpane and Dailog container, to be more obvious
             dialog.setDisposeWhenPointerOutOfBounds(true);
             dialog.add("Error");
-            dialog.add("Classe must be a number");
+            dialog.add("Vérifier vos parametre");
             Button ok= new Button("OK");
             
                            

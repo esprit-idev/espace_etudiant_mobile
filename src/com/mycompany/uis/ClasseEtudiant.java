@@ -40,6 +40,7 @@ public class ClasseEtudiant extends Form {
         });
 		Container cnt = new Container(BoxLayout.y());
                 Button btn= new Button("Ajouter un etudiant");
+                btn.setUIID("BlueRoundFilledBtn");
                 btn.addActionListener((e)->{
                     new Classe2etudiant(id,res).show();
                 });
@@ -50,12 +51,12 @@ public class ClasseEtudiant extends Form {
                       for (User n : list){
                          
                                  SpanLabel d = new SpanLabel("Nom:"+n.getUsername()+"      Prenom:"+n.getPrenom());
-
+d.setUIID("CustomLabel");
          Button supp= new Button("Supprimer");
+         supp.setUIID("BlackRoundFilledBtn");
                 supp.addActionListener((e)->{
                     String s=n.getEmail();
-                    System.out.println(s);
-                    System.out.println(s);
+
                    ServiceClasse.getInstance().DeleteS(n.getEmail());
                    
                   new ClasseEtudiant(id,res).show();

@@ -31,9 +31,12 @@ public class NiveauAdd extends Form{
 		tb.setBackCommand("", e -> new NiveauxList(res).show());
 		Container cnt= new Container(BoxLayout.y());
                  Label niveau = new Label ("Niveau:");
+                 niveau.setUIID("CustomLabel");
                  TextField text =new TextField("","Niveau");   
                  Button btnAdd= new Button("Ajouter");
+                 btnAdd.setUIID("BlackRoundFilledBtn");
                  Button annuler = new Button("Annuler");
+                 annuler.setUIID("BlackRoundFilledBtn");
                  
                  
                  

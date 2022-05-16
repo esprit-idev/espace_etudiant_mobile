@@ -40,6 +40,7 @@ public class ClasseList extends Form{
         });
 		Container cnt = new Container(BoxLayout.y());
                 Button add=new Button("Ajouter une classe");
+                add.setUIID("BlackRoundFilledBtn");
                 add.addActionListener((e)-> {
                 new ClasseAdd(res).show();
 
@@ -54,7 +55,10 @@ public class ClasseList extends Form{
                                   Button btnSend= new Button("Supprimer");
                                    Button btnView= new Button("show");
                                    Button btnUpdate= new Button("Metter a jour");
-                                   
+                                   btnSend.setUIID("BlackRoundFilledBtn");
+                                   btnView.setUIID("BlackRoundFilledBtn");
+                                   btnUpdate.setUIID("BlackRoundFilledBtn");
+                classe.setUIID("CustomLabel");
                                    
                                    
                                    btnUpdate.addActionListener((e)-> {

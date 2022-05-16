@@ -49,8 +49,11 @@ public class ClasseUpdate extends Form{
                 Label idd = new Label ("Id:"+id);
                TextField c=new TextField(classe,"");
                TextField n=new TextField(niveau,"");
-               
+                  idd.setUIID("CustomLabel");
+                c.setUIID("CustomLabel");
+                n.setUIID("CustomLabel");
                Button btnSend= new Button("Valider");
+               btnSend.setUIID("BlackRoundFilledBtn");
                  btnSend.addActionListener((e)-> {
                      
                      
