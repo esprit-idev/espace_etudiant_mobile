@@ -15,6 +15,7 @@ import com.codename1.ui.TextField;
 import com.codename1.ui.Toolbar;
 import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.ui.plaf.Style;
+import com.codename1.ui.util.Resources;
 import com.mycompany.services.ServiceNiveau;
 
 /**
@@ -22,12 +23,12 @@ import com.mycompany.services.ServiceNiveau;
  * @author aa
  */
 public class NiveauAdd extends Form{
-    public NiveauAdd(){
+    public NiveauAdd(Resources res){
        
         Toolbar tb=getToolbar();
 		setTitle("Ajouter un niveau");
 		Form previous = Display.getInstance().getCurrent();
-		tb.setBackCommand("", e -> new NiveauxList().show());
+		tb.setBackCommand("", e -> new NiveauxList(res).show());
 		Container cnt= new Container(BoxLayout.y());
                  Label niveau = new Label ("Niveau:");
                  TextField text =new TextField("","Niveau");   
@@ -40,7 +41,7 @@ public class NiveauAdd extends Form{
                     
                     if(!text.getText().equals("")){
                     ServiceNiveau.getInstance().AddNiveau(text.getText());
-                new NiveauxList().show();
+                new NiveauxList(res).show();
                     }else{
                         
                           Dialog dialog = new Dialog(BoxLayout.y());
@@ -67,7 +68,7 @@ public class NiveauAdd extends Form{
         });
                 
                  annuler.addActionListener((e)-> {
-                new NiveauxList().show();
+                new NiveauxList(res).show();
 
         });
                 

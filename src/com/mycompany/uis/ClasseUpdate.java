@@ -13,8 +13,12 @@ import com.codename1.ui.Form;
 import com.codename1.ui.Label;
 import com.codename1.ui.TextField;
 import com.codename1.ui.Toolbar;
+import com.codename1.ui.animations.CommonTransitions;
+import com.codename1.ui.events.ActionEvent;
+import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.ui.plaf.Style;
+import com.codename1.ui.util.Resources;
 import com.mycompany.entities.Niveau;
 import com.mycompany.services.ServiceClasse;
 import com.mycompany.services.ServiceNiveau;
@@ -27,13 +31,19 @@ import java.util.ArrayList;
  */
 public class ClasseUpdate extends Form{
     
-   public ClasseUpdate(String id,String classe,String niveau){
+   public ClasseUpdate(String id,String classe,String niveau,Resources res){
         
         
         Toolbar tb=getToolbar();
 		setTitle("Classe");
 		Form previous = Display.getInstance().getCurrent();
-		tb.setBackCommand("", e -> previous.showBack());
+		tb.setBackCommand("", new ActionListener<ActionEvent>() {
+            @Override
+            public void actionPerformed(ActionEvent arg0) {
+                setTransitionOutAnimator(CommonTransitions.createSlide(CommonTransitions.SLIDE_HORIZONTAL, true, Integer.parseInt("200")));
+                new ClasseList(res).show();
+            }
+        });
 		Container cnt = new Container(BoxLayout.y());
                 
                 Label idd = new Label ("Id:"+id);
@@ -68,7 +78,7 @@ public class ClasseUpdate extends Form{
                        if(i==1){
                      if(!c.getText().equals("")){
                       ServiceClasse.getInstance().UpdateClasse(id,c.getText(),n.getText());
-                new ClasseList().show();
+                new ClasseList(res).show();
                      }else{
                         
                           Dialog dialog = new Dialog(BoxLayout.y());

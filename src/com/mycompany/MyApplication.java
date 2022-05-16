@@ -7,7 +7,10 @@ import com.codename1.ui.plaf.UIManager;
 import com.codename1.ui.util.Resources;
 import com.codename1.io.Log;
 import com.codename1.ui.Toolbar;
+import com.mycompany.uis.ClasseList;
+import com.mycompany.uis.Conversation;
 import com.mycompany.uis.Login;
+import com.mycompany.uis.NiveauxList;
 
 import com.mycompany.uis.SessionManager;
 import com.mycompany.uis.SplashScreen;
@@ -53,7 +56,7 @@ public class MyApplication {
         }
 
         if(SessionManager.getUserName()==null){
-            new Login(theme).show();
+            new NiveauxList(theme).show();
         }
         else{
         new TabAff(theme).show();

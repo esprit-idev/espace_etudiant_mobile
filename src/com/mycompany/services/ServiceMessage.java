@@ -113,7 +113,7 @@ public class ServiceMessage {
     }
          
          
-                  public void sendMessage(int uid,String content){
+  public void sendMessage(int uid,String content){
     
         ArrayList<Message>result = new ArrayList<>();
         String url = Static.BASE_URL+"/addconversation?content="+content+"&uid="+uid;

@@ -13,8 +13,12 @@ import com.codename1.ui.Form;
 import com.codename1.ui.Label;
 import com.codename1.ui.TextField;
 import com.codename1.ui.Toolbar;
+import com.codename1.ui.animations.CommonTransitions;
+import com.codename1.ui.events.ActionEvent;
+import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.ui.plaf.Style;
+import com.codename1.ui.util.Resources;
 import com.mycompany.entities.Niveau;
 import com.mycompany.uis.NiveauAdd;
 import com.mycompany.uis.NiveauxList;
@@ -28,11 +32,17 @@ import com.mycompany.services.ServiceNiveau;
  * @author aa
  */
 public class ClasseAdd extends Form{
-    public ClasseAdd(){
+    public ClasseAdd(Resources res){
          Toolbar tb=getToolbar();
 		setTitle("Ajouter une classe");
 		Form previous = Display.getInstance().getCurrent();
-		tb.setBackCommand("", e -> new ClasseList().show());
+		tb.setBackCommand("", new ActionListener<ActionEvent>() {
+            @Override
+            public void actionPerformed(ActionEvent arg0) {
+                setTransitionOutAnimator(CommonTransitions.createSlide(CommonTransitions.SLIDE_HORIZONTAL, true, Integer.parseInt("200")));
+                new ClasseList(res).show();
+            }
+        });
 		Container cnt = new Container(BoxLayout.y());
                 
                 Label c = new Label ("Classe:");
@@ -66,7 +76,7 @@ public class ClasseAdd extends Form{
                        if(i==1){
                            
                            ServiceClasse.getInstance().AddClasse(classe.getText(),niveau.getText());
-                           new ClasseList().show();
+                           new ClasseList(res).show();
                            
                        }else{
                                   

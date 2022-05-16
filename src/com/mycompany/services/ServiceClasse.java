@@ -241,6 +241,50 @@ public class ServiceClasse {
         NetworkManager.getInstance().addToQueueAndWait(req);
     }
       
+          
+                   public ArrayList<com.mycompany.chat.Classe> getClasse(int uid){
+          ArrayList<com.mycompany.chat.Classe>result = new ArrayList<>();
+        String url=Static.BASE_URL+"/classefromuid?uid=" + uid;
+        req.setUrl(url);
+        
+        req.addResponseListener(new ActionListener<NetworkEvent>() {
+            @Override
+            public void actionPerformed(NetworkEvent evt) {
+                JSONParser json;
+                json  = new JSONParser();
+                try{
+                        Map<String,Object> ClasseListJson = json.parseJSON(new CharArrayReader(new String(req.getResponseData()).toCharArray()));
+                        List<Map<String,Object>>listOfMaps= (List<Map<String,Object>>) ClasseListJson.get("root");
+                        for(Map<String,Object> obj : listOfMaps)
+                        {
+      //                //Création des tâches et récupération de leurs données
+                          String id=obj.get("classe").toString();
+
+                
+                com.mycompany.chat.Classe m=new com.mycompany.chat.Classe();
+                m.setId((int)Float.parseFloat(id));
+                            
+                                
+                            
+                            result.add(m);
+                        }
+                    } 
+
+                 catch(Exception ex){
+                    ex.printStackTrace();
+
+                 }
+
+            }
+
+
+        });
+                      
+        NetworkManager.getInstance().addToQueueAndWait(req);
+        return result;
+        
+        
+    }
       
       
 }

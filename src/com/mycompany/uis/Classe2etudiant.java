@@ -16,6 +16,7 @@ import com.codename1.ui.TextField;
 import com.codename1.ui.Toolbar;
 import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.ui.plaf.Style;
+import com.codename1.ui.util.Resources;
 import com.mycompany.entities.User;
 import com.mycompany.services.ServiceClasse;
 import java.util.ArrayList;
@@ -25,13 +26,13 @@ import java.util.ArrayList;
  * @author aa
  */
 public class Classe2etudiant extends Form{
-        public Classe2etudiant(String id){
+        public Classe2etudiant(String id,Resources res){
            
         System.out.println(id);
         Toolbar tb=getToolbar();
 		setTitle("Liste d'etudiants");
 		Form previous = Display.getInstance().getCurrent();
-		tb.setBackCommand("", e -> new ClasseEtudiant(id).show());
+		tb.setBackCommand("", e -> new ClasseEtudiant(id,res).show());
 		Container cnt = new Container(BoxLayout.y());
                 Label d = new Label ("Email:");
                  TextField etudiant =new TextField("","Email"); 
@@ -47,7 +48,7 @@ public class Classe2etudiant extends Form{
                  }
                  
                  if(r.equals("true")){
-                           new ClasseEtudiant(id).show();
+                           new ClasseEtudiant(id,res).show();
                      
                  }else{
                      Dialog dialog = new Dialog(BoxLayout.y());

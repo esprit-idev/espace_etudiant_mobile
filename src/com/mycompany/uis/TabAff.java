@@ -72,7 +72,7 @@ public class TabAff extends Form {
 
              tb.addMaterialCommandToSideMenu("Classes", FontImage.MATERIAL_PEOPLE, new ActionListener<ActionEvent>() {
             public void actionPerformed(ActionEvent evt) {
-                new ClasseList().show();
+                new ClasseList(res).show();
             }
         });
 

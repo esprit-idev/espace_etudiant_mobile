@@ -11,7 +11,11 @@ import com.codename1.ui.Display;
 import com.codename1.ui.Form;
 import com.codename1.ui.Label;
 import com.codename1.ui.Toolbar;
+import com.codename1.ui.animations.CommonTransitions;
+import com.codename1.ui.events.ActionEvent;
+import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BoxLayout;
+import com.codename1.ui.util.Resources;
 import com.mycompany.entities.Classe;
 import com.mycompany.services.ServiceClasse;
 import java.util.ArrayList;
@@ -23,15 +27,21 @@ import java.util.ArrayList;
 public class ClasseList extends Form{
     
     
-    public ClasseList(){
+    public ClasseList(Resources res){
          Toolbar tb=getToolbar();
 		setTitle("Classe");
 		Form previous = Display.getInstance().getCurrent();
-		tb.setBackCommand("", e -> previous.showBack());
+		tb.setBackCommand("", new ActionListener<ActionEvent>() {
+            @Override
+            public void actionPerformed(ActionEvent arg0) {
+                setTransitionOutAnimator(CommonTransitions.createSlide(CommonTransitions.SLIDE_HORIZONTAL, true, Integer.parseInt("200")));
+                new TabAff(res).show();
+            }
+        });
 		Container cnt = new Container(BoxLayout.y());
                 Button add=new Button("Ajouter une classe");
                 add.addActionListener((e)-> {
-                new ClasseAdd().show();
+                new ClasseAdd(res).show();
 
         });
                 cnt.add(add);
@@ -48,19 +58,19 @@ public class ClasseList extends Form{
                                    
                                    
                                    btnUpdate.addActionListener((e)-> {
-                new ClasseUpdate(n.getId(),n.getClasse(),n.getNiveau()).show();
+                new ClasseUpdate(n.getId(),n.getClasse(),n.getNiveau(),res).show();
 
         });
 
         
          btnSend.addActionListener((e)-> {
                 ServiceClasse.getInstance().DeleteClasse(n.getId());
-                new ClasseList().show();
+                new ClasseList(res).show();
 
         });
          btnView.addActionListener((e)-> {
                 
-                new ClasseEtudiant(n.getId()).show();
+                new ClasseEtudiant(n.getId(),res).show();
 
         });
 
