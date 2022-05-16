@@ -11,18 +11,18 @@ package com.mycompany.entities;
  */
 public class CategoryEmploi {
     private int id;
-    private String catgeoryName;
+    private String categoryName;
 
     public CategoryEmploi() {
     }
 
     public CategoryEmploi(int id, String catgeoryName) {
         this.id = id;
-        this.catgeoryName = catgeoryName;
+        this.categoryName = catgeoryName;
     }
 
     public CategoryEmploi(String catgeoryName) {
-        this.catgeoryName = catgeoryName;
+        this.categoryName = catgeoryName;
     }
 
     public int getId() {
@@ -33,12 +33,12 @@ public class CategoryEmploi {
         this.id = id;
     }
 
-    public String getCatgeoryName() {
-        return catgeoryName;
+    public String getCategoryName() {
+        return categoryName;
     }
 
-    public void setCatgeoryName(String catgeoryName) {
-        this.catgeoryName = catgeoryName;
+    public void setCategoryName(String catgeoryName) {
+        this.categoryName = catgeoryName;
     }
     
 }

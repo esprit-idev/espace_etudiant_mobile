@@ -87,7 +87,7 @@ public class OffreAdd extends Form{
         
         ComboBox cbCat = new ComboBox();
         for (CategoryEmploi cat : categories) {
-            cbCat.addItem(cat.getCatgeoryName());
+            cbCat.addItem(cat.getCategoryName());
         }
         // add image 
         Button add_image = new Button("Image");

@@ -205,9 +205,8 @@ public class NewsUpdate extends Form{
     }
        
     protected String saveFileToDevice(String file, String extension) throws IOException {
-        URI url;
         try{
-            url= new URI(file);
+            URI url= new URI(file);
             String path = Static.News_Emploi_Pic;
             int index = file.lastIndexOf("/");
             file = file.substring(index + 1);

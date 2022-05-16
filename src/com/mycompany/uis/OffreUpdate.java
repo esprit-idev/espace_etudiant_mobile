@@ -89,7 +89,7 @@ public class OffreUpdate extends Form{
         
         ComboBox cbCat = new ComboBox();
         for (CategoryEmploi cat : categor) {
-            cbCat.addItem(cat.getCatgeoryName());
+            cbCat.addItem(cat.getCategoryName());
         }
         cbCat.setSelectedItem(categoryName);
         System.out.println(cbCat.getSelectedItem().toString());
@@ -174,10 +174,9 @@ public class OffreUpdate extends Form{
                     //toast if empty
                     ToastBar.showErrorMessage("Veuillez remplir tous les champs", FontImage.MATERIAL_ERROR);
                 } else {
-                    //create new publication
-                    
-                    Emploi pub = new Emploi(tftitle.getText(),tfDesc.getText(),cbCat.getSelectedItem().toString(),today,namePic);
+                    //create new publication  
                     if (ServiceEmploi.getInstance().updateOffre(id, tftitle.getText(),tfDesc.getText(),cbCat.getSelectedItem().toString(),namePic)) {
+                        System.out.println(namePic);
                         //success toast
                         ToastBar.showMessage("Publication Modifie", FontImage.MATERIAL_CHECK_CIRCLE);
                         setTransitionOutAnimator(CommonTransitions.createSlide(CommonTransitions.SLIDE_HORIZONTAL, true, Integer.parseInt("200")));

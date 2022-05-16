@@ -41,7 +41,7 @@ public class OffreDetail extends Form {
                 if (admin == 1) {
                 tb.addMaterialCommandToRightBar("", FontImage.MATERIAL_MORE_VERT, new ActionListener() {
                     public void actionPerformed(ActionEvent evt) {
-                        new NewsSheet(null, Id, Title,Content,Category,previous).show();
+                        new OffreSheet(null, Id, Title,Content,Category,previous).show();
                     }
                 });
             }
