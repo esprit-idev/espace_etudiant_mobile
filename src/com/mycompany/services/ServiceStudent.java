@@ -68,7 +68,7 @@ public class ServiceStudent {
         }
     
     });
-    System.out.println(SessionManager.getPrenom());
+
        NetworkManager.getInstance().addToQueueAndWait(req);
        return result ;
     }
@@ -92,7 +92,8 @@ public class ServiceStudent {
         });
        
          connectionRequest.setUrl(Static.BASE_URL+"/addStudentJSON?&username=" + user.getUsername() +"&prenom=" + user.getPrenom()+"&email="+user.getEmail()+"&password="+user.getPassword());
-        NetworkManager.getInstance().addToQueue(connectionRequest);
+       
+         NetworkManager.getInstance().addToQueue(connectionRequest);
        // NetworkManager.getInstance().addToQueueAndWait(req);//execution ta3 request sinon yet3ada chy dima nal9awha
         
     }

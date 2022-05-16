@@ -5,12 +5,15 @@
  */
 package com.mycompany.uis;
 
+import com.codename1.components.ToastBar;
 import com.codename1.io.NetworkEvent;
 import com.codename1.io.NetworkManager;
 import com.codename1.ui.Button;
 import com.codename1.ui.ComboBox;
 import com.codename1.ui.Container;
+import com.codename1.ui.Dialog;
 import com.codename1.ui.Display;
+import com.codename1.ui.FontImage;
 import com.codename1.ui.Form;
 import com.codename1.ui.TextField;
 import com.codename1.ui.Toolbar;
@@ -50,19 +53,27 @@ public class AddStudent extends Form{
        // classe.addItem("3A");          
         //classe.addItem("3B");
         //cbNiveau.addItem("4SIM");
-       
+      
         Button ajouter=new Button("Ajouter");
        // Button List=new Button("Liste des etudiants");
         cnt.addAll(username,prenom,email,password,ajouter);
         
         
-        ajouter.addActionListener((ActionListener) (ActionEvent evt) -> {
+        ajouter.addActionListener((ActionListener) new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent evt) {
             // add a book
             User stu = new User(prenom.getText() ,username.getText(),email.getText(),password.getText() );
-           // new  ServiceStudent.ajoutStudent(stu);
-            new  ServiceStudent().AddStudent(stu);
-            new ListStudents(res).show();
-            });
+            if (username.getText().isEmpty() || prenom.getText().isEmpty() || email.getText().isEmpty() || password.getText().isEmpty()) {
+                //toast if empty
+                ToastBar.showErrorMessage("Veuillez remplir tous les champs", FontImage.MATERIAL_ERROR);}
+           
+            else{
+                // new  ServiceStudent.ajoutStudent(stu);
+                new  ServiceStudent().AddStudent(stu);
+                new ListStudents(res).show();}
+        }
+    });
         
       //  List.addActionListener((ActionListener)(ActionEvent evt)-> {
         //new ServiceStudent().affichageStudent();

@@ -6,9 +6,12 @@
 package com.mycompany.uis;
 
 import com.codename1.components.FloatingHint;
+import com.codename1.components.ToastBar;
 import com.codename1.ui.Button;
 import com.codename1.ui.ComboBox;
 import com.codename1.ui.Container;
+import com.codename1.ui.Display;
+import com.codename1.ui.FontImage;
 import com.codename1.ui.Form;
 import com.codename1.ui.Label;
 import com.codename1.ui.TextField;
@@ -29,8 +32,15 @@ public class UpdateStudent extends Form {
     
     Form current;
     public UpdateStudent(Resources res , User stu) {
-         super("Newsfeed",BoxLayout.y()); //herigate men Newsfeed w l formulaire vertical
-    
+         Toolbar tb=getToolbar();
+		setTitle("Mise a jour des etudiants");
+		Form previous = Display.getInstance().getCurrent();
+		 tb.setBackCommand("", e -> {
+            setTransitionOutAnimator(CommonTransitions.createSlide(CommonTransitions.SLIDE_HORIZONTAL, true, Integer.parseInt("200")));
+            new ListStudents(res).show();
+        });
+        // super("Newsfeed",BoxLayout.y()); //herigate men Newsfeed w l formulaire vertical
+    /*
         Toolbar tb = new Toolbar(true);
         current = this ;
         setToolbar(tb);
@@ -39,7 +49,7 @@ public class UpdateStudent extends Form {
          tb.setBackCommand("", e -> {
             setTransitionOutAnimator(CommonTransitions.createSlide(CommonTransitions.SLIDE_HORIZONTAL, true, Integer.parseInt("200")));
             new ListStudents(res).show();
-        });
+        });*/
         getContentPane().setScrollVisible(false);
         
         
@@ -105,10 +115,14 @@ public class UpdateStudent extends Form {
       
        
        //appel fonction modfier reclamation men service
-       
+       if (username.getText().isEmpty() || nom.getText().isEmpty() || email.getText().isEmpty() || password.getText().isEmpty()) {
+                //toast if empty
+                ToastBar.showErrorMessage("Veuillez remplir tous les champs", FontImage.MATERIAL_ERROR);}
+           
+            else{
        if(ServiceStudent.getInstance().modifierStudent(stu)) { // if true
            new ListStudents(res).show();
-       }
+       }}
         });
        Button btnAnnuler = new Button("Annuler");
        btnAnnuler.setUIID("IndianredRoundBtn");

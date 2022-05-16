@@ -64,7 +64,7 @@ public class ServiceUtilisateur {
    json = new String(req.getResponseData()) + "";
   
    try{
-  
+  System.out.println(password.getText());
    if(json.equals("password not found")||json.equals("user not found")){
        Dialog.show("Echec d'authentification","Email ou mot de passe éronné","OK", null);
    }
@@ -132,6 +132,9 @@ String roles=result.getAsString("roles");
             try {
 
                 System.out.println("data ==" + json);
+
+
+             //   Map<String, Object> password = j.parseJSON(new CharArrayReader(json.toCharArray()));
 
 
             } catch (Exception ex) {

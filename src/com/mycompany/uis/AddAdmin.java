@@ -5,9 +5,11 @@
  */
 package com.mycompany.uis;
 
+import com.codename1.components.ToastBar;
 import com.codename1.ui.Button;
 import com.codename1.ui.Container;
 import com.codename1.ui.Display;
+import com.codename1.ui.FontImage;
 import com.codename1.ui.Form;
 import com.codename1.ui.TextField;
 import com.codename1.ui.Toolbar;
@@ -57,9 +59,13 @@ public class AddAdmin extends Form{
         ajouter.addActionListener((ActionListener) (ActionEvent evt) -> {
             // add a book
             User a = new User(prenom.getText() , username.getText(),email.getText(),password.getText() );
+            if (username.getText().isEmpty() || prenom.getText().isEmpty() || email.getText().isEmpty() || password.getText().isEmpty()) {
+                //toast if empty
+                ToastBar.showErrorMessage("Veuillez remplir tous les champs", FontImage.MATERIAL_ERROR);}
            // new  ServiceStudent.ajoutStudent(stu);
+            else{
             new  ServiceAdmin().AddAdmin(a);
-             new ListAdmin(res).show();
+             new ListAdmin(res).show();}
             });
         
       //  List.addActionListener((ActionListener)(ActionEvent evt)-> {
