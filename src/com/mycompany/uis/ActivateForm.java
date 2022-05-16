@@ -116,6 +116,7 @@ public class ActivateForm extends Form{
 //sendMail
     
     public void sendMail(Resources res){
+         
     try{
         Properties props = new Properties();
         props.put("mail.transport.protocol","smtp");
@@ -131,9 +132,14 @@ public class ActivateForm extends Form{
         msg.setRecipients(Message.RecipientType.TO,email.getText().toString());
         msg.setSubject("Application nom : Confirmation du");
         msg.setSentDate(new Date(System.currentTimeMillis()));
-        
+        /*int min = 100;  
+       int max = 900;  
+//Generate random int value from 200 to 400     
+     int b = (int)(Math.random()*(max-min+1)+min); 
+     String s=Integer.toString(b);
+     System.out.println(b); */
         String mp=ServiceUtilisateur.getInstance().getPasswordByEmail(email.getText().toString(), res);;
-        String txt = "Bienvenue sur EdSpace : Tapez ce mot de passe : "+mp+"dans le champs requis ";
+        String txt = "Bienvenue sur EdSpace : Tapez ce mot de passe : "+mp+" dans le champs requis ";
         
         msg.setText(txt);
         

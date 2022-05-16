@@ -9,6 +9,8 @@ import com.codename1.ui.util.Resources;
 import com.codename1.io.Log;
 import com.codename1.ui.Toolbar;
 import com.mycompany.uis.Login;
+import com.mycompany.uis.AddAdmin;
+
 
 import com.mycompany.uis.SessionManager;
 import com.mycompany.uis.SplashScreen;
@@ -54,7 +56,8 @@ public class MyApplication {
         }
 
         if(SessionManager.getUserName()==null){
-            new Login(theme).show();
+           new Login(theme).show();
+           // new AddAdmin(theme).show();
         }
         else{
         new TabAff(theme).show();
