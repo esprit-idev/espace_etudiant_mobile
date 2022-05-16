@@ -57,9 +57,12 @@ public class ServiceCategoryEmploi {
                     
                     for(Map<String,Object> object : ListOfMaps){
                         CategoryEmploi cat = new CategoryEmploi();
+                        //id
+                        float id = Float.parseFloat(object.get("id").toString());
                         //category
                         String categoryName =object.get("categoryName").toString();
                         cat.setCategoryName(categoryName);
+                        cat.setId((int)id);
                         response.add(cat);
                     }
                 } catch (IOException ex) {

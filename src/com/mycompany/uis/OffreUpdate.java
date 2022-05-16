@@ -49,7 +49,7 @@ import java.util.ArrayList;
  */
 public class OffreUpdate extends Form{
     public OffreUpdate(int id,String title,String content,String categoryName){
-                Toolbar tb = getToolbar();
+        Toolbar tb = getToolbar();
         setLayout(new FlowLayout(CENTER, CENTER));
         setTitle("Modifier " + title);
         Font poppinsRegular55 = Font.createTrueTypeFont("regular", "Poppins-Regular.ttf").
@@ -60,7 +60,10 @@ public class OffreUpdate extends Form{
                 derive(35, Font.STYLE_PLAIN);
 
         Form previous = Display.getInstance().getCurrent();
-        tb.setBackCommand("", e -> previous.showBack());
+        tb.setBackCommand("", e -> {
+                    setTransitionOutAnimator(CommonTransitions.createSlide(CommonTransitions.SLIDE_HORIZONTAL, true, Integer.parseInt("200")));
+                    new OffresEmplois();
+                });
         Container cnt = new Container(BoxLayout.y());
          //title
         Label ltitle = new Label("titre");
