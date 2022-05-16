@@ -82,7 +82,7 @@ public class TabAff extends Form {
 
             public void actionPerformed(ActionEvent evt) {
                 //liste des niveaux d'études pour backoffice
-                  new NiveauxList().show();
+                  new NiveauxList(res).show();
             }
         });
         
@@ -95,9 +95,6 @@ public class TabAff extends Form {
         //categorie publication
          tb.addMaterialCommandToSideMenu("Categorie News", FontImage.MATERIAL_MENU_BOOK, new ActionListener<ActionEvent>() {
             public void actionPerformed(ActionEvent evt) {
-
-            	
-
                 new NewsCategory().show();
             }
 
@@ -105,13 +102,9 @@ public class TabAff extends Form {
          //categorie e;plois
          tb.addMaterialCommandToSideMenu("Categorie Emplois", FontImage.MATERIAL_MENU_BOOK, new ActionListener<ActionEvent>() {
             public void actionPerformed(ActionEvent evt) {
-        new OffreCategory().show();
+                new OffreCategory().show();
             //	new CentrePartage().show();
                 }
-
-                
-            
-
         });
         //fab button to add news:
          FloatingActionButton fab = FloatingActionButton.createFAB(FontImage.MATERIAL_ADD);

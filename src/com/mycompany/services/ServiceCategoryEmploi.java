@@ -57,9 +57,12 @@ public class ServiceCategoryEmploi {
                     
                     for(Map<String,Object> object : ListOfMaps){
                         CategoryEmploi cat = new CategoryEmploi();
+                        //id
+                        float id = Float.parseFloat(object.get("id").toString());
                         //category
                         String categoryName =object.get("categoryName").toString();
-                        cat.setCatgeoryName(categoryName);
+                        cat.setCategoryName(categoryName);
+                        cat.setId((int)id);
                         response.add(cat);
                     }
                 } catch (IOException ex) {
@@ -74,7 +77,7 @@ public class ServiceCategoryEmploi {
     }
     //add
         public boolean addCategory(CategoryEmploi pub){ 
-        String url = Static.BASE_URL+"/addcatEmploiJSON/new?categoryName="+ pub.getCatgeoryName();
+        String url = Static.BASE_URL+"/addcatEmploiJSON/new?categoryName="+ pub.getCategoryName();
         request.setUrl(url);
         request.addResponseListener(new ActionListener<NetworkEvent>() {
             @Override
@@ -88,7 +91,7 @@ public class ServiceCategoryEmploi {
     }
      //update 
     public boolean updateCategory(int id , String catName) {
-        String url = Static.BASE_URL + "/updatecatEmploiJSON/" + id + "?categoryName=" + catName;
+        String url = Static.BASE_URL + "/updatecatEmploiJSON/"+id+"?categoryName="+catName;
         request.setUrl(url);
         request.addResponseListener(new ActionListener<NetworkEvent>() {
             @Override
@@ -105,7 +108,7 @@ public class ServiceCategoryEmploi {
     
     //delete 
      public boolean deleteCategory(int id) {
-        String url = Static.BASE_URL + "/deletecatEmploiJSON/" + id;
+        String url = Static.BASE_URL + "/deletecatEmploiJSON/"+id;
         request.setUrl(url);
         request.addResponseListener(new ActionListener<NetworkEvent>() {
             @Override

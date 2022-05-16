@@ -33,7 +33,7 @@ public class OffreCategoryUpdate extends Form{
     public OffreCategoryUpdate(int id, String catName) {
           Toolbar tb = getToolbar();
         setLayout(new FlowLayout(CENTER, CENTER));
-        setTitle("Modifier categorie");
+        setTitle("Modifier categorie Emploi");
         Font poppinsRegular55 = Font.createTrueTypeFont("regular", "Poppins-Regular.ttf").
                 derive(55, Font.STYLE_PLAIN);
         Font poppinsRegular40 = Font.createTrueTypeFont("regular", "Poppins-Regular.ttf").
@@ -71,12 +71,12 @@ public class OffreCategoryUpdate extends Form{
                     ToastBar.showErrorMessage("Veuillez remplir le champs", FontImage.MATERIAL_ERROR);
                 } else {
                     //update cat
-                    if (ServiceCategoryEmploi.getInstance().updateCategory(id, catName)) {
+                    if (ServiceCategoryEmploi.getInstance().updateCategory(id, tfNomCat.getText())) {
                         //success toast
                         ToastBar.showMessage("Categorie modifiée", FontImage.MATERIAL_CHECK_CIRCLE);
                         setTransitionOutAnimator(CommonTransitions.createSlide(CommonTransitions.SLIDE_HORIZONTAL, true, Integer.parseInt("200")));
 
-                        new ClubCategoriesList(Resources.getGlobalResources()).show();
+                        new OffreCategory().show();
 
                     } else {
                         //error toast

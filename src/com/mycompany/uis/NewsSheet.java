@@ -113,6 +113,7 @@ public class NewsSheet extends Sheet{
        super(parent, "");
         setUIID("CustomSheet");
         int id = cat.getId();
+        System.out.println(id);
         String nomCat = cat.getCategoryName();
         Container cnt = getContentPane();
         cnt.setLayout(BoxLayout.y());
@@ -127,6 +128,7 @@ public class NewsSheet extends Sheet{
         Style s_update_btn = update_btn.getUnselectedStyle();
         s_update_btn.setFont(poppinsRegular);
         update_btn.addActionListener(e -> {
+            System.out.println(id);
                 new NewsCategoryUpdate(id,nomCat).show();
         });
         cnt.add(update_btn);
@@ -187,7 +189,7 @@ public class NewsSheet extends Sheet{
 
     }
        //offre 
-       
+       /*
         public NewsSheet(Sheet parent,int id, String title,String content,String categoryName,Form previous){
          super(parent, "");
          setUIID("CustomSheet");
@@ -296,7 +298,7 @@ public class NewsSheet extends Sheet{
             Dialog dialog = new Dialog(BoxLayout.y());
             dialog.setUIID("Container"); // this line has no effect, the outside dialog component is still visible
             Style style = dialog.getDialogStyle();
-            style.setMargin(5, 5, 5, 5); // adding some margin between contentpane and Dailog container, to be more obvious
+            style.setMargin(5, 5, 5, 5); 
             dialog.setDisposeWhenPointerOutOfBounds(true);
             // title
             Label title = new Label();
@@ -341,6 +343,6 @@ public class NewsSheet extends Sheet{
         });
         cnt.add(supp_btn);
 
-    }
+    }*/
 
 }
