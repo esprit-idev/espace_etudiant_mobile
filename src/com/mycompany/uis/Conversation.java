@@ -30,53 +30,48 @@ import java.util.ArrayList;
  * @author aa
  */
 public class Conversation extends Form {
-    public int uid=2;
-       public Socket socket;
-   public OutputStream out;
-   public PrintWriter ostream;
-  public   BufferedReader in;
-     public String serverAddr;
+
+    public int uid = SessionManager.getId();
+    public Socket socket;
+    public OutputStream out;
+    public PrintWriter ostream;
+    public BufferedReader in;
+    public String serverAddr;
     public int port;
-public Client client;
-public Thread clientThread;
-public Container cnt ;
-public Classe c;
-int i;
-ServiceMessage w=ServiceMessage.getInstance();
+    public Client client;
+    public Thread clientThread;
+    public Container cnt;
+    public Classe c;
+    int i;
+    ServiceMessage w = ServiceMessage.getInstance();
+
     public Conversation() {
-          port=2018;
-          setLayout(new BoxLayout(BoxLayout.Y_AXIS));
-           ArrayList<Classe> list2 = ServiceClasse.getInstance().getClasse(uid);
-                      for (Classe n : list2){
-                          
-                         i=n.getId();
-                                   
-                               System.out.println(i);
-                                   
-                      }
-          
-          
-         
-        
-                  
+        port = 2018;
+        setLayout(new BoxLayout(BoxLayout.Y_AXIS));
+        ArrayList<Classe> list2 = ServiceClasse.getInstance().getClasse(uid);
+        for (Classe n : list2) {
+
+            i = n.getId();
+
+            System.out.println(i);
+
+        }
+
         Toolbar tb = getToolbar();
         setTitle("Conversation");
         Form previous = Display.getInstance().getCurrent();
         tb.setBackCommand("", e -> previous.showBack());
         cnt = new Container(BoxLayout.y());
-                int cc=i;
+        int cc = i;
 
         TextField text = new TextField("", "Ecrire votre message ...");
         text.setUIID("message");
 
         Button btnSend = new Button("Envoyer");
 
-     
-
         cnt.addAll(text, btnSend);
 
         ArrayList<Message> list = ServiceMessage.getInstance().afficheMessage(uid);
-       
 
         for (Message m : list) {
 
@@ -96,33 +91,24 @@ ServiceMessage w=ServiceMessage.getInstance();
             System.out.println(m.getPostDate());
         }
 
-         try{
-    
-    
-                client = new Client(this);
-                clientThread = new Thread(client);
-                clientThread.start();
-                
+        try {
+
+            client = new Client(this);
+            clientThread = new Thread(client);
+            clientThread.start();
+
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+        btnSend.addActionListener((e) -> {
+
+            if (!text.getText().equals("")) {
+                client.send(text.getText(), cc);
+                ServiceMessage.getInstance().sendMessage(uid, text.getText());
+                text.setText("");
+            } else {
+                text.setText("");
             }
-            catch(Exception ex){
-                System.out.println(ex);
-            }
-           btnSend.addActionListener((e) -> {
-           client.send(text.getText(),cc);
-            ServiceMessage.getInstance().sendMessage(uid, text.getText());
-          
-             Label right = new Label("moi: " + text.getText());
-             right.setUIID("CustomLabel");
-                right.setTextPosition(Component.RIGHT);
-             //   ui.cnt.add(right);     
-             Container cnt1 =new Container(BoxLayout.y());
-             cnt1.setLayout(new BoxLayout(BoxLayout.Y_AXIS));
-             cnt1.add(right);
-                          
-                       
-                            
-                    add(cnt1);
-text.setText("");
         });
         add(cnt);
 

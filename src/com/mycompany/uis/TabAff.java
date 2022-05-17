@@ -170,7 +170,7 @@ public class TabAff extends Form {
         });
 
         //dcnx
-        tb.addMaterialCommandToSideMenu("Se deconnecter", FontImage.MATERIAL_EXIT_TO_APP, new ActionListener() {
+        tb.addMaterialCommandToSideMenu("Se déconnecter", FontImage.MATERIAL_EXIT_TO_APP, new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
             	new Login(res).show();
                 SessionManager.pref.clearAll();
