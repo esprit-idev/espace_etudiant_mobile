@@ -120,7 +120,6 @@ public class ActivateForm extends Form{
         props.put("mail.smtps.port","587");
         props.put("mail.smtps.auth","true");
         props.put("mail.smtps.starttls.enable","true");
-    
      
        Session session = Session.getInstance(props,null);
        MimeMessage msg = new MimeMessage (session);

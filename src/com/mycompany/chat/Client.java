@@ -17,14 +17,7 @@ import java.io.*;
 import java.net.*;
 import java.util.Calendar;
 import java.util.Date;
-import javafx.application.Platform;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
-import javafx.scene.layout.HBox;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-import javafx.scene.text.Text;
-import javafx.scene.text.TextFlow;
+
 public class Client implements Runnable{
     
     public int port;
