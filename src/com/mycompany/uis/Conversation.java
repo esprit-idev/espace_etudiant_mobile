@@ -30,7 +30,7 @@ import java.util.ArrayList;
  * @author aa
  */
 public class Conversation extends Form {
-    public int uid=SessionManager.getId();
+    public int uid=2;
        public Socket socket;
    public OutputStream out;
    public PrintWriter ostream;
@@ -75,13 +75,14 @@ ServiceMessage w=ServiceMessage.getInstance();
 
         cnt.addAll(text, btnSend);
 
-        ArrayList<Message> list = ServiceMessage.getInstance().afficheMessage(i);
+        ArrayList<Message> list = ServiceMessage.getInstance().afficheMessage(uid);
        
 
         for (Message m : list) {
 
             if (m.getUser() == uid) {
                 Label right = new Label("moi: " + m.getContent());
+                right.setUIID("CustomLabel");
                 right.setTextPosition(Component.RIGHT);
                 cnt.add(right);
 
@@ -111,6 +112,7 @@ ServiceMessage w=ServiceMessage.getInstance();
             ServiceMessage.getInstance().sendMessage(uid, text.getText());
           
              Label right = new Label("moi: " + text.getText());
+             right.setUIID("CustomLabel");
                 right.setTextPosition(Component.RIGHT);
              //   ui.cnt.add(right);     
              Container cnt1 =new Container(BoxLayout.y());

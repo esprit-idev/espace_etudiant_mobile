@@ -41,21 +41,24 @@ public class NiveauxList extends Form{
                 Container cnt = new Container(BoxLayout.y());
                 
                 Button btnAdd= new Button("Ajouter un niveau");
+                btnAdd.setUIID("BlackRoundFilledBtn");
                 btnAdd.addActionListener((e)-> {
                 new NiveauAdd(res).show();
 
         });
                 
                  Label empty = new Label ("");
+                 empty.setUIID("CustomLabel");
                    cnt.addAll(btnAdd,empty);
                 
                 ArrayList<Niveau> list = ServiceNiveau.getInstance().getAllNiveaux();
                       for (Niveau n : list){
                          
                           Label niveau = new Label ("Niveau:"+n.getId());
+                          niveau.setUIID("CustomLabel");
                                   Button btnSend= new Button("Supprimer");
 
-        
+        btnSend.setUIID("BlackRoundFilledBtn");
          btnSend.addActionListener((e)-> {
                 ServiceNiveau.getInstance().DeleteNiveau(n.getId());
                 new NiveauxList(res).show();

@@ -48,7 +48,7 @@ public class ClubUpdate extends Form {
                 derive(35, Font.STYLE_PLAIN);
 
         Form previous = Display.getInstance().getCurrent();
-        tb.setBackCommand("", e -> previous.showBack());
+       // tb.setBackCommand("", e -> new ClasseList().show());
         Container cnt = new Container(BoxLayout.y());
 
         //BODY

@@ -60,6 +60,7 @@ public class Client implements Runnable{
                           
 
    Label right = new Label("moi: " + msg.getContent());
+   right.setUIID("CustomLabel");
                 right.setTextPosition(Component.RIGHT);
              //   ui.cnt.add(right);     
              Container cnt =new Container(BoxLayout.y());
