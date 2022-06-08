@@ -1,2 +1,2 @@
 # espace_etudiant_mobile
-mobile app for espace etudiant using CodeName one
+mobile app for edspace using CodeName one
